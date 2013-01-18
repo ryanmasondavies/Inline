@@ -40,4 +40,10 @@
     [self setTestInvocations:[stored copy]];
 }
 
+- (NSString *)name
+{
+    INLTestInvocation *invocation = (INLTestInvocation *)[self invocation];
+    return [[invocation test] name];
+}
+
 @end
