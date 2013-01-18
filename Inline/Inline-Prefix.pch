@@ -1,7 +1,0 @@
-//
-// Prefix header for all source files of the 'Inline' target in the 'Inline' project
-//
-
-#ifdef __OBJC__
-    #import <Foundation/Foundation.h>
-#endif

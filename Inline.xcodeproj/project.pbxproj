@@ -43,7 +43,6 @@
 /* Begin PBXFileReference section */
 		94A1C77416A97B3F008C170D /* libInline.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libInline.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		94A1C77716A97B3F008C170D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		94A1C77B16A97B3F008C170D /* Inline-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Inline-Prefix.pch"; sourceTree = "<group>"; };
 		94A1C77C16A97B3F008C170D /* Inline.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Inline.h; sourceTree = "<group>"; };
 		94A1C78516A97B3F008C170D /* InlineTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InlineTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		94A1C78616A97B3F008C170D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -110,17 +109,8 @@
 			isa = PBXGroup;
 			children = (
 				94A1C77C16A97B3F008C170D /* Inline.h */,
-				94A1C77A16A97B3F008C170D /* Supporting Files */,
 			);
 			path = Inline;
-			sourceTree = "<group>";
-		};
-		94A1C77A16A97B3F008C170D /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				94A1C77B16A97B3F008C170D /* Inline-Prefix.pch */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		94A1C78E16A97B3F008C170D /* InlineTests */ = {
@@ -324,8 +314,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = /tmp/Inline.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Inline/Inline-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -336,8 +324,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = /tmp/Inline.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Inline/Inline-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
