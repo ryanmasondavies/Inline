@@ -6,8 +6,4 @@
 //  Copyright (c) 2013 Ryan Davies. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 
-@interface Inline : NSObject
-
-@end
