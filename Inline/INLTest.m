@@ -12,6 +12,7 @@
 
 - (void)execute
 {
+    self.block();
 }
 
 @end

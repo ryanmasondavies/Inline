@@ -12,6 +12,7 @@
 		94088D3416A9A8E000D7DEFC /* INLTestInvocationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 94088D3316A9A8E000D7DEFC /* INLTestInvocationTests.m */; };
 		94088D4016A9A9CD00D7DEFC /* INLTestInvocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 94088D3F16A9A9CD00D7DEFC /* INLTestInvocation.m */; };
 		94088D4316A9AA1800D7DEFC /* INLTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 94088D4216A9AA1800D7DEFC /* INLTest.m */; };
+		94088D5716A9B3DB00D7DEFC /* INLTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 94088D5616A9B3DB00D7DEFC /* INLTestTests.m */; };
 		94A1C77816A97B3F008C170D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A1C77716A97B3F008C170D /* Foundation.framework */; };
 		94A1C77D16A97B3F008C170D /* Inline.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 94A1C77C16A97B3F008C170D /* Inline.h */; };
 		94A1C78716A97B3F008C170D /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A1C78616A97B3F008C170D /* SenTestingKit.framework */; };
@@ -50,6 +51,7 @@
 		94088D3F16A9A9CD00D7DEFC /* INLTestInvocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLTestInvocation.m; sourceTree = "<group>"; };
 		94088D4116A9AA1800D7DEFC /* INLTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLTest.h; sourceTree = "<group>"; };
 		94088D4216A9AA1800D7DEFC /* INLTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLTest.m; sourceTree = "<group>"; };
+		94088D5616A9B3DB00D7DEFC /* INLTestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLTestTests.m; sourceTree = "<group>"; };
 		94A1C77416A97B3F008C170D /* libInline.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libInline.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		94A1C77716A97B3F008C170D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		94A1C77C16A97B3F008C170D /* Inline.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Inline.h; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				94088D3316A9A8E000D7DEFC /* INLTestInvocationTests.m */,
+				94088D5616A9B3DB00D7DEFC /* INLTestTests.m */,
 				94088D3516A9A93700D7DEFC /* Supporting Files */,
 			);
 			path = "Unit Tests";
@@ -266,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				94088D3416A9A8E000D7DEFC /* INLTestInvocationTests.m in Sources */,
+				94088D5716A9B3DB00D7DEFC /* INLTestTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
