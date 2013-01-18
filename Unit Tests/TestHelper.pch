@@ -8,5 +8,6 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 #import <OCMock/OCMock.h>
+#import "INLTestCase.h"
 #import "INLTestInvocation.h"
 #import "INLTest.h"
