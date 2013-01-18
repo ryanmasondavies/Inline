@@ -166,6 +166,7 @@
 		94A1C76B16A97B3F008C170D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = INL;
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "Ryan Davies";
 			};
@@ -352,6 +353,7 @@
 				94A1C79B16A97B3F008C170D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		94A1C79C16A97B3F008C170D /* Build configuration list for PBXNativeTarget "Unit Tests" */ = {
 			isa = XCConfigurationList;
@@ -360,6 +362,7 @@
 				94A1C79E16A97B3F008C170D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
