@@ -1,0 +1,12 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    state_machine (1.1.2)
+    xcodebuild-rb (0.3.0)
+      state_machine (~> 1.1.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  xcodebuild-rb
