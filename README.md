@@ -12,7 +12,7 @@ While the `SenTestCase` class manages all of the invocations in the suite, an in
 
 `INLTestCase` works around this by using instances of `INLTestInvocation`. `INLTestInvocation` implements the method `+invocationWithTest:`, a constructor meant for creating invocations with instances of `INLTest`. `INLTestInvocation` calls `-execute` on `INLTest`, which in turn executes its block.
 
-INLTestCase` also overrides `-name`, the method which [OCUnit]()es to identify tests for printing to the console. The default implementation returns the method signature of the `test...` method, but `INLTestCase` returns the name of the current invocation's `INLTest` instance.
+`INLTestCase` also overrides `-name`, the method which [OCUnit]() uses to identify tests for printing to the console. The default implementation returns the method signature of the `test...` method, but `INLTestCase` returns the name of the current invocation's `INLTest` instance.
 
 The following sample code adds a blank test named 'hello world' to a subclass of `INLTestCase`:
 
@@ -27,7 +27,7 @@ The following sample code adds a blank test named 'hello world' to a subclass of
     {
         INLTest *test = [[INLTest alloc] init];
         [test setName:@"hello world"];
-        [test setBlock:^{}];
+        [test setBlock:^{ /* test code */ }];
         [self addTestInvocation:[INLTestInvocation invocationWithTest:test]];
     }
       
