@@ -1,17 +1,9 @@
-require 'rubygems'
-require 'xcodebuild'
+BUILD_DIR = File.join(Dir.pwd, 'build')
 
-XcodeBuild::Tasks::BuildTask.new do |t|
-  t.workspace = "Inline.xcworkspace"
-  t.scheme = "Pods-Unit Tests"
-  t.configuration = "Debug"
-  t.sdk = "iphonesimulator6.0"
-  t.formatter = XcodeBuild::Formatters::ProgressFormatter.new
+task :build_pods do
+  system "xcodebuild -project Pods/Pods.xcodeproj -target \"Pods-Unit Tests\" -configuration Debug -sdk iphonesimulator6.0 SYMROOT=\"#{BUILD_DIR}\" clean build"
 end
 
-XcodeBuild::Tasks::BuildTask.new do |t|
-  t.project_name = "Inline.xcodeproj"
-  t.target = "Unit Tests"
-  t.configuration = "Debug"
-  t.sdk = "iphonesimulator6.0"
+task :run_tests do
+  system "xcodebuild -project Inline.xcodeproj -target \"Unit Tests\" -configuration Debug -sdk iphonesimulator6.0 SYMROOT=\"#{BUILD_DIR}\" clean build"
 end
