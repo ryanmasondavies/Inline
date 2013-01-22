@@ -9,7 +9,7 @@ Feature: Tests
     And I have successfully installed the pods
   
   Scenario: All Tests Passing
-    Given the test suite has the following tests:
+    Given the test suite has invocations for the following tests:
       | name   | pass |
       | cat    | 1    |
       | dog    | 1    |
@@ -23,7 +23,7 @@ Feature: Tests
       And there should have been no failures
       
   Scenario: One Test Failing
-    Given the test suite has the following tests:
+    Given the test suite has invocations for the following tests:
         | name   | pass |
         | cat    | 0    |
         | dog    | 1    |
@@ -38,7 +38,7 @@ Feature: Tests
         | cat  |
         
   Scenario: All Tests Failing
-    Given the test suite has the following tests:
+    Given the test suite has invocations for the following tests:
         | name   | pass |
         | cat    | 0    |
         | dog    | 0    |

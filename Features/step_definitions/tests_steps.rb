@@ -2,7 +2,7 @@ Given /^I have a test suite$/ do
   create_temporary_project
 end
 
-Given /^the test suite has the following tests:$/ do |table|
+Given /^the test suite has invocations for the following tests:$/ do |table|
   write_test_for_temporary_project(objc_code_for_test_case("SomeTests", table.hashes))
 end
 
