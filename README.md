@@ -6,13 +6,13 @@ Subclasses `SenTestCase` with `INLTestCase`, and adds the following methods:
     +addTestInvocation:
     +removeTestInvocation:
 
-[OCUnit]() uses the `+testInvocations` method on `SenTestCase` to determine the tests available in that suite. The default implementation retrieves methods which return `void`, have no arguments, and are prefixed with `test`. This implementation is not easily extendable. Dynamically adding tests would require dynamically adding methods, which isn't practical, and restrains tests to the rules by which methods must abide. Calling `+testInvocations` on a subclass of `INLTestCase` results in all of the test invocations added to that subclass.
+[OCUnit](http://www.sente.ch/software/ocunit/) uses the `+testInvocations` method on `SenTestCase` to determine the tests available in that suite. The default implementation retrieves methods which return `void`, have no arguments, and are prefixed with `test`. This implementation is not easily extendable. Dynamically adding tests would require dynamically adding methods, which isn't practical, and restrains tests to the rules by which methods must abide. Calling `+testInvocations` on a subclass of `INLTestCase` results in all of the test invocations added to that subclass.
 
 While the `SenTestCase` class manages all of the invocations in the suite, an instance manages only a single invocation. On `-setInvocation:`, however, it sets the invocation's target to the test case itself, because it is expecting to invoke a `test...` method on the subclass.
 
 `INLTestCase` works around this by using instances of `INLTestInvocation`. `INLTestInvocation` implements the method `+invocationWithTest:`, a constructor meant for creating invocations with instances of `INLTest`. `INLTestInvocation` calls `-execute` on `INLTest`, which in turn executes its block.
 
-`INLTestCase` also overrides `-name`, the method which [OCUnit]() uses to identify tests for printing to the console. The default implementation returns the method signature of the `test...` method, but `INLTestCase` returns the name of the current invocation's `INLTest` instance.
+`INLTestCase` also overrides `-name`, the method which [OCUnit](http://www.sente.ch/software/ocunit/) uses to identify tests for printing to the console. The default implementation returns the method signature of the `test...` method, but `INLTestCase` returns the name of the current invocation's `INLTest` instance.
 
 The following sample code adds a blank test named 'hello world' to a subclass of `INLTestCase`:
 
@@ -47,12 +47,12 @@ This test would result in something like the following output:
 Installation
 ------------
 
-Inline is installed via [CocoaPods](). Add `pod 'Inline'` to your Podfile and run `pod install`.
+Inline is installed via [CocoaPods](https://github.com/CocoaPods/CocoaPods). Add `pod 'Inline'` to your Podfile and run `pod install`.
 
 Documentation
 -------------
 
-Comments are written using the [Appledoc]() syntax, and documentation will be automatically generated and added to Xcode by [CocoaPods]() upon installation.
+Comments are written using the [Appledoc](http://gentlebytes.com/appledoc/) syntax, and documentation will be automatically generated and added to Xcode by [CocoaPods](https://github.com/CocoaPods/CocoaPods) upon installation.
 
 The files will also be made available elsewhere (see [#1](Inline/issues/1)).
 
@@ -80,7 +80,3 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 See the [LICENSE](Inline/blob/master/LICENSE) file.
-
-[OCUnit]:    http://www.sente.ch/software/ocunit/
-[CocoaPods]: https://github.com/CocoaPods/CocoaPods
-[Appledoc]:  http://gentlebytes.com/appledoc/
