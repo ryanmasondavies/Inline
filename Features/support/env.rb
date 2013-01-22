@@ -4,10 +4,6 @@ def features_path
   File.join(Dir.pwd, 'Features')
 end
 
-def build_path
-  File.join(features_path, 'tmp', 'build')
-end
-
 Before do
   @aruba_timeout_seconds = 10 # ?
   @dirs = [File.join(features_path, 'tmp')]
