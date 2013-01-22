@@ -4,25 +4,9 @@ Given /^I have a test suite$/ do
   FileUtils.cp_r(Dir["#{features_path}/Fixtures/Project/*"], "#{@dirs[0]}/Project")
 end
 
-Given /^the test suite has 3 passing tests$/ do
+Given /^the test suite has the following tests:$/ do |table|
   f = File.open(File.join(@dirs[0], 'Project', 'Tests', 'Tests.m'), "w")
-  f.write <<-EOF
-  #import <SenTestingKit/SenTestingKit.h>
-  #import <Inline/Inline.h>
-  @interface SomeTests : INLTestCase; @end
-  @implementation SomeTests
-  + (void)initialize
-  {
-      [@[@"cat", @"dog", @"rabbit"] enumerateObjectsUsingBlock:^(NSString *name, NSUInteger idx, BOOL *stop) {
-          INLTest *test = [[INLTest alloc] init];
-          [test setName:name];
-          [test setBlock:^{}];
-          [self addTestInvocation:[INLTestInvocation invocationWithTest:test]];
-      }];
-  }
-  @end
-  EOF
-  
+  f.write objc_code_for_test_case("SomeTests", table.hashes)
   f.close
 end
 
@@ -83,4 +67,15 @@ When /^I run the tests$/ do
   end
   
   step "I cd to \"..\""
+end
+
+Then /^the following tests should have passed:$/ do |table|
+  table.hashes.each do |result|
+    pystring = """
+    Run test case #{result["name"]}
+    Test Case '#{result["name"]}' started\.
+    Test Case '#{result["name"]}' passed \(.* seconds\)\.
+    """
+    step "the output should match:", pystring
+  end
 end
