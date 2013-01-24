@@ -20,7 +20,7 @@ That's it. A method which returns an array of objects which conform to INLTest:
 
 [OCUnit](http://www.sente.ch/software/ocunit/) uses the `+testInvocations` method on SenTestCase to determine the tests available in that suite. The default implementation retrieves methods which return `void`, have no arguments, and are prefixed with 'test'. This implementation is not easily extendable. Dynamically adding tests would require dynamically adding methods, which isn't practical, and restrains tests to the rules by which methods must abide.
 
-Calling `+testInvocations` on a subclass of INLTestCase results in a call to `+testInvocationsForTests:` on the compiler, which has the builder's tests passed to it. The compiler is then responsible for compiling a list of invocations from the tests added to the builder.
+Calling `+testInvocations` on a subclass of INLTestCase results in a call to `-invocationsForTests:` on the compiler, which has the builder's tests passed to it. The compiler is then responsible for compiling a list of invocations from the tests added to the builder.
 
 While the SenTestCase class manages all of the invocations in the suite, an instance manages only a single invocation. On `-setInvocation:`, however, it sets the invocation's target to the test case itself, because it is expecting to invoke a 'test...' method on the subclass.
 
