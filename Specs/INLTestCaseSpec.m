@@ -28,6 +28,20 @@ describe(@"+builder", ^{
     });
 });
 
+describe(@"+compiler", ^{
+    it(@"should be per-subclass", ^{
+        NSMutableArray *compilers = [NSMutableArray array];
+        for (NSUInteger i = 0; i < 2; i ++)
+            compilers[i] = [OCMockObject niceMockForProtocol:@protocol(INLTestCompiler)];
+        
+        [INLTestCaseA setCompiler:compilers[0]];
+        [INLTestCaseB setCompiler:compilers[1]];
+        
+        expect([INLTestCaseA compiler]).to.beIdenticalTo(compilers[0]);
+        expect([INLTestCaseB compiler]).to.beIdenticalTo(compilers[1]);
+    });
+});
+
 describe(@"-name", ^{
     it(@"should return the name of the current test", ^{
         id testInvocation = [OCMockObject niceMockForClass:[INLTestInvocation class]];

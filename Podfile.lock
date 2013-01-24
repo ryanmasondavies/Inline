@@ -7,11 +7,11 @@ PODS:
 DEPENDENCIES:
 - Expecta
 - OCMock
-- Specify (from `https://raw.github.com/rdavies/Specify/master/Specify.podspec')
+- Specify (from `https://raw.github.com/rdavies/Specify/0.0.1/Specify.podspec')
 
 EXTERNAL SOURCES:
   Specify:
-    :podspec: https://raw.github.com/rdavies/Specify/master/Specify.podspec
+    :podspec: https://raw.github.com/rdavies/Specify/0.0.1/Specify.podspec
 
 SPEC CHECKSUMS:
   Expecta: 1521da8c54c253277d5fae673f516c76ed838bc7

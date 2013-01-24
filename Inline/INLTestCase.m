@@ -19,6 +19,13 @@
     return buildersByClass;
 }
 
++ (NSMutableDictionary *)compilersByClass
+{
+    static NSMutableDictionary *compilersByClass = nil;
+    if (compilersByClass == nil) compilersByClass = [NSMutableDictionary dictionary];
+    return compilersByClass;
+}
+
 + (id<INLTestBuilder>)builder
 {
     return [[self buildersByClass] objectForKey:NSStringFromClass(self)];
@@ -26,7 +33,17 @@
 
 + (void)setBuilder:(id<INLTestBuilder>)builder
 {
-    return [[self buildersByClass] setObject:builder forKey:NSStringFromClass(self)];
+    [[self buildersByClass] setObject:builder forKey:NSStringFromClass(self)];
+}
+
++ (id<INLTestCompiler>)compiler
+{
+    return [[self compilersByClass] objectForKey:NSStringFromClass(self)];
+}
+
++ (void)setCompiler:(id<INLTestCompiler>)compiler
+{
+    [[self compilersByClass] setObject:compiler forKey:NSStringFromClass(self)];
 }
 
 @end
