@@ -14,49 +14,17 @@
 
 SpecBegin(INLTestCase)
 
-NSArray * (^mockInvocations)(NSUInteger) = ^(NSUInteger count) {
-    NSMutableArray *invocations = [NSMutableArray array];
-    for (int i = 0; i < count; i ++)
-        [invocations addObject:[OCMockObject niceMockForClass:[INLTestInvocation class]]];
-    return invocations;
-};
-
-describe(@"+addTestInvocation", ^{
-    it(@"should add test invocations per subclass", ^{
-        NSArray *invocations = mockInvocations(2);
+describe(@"+builder", ^{
+    it(@"should be per-subclass", ^{
+        NSMutableArray *builders = [NSMutableArray array];
+        for (NSUInteger i = 0; i < 2; i ++)
+            builders[i] = [OCMockObject niceMockForProtocol:@protocol(INLTestBuilder)];
         
-        [INLTestCaseA addTestInvocation:invocations[0]];
-        [INLTestCaseB addTestInvocation:invocations[1]];
+        [INLTestCaseA setBuilder:builders[0]];
+        [INLTestCaseB setBuilder:builders[1]];
         
-        expect([INLTestCaseA testInvocations]).to.contain(invocations[0]);
-        expect([INLTestCaseA testInvocations]).to.contain(invocations[1]);
-        expect([INLTestCaseB testInvocations]).to.contain(invocations[0]);
-        expect([INLTestCaseB testInvocations]).to.contain(invocations[1]);
-        
-        [INLTestCaseA removeTestInvocation:invocations[0]];
-        [INLTestCaseB removeTestInvocation:invocations[1]];
-    });
-});
-
-describe(@"+removeTestInvocation", ^{
-    it(@"should remove test invocations per subclass", ^{
-        NSArray *invocations = mockInvocations(2);
-        
-        [INLTestCaseA addTestInvocation:invocations[0]];
-        [INLTestCaseA addTestInvocation:invocations[1]];
-        [INLTestCaseB addTestInvocation:invocations[0]];
-        [INLTestCaseB addTestInvocation:invocations[1]];
-        
-        [INLTestCaseA removeTestInvocation:invocations[0]];
-        [INLTestCaseB removeTestInvocation:invocations[1]];
-        
-        expect([INLTestCaseA testInvocations]).notTo.contain(invocations[0]);
-        expect([INLTestCaseA testInvocations]).to.contain(invocations[1]);
-        expect([INLTestCaseB testInvocations]).to.contain(invocations[0]);
-        expect([INLTestCaseB testInvocations]).notTo.contain(invocations[1]);
-        
-        [INLTestCaseA removeTestInvocation:invocations[1]];
-        [INLTestCaseB removeTestInvocation:invocations[0]];
+        expect([INLTestCaseA builder]).to.beIdenticalTo(builders[0]);
+        expect([INLTestCaseB builder]).to.beIdenticalTo(builders[1]);
     });
 });
 

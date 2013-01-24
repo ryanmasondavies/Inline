@@ -7,5 +7,6 @@
 //
 
 #import "INLTestCase.h"
+#import "INLTestBuilder.h"
 #import "INLTestInvocation.h"
 #import "INLTest.h"

@@ -19,7 +19,6 @@
 		94C76EA316AF2AE400F94E8F /* INLTestCaseSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C76E9F16AF2AE400F94E8F /* INLTestCaseSpec.m */; };
 		94C76EA416AF2AE400F94E8F /* INLTestInvocationSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C76EA016AF2AE400F94E8F /* INLTestInvocationSpec.m */; };
 		94C76EA516AF2AE400F94E8F /* INLTestSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C76EA116AF2AE400F94E8F /* INLTestSpec.m */; };
-		94C76EA616AF2AE400F94E8F /* Specs-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94C76EA216AF2AE400F94E8F /* Specs-Info.plist */; };
 		F3CD3266D4E3418EB0F1F712 /* libPods-Specs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D25439A401F400C99C1DC50 /* libPods-Specs.a */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +53,7 @@
 		94088D4216A9AA1800D7DEFC /* INLTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLTest.m; sourceTree = "<group>"; };
 		94088D5C16A9B85600D7DEFC /* INLTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLTestCase.h; sourceTree = "<group>"; };
 		94088D5D16A9B85600D7DEFC /* INLTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLTestCase.m; sourceTree = "<group>"; };
+		9424A22616B1541F004FEFCD /* INLTestBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INLTestBuilder.h; sourceTree = "<group>"; };
 		94A1C77416A97B3F008C170D /* libInline.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libInline.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		94A1C77716A97B3F008C170D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		94A1C77C16A97B3F008C170D /* Inline.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Inline.h; sourceTree = "<group>"; };
@@ -127,6 +127,7 @@
 				94A1C77C16A97B3F008C170D /* Inline.h */,
 				94088D5C16A9B85600D7DEFC /* INLTestCase.h */,
 				94088D5D16A9B85600D7DEFC /* INLTestCase.m */,
+				9424A22616B1541F004FEFCD /* INLTestBuilder.h */,
 				94088D3E16A9A9CD00D7DEFC /* INLTestInvocation.h */,
 				94088D3F16A9A9CD00D7DEFC /* INLTestInvocation.m */,
 				94088D4116A9AA1800D7DEFC /* INLTest.h */,
@@ -228,7 +229,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94C76EA616AF2AE400F94E8F /* Specs-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

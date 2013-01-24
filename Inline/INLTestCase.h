@@ -7,18 +7,18 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
+@protocol INLTestBuilder;
 @class INLTestInvocation;
 
-/** Extends SenTestCase to allow developers to add and remove test invocations, rather than generating them from void methods prefixed with `test` with no arguments. This class is abstract and so is intended to be subclassed. Class methods performed on a subclass apply only to that subclass, and not to the superclass or siblings. */
+/** Extends SenTestCase to allow developers to use objects which conform to INLTestBuilder to create tests, and use objects which conform to INLTestCompiler to create invocations for them. This class is abstract and is intended to be subclassed. Class methods performed on a subclass apply only to that subclass, and not to the superclass or siblings. */
 @interface INLTestCase : SenTestCase
 
-/** Adds a test invocation to the list. Invocations added to one subclass are not available in another.
- @param testInvocation The invocation to add. */
-+ (void)addTestInvocation:(INLTestInvocation *)testInvocation;
+/** Returns the builder assigned to the current class. */
++ (id<INLTestBuilder>)builder;
 
-/** Removes a test invocation from the list. Invocations removed from one subclass remain available in others. 
- @param testInvocation The invocation to remove. */
-+ (void)removeTestInvocation:(INLTestInvocation *)testInvocation;
+/** Assigns a builder to the current class. 
+ @param builder The builder to assign. Must conform to INLTestBuilder. */
++ (void)setBuilder:(id<INLTestBuilder>)builder;
 
 /** @return Returns an immutable list of the invocations added, in the order in which they were added. */
 + (NSArray *)testInvocations;

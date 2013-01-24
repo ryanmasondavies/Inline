@@ -12,40 +12,21 @@
 
 @implementation INLTestCase
 
-+ (NSMutableDictionary *)testInvocationsByClass
++ (NSMutableDictionary *)buildersByClass
 {
-    static NSMutableDictionary *testInvocationsByClass = nil;
-    if (testInvocationsByClass == nil) testInvocationsByClass = [NSMutableDictionary dictionary];
-    return testInvocationsByClass;
+    static NSMutableDictionary *buildersByClass = nil;
+    if (buildersByClass == nil) buildersByClass = [NSMutableDictionary dictionary];
+    return buildersByClass;
 }
 
-+ (NSArray *)testInvocations
++ (id<INLTestBuilder>)builder
 {
-    NSArray *stored = [[self testInvocationsByClass] objectForKey:NSStringFromClass(self)];
-    return stored ? stored : @[];
+    return [[self buildersByClass] objectForKey:NSStringFromClass(self)];
 }
 
-+ (void)setTestInvocations:(NSArray *)testInvocations
++ (void)setBuilder:(id<INLTestBuilder>)builder
 {
-    [[self testInvocationsByClass] setObject:testInvocations forKey:NSStringFromClass(self)];
-}
-
-+ (void)addTestInvocation:(INLTestInvocation *)testInvocation
-{
-    self.testInvocations = [[self testInvocations] arrayByAddingObject:testInvocation];
-}
-
-+ (void)removeTestInvocation:(INLTestInvocation *)testInvocation
-{
-    NSMutableArray *stored = [[self testInvocations] mutableCopy];
-    [stored removeObject:testInvocation];
-    [self setTestInvocations:[stored copy]];
-}
-
-- (NSString *)name
-{
-    INLTestInvocation *invocation = (INLTestInvocation *)[self invocation];
-    return [[invocation test] name];
+    return [[self buildersByClass] setObject:builder forKey:NSStringFromClass(self)];
 }
 
 @end
