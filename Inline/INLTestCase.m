@@ -33,7 +33,10 @@
 
 + (void)setBuilder:(id<INLTestBuilder>)builder
 {
-    [[self buildersByClass] setObject:builder forKey:NSStringFromClass(self)];
+    if (builder)
+        [[self buildersByClass] setObject:builder forKey:NSStringFromClass(self)];
+    else
+        [[self buildersByClass] removeObjectForKey:NSStringFromClass(self)];
 }
 
 + (id<INLTestCompiler>)compiler
@@ -43,7 +46,15 @@
 
 + (void)setCompiler:(id<INLTestCompiler>)compiler
 {
-    [[self compilersByClass] setObject:compiler forKey:NSStringFromClass(self)];
+    if (compiler)
+        [[self compilersByClass] setObject:compiler forKey:NSStringFromClass(self)];
+    else
+        [[self compilersByClass] removeObjectForKey:NSStringFromClass(self)];
+}
+
++ (NSArray *)testInvocations
+{
+    return [[self compiler] invocationsForTests:[[self builder] tests]];
 }
 
 @end

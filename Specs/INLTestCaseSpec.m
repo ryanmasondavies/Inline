@@ -25,6 +25,9 @@ describe(@"+builder", ^{
         
         expect([INLTestCaseA builder]).to.beIdenticalTo(builders[0]);
         expect([INLTestCaseB builder]).to.beIdenticalTo(builders[1]);
+        
+        [INLTestCaseA setBuilder:nil];
+        [INLTestCaseB setBuilder:nil];
     });
 });
 
@@ -39,6 +42,32 @@ describe(@"+compiler", ^{
         
         expect([INLTestCaseA compiler]).to.beIdenticalTo(compilers[0]);
         expect([INLTestCaseB compiler]).to.beIdenticalTo(compilers[1]);
+        
+        [INLTestCaseA setCompiler:nil];
+        [INLTestCaseB setCompiler:nil];
+    });
+});
+
+describe(@"+testInvocations", ^{
+    it(@"should pass tests from the builder to the compiler", ^{
+        id builder  = [OCMockObject mockForProtocol:@protocol(INLTestBuilder)];
+        id compiler = [OCMockObject mockForProtocol:@protocol(INLTestCompiler)];
+        
+        NSArray *tests = [NSArray array];
+        NSArray *invocations = [NSArray array];
+        
+        [[[builder expect] andReturn:tests] tests];
+        [[[compiler expect] andReturn:invocations] invocationsForTests:tests];
+        
+        [INLTestCase setBuilder:builder];
+        [INLTestCase setCompiler:compiler];
+        
+        expect([INLTestCase testInvocations]).to.beIdenticalTo(invocations);
+        
+        [builder verify];
+        
+        [INLTestCase setBuilder:nil];
+        [INLTestCase setCompiler:nil];
     });
 });
 
