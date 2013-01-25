@@ -64,8 +64,13 @@
 + (NSArray *)senAllSuperclasses
 {
     NSArray *superclasses = [super senAllSuperclasses];
-    if (superclasses[0] == [INLTestCase class]) superclasses = @[[NSObject class]];
+    if ([[self blacklistedClasses] containsObject:superclasses[0]]) superclasses = @[[NSObject class]];
     return superclasses;
+}
+
++ (NSArray *)blacklistedClasses
+{
+    return @[[INLTestCase class]];
 }
 
 - (NSString *)name

@@ -12,6 +12,11 @@
 @implementation INLTestCaseA; @end
 @implementation INLTestCaseB; @end
 
+@interface INLBlacklistedTestCase : INLTestCase; @end
+@implementation INLBlacklistedTestCase
++ (NSArray *)blacklistedClasses { return @[[INLBlacklistedTestCase class]]; }
+@end
+
 @interface INLFakeTest : NSObject <INLTest>; @end
 @implementation INLFakeTest
 - (void)execute {}
@@ -78,18 +83,25 @@ describe(@"+testInvocations", ^{
 });
 
 describe(@"+senAllSuperclasses", ^{
-    it(@"should return an array containing SenTestCase for subclasses of INLTestCase", ^{
-        expect([INLTestCaseA senAllSuperclasses]).to.contain([SenTestCase class]);
+    it(@"should return an array without SenTestCase for blacklisted classes", ^{
+        // Class mocking should be used here to remove the need for INLBlacklistedTestCase.
+        expect([INLBlacklistedTestCase senAllSuperclasses]).notTo.contain([SenTestCase class]);
     });
     
-    it(@"should return an array without SenTestCase for INLTestCase", ^{
-        expect([INLTestCase senAllSuperclasses]).notTo.contain([SenTestCase class]);
+    it(@"should return an array containing SenTestCase for classes which are not blacklisted", ^{
+        expect([INLTestCaseA senAllSuperclasses]).to.contain([SenTestCase class]);
+    });
+});
+
+describe(@"+blacklistedClasses", ^{
+    it(@"should contain INLTestCase", ^{
+        expect([INLTestCase blacklistedClasses]).to.contain([INLTestCase class]);
     });
 });
 
 describe(@"-name", ^{
     it(@"should return the description of the current test", ^{
-        // This test needs pretty drastic improvement. OCMock does not allow stubbing of -description, so INLFakeTest is necessary.
+        // This test needs improvement. OCMock does not allow stubbing of -description, so INLFakeTest is necessary.
         // The need for INLFakeTest will be removed once Mockingbird supports mocks and stubbing.
         
         id invocation = [OCMockObject niceMockForClass:[INLTestInvocation class]];
