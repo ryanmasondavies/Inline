@@ -10,6 +10,10 @@
 #import "INLTestInvocation.h"
 #import "INLTest.h"
 
+@interface NSObject (INLTestRuntimeUtilities)
++ (NSArray *)senAllSuperclasses;
+@end
+
 @implementation INLTestCase
 
 + (NSMutableDictionary *)buildersByClass
@@ -55,6 +59,13 @@
 + (NSArray *)testInvocations
 {
     return [[self compiler] invocationsForTests:[[self builder] tests]];
+}
+
++ (NSArray *)senAllSuperclasses
+{
+    NSArray *superclasses = [super senAllSuperclasses];
+    if (superclasses[0] == [INLTestCase class]) superclasses = @[[NSObject class]];
+    return superclasses;
 }
 
 - (NSString *)name

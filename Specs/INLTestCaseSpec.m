@@ -77,6 +77,16 @@ describe(@"+testInvocations", ^{
     });
 });
 
+describe(@"+senAllSuperclasses", ^{
+    it(@"should return an array containing SenTestCase for subclasses of INLTestCase", ^{
+        expect([INLTestCaseA senAllSuperclasses]).to.contain([SenTestCase class]);
+    });
+    
+    it(@"should return an array without SenTestCase for INLTestCase", ^{
+        expect([INLTestCase senAllSuperclasses]).notTo.contain([SenTestCase class]);
+    });
+});
+
 describe(@"-name", ^{
     it(@"should return the description of the current test", ^{
         // This test needs pretty drastic improvement. OCMock does not allow stubbing of -description, so INLFakeTest is necessary.
