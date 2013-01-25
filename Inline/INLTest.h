@@ -8,16 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-/** Abstract interface for an executable test. */
-@interface INLTest : NSObject
+/** A protocol by which test objects must conform. The interface defines only one method, -execute, which is used to execute the test. */
+@protocol INLTest <NSObject>
 
-/** The name of the test, used for identification. */
-@property (copy, nonatomic) NSString *name;
-
-/** The test implementation. */
-@property (copy, nonatomic) void(^block)(void);
-
-/** Invokes block. */
+/** Runs the test. */
 - (void)execute;
 
 @end
