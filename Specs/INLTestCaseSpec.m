@@ -12,6 +12,11 @@
 @implementation INLTestCaseA; @end
 @implementation INLTestCaseB; @end
 
+@interface INLFakeTest : INLTest; @end
+@implementation INLFakeTest
+- (NSString *)description { return @"the test"; }
+@end
+
 SpecBegin(INLTestCase)
 
 describe(@"+builder", ^{
@@ -72,14 +77,16 @@ describe(@"+testInvocations", ^{
 });
 
 describe(@"-name", ^{
-    it(@"should return the name of the current test", ^{
-        id testInvocation = [OCMockObject niceMockForClass:[INLTestInvocation class]];
-        id test = [OCMockObject mockForClass:[INLTest class]];
-        [[[testInvocation stub] andReturn:test] test];
-        [[[test stub] andReturn:@"the name"] name];
+    it(@"should return the description of the current test", ^{
+        // This test needs pretty drastic improvement. OCMock does not allow stubbing of -description, so INLFakeTest is necessary.
+        // The need for INLFakeTest will be removed once Mockingbird supports mocks and stubbing.
         
-        INLTestCase *testCase = [[INLTestCase alloc] initWithInvocation:testInvocation];
-        expect([testCase name]).to.equal(@"the name");
+        id invocation = [OCMockObject niceMockForClass:[INLTestInvocation class]];
+        id test = [INLFakeTest new];
+        [[[invocation stub] andReturn:test] test];
+        
+        INLTestCase *testCase = [[INLTestCase alloc] initWithInvocation:invocation];
+        expect([testCase name]).to.equal(@"the test");
     });
 });
 

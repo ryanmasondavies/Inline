@@ -57,4 +57,11 @@
     return [[self compiler] invocationsForTests:[[self builder] tests]];
 }
 
+- (NSString *)name
+{
+    INLTestInvocation *invocation = (INLTestInvocation *)[self invocation];
+    INLTest *test = [invocation test];
+    return [test description];
+}
+
 @end
