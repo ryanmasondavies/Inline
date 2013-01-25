@@ -60,7 +60,7 @@
 - (NSString *)name
 {
     INLTestInvocation *invocation = (INLTestInvocation *)[self invocation];
-    INLTest *test = [invocation test];
+    id <INLTest> test = [invocation test];
     return [test description];
 }
 

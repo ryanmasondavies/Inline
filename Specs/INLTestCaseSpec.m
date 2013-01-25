@@ -12,8 +12,9 @@
 @implementation INLTestCaseA; @end
 @implementation INLTestCaseB; @end
 
-@interface INLFakeTest : INLTest; @end
+@interface INLFakeTest : NSObject <INLTest>; @end
 @implementation INLFakeTest
+- (void)execute {}
 - (NSString *)description { return @"the test"; }
 @end
 
