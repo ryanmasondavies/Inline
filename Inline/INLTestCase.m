@@ -8,6 +8,8 @@
 
 #import "INLTestCase.h"
 #import "INLTestInvocation.h"
+#import "INLTestBuilder.h"
+#import "INLTestCompiler.h"
 #import "INLTest.h"
 
 @interface NSObject (INLTestRuntimeUtilities)
