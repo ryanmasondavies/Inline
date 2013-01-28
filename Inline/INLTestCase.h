@@ -7,18 +7,18 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
-@protocol INLBuilder, INLCompiler;
-@class INLInvocation;
+@class INLBuilder, INLCompiler;
+@protocol INLCompiler;
 
-/** Extends SenTestCase to allow developers to use objects which conform to INLTestBuilder to create tests, and use objects which conform to INLTestCompiler to create invocations for them. This class is abstract and is intended to be subclassed. Class methods performed on a subclass apply only to that subclass, and not to the superclass or siblings. */
+/** Extends SenTestCase to allow developers to set a builder and compiler for tests. This class is abstract and is intended to be subclassed. Class methods performed on a subclass apply only to that subclass, and not to the superclass or siblings. */
 @interface INLTestCase : SenTestCase
 
 /** Returns the builder assigned to the current class. */
-+ (id<INLBuilder>)builder;
++ (INLBuilder *)builder;
 
 /** Assigns a builder to the current class. 
- @param builder The builder to assign. Must conform to INLTestBuilder. */
-+ (void)setBuilder:(id<INLBuilder>)builder;
+ @param builder The builder to assign. */
++ (void)setBuilder:(INLBuilder *)builder;
 
 /** Returns the compiler assigned to the current class. */
 + (id<INLCompiler>)compiler;
@@ -36,7 +36,7 @@
 /** @return A list of classes which should not appear in the test results. */
 + (NSArray *)blacklistedClasses;
 
-/** @return The name of the current test. */
+/** @return The description of the current test. */
 - (NSString *)name;
 
 @end

@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+@class INLGroup;
 
-/** Defines an implementation for builder objects. It only specifies that the builder returns tests, but not the methods by which they are added as these can be specific to the language of the domain. It is called a 'builder' and not a collection or set because of its nature: it is responsible for _building_ objects based on a DSL. The format in which the DSL creates tests is unlikely to be linear or similar to any other, and so no default implementation can be provided. */
-@protocol INLBuilder <NSObject>
+/** A builder specifies that the builder returns a root group which contains tests, but not the methods by which they are added as these are specific to the language of the domain. It is called a 'builder' and not a collection or set because of its nature: it is responsible for _building_ objects based on a DSL. */
+@interface INLBuilder : NSObject
 
-/** @return The tests which have been added to the builder. */
-- (NSArray *)tests;
+/** The group at the bottom of the builder's stack, to which all other groups, tests, and hooks must be added. */
+@property (strong, nonatomic) INLGroup *rootGroup;
 
 @end

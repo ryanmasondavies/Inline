@@ -32,12 +32,12 @@
     return compilersByClass;
 }
 
-+ (id<INLBuilder>)builder
++ (INLBuilder *)builder
 {
     return [[self buildersByClass] objectForKey:NSStringFromClass(self)];
 }
 
-+ (void)setBuilder:(id<INLBuilder>)builder
++ (void)setBuilder:(INLBuilder *)builder
 {
     if (builder)
         [[self buildersByClass] setObject:builder forKey:NSStringFromClass(self)];
@@ -60,7 +60,7 @@
 
 + (NSArray *)testInvocations
 {
-    return [[self compiler] invocationsForTests:[[self builder] tests]];
+    return [[self compiler] invocationsForGroup:[[self builder] rootGroup]];
 }
 
 + (NSArray *)senAllSuperclasses
