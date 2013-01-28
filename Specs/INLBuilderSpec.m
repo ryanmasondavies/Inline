@@ -8,8 +8,10 @@
 
 SpecBegin(INLBuilder)
 
-it(@"should have a root group", ^{
-    expect([[INLBuilder new] rootGroup]).to.beKindOf([INLGroup class]);
+when(@"newly created", ^{
+    it(@"should have a root group", ^{
+        expect([[INLBuilder new] rootGroup]).to.beKindOf([INLGroup class]);
+    });
 });
 
 SpecEnd

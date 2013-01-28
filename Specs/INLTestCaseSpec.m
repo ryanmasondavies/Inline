@@ -25,6 +25,10 @@
 SpecBegin(INLTestCase)
 
 describe(@"+builder", ^{
+    it(@"should, by default, be an instance of INLBuilder", ^{
+        expect([INLTestCase builder]).to.beKindOf([INLBuilder class]);
+    });
+    
     it(@"should be per-subclass", ^{
         NSMutableArray *builders = [NSMutableArray array];
         for (NSUInteger i = 0; i < 2; i ++)

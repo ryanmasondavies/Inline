@@ -34,7 +34,12 @@
 
 + (INLBuilder *)builder
 {
-    return [[self buildersByClass] objectForKey:NSStringFromClass(self)];
+    INLBuilder *builder = [[self buildersByClass] objectForKey:NSStringFromClass(self)];
+    if (builder == nil) {
+        builder = [[INLBuilder alloc] init];
+        [self setBuilder:builder];
+    }
+    return builder;
 }
 
 + (void)setBuilder:(INLBuilder *)builder

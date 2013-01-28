@@ -7,7 +7,16 @@
 //
 
 #import "INLBuilder.h"
+#import "INLGroup.h"
 
 @implementation INLBuilder
+
+- (id)init
+{
+    if (self = [super init]) {
+        self.rootGroup = [[INLGroup alloc] init];
+    }
+    return self;
+}
 
 @end
