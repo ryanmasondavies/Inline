@@ -8,6 +8,6 @@
 
 #import "INLTestCase.h"
 #import "INLBuilder.h"
-#import "INLTestCompiler.h"
+#import "INLCompiler.h"
 #import "INLInvocation.h"
 #import "INLTest.h"

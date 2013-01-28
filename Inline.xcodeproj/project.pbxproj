@@ -50,7 +50,7 @@
 		94088D4116A9AA1800D7DEFC /* INLTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLTest.h; sourceTree = "<group>"; };
 		94088D5C16A9B85600D7DEFC /* INLTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLTestCase.h; sourceTree = "<group>"; };
 		94088D5D16A9B85600D7DEFC /* INLTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLTestCase.m; sourceTree = "<group>"; };
-		94139B1C16B1FC3400EA1E4F /* INLTestCompiler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INLTestCompiler.h; sourceTree = "<group>"; };
+		94139B1C16B1FC3400EA1E4F /* INLCompiler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INLCompiler.h; sourceTree = "<group>"; };
 		9424A22616B1541F004FEFCD /* INLBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INLBuilder.h; sourceTree = "<group>"; };
 		94A1C77416A97B3F008C170D /* libInline.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libInline.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		94A1C77716A97B3F008C170D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -127,7 +127,7 @@
 				94088D3E16A9A9CD00D7DEFC /* INLInvocation.h */,
 				94088D3F16A9A9CD00D7DEFC /* INLInvocation.m */,
 				9424A22616B1541F004FEFCD /* INLBuilder.h */,
-				94139B1C16B1FC3400EA1E4F /* INLTestCompiler.h */,
+				94139B1C16B1FC3400EA1E4F /* INLCompiler.h */,
 				94088D4116A9AA1800D7DEFC /* INLTest.h */,
 			);
 			path = Inline;
