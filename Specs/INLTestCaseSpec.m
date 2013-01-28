@@ -29,7 +29,7 @@ describe(@"+builder", ^{
     it(@"should be per-subclass", ^{
         NSMutableArray *builders = [NSMutableArray array];
         for (NSUInteger i = 0; i < 2; i ++)
-            builders[i] = [OCMockObject niceMockForProtocol:@protocol(INLTestBuilder)];
+            builders[i] = [OCMockObject niceMockForProtocol:@protocol(INLBuilder)];
         
         [INLTestCaseA setBuilder:builders[0]];
         [INLTestCaseB setBuilder:builders[1]];
@@ -61,7 +61,7 @@ describe(@"+compiler", ^{
 
 describe(@"+testInvocations", ^{
     it(@"should pass tests from the builder to the compiler", ^{
-        id builder  = [OCMockObject mockForProtocol:@protocol(INLTestBuilder)];
+        id builder  = [OCMockObject mockForProtocol:@protocol(INLBuilder)];
         id compiler = [OCMockObject mockForProtocol:@protocol(INLTestCompiler)];
         
         NSArray *tests = [NSArray array];

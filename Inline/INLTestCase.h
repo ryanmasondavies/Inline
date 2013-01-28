@@ -7,18 +7,18 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
-@protocol INLTestBuilder, INLTestCompiler;
+@protocol INLBuilder, INLTestCompiler;
 @class INLInvocation;
 
 /** Extends SenTestCase to allow developers to use objects which conform to INLTestBuilder to create tests, and use objects which conform to INLTestCompiler to create invocations for them. This class is abstract and is intended to be subclassed. Class methods performed on a subclass apply only to that subclass, and not to the superclass or siblings. */
 @interface INLTestCase : SenTestCase
 
 /** Returns the builder assigned to the current class. */
-+ (id<INLTestBuilder>)builder;
++ (id<INLBuilder>)builder;
 
 /** Assigns a builder to the current class. 
  @param builder The builder to assign. Must conform to INLTestBuilder. */
-+ (void)setBuilder:(id<INLTestBuilder>)builder;
++ (void)setBuilder:(id<INLBuilder>)builder;
 
 /** Returns the compiler assigned to the current class. */
 + (id<INLTestCompiler>)compiler;

@@ -8,7 +8,7 @@
 
 #import "INLTestCase.h"
 #import "INLInvocation.h"
-#import "INLTestBuilder.h"
+#import "INLBuilder.h"
 #import "INLTestCompiler.h"
 #import "INLTest.h"
 
@@ -32,12 +32,12 @@
     return compilersByClass;
 }
 
-+ (id<INLTestBuilder>)builder
++ (id<INLBuilder>)builder
 {
     return [[self buildersByClass] objectForKey:NSStringFromClass(self)];
 }
 
-+ (void)setBuilder:(id<INLTestBuilder>)builder
++ (void)setBuilder:(id<INLBuilder>)builder
 {
     if (builder)
         [[self buildersByClass] setObject:builder forKey:NSStringFromClass(self)];
