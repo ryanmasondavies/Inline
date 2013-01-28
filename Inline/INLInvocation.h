@@ -1,5 +1,5 @@
 //
-//  INLTestInvocation.h
+//  INLInvocation.h
 //  Inline
 //
 //  Created by Ryan Davies on 18/01/2013.
@@ -10,11 +10,11 @@
 @protocol INLTest;
 
 /** A subclass of NSInvocation which calls [INLTest execute] on test rather than invoking a selector, necessary due to the fact that SenTestCase reassigns an invocation's target. */
-@interface INLTestInvocation : NSInvocation
+@interface INLInvocation : NSInvocation
 
-/** Creates an INLTestInvocation instance with the given test.
- @param test The test to assign to the INLTestInvocation instance.
- @return A new instance of INLTestInvocation. */
+/** Creates an INLInvocation instance with the given test.
+ @param test The test to assign to the INLInvocation instance.
+ @return A new instance of INLInvocation. */
 + (instancetype)invocationWithTest:(id<INLTest>)test;
 
 /** Calls [INLTest execute] on test. */

@@ -7,7 +7,7 @@
 //
 
 #import "INLTestCase.h"
-#import "INLTestInvocation.h"
+#import "INLInvocation.h"
 #import "INLTestBuilder.h"
 #import "INLTestCompiler.h"
 #import "INLTest.h"
@@ -77,7 +77,7 @@
 
 - (NSString *)name
 {
-    INLTestInvocation *invocation = (INLTestInvocation *)[self invocation];
+    INLInvocation *invocation = (INLInvocation *)[self invocation];
     id <INLTest> test = [invocation test];
     return [test description];
 }

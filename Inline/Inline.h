@@ -9,5 +9,5 @@
 #import "INLTestCase.h"
 #import "INLTestBuilder.h"
 #import "INLTestCompiler.h"
-#import "INLTestInvocation.h"
+#import "INLInvocation.h"
 #import "INLTest.h"

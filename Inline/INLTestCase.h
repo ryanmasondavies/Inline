@@ -8,7 +8,7 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 @protocol INLTestBuilder, INLTestCompiler;
-@class INLTestInvocation;
+@class INLInvocation;
 
 /** Extends SenTestCase to allow developers to use objects which conform to INLTestBuilder to create tests, and use objects which conform to INLTestCompiler to create invocations for them. This class is abstract and is intended to be subclassed. Class methods performed on a subclass apply only to that subclass, and not to the superclass or siblings. */
 @interface INLTestCase : SenTestCase

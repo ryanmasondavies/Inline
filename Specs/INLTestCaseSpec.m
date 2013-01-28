@@ -104,7 +104,7 @@ describe(@"-name", ^{
         // This test needs improvement. OCMock does not allow stubbing of -description, so INLFakeTest is necessary.
         // The need for INLFakeTest will be removed once Mockingbird supports mocks and stubbing.
         
-        id invocation = [OCMockObject niceMockForClass:[INLTestInvocation class]];
+        id invocation = [OCMockObject niceMockForClass:[INLInvocation class]];
         id test = [INLFakeTest new];
         [[[invocation stub] andReturn:test] test];
         
