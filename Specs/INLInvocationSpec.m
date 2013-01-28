@@ -10,7 +10,7 @@ SpecBegin(INLInvocation)
 
 describe(@"-invoke", ^{
     it(@"should invoke the test", ^{
-        id test = [OCMockObject mockForProtocol:@protocol(INLTest)];
+        id test = [OCMockObject mockForClass:[INLTest class]];
         [[test expect] execute];
         
         INLInvocation *testInvocation = [INLInvocation invocationWithTest:test];

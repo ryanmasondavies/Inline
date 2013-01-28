@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@protocol INLTest;
+@class INLTest;
 
 /** A subclass of NSInvocation which calls [INLTest execute] on test rather than invoking a selector, necessary due to the fact that SenTestCase reassigns an invocation's target. */
 @interface INLInvocation : NSInvocation
@@ -15,12 +15,12 @@
 /** Creates an INLInvocation instance with the given test.
  @param test The test to assign to the INLInvocation instance.
  @return A new instance of INLInvocation. */
-+ (instancetype)invocationWithTest:(id<INLTest>)test;
++ (instancetype)invocationWithTest:(INLTest *)test;
 
 /** Calls [INLTest execute] on test. */
 - (void)invoke;
 
 /** The test assigned to the invocation, which will be executed upon invoke. */
-@property (strong, nonatomic) id <INLTest> test;
+@property (strong, nonatomic) INLTest *test;
 
 @end

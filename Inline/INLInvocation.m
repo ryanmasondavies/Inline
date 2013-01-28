@@ -11,7 +11,7 @@
 
 @implementation INLInvocation
 
-+ (instancetype)invocationWithTest:(id <INLTest>)test
++ (instancetype)invocationWithTest:(INLTest *)test
 {
     NSString *encodingType = [NSString stringWithFormat:@"%s%s%s", @encode(void), @encode(id), @encode(SEL)];
     NSMethodSignature *methodSignature = [NSMethodSignature signatureWithObjCTypes:[encodingType UTF8String]];

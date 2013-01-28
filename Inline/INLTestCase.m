@@ -9,7 +9,7 @@
 #import "INLTestCase.h"
 #import "INLInvocation.h"
 #import "INLBuilder.h"
-#import "INLTestCompiler.h"
+#import "INLCompiler.h"
 #import "INLTest.h"
 
 @interface NSObject (INLTestRuntimeUtilities)
@@ -78,7 +78,7 @@
 - (NSString *)name
 {
     INLInvocation *invocation = (INLInvocation *)[self invocation];
-    id <INLTest> test = [invocation test];
+    INLTest *test = [invocation test];
     return [test description];
 }
 

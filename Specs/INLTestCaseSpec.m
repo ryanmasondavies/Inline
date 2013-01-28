@@ -17,9 +17,8 @@
 + (NSArray *)blacklistedClasses { return @[[INLBlacklistedTestCase class]]; }
 @end
 
-@interface INLFakeTest : NSObject <INLTest>; @end
+@interface INLFakeTest : INLTest; @end
 @implementation INLFakeTest
-- (void)execute {}
 - (NSString *)description { return @"the test"; }
 @end
 

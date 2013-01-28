@@ -7,11 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+@class INLGroup;
 
-/** A protocol by which test objects must conform. The interface defines only one method, -execute, which is used to execute the test. */
-@protocol INLTest <NSObject>
+/** Represents a test within the system. */
+@interface INLTest : NSObject
 
-/** Runs the test. */
+/** The parent group which the test is a child of. */
+@property (weak, nonatomic) INLGroup *parent;
+
+/** Runs the test. Must be overridden by subclasses. */
 - (void)execute;
 
 @end
