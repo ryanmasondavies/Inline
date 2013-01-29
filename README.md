@@ -7,24 +7,24 @@ A builder is responsible for the management of tests, for instance the builder i
 
 SenTestCase provides the following:
 
-    +(id<INLTestBuilder>)builder
-    +(id<INLTestCompiler>)compiler
+    +(INLTestBuilder *)builder
+    +(INLTestCompiler *)compiler
     
-A builder is an instance which abides by the INLTestBuilder protocol, which specifies an interface to which test builders must conform:
+A builder is a subclass of INLTestBuilder, which provides a root group for tests:
 
-    -(NSArray *)tests
+    -(INLGroup *)rootGroup
     
-That's it. A method which returns an array of objects which conform to INLTest:
+Tests, groups, and hooks are added to the root group through the builder's API. This layer of abstraction allows for the DSL language to be present in the builder's interface.
 
-    -(void)execute
+Hooks can be executed around tests (before and after) provided that a subclass of INLTest invokes `executeBeforeHooks` and `executeAfterHooks`. INLTest makes no assumption about the format of tests, and so `execute` must be overridden to invoke a block or perform a selector.
 
 [OCUnit](http://www.sente.ch/software/ocunit/) uses the `+testInvocations` method on SenTestCase to determine the tests available in that suite. The default implementation retrieves methods which return `void`, have no arguments, and are prefixed with 'test'. This implementation is not easily extendable. Dynamically adding tests would require dynamically adding methods, which isn't practical, and restrains tests to the rules by which methods must abide.
 
-Calling `+testInvocations` on a subclass of INLTestCase results in a call to `-invocationsForTests:` on the compiler, which has the builder's tests passed to it. The compiler is then responsible for compiling a list of invocations from the tests added to the builder.
+Calling `+testInvocations` on a subclass of INLTestCase results in a call to `-invocationsForGroup:` on the compiler, which has the builder's root group passed to it. The compiler is then responsible for compiling a list of invocations from the tests.
 
 While the SenTestCase class manages all of the invocations in the suite, an instance manages only a single invocation. On `-setInvocation:`, however, it sets the invocation's target to the test case itself, because it is expecting to invoke a 'test...' method on the subclass.
 
-INLTestCase works around this by using instances of INLTestInvocation. INLTestInvocation implements the method `+invocationWithTest:`, a constructor meant for creating invocations with instances of INLTest. INLTestInvocation calls `-execute` on INLTest, which in turn executes its block.
+INLTestCase works around this by using instances of INLInvocation. INLInvocation implements the method `+invocationWithTest:`, a constructor meant for creating invocations with instances of your subclass of INLTest.
 
 INLTestCase also overrides `-name`, the method which [OCUnit](http://www.sente.ch/software/ocunit/) uses to describe tests for printing to the console. The default implementation returns the method signature of the `test...` method, but INLTestCase returns the description of the current invocation's test (`-description`).
 
