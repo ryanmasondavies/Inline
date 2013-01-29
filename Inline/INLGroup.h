@@ -15,6 +15,9 @@
 /** The parent of the group, if any. */
 @property (weak, nonatomic) INLGroup *parent;
 
+/** A label by which to identify the group, if any. */
+@property (copy, nonatomic) NSString *label;
+
 /** A list of the child groups that have been added to the group. */
 @property (strong, nonatomic) NSArray *groups;
 
