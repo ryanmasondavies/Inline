@@ -10,4 +10,8 @@
 
 @implementation INLHook
 
+- (void)execute
+{
+}
+
 @end

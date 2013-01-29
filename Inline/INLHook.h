@@ -9,10 +9,21 @@
 #import <Foundation/Foundation.h>
 @class INLGroup;
 
+typedef NS_ENUM(NSInteger, INLHookPlacement) {
+    INLHookPlacementBefore,
+    INLHookPlacementAfter
+};
+
 /** Abstract superclass for hooks of varying scope. */
 @interface INLHook : NSObject
 
 /** The group which the hook has been added to. */
 @property (weak, nonatomic) INLGroup *parent;
+
+/** The placement of the hook: either INLTestPlacementBefore or INLTestPlacementAfter. This defines whether the hook is to be executed before or after tests. */
+@property (nonatomic) INLHookPlacement placement;
+
+/** Executes the hook. */
+- (void)execute;
 
 @end

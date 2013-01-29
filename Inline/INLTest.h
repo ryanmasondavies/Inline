@@ -15,7 +15,13 @@
 /** The parent group which the test is a child of. */
 @property (weak, nonatomic) INLGroup *parent;
 
-/** Runs the test. Must be overridden by subclasses. */
+/** Runs the test. Must be overridden by subclasses. It is advised that subclasses invoke executeBeforeHooks and executeAfterHooks around execution of the test itself. */
 - (void)execute;
+
+/** Invokes [INLHook execute] on all hooks with a placement of 'before' in outermost-first order. */
+- (void)executeBeforeHooks;
+
+/** Invokes [INLHook execute] on all hooks with a placement of 'after' in innermost-first order. */
+- (void)executeAfterHooks;
 
 @end
