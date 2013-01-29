@@ -46,6 +46,10 @@ describe(@"+builder", ^{
 });
 
 describe(@"+compiler", ^{
+    it(@"should, by default, be an instance of INLCompiler", ^{
+        expect([INLTestCase compiler]).to.beKindOf([INLCompiler class]);
+    });
+    
     it(@"should be per-subclass", ^{
         NSMutableArray *compilers = [NSMutableArray array];
         for (NSUInteger i = 0; i < 2; i ++)

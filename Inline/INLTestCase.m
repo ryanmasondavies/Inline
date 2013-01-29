@@ -52,7 +52,12 @@
 
 + (INLCompiler *)compiler
 {
-    return [[self compilersByClass] objectForKey:NSStringFromClass(self)];
+    INLCompiler *compiler = [[self compilersByClass] objectForKey:NSStringFromClass(self)];
+    if (compiler == nil) {
+        compiler = [[INLCompiler alloc] init];
+        [self setCompiler:compiler];
+    }
+    return compiler;
 }
 
 + (void)setCompiler:(INLCompiler *)compiler
