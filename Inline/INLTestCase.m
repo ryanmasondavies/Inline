@@ -50,12 +50,12 @@
         [[self buildersByClass] removeObjectForKey:NSStringFromClass(self)];
 }
 
-+ (id<INLCompiler>)compiler
++ (INLCompiler *)compiler
 {
     return [[self compilersByClass] objectForKey:NSStringFromClass(self)];
 }
 
-+ (void)setCompiler:(id<INLCompiler>)compiler
++ (void)setCompiler:(INLCompiler *)compiler
 {
     if (compiler)
         [[self compilersByClass] setObject:compiler forKey:NSStringFromClass(self)];

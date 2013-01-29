@@ -49,7 +49,7 @@ describe(@"+compiler", ^{
     it(@"should be per-subclass", ^{
         NSMutableArray *compilers = [NSMutableArray array];
         for (NSUInteger i = 0; i < 2; i ++)
-            compilers[i] = [OCMockObject niceMockForProtocol:@protocol(INLCompiler)];
+            compilers[i] = [OCMockObject niceMockForClass:[INLCompiler class]];
         
         [INLTestCaseA setCompiler:compilers[0]];
         [INLTestCaseB setCompiler:compilers[1]];
@@ -65,7 +65,7 @@ describe(@"+compiler", ^{
 describe(@"+testInvocations", ^{
     it(@"should pass the root group of the builder to the compiler", ^{
         id builder  = [OCMockObject mockForClass:[INLBuilder class]];
-        id compiler = [OCMockObject mockForProtocol:@protocol(INLCompiler)];
+        id compiler = [OCMockObject mockForClass:[INLCompiler class]];
         
         INLGroup *group = [OCMockObject mockForClass:[INLGroup class]];
         NSArray *invocations = [NSArray array];

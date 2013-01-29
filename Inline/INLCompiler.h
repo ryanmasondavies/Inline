@@ -9,13 +9,12 @@
 #import <Foundation/Foundation.h>
 @class INLGroup;
 
-/** Defines an implementation for objects which are responsible for compiling tests into a set of invocations for use by INLTestCase. The order of the array is maintained when running the tests. */
-@protocol INLCompiler <NSObject>
+/** INLCompiler is responsible for compiling tests in a group into a set of invocations for use by INLTestCase. */
+@interface INLCompiler : NSObject
 
-/**
- This method should be implemented by different DSLs to create invocations for tests. By default it creates invocations by placing those in subgroups at the bottom of the stack.
+/** Creates an instance of INLInvocation for each test in the group, pushing invocations in subgroups to the end of the list.
  @param group The group for which to compile tests.
- @return An immutable list of invocations for each test in the group. */
+ @return An immutable list of invocations for each test in the group and subgroups. */
 - (NSArray *)invocationsForGroup:(INLGroup *)group;
 
 @end
