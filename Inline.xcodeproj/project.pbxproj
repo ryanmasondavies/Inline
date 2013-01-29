@@ -17,6 +17,7 @@
 		947EA9FF16B72F4700FE8D79 /* INLHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 947EA9FE16B72F4700FE8D79 /* INLHook.m */; };
 		947EAA0116B7306900FE8D79 /* INLBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 947EAA0016B7306900FE8D79 /* INLBuilder.m */; };
 		947EAA0416B7314400FE8D79 /* INLBuilderSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 947EAA0316B7314400FE8D79 /* INLBuilderSpec.m */; };
+		947EAA0D16B754B400FE8D79 /* INLHookSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 947EAA0C16B754B400FE8D79 /* INLHookSpec.m */; };
 		94A1C77816A97B3F008C170D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A1C77716A97B3F008C170D /* Foundation.framework */; };
 		94A1C77D16A97B3F008C170D /* Inline.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 94A1C77C16A97B3F008C170D /* Inline.h */; };
 		94A1C78716A97B3F008C170D /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A1C78616A97B3F008C170D /* SenTestingKit.framework */; };
@@ -68,6 +69,7 @@
 		947EA9FE16B72F4700FE8D79 /* INLHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLHook.m; sourceTree = "<group>"; };
 		947EAA0016B7306900FE8D79 /* INLBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLBuilder.m; sourceTree = "<group>"; };
 		947EAA0316B7314400FE8D79 /* INLBuilderSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLBuilderSpec.m; sourceTree = "<group>"; };
+		947EAA0C16B754B400FE8D79 /* INLHookSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLHookSpec.m; sourceTree = "<group>"; };
 		94A1C77416A97B3F008C170D /* libInline.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libInline.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		94A1C77716A97B3F008C170D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		94A1C77C16A97B3F008C170D /* Inline.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Inline.h; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				947EAA0316B7314400FE8D79 /* INLBuilderSpec.m */,
 				947EA9ED16B7237900FE8D79 /* INLGroupSpec.m */,
 				947EA9FB16B72BB800FE8D79 /* INLTestSpec.m */,
+				947EAA0C16B754B400FE8D79 /* INLHookSpec.m */,
 				94C76EA716AF2AED00F94E8F /* Supporting Files */,
 			);
 			path = Specs;
@@ -308,6 +311,7 @@
 				947EA9EE16B7237900FE8D79 /* INLGroupSpec.m in Sources */,
 				947EA9FC16B72BB800FE8D79 /* INLTestSpec.m in Sources */,
 				947EAA0416B7314400FE8D79 /* INLBuilderSpec.m in Sources */,
+				947EAA0D16B754B400FE8D79 /* INLHookSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
