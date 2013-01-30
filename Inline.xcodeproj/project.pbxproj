@@ -27,6 +27,9 @@
 		94A1C78D16A97B3F008C170D /* libInline.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A1C77416A97B3F008C170D /* libInline.a */; };
 		94C76EA316AF2AE400F94E8F /* INLTestCaseSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C76E9F16AF2AE400F94E8F /* INLTestCaseSpec.m */; };
 		94C76EA416AF2AE400F94E8F /* INLInvocationSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C76EA016AF2AE400F94E8F /* INLInvocationSpec.m */; };
+		94C78E5016B98CC5003E3AE4 /* INLObserverSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C78E4F16B98CC5003E3AE4 /* INLObserverSpec.m */; };
+		94ECBD8116B97AAB00662FB0 /* INLReporterSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 94ECBD8016B97AAB00662FB0 /* INLReporterSpec.m */; };
+		94ECBD8516B97BCC00662FB0 /* INLObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 94ECBD8416B97BCC00662FB0 /* INLObserver.m */; };
 		F3CD3266D4E3418EB0F1F712 /* libPods-Specs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D25439A401F400C99C1DC50 /* libPods-Specs.a */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +86,11 @@
 		94C76E9F16AF2AE400F94E8F /* INLTestCaseSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLTestCaseSpec.m; sourceTree = "<group>"; };
 		94C76EA016AF2AE400F94E8F /* INLInvocationSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLInvocationSpec.m; sourceTree = "<group>"; };
 		94C76EA216AF2AE400F94E8F /* Specs-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Specs-Info.plist"; sourceTree = "<group>"; };
+		94C78E4F16B98CC5003E3AE4 /* INLObserverSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLObserverSpec.m; sourceTree = "<group>"; };
+		94ECBD8016B97AAB00662FB0 /* INLReporterSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLReporterSpec.m; sourceTree = "<group>"; };
+		94ECBD8316B97BCC00662FB0 /* INLObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLObserver.h; sourceTree = "<group>"; };
+		94ECBD8416B97BCC00662FB0 /* INLObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLObserver.m; sourceTree = "<group>"; };
+		94ECBD8B16B9862700662FB0 /* INLReporter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INLReporter.h; sourceTree = "<group>"; };
 		F0BA7C4E080A48E2BAD9E533 /* Pods-Specs.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Specs.xcconfig"; path = "Pods/Pods-Specs.xcconfig"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -148,6 +156,9 @@
 				94088D5D16A9B85600D7DEFC /* INLTestCase.m */,
 				94088D3E16A9A9CD00D7DEFC /* INLInvocation.h */,
 				94088D3F16A9A9CD00D7DEFC /* INLInvocation.m */,
+				94ECBD8316B97BCC00662FB0 /* INLObserver.h */,
+				94ECBD8416B97BCC00662FB0 /* INLObserver.m */,
+				94ECBD8B16B9862700662FB0 /* INLReporter.h */,
 				9424A22616B1541F004FEFCD /* INLBuilder.h */,
 				947EAA0016B7306900FE8D79 /* INLBuilder.m */,
 				94139B1C16B1FC3400EA1E4F /* INLCompiler.h */,
@@ -167,6 +178,8 @@
 			children = (
 				94C76E9F16AF2AE400F94E8F /* INLTestCaseSpec.m */,
 				94C76EA016AF2AE400F94E8F /* INLInvocationSpec.m */,
+				94C78E4F16B98CC5003E3AE4 /* INLObserverSpec.m */,
+				94ECBD8016B97AAB00662FB0 /* INLReporterSpec.m */,
 				947EAA0316B7314400FE8D79 /* INLBuilderSpec.m */,
 				947EAA1116B7551D00FE8D79 /* INLCompilerSpec.m */,
 				947EA9ED16B7237900FE8D79 /* INLGroupSpec.m */,
@@ -305,6 +318,7 @@
 				947EA9FF16B72F4700FE8D79 /* INLHook.m in Sources */,
 				947EAA0116B7306900FE8D79 /* INLBuilder.m in Sources */,
 				947EAA0F16B7550C00FE8D79 /* INLCompiler.m in Sources */,
+				94ECBD8516B97BCC00662FB0 /* INLObserver.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,6 +334,8 @@
 				947EAA0416B7314400FE8D79 /* INLBuilderSpec.m in Sources */,
 				947EAA0D16B754B400FE8D79 /* INLHookSpec.m in Sources */,
 				947EAA1216B7551D00FE8D79 /* INLCompilerSpec.m in Sources */,
+				94ECBD8116B97AAB00662FB0 /* INLReporterSpec.m in Sources */,
+				94C78E5016B98CC5003E3AE4 /* INLObserverSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,6 +10,8 @@
 #import "INLBuilder.h"
 #import "INLCompiler.h"
 #import "INLInvocation.h"
+#import "INLObserver.h"
+#import "INLReporter.h"
 #import "INLGroup.h"
 #import "INLTest.h"
 #import "INLHook.h"
