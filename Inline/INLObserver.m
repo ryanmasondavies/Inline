@@ -8,13 +8,15 @@
 
 #import "INLObserver.h"
 #import "INLReporter.h"
+#import "INLInvocation.h"
+#import "INLTest.h"
 
 @implementation INLObserver
 
-+ (void)load
-{
-    [[NSUserDefaults standardUserDefaults] setObject:@"INLObserver" forKey:SenTestObserverClassKey];
-}
+//+ (void)load
+//{
+//    [[NSUserDefaults standardUserDefaults] setObject:@"INLObserver" forKey:SenTestObserverClassKey];
+//}
 
 + (id)activeReporter
 {
@@ -36,20 +38,37 @@
     return reporters;
 }
 
++ (INLTest *)testFromNotification:(NSNotification *)notification
+{
+    SenTestRun *run = [notification run];
+    SenTestCase *testCase = (SenTestCase *)[run test];
+    INLInvocation *invocation = (INLInvocation *)[testCase invocation];
+    return [invocation test];
+}
+
 + (void)testSuiteDidStart:(NSNotification *)notification
 {
+    [[self activeReporter] suiteDidStart:[notification run]];
+}
+
++ (void)testCaseDidStart:(NSNotification *)notification
+{
+    [[self activeReporter] testDidStart:[self testFromNotification:notification] run:[notification run]];
 }
 
 + (void)testCaseDidStop:(NSNotification *)notification
 {
+    [[self activeReporter] testDidEnd:[self testFromNotification:notification] run:[notification run]];
 }
 
 + (void)testCaseDidFail:(NSNotification *)notification
 {
+    [[self activeReporter] testDidFail:[self testFromNotification:notification] run:[notification run]];
 }
 
 + (void)testSuiteDidStop:(NSNotification *)notification
 {
+    [[self activeReporter] suiteDidEnd:[notification run]];
 }
 
 @end
