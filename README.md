@@ -38,8 +38,6 @@ Documentation
 
 Comments are written using the [Appledoc](http://gentlebytes.com/appledoc/) syntax, and documentation will be automatically generated and added to Xcode by [CocoaPods](https://github.com/CocoaPods/CocoaPods) upon installation.
 
-The files will also be made available elsewhere (see [#1](Inline/issues/1)).
-
 License
 -------
 
