@@ -9,6 +9,12 @@
 #import <Foundation/Foundation.h>
 @class INLGroup;
 
+typedef NS_ENUM(NSInteger, INLTestState) {
+    INLTestStatePending,
+    INLTestStateReady,
+    INLTestStateExecuted
+};
+
 /** Represents a test within the system. */
 @interface INLTest : NSObject
 
@@ -17,6 +23,16 @@
 
 /** A label by which to identify the test, if any. */
 @property (copy, nonatomic) NSString *label;
+
+/** The states a test can be in.
+ 
+ The possible values are:
+ 
+ - INLTestStatePending
+ - INLTestStateReady
+ - INLTestStateExecuted
+ */
+@property (nonatomic) INLTestState state;
 
 /** Runs the test. Must be overridden by subclasses. It is advised that subclasses invoke executeBeforeHooks and executeAfterHooks around execution of the test itself. */
 - (void)execute;

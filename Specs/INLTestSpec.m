@@ -37,6 +37,12 @@ before(^{
     [test setParent:[groups lastObject]];
 });
 
+describe(@"state", ^{
+    it(@"should be pending", ^{
+        expect([test state]).to.equal(INLTestStatePending);
+    });
+});
+
 describe(@"-executeBeforeHooks", ^{
     before(^{
         [hooks enumerateObjectsUsingBlock:^(id hook, NSUInteger idx, BOOL *stop) {
