@@ -1,6 +1,8 @@
 platform :ios, '5.0'
 
-target 'Specs' do
+pod 'Transcript'
+
+target 'Specs', exclusive: true do
   pod 'Inline', local: '.'
   pod 'Specify'
   pod 'Expecta'
