@@ -8,10 +8,13 @@
 
 #import "INLTest.h"
 
-/** INLBlockTest encapsulates the concept of specifying a test using a block. This technique is commonly required by DSL's such as in Specify and Stories. */
+/** INLBlockTest allows the implementation of a test to be defined using a block. */
 @interface INLBlockTest : INLTest
 
-/** The block which performs the test. */
+/** The block which is invoked on [INLBlockTest execute]. */
 @property (copy, nonatomic) void(^block)(void);
+
+/** Executes the block. */
+- (void)execute;
 
 @end

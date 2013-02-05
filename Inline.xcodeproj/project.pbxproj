@@ -12,6 +12,8 @@
 		94088D4016A9A9CD00D7DEFC /* INLInvocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 94088D3F16A9A9CD00D7DEFC /* INLInvocation.m */; };
 		9460776D16C02F86001BD9FA /* INLBlockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9460776C16C02F86001BD9FA /* INLBlockTest.m */; };
 		9460777016C02F96001BD9FA /* INLBlockTestSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 9460776F16C02F96001BD9FA /* INLBlockTestSpec.m */; };
+		9460777316C089F0001BD9FA /* INLBlockHookSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 9460777216C089F0001BD9FA /* INLBlockHookSpec.m */; };
+		9460777616C08A61001BD9FA /* INLBlockHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 9460777516C08A61001BD9FA /* INLBlockHook.m */; };
 		947EA9EE16B7237900FE8D79 /* INLGroupSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 947EA9ED16B7237900FE8D79 /* INLGroupSpec.m */; };
 		947EA9F716B724D600FE8D79 /* INLGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 947EA9F616B724D600FE8D79 /* INLGroup.m */; };
 		947EA9F916B72AFC00FE8D79 /* INLTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 947EA9F816B72AFC00FE8D79 /* INLTest.m */; };
@@ -67,6 +69,9 @@
 		9460776B16C02F86001BD9FA /* INLBlockTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLBlockTest.h; sourceTree = "<group>"; };
 		9460776C16C02F86001BD9FA /* INLBlockTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLBlockTest.m; sourceTree = "<group>"; };
 		9460776F16C02F96001BD9FA /* INLBlockTestSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLBlockTestSpec.m; sourceTree = "<group>"; };
+		9460777216C089F0001BD9FA /* INLBlockHookSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLBlockHookSpec.m; sourceTree = "<group>"; };
+		9460777416C08A61001BD9FA /* INLBlockHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLBlockHook.h; sourceTree = "<group>"; };
+		9460777516C08A61001BD9FA /* INLBlockHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLBlockHook.m; sourceTree = "<group>"; };
 		947EA9ED16B7237900FE8D79 /* INLGroupSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLGroupSpec.m; sourceTree = "<group>"; };
 		947EA9F516B724D600FE8D79 /* INLGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLGroup.h; sourceTree = "<group>"; };
 		947EA9F616B724D600FE8D79 /* INLGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLGroup.m; sourceTree = "<group>"; };
@@ -125,8 +130,8 @@
 				94C76E9D16AF2AE400F94E8F /* Specs */,
 				94A1C77616A97B3F008C170D /* Frameworks */,
 				94A1C77516A97B3F008C170D /* Products */,
-				F0BA7C4E080A48E2BAD9E533 /* Pods-Specs.xcconfig */,
 				A80BDBE02CBF4AAAB32E4FA5 /* Pods.xcconfig */,
+				F0BA7C4E080A48E2BAD9E533 /* Pods-Specs.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -144,8 +149,8 @@
 			children = (
 				94A1C77716A97B3F008C170D /* Foundation.framework */,
 				94A1C78616A97B3F008C170D /* SenTestingKit.framework */,
-				0D25439A401F400C99C1DC50 /* libPods-Specs.a */,
 				D10B3104B21E43A792AAC815 /* libPods.a */,
+				0D25439A401F400C99C1DC50 /* libPods-Specs.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -170,6 +175,8 @@
 				9460776C16C02F86001BD9FA /* INLBlockTest.m */,
 				947EA9FD16B72F4700FE8D79 /* INLHook.h */,
 				947EA9FE16B72F4700FE8D79 /* INLHook.m */,
+				9460777416C08A61001BD9FA /* INLBlockHook.h */,
+				9460777516C08A61001BD9FA /* INLBlockHook.m */,
 			);
 			path = Inline;
 			sourceTree = "<group>";
@@ -185,6 +192,7 @@
 				947EA9FB16B72BB800FE8D79 /* INLTestSpec.m */,
 				9460776F16C02F96001BD9FA /* INLBlockTestSpec.m */,
 				947EAA0C16B754B400FE8D79 /* INLHookSpec.m */,
+				9460777216C089F0001BD9FA /* INLBlockHookSpec.m */,
 				94C76EA716AF2AED00F94E8F /* Supporting Files */,
 			);
 			path = Specs;
@@ -349,6 +357,7 @@
 				947EAA0116B7306900FE8D79 /* INLBuilder.m in Sources */,
 				947EAA0F16B7550C00FE8D79 /* INLCompiler.m in Sources */,
 				9460776D16C02F86001BD9FA /* INLBlockTest.m in Sources */,
+				9460777616C08A61001BD9FA /* INLBlockHook.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,6 +373,7 @@
 				947EAA0D16B754B400FE8D79 /* INLHookSpec.m in Sources */,
 				947EAA1216B7551D00FE8D79 /* INLCompilerSpec.m in Sources */,
 				9460777016C02F96001BD9FA /* INLBlockTestSpec.m in Sources */,
+				9460777316C089F0001BD9FA /* INLBlockHookSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

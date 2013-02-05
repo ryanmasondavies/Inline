@@ -14,3 +14,4 @@
 #import "INLTest.h"
 #import "INLBlockTest.h"
 #import "INLHook.h"
+#import "INLBlockHook.h"
