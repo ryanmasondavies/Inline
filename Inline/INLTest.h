@@ -19,7 +19,7 @@ typedef NS_ENUM(NSInteger, INLTestState) {
 @interface INLTest : NSObject
 
 /** The parent group which the test is a child of. */
-@property (weak, nonatomic) INLGroup *parent;
+@property (strong, nonatomic) INLGroup *parent;
 
 /** A label by which to identify the test, if any. */
 @property (copy, nonatomic) NSString *label;

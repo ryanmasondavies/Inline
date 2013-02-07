@@ -18,7 +18,7 @@ typedef NS_ENUM(NSInteger, INLHookPlacement) {
 @interface INLHook : NSObject
 
 /** The group which the hook has been added to. */
-@property (weak, nonatomic) INLGroup *parent;
+@property (strong, nonatomic) INLGroup *parent;
 
 /** The placement of the hook: either INLTestPlacementBefore or INLTestPlacementAfter. This defines whether the hook is to be executed before or after tests. */
 @property (nonatomic) INLHookPlacement placement;

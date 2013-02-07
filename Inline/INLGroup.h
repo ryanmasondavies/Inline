@@ -13,7 +13,7 @@
 @interface INLGroup : NSObject
 
 /** The parent of the group, if any. */
-@property (weak, nonatomic) INLGroup *parent;
+@property (strong, nonatomic) INLGroup *parent;
 
 /** A label by which to identify the group, if any. */
 @property (copy, nonatomic) NSString *label;
