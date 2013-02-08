@@ -52,6 +52,16 @@
         if ([self.history containsObject:obj]) return;
         NSString *label = [obj label];
         if (label != nil) {
+            if (idx == [stack count] - 1) {
+                if ([obj state] == INLTestStatePending) {
+                    [self log:@"[P]"];
+                }
+                
+                if ([[notification run] hasSucceeded] == NO) {
+                    [self log:@"[F]"];
+                }
+            }
+            
             for (NSUInteger i = 0; i < idx; i ++) [self log:@"\t"];
             [self log:label];
             [self log:@"\n"];
