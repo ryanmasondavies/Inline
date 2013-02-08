@@ -13,31 +13,21 @@
 
 @implementation INLCompiler
 
-- (NSArray *)invocationsForGroup:(INLGroup *)group
+- (NSMutableArray *)invocationsForTests:(NSArray *)tests
 {
-    NSMutableArray *tests = [NSMutableArray array];
-    NSMutableArray *groupQueue = [NSMutableArray arrayWithObject:group];
-    
-    INLGroup *currentGroup = [groupQueue objectAtIndex:0];
-    [groupQueue removeObjectAtIndex:0];
-    
-    while (currentGroup) {
-        [tests addObjectsFromArray:[currentGroup tests]];
-        [groupQueue addObjectsFromArray:[currentGroup groups]];
-        
-        if ([groupQueue count] > 0) {
-            currentGroup = [groupQueue objectAtIndex:0];
-            [groupQueue removeObjectAtIndex:0];
-        } else {
-            currentGroup = nil;
-        }
-    }
-    
     NSMutableArray *invocations = [NSMutableArray array];
     [tests enumerateObjectsUsingBlock:^(INLTest *test, NSUInteger idx, BOOL *stop) {
         [invocations addObject:[INLInvocation invocationWithTest:test]];
     }];
-    
+    return invocations;
+}
+
+- (NSArray *)invocationsForGroup:(INLGroup *)group
+{
+    NSMutableArray *invocations = [self invocationsForTests:[group tests]];
+    [[group groups] enumerateObjectsUsingBlock:^(INLGroup *nested, NSUInteger idx, BOOL *stop) {
+        [invocations addObjectsFromArray:[self invocationsForGroup:nested]];
+    }];
     return [NSArray arrayWithArray:invocations];
 }
 
