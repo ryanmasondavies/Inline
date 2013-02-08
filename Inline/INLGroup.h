@@ -7,15 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "INLNode.h"
 @class INLTest, INLHook;
 
 /** Represents a group of tests and their hooks. */
-@interface INLGroup : NSObject
+@interface INLGroup : NSObject <INLNode>
 
-/** The parent of the group, if any. */
+/** The parent of the group. */
 @property (weak, nonatomic) INLGroup *parent;
 
-/** A label by which to identify the group, if any. */
+/** A label by which to identify the group. */
 @property (copy, nonatomic) NSString *label;
 
 /** A list of the child groups that have been added to the group. */

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "INLNode.h"
 @class INLGroup;
 
 typedef NS_ENUM(NSInteger, INLTestState) {
@@ -16,12 +17,12 @@ typedef NS_ENUM(NSInteger, INLTestState) {
 };
 
 /** Represents a test within the system. */
-@interface INLTest : NSObject
+@interface INLTest : NSObject <INLNode>
 
 /** The parent group which the test is a child of. */
 @property (weak, nonatomic) INLGroup *parent;
 
-/** A label by which to identify the test, if any. */
+/** A label by which to identify the test. */
 @property (copy, nonatomic) NSString *label;
 
 /** The states a test can be in.

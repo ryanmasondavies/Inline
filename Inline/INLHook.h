@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "INLNode.h"
 @class INLGroup;
 
 typedef NS_ENUM(NSInteger, INLHookPlacement) {
@@ -15,7 +16,7 @@ typedef NS_ENUM(NSInteger, INLHookPlacement) {
 };
 
 /** Abstract superclass for hooks of varying scope. */
-@interface INLHook : NSObject
+@interface INLHook : NSObject <INLNode>
 
 /** The group which the hook has been added to. */
 @property (weak, nonatomic) INLGroup *parent;
