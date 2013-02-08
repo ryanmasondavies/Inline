@@ -33,40 +33,49 @@
     return self;
 }
 
-- (void)testDidEnd:(NSNotification *)notification
+- (INLTest *)testFromNotification:(NSNotification *)notification
 {
-    // Retrieve the test:
     SenTestRun *run = [notification run];
     INLTestCase *testCase = (INLTestCase *)[run test];
     INLInvocation *invocation = (INLInvocation *)[testCase invocation];
-    INLTest *test = [invocation test];
-    
-    // Create stack of groups and test
+    return [invocation test];
+}
+
+- (NSArray *)pathToTest:(INLTest *)test
+{
     id target = test;
-    NSMutableArray *stack = [NSMutableArray array];
-    while ((target = [target parent]) != nil) [stack insertObject:target atIndex:0];
-    [stack addObject:test];
+    NSMutableArray *path = [NSMutableArray array];
+    while ((target = [target parent]) != nil) [path insertObject:target atIndex:0];
+    [path addObject:test];
+    return path;
+}
+
+- (void)logLabel:(NSString *)label prefix:(NSString *)prefix indentLevel:(NSUInteger)indentLevel
+{
+    if (label == nil) return;
+    if (prefix) [self log:prefix];
+    for (NSUInteger i = 0; i < indentLevel; i ++) [self log:@"\t"];
+    [self log:label];
+    [self log:@"\n"];
+}
+
+- (NSString *)prefixForNode:(id)node inRun:(SenTestRun *)run
+{
+    if ([node isKindOfClass:[INLTest class]] == NO) return nil;
+    if ([node state] == INLTestStatePending) return @"[P]";
+    if ([run hasSucceeded] == NO) return @"[F]";
+    return nil;
+}
+
+- (void)testDidEnd:(NSNotification *)notification
+{
+    INLTest *test = [self testFromNotification:notification];
+    NSArray *path = [self pathToTest:test];
     
-    // Print out stack
-    [stack enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        if ([self.history containsObject:obj]) return;
-        NSString *label = [obj label];
-        if (label != nil) {
-            if (idx == [stack count] - 1) {
-                if ([obj state] == INLTestStatePending) {
-                    [self log:@"[P]"];
-                }
-                
-                if ([[notification run] hasSucceeded] == NO) {
-                    [self log:@"[F]"];
-                }
-            }
-            
-            for (NSUInteger i = 0; i < idx; i ++) [self log:@"\t"];
-            [self log:label];
-            [self log:@"\n"];
-        }
-        [self.history addObject:obj];
+    [path enumerateObjectsUsingBlock:^(id node, NSUInteger idx, BOOL *stop) {
+        if ([self.history containsObject:node]) return;
+        [self logLabel:[node label] prefix:[self prefixForNode:node inRun:[notification run]] indentLevel:idx];
+        [self.history addObject:node];
     }];
 }
 
