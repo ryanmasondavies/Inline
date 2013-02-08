@@ -15,6 +15,10 @@
 		9460777016C02F96001BD9FA /* INLBlockTestSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 9460776F16C02F96001BD9FA /* INLBlockTestSpec.m */; };
 		9460777316C089F0001BD9FA /* INLBlockHookSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 9460777216C089F0001BD9FA /* INLBlockHookSpec.m */; };
 		9460777616C08A61001BD9FA /* INLBlockHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 9460777516C08A61001BD9FA /* INLBlockHook.m */; };
+		946A063C16C5319D00E385FB /* INLTestCaseA.m in Sources */ = {isa = PBXBuildFile; fileRef = 946A063B16C5319D00E385FB /* INLTestCaseA.m */; };
+		946A063F16C531B300E385FB /* INLTestCaseB.m in Sources */ = {isa = PBXBuildFile; fileRef = 946A063E16C531B300E385FB /* INLTestCaseB.m */; };
+		946A064316C5324100E385FB /* INLFakeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 946A064216C5324100E385FB /* INLFakeTest.m */; };
+		946A064616C5333C00E385FB /* INLBlacklistedTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 946A064516C5333C00E385FB /* INLBlacklistedTestCase.m */; };
 		947D0D0A16C3C450007B395C /* INLGroupedReporterSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 947D0D0916C3C450007B395C /* INLGroupedReporterSpec.m */; };
 		947EA9EE16B7237900FE8D79 /* INLGroupSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 947EA9ED16B7237900FE8D79 /* INLGroupSpec.m */; };
 		947EA9F716B724D600FE8D79 /* INLGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 947EA9F616B724D600FE8D79 /* INLGroup.m */; };
@@ -75,6 +79,14 @@
 		9460777216C089F0001BD9FA /* INLBlockHookSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLBlockHookSpec.m; sourceTree = "<group>"; };
 		9460777416C08A61001BD9FA /* INLBlockHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLBlockHook.h; sourceTree = "<group>"; };
 		9460777516C08A61001BD9FA /* INLBlockHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLBlockHook.m; sourceTree = "<group>"; };
+		946A063A16C5319D00E385FB /* INLTestCaseA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLTestCaseA.h; sourceTree = "<group>"; };
+		946A063B16C5319D00E385FB /* INLTestCaseA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLTestCaseA.m; sourceTree = "<group>"; };
+		946A063D16C531B300E385FB /* INLTestCaseB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLTestCaseB.h; sourceTree = "<group>"; };
+		946A063E16C531B300E385FB /* INLTestCaseB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLTestCaseB.m; sourceTree = "<group>"; };
+		946A064116C5324100E385FB /* INLFakeTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLFakeTest.h; sourceTree = "<group>"; };
+		946A064216C5324100E385FB /* INLFakeTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLFakeTest.m; sourceTree = "<group>"; };
+		946A064416C5333C00E385FB /* INLBlacklistedTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLBlacklistedTestCase.h; sourceTree = "<group>"; };
+		946A064516C5333C00E385FB /* INLBlacklistedTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLBlacklistedTestCase.m; sourceTree = "<group>"; };
 		947D0D0816C3C449007B395C /* INLGroupedReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLGroupedReporter.h; sourceTree = "<group>"; };
 		947D0D0916C3C450007B395C /* INLGroupedReporterSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLGroupedReporterSpec.m; sourceTree = "<group>"; };
 		947EA9ED16B7237900FE8D79 /* INLGroupSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLGroupSpec.m; sourceTree = "<group>"; };
@@ -129,6 +141,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		946A064016C531B700E385FB /* Supporting Classes */ = {
+			isa = PBXGroup;
+			children = (
+				946A063A16C5319D00E385FB /* INLTestCaseA.h */,
+				946A063B16C5319D00E385FB /* INLTestCaseA.m */,
+				946A063D16C531B300E385FB /* INLTestCaseB.h */,
+				946A063E16C531B300E385FB /* INLTestCaseB.m */,
+				946A064116C5324100E385FB /* INLFakeTest.h */,
+				946A064216C5324100E385FB /* INLFakeTest.m */,
+				946A064416C5333C00E385FB /* INLBlacklistedTestCase.h */,
+				946A064516C5333C00E385FB /* INLBlacklistedTestCase.m */,
+			);
+			name = "Supporting Classes";
+			sourceTree = "<group>";
+		};
 		94A1C76916A97B3F008C170D = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +230,7 @@
 				9460776F16C02F96001BD9FA /* INLBlockTestSpec.m */,
 				947EAA0C16B754B400FE8D79 /* INLHookSpec.m */,
 				9460777216C089F0001BD9FA /* INLBlockHookSpec.m */,
+				946A064016C531B700E385FB /* Supporting Classes */,
 				94C76EA716AF2AED00F94E8F /* Supporting Files */,
 			);
 			path = Specs;
@@ -386,6 +414,10 @@
 				9460777016C02F96001BD9FA /* INLBlockTestSpec.m in Sources */,
 				9460777316C089F0001BD9FA /* INLBlockHookSpec.m in Sources */,
 				947D0D0A16C3C450007B395C /* INLGroupedReporterSpec.m in Sources */,
+				946A063C16C5319D00E385FB /* INLTestCaseA.m in Sources */,
+				946A063F16C531B300E385FB /* INLTestCaseB.m in Sources */,
+				946A064316C5324100E385FB /* INLFakeTest.m in Sources */,
+				946A064616C5333C00E385FB /* INLBlacklistedTestCase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

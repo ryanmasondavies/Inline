@@ -6,22 +6,6 @@
 //  Copyright (c) 2013 Ryan Davies. All rights reserved.
 //
 
-@interface INLTestCaseA : INLTestCase; @end
-@interface INLTestCaseB : INLTestCase; @end
-
-@implementation INLTestCaseA; @end
-@implementation INLTestCaseB; @end
-
-@interface INLBlacklistedTestCase : INLTestCase; @end
-@implementation INLBlacklistedTestCase
-+ (NSArray *)blacklistedClasses { return @[[INLBlacklistedTestCase class]]; }
-@end
-
-@interface INLFakeTest : INLTest; @end
-@implementation INLFakeTest
-- (NSString *)description { return @"the test"; }
-@end
-
 SpecBegin(INLTestCase)
 
 describe(@"+builder", ^{
@@ -31,15 +15,11 @@ describe(@"+builder", ^{
     
     it(@"should be per-subclass", ^{
         NSMutableArray *builders = [NSMutableArray array];
-        for (NSUInteger i = 0; i < 2; i ++)
-            builders[i] = [OCMockObject niceMockForClass:[INLBuilder class]];
-        
+        for (NSUInteger i = 0; i < 2; i ++) builders[i] = [[INLBuilder alloc] init];
         [INLTestCaseA setBuilder:builders[0]];
         [INLTestCaseB setBuilder:builders[1]];
-        
         expect([INLTestCaseA builder]).to.beIdenticalTo(builders[0]);
         expect([INLTestCaseB builder]).to.beIdenticalTo(builders[1]);
-        
         [INLTestCaseA setBuilder:nil];
         [INLTestCaseB setBuilder:nil];
     });
@@ -52,15 +32,11 @@ describe(@"+compiler", ^{
     
     it(@"should be per-subclass", ^{
         NSMutableArray *compilers = [NSMutableArray array];
-        for (NSUInteger i = 0; i < 2; i ++)
-            compilers[i] = [OCMockObject niceMockForClass:[INLCompiler class]];
-        
+        for (NSUInteger i = 0; i < 2; i ++) compilers[i] = [[INLCompiler alloc] init];
         [INLTestCaseA setCompiler:compilers[0]];
         [INLTestCaseB setCompiler:compilers[1]];
-        
         expect([INLTestCaseA compiler]).to.beIdenticalTo(compilers[0]);
         expect([INLTestCaseB compiler]).to.beIdenticalTo(compilers[1]);
-        
         [INLTestCaseA setCompiler:nil];
         [INLTestCaseB setCompiler:nil];
     });
@@ -68,22 +44,16 @@ describe(@"+compiler", ^{
 
 describe(@"+testInvocations", ^{
     it(@"should pass the root group of the builder to the compiler", ^{
-        id builder  = [OCMockObject mockForClass:[INLBuilder class]];
-        id compiler = [OCMockObject mockForClass:[INLCompiler class]];
-        
-        INLGroup *group = [OCMockObject mockForClass:[INLGroup class]];
+        INLBuilder  *builder  = [OCMockObject mockForClass:[INLBuilder class]];
+        INLCompiler *compiler = [OCMockObject mockForClass:[INLCompiler class]];
+        INLGroup *group = [[INLGroup alloc] init];
         NSArray *invocations = [NSArray array];
-        
-        [[[builder expect] andReturn:group] rootGroup];
-        [[[compiler expect] andReturn:invocations] invocationsForGroup:group];
-        
+        [[[(id)builder expect] andReturn:group] rootGroup];
+        [[[(id)compiler expect] andReturn:invocations] invocationsForGroup:group];
         [INLTestCase setBuilder:builder];
         [INLTestCase setCompiler:compiler];
-        
         expect([INLTestCase testInvocations]).to.beIdenticalTo(invocations);
-        
-        [builder verify];
-        
+        [(id)builder verify];
         [INLTestCase setBuilder:nil];
         [INLTestCase setCompiler:nil];
     });
@@ -91,7 +61,6 @@ describe(@"+testInvocations", ^{
 
 describe(@"+senAllSuperclasses", ^{
     it(@"should return an array without SenTestCase for blacklisted classes", ^{
-        // Class mocking should be used here to remove the need for INLBlacklistedTestCase.
         expect([INLBlacklistedTestCase senAllSuperclasses]).notTo.contain([SenTestCase class]);
     });
     
@@ -108,13 +77,8 @@ describe(@"+blacklistedClasses", ^{
 
 describe(@"-name", ^{
     it(@"should return the description of the current test", ^{
-        // This test needs improvement. OCMock does not allow stubbing of -description, so INLFakeTest is necessary.
-        // The need for INLFakeTest will be removed once Mockingbird supports mocks and stubbing.
-        
-        id invocation = [OCMockObject niceMockForClass:[INLInvocation class]];
-        id test = [INLFakeTest new];
-        [[[invocation stub] andReturn:test] test];
-        
+        INLFakeTest *test = [[INLFakeTest alloc] initWithDescription:@"the test"];
+        id invocation = [INLInvocation invocationWithTest:test];
         INLTestCase *testCase = [[INLTestCase alloc] initWithInvocation:invocation];
         expect([testCase name]).to.equal(@"the test");
     });
