@@ -13,12 +13,15 @@
 - (void)setBlock:(void (^)(void))block
 {
     _block = block;
-    self.state = INLTestStateReady;
+    if (block)
+        self.state = INLTestStateReady;
+    else
+        self.state = INLTestStatePending;
 }
 
 - (void)execute
 {
-    if (self.block == nil) return;
+    if (self.state == INLTestStatePending) return;
     [self executeBeforeHooks];
     self.block();
     [self executeAfterHooks];
