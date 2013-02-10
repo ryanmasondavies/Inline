@@ -8,10 +8,7 @@
 
 SpecBegin(INLGroup)
 
-__block INLGroup *group;
-before(^{ group = [[INLGroup alloc] init]; });
-
-when(@"newly created", ^{
+void(^itShouldBeEmpty)(INLGroup *) = ^(INLGroup *group) {
     it(@"should have no groups", ^{
         expect([group groups]).to.haveCountOf(0);
     });
@@ -23,52 +20,64 @@ when(@"newly created", ^{
     it(@"should have no hooks", ^{
         expect([group hooks]).to.haveCountOf(0);
     });
+};
+
+__block INLGroup *group;
+before(^{ group = [[INLGroup alloc] init]; });
+
+when(@"initialized", ^{
+    itShouldBeEmpty([INLGroup new]);
 });
 
-describe(@"-addGroup:", ^{
+when(@"initialized with a parent", ^{
+    itShouldBeEmpty([[INLGroup alloc] initWithParent:[INLGroup new]]);
+    
+    it(@"should belong to the parent", ^{
+        INLGroup *parent = [[INLGroup alloc] init];
+        INLGroup *child = [[INLGroup alloc] initWithParent:parent];
+        expect([child parent]).to.beIdenticalTo(parent);
+    });
+});
+
+when(@"a group is added", ^{
     __block INLGroup *child;
     before(^{ child = [[INLGroup alloc] init]; });
+    void(^add)(void) = ^(void) { [group addGroup:child]; };
     
-    it(@"should add a new group to `groups`", ^{
-        [group addGroup:child];
-        expect([[group groups] lastObject]).to.beIdenticalTo(child);
+    it(@"should add it to 'groups'", ^{
+        add(); expect([[group groups] lastObject]).to.beIdenticalTo(child);
     });
     
-    it(@"should assign the group as the parent for the added group", ^{
-        [group addGroup:child];
-        expect([child parent]).to.beIdenticalTo(group);
-    });
-});
-
-describe(@"-addTest:", ^{
-    __block id test;
-    before(^{ test = [OCMockObject niceMockForClass:[INLTest class]]; });
-    
-    it(@"should add a new test to `tests`", ^{
-        [group addTest:test];
-        expect([[group tests] lastObject]).to.beIdenticalTo(test);
-    });
-    
-    it(@"should assign the group as the parent for the test", ^{
-        [[test expect] setParent:group];
-        [group addTest:test];
-        [test verify];
+    it(@"should mark it as a child of the parent group", ^{
+        add(); expect([child parent]).to.beIdenticalTo(group);
     });
 });
 
-describe(@"-addHook:", ^{
-    __block id hook;
-    before(^{ hook = [OCMockObject niceMockForClass:[INLHook class]]; });
+when(@"a test is added", ^{
+    __block INLTest *test;
+    before(^{ test = [[INLTest alloc] init]; });
+    void(^add)(void) = ^(void) { [group addTest:test]; };
     
-    it(@"should add a new hook to `hooks`", ^{
-        [group addHook:hook];
-        expect([[group hooks] lastObject]).to.beIdenticalTo(hook);
+    it(@"should add it to 'tests'", ^{
+        add(); expect([[group tests] lastObject]).to.beIdenticalTo(test);
     });
     
-    it(@"should assign the group as the parent for the hook", ^{
-        [[hook expect] setParent:group];
-        [group addHook:hook];
-        [hook verify];
+    it(@"should mark it as a child of the parent group", ^{
+        add(); expect([test parent]).to.beIdenticalTo(group);
+    });
+});
+
+when(@"a hook is added", ^{
+    __block INLHook *hook;
+    before(^{ hook = [[INLHook alloc] init]; });
+    void(^add)(void) = ^(void) { [group addHook:hook]; };
+    
+    it(@"should add it to 'hooks'", ^{
+        add(); expect([[group hooks] lastObject]).to.beIdenticalTo(hook);
+    });
+    
+    it(@"should mark it as a child of the parent group", ^{
+        add(); expect([hook parent]).to.beIdenticalTo(group);
     });
 });
 

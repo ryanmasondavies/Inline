@@ -13,6 +13,26 @@
 /** Represents a group of tests and their hooks. */
 @interface INLGroup : NSObject <INLNode>
 
+/**
+ @param parent The parent for the group.
+ @return A new group with the given parent. */
+- (id)initWithParent:(INLGroup *)parent;
+
+/**
+ Adds a group to groups.
+ @param group The group to add as a child. */
+- (void)addGroup:(INLGroup *)group;
+
+/**
+ Adds a test to tests.
+ @param test The test to add to tests. */
+- (void)addTest:(INLTest *)test;
+
+/**
+ Adds a hook to hooks.
+ @param hook The hook to add to hooks. */
+- (void)addHook:(INLHook *)hook;
+
 /** The parent of the group. */
 @property (weak, nonatomic) INLGroup *parent;
 
@@ -27,17 +47,5 @@
 
 /** A list of the hooks that have been added to the group. */
 @property (strong, nonatomic) NSArray *hooks;
-
-/** Adds a group to groups.
- @param group The group to add as a child. */
-- (void)addGroup:(INLGroup *)group;
-
-/** Adds a test to tests.
- @param test The test to add to tests. */
-- (void)addTest:(INLTest *)test;
-
-/** Adds a hook to hooks.
- @param hook The hook to add to hooks. */
-- (void)addHook:(INLHook *)hook;
 
 @end

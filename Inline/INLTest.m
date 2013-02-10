@@ -12,6 +12,14 @@
 
 @implementation INLTest
 
+- (id)initWithParent:(INLGroup *)parent
+{
+    if (self = [super init]) {
+        self.parent = parent;
+    }
+    return self;
+}
+
 - (void)execute
 {
 }

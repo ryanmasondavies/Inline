@@ -8,33 +8,32 @@
 
 SpecBegin(INLTest)
 
-__block INLTest        *test;
 __block NSMutableArray *hooks;
 __block NSMutableArray *groups;
 __block NSMutableArray *order;
-
-NSMutableArray *(^mockGroup)(NSArray *, id) = ^(NSArray *hooks, id parent) {
-    id group = [OCMockObject niceMockForClass:[INLGroup class]];
-    [[[group stub] andReturn:hooks] hooks];
-    [[[group stub] andReturn:parent] parent];
-    return group;
-};
+__block INLTest        *test;
 
 before(^{
-    test   = [[INLTest alloc] init];
     hooks  = [NSMutableArray array];
     groups = [NSMutableArray array];
     order  = [NSMutableArray array];
     
     for (NSUInteger i = 0; i < 3; i ++) {
-        hooks[i] = [OCMockObject niceMockForClass:[INLHook class]];
+        groups[i] = [[INLGroup alloc] initWithParent:((i > 0) ? groups[i-1] : nil)];
+        hooks[i] = [OCMockObject partialMockForObject:[[INLHook alloc] init]];
         [[[hooks[i] expect] andDo:^(NSInvocation *invocation) { [order addObject:hooks[i]]; }] execute];
+        [groups[i] addHook:hooks[i]];
     }
     
-    for (NSUInteger i = 0; i < 3; i ++)
-        groups[i] = mockGroup(@[hooks[i]], (i > 0) ? groups[i-1] : nil);
-    
-    [test setParent:[groups lastObject]];
+    test = [[INLTest alloc] initWithParent:[groups lastObject]];
+});
+
+describe(@"-initWithParent:", ^{
+    it(@"should create a test with the given parent", ^{
+        INLGroup *parent = [[INLGroup alloc] init];
+        INLTest *child = [[INLTest alloc] initWithParent:parent];
+        expect([child parent]).to.beIdenticalTo(parent);
+    });
 });
 
 describe(@"state", ^{
@@ -62,10 +61,7 @@ describe(@"-executeBeforeHooks", ^{
         id hook = [OCMockObject mockForClass:[INLHook class]];
         [[[hook stub] andReturnValue:OCMOCK_VALUE((INLHookPlacement){INLHookPlacementAfter})] placement];
         [[hook reject] execute];
-        
-        groups[2] = mockGroup(@[hook], groups[1]);
-        [test setParent:groups[2]];
-        
+        [groups[2] setHooks:@[hook]];
         [test executeBeforeHooks];
         [hook verify];
     });
@@ -109,15 +105,11 @@ describe(@"-executeAfterHooks", ^{
         expect(order[2]).to.beIdenticalTo(hooks[0]);
     });
     
-    // This would be much easier if the return value of a stub could be modified.
     it(@"should not execute hooks with a placement of 'before'", ^{
         id hook = [OCMockObject mockForClass:[INLHook class]];
         [[[hook stub] andReturnValue:OCMOCK_VALUE((INLHookPlacement){INLHookPlacementBefore})] placement];
         [[hook reject] execute];
-        
-        groups[2] = mockGroup(@[hook], groups[1]);
-        [test setParent:groups[2]];
-        
+        [groups[2] setHooks:@[hook]];
         [test executeAfterHooks];
         [hook verify];
     });
