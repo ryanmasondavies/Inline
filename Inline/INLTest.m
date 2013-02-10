@@ -40,17 +40,10 @@
 
 - (NSArray *)hooks
 {
-    // Accumulate hooks by working up the chain:
-    INLGroup *group = [self parent];
-    NSMutableArray *hooks  = [NSMutableArray array];
-    while (group != nil) {
-        // Because we're working our way out from the example, hooks must be inserted at the front of the array:
-        [hooks insertObjects:[group hooks] atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [[group hooks] count])]];
-        
-        // Move to group's parent:
-        group = [group parent];
-    }
-    
+    NSMutableArray *hooks = [NSMutableArray array];
+    [[self path] enumerateObjectsUsingBlock:^(INLGroup *group, NSUInteger i, BOOL *stop) {
+        [hooks addObjectsFromArray:[group hooks]];
+    }];
     return [NSArray arrayWithArray:hooks];
 }
 
