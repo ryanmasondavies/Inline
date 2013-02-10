@@ -26,23 +26,28 @@
 
 - (NSArray *)nodesOfKind:(Class)kind
 {
+    NSAssert(kind, @"Must be passed a class.");
+    
     NSMutableArray *nodes = [NSMutableArray array];
     [[self nodes] enumerateObjectsUsingBlock:^(INLNode *node, NSUInteger idx, BOOL *stop) {
         if ([node isKindOfClass:kind]) {
             [nodes addObject:node];
         }
     }];
+    
     return [NSArray arrayWithArray:nodes];
 }
 
 - (void)addNode:(INLNode *)node
 {
+    NSAssert(node, @"Must be passed a node.");
     [[self nodes] addObject:node];
     [node setParent:self];
 }
 
 - (void)removeNode:(INLNode *)node
 {
+    NSAssert(node, @"Must be passed a node.");
     [[self nodes] removeObject:node];
     [node setParent:nil];
 }

@@ -39,6 +39,7 @@
         builder = [[INLBuilder alloc] init];
         [self setBuilder:builder];
     }
+    
     return builder;
 }
 
@@ -57,6 +58,7 @@
         compiler = [[INLCompiler alloc] init];
         [self setCompiler:compiler];
     }
+    
     return compiler;
 }
 
@@ -70,6 +72,8 @@
 
 + (NSArray *)testInvocations
 {
+    NSAssert([self compiler], @"Must have a compiler.");
+    NSAssert([self builder],  @"Must have a builder.");
     return [[self compiler] invocationsForGroup:[[self builder] rootGroup]];
 }
 
@@ -85,11 +89,15 @@
     return @[[INLTestCase class]];
 }
 
+- (INLTest *)test
+{
+    return [(INLInvocation *)[self invocation] test];
+}
+
 - (NSString *)name
 {
-    INLInvocation *invocation = (INLInvocation *)[self invocation];
-    INLTest *test = [invocation test];
-    return [test description];
+    NSAssert([self test], @"Must have a test.");
+    return [[self test] description];
 }
 
 @end

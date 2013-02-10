@@ -19,19 +19,25 @@
 
 - (id)initWithDestinationNode:(INLNode *)destinationNode
 {
+    NSAssert(destinationNode, @"Must be passed a destination node.");
+    
     if (self = [super init]) {
         self.nodes           = [self parentsOfNode:destinationNode];
         self.destinationNode = destinationNode;
     }
+    
     return self;
 }
 
 - (NSArray *)parentsOfNode:(INLNode *)node
 {
+    NSAssert(node, @"Must be passed a node.");
+    
     if ([node parent] == nil) return @[];
     NSArray *path = [NSArray array];
     path = [path arrayByAddingObjectsFromArray:[self parentsOfNode:[node parent]]];
     path = [path arrayByAddingObject:[node parent]];
+    
     return path;
 }
 

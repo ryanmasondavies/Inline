@@ -36,27 +36,38 @@
 
 - (INLTest *)testFromNotification:(NSNotification *)notification
 {
+    NSAssert(notification, @"Must be passed a notification.");
+    
     SenTestRun *run = [notification run];
     INLTestCase *testCase = (INLTestCase *)[run test];
     INLInvocation *invocation = (INLInvocation *)[testCase invocation];
+    
     return [invocation test];
 }
 
 - (NSString *)prefixForNode:(INLNode *)node inRun:(SenTestRun *)run
 {
+    NSAssert(node, @"Must be passed a node.");
+    NSAssert(run,  @"Must be passed a run.");
+    
     if ([node isKindOfClass:[INLTest class]] == NO) return nil;
     return [self prefixForTest:(INLTest *)node inRun:run];
 }
 
 - (NSString *)prefixForTest:(INLTest *)test inRun:(SenTestRun *)run
 {
+    NSAssert(test, @"Must be passed a test.");
+    NSAssert(run,  @"Must be passed a run.");
+    
     if ([test state] == INLTestStatePending) return @"[P]";
     if ([run hasSucceeded] == NO) return @"[F]";
+    
     return nil;
 }
 
 - (NSArray *)pathForNotification:(NSNotification *)notification
 {
+    NSAssert(notification, @"Must be passed a notification.");
     INLTest *test = [self testFromNotification:notification];
     return [[[test nodePath] nodes] arrayByAddingObject:test];
 }
@@ -72,6 +83,7 @@
 
 - (void)testDidEnd:(NSNotification *)notification
 {
+    NSAssert(notification, @"Must be passed a notification.");
     [[self pathForNotification:notification] enumerateObjectsUsingBlock:^(INLNode *node, NSUInteger idx, BOOL *stop) {
         if ([self.history containsObject:node]) return;
         [self logLabel:[node label] prefix:[self prefixForNode:node inRun:[notification run]] indentLevel:idx];

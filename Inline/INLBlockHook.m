@@ -12,6 +12,7 @@
 
 - (void)execute
 {
+    NSAssert([self block], @"Must have a block.");
     self.block();
 }
 

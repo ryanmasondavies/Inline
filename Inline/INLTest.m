@@ -28,6 +28,8 @@
 
 - (void)executeHooks:(NSArray *)hooks withPlacement:(INLHookPlacement)placement usingEnumerator:(NSEnumerator *)enumerator
 {
+    NSAssert(enumerator, @"Must be passed an enumerator.");
+    
     for (INLHook *hook in enumerator) {
         if ([hook placement] == placement) {
             [hook execute];
