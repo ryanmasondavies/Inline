@@ -41,7 +41,7 @@
 
 - (void)executeAfterHooks
 {
-    [self executeHooks:[self hooks] withPlacement:INLHookPlacementBefore usingEnumerator:[[self hooks] reverseObjectEnumerator]];
+    [self executeHooks:[self hooks] withPlacement:INLHookPlacementAfter usingEnumerator:[[self hooks] reverseObjectEnumerator]];
 }
 
 @end
