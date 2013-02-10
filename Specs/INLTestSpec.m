@@ -56,104 +56,90 @@ when(@"initialized", ^{
     });
 });
 
-when(@"initialized with a parent", ^{
-    it(@"is in 'pending' state", ^{
-        expect([test state]).to.equal(INLTestStatePending);
+when(@"executing hooks", ^{
+    void(^itIgnoresSiblingAndDeeperNestedHooks)(INLHookPlacement) = ^(INLHookPlacement placement) {
+        it(@"ignores hooks in sibling groups", ^{
+            id sibling = [OCMockObject niceMockForClass:[INLGroup class]];
+            [[[sibling stub] andReturn:groups[1]] parent];
+            id hook = [OCMockObject niceMockForClass:[INLHook class]];
+            [[[hook stub] andReturn:sibling] parent];
+            [[hook reject] execute];
+            [test executeHooksInNodePath:[test nodePath] placement:placement];
+            [hook verify];
+        });
+        
+        it(@"ignores hooks in more deeply nested groups", ^{
+            id descendant = [OCMockObject niceMockForClass:[INLGroup class]];
+            [[[descendant stub] andReturn:groups[2]] parent];
+            id hook = [OCMockObject niceMockForClass:[INLHook class]];
+            [[[hook stub] andReturn:descendant] parent];
+            [[hook reject] execute];
+            [test executeHooksInNodePath:[test nodePath] placement:placement];
+            [hook verify];
+        });
+    };
+    
+    context(@"with a placement of 'before'", ^{
+        before(^{
+            [hooks enumerateObjectsUsingBlock:^(id hook, NSUInteger idx, BOOL *stop) {
+                [hook setPlacement:INLHookPlacementBefore];
+            }];
+        });
+        
+        void(^execute)(void) = ^(void) {
+            [test executeHooksInNodePath:[test nodePath] placement:INLHookPlacementBefore];
+        };
+        
+        it(@"executes hooks in forward order", ^{
+            execute();
+            expect(order[0]).to.beIdenticalTo(hooks[0]);
+            expect(order[1]).to.beIdenticalTo(hooks[1]);
+            expect(order[2]).to.beIdenticalTo(hooks[2]);
+        });
+        
+        // This would be much easier if the return value of a stub could be modified.
+        it(@"doesn't execute hooks with a placement of 'after'", ^{
+            [groups[2] removeNode:hooks[2]];
+            hooks[2] = [OCMockObject partialMockForObject:[INLHook new]];
+            [hooks[2] setPlacement:INLHookPlacementAfter];
+            [[hooks[2] reject] execute];
+            [groups[2] addNode:hooks[2]];
+            execute();
+            [hooks[2] verify];
+        });
+        
+        itIgnoresSiblingAndDeeperNestedHooks(INLHookPlacementBefore);
     });
-});
 
-when(@"before hooks are executed", ^{
-    before(^{
-        [hooks enumerateObjectsUsingBlock:^(id hook, NSUInteger idx, BOOL *stop) {
-            [hook setPlacement:INLHookPlacementBefore];
-        }];
-    });
-    
-    it(@"executes hooks in forward order", ^{
-        [test executeBeforeHooks];
-        expect(order[0]).to.beIdenticalTo(hooks[0]);
-        expect(order[1]).to.beIdenticalTo(hooks[1]);
-        expect(order[2]).to.beIdenticalTo(hooks[2]);
-    });
-    
-    // This would be much easier if the return value of a stub could be modified.
-    it(@"doesn't execute hooks with a placement of 'after'", ^{
-        [groups[2] removeNode:hooks[2]];
-        hooks[2] = [OCMockObject partialMockForObject:[INLHook new]];
-        [hooks[2] setPlacement:INLHookPlacementAfter];
-        [[hooks[2] reject] execute];
-        [groups[2] addNode:hooks[2]];
-        [test executeBeforeHooks];
-        [hooks[2] verify];
-    });
-    
-    it(@"ignores hooks in sibling groups", ^{
-        id sibling = [OCMockObject niceMockForClass:[INLGroup class]];
-        [[[sibling stub] andReturn:groups[1]] parent];
-        id hook = [OCMockObject niceMockForClass:[INLHook class]];
-        [[[hook stub] andReturn:sibling] parent];
-        [[hook reject] execute];
-        [test executeBeforeHooks];
-        [hook verify];
-    });
-    
-    it(@"ignores hooks in more deeply nested groups", ^{
-        id descendant = [OCMockObject niceMockForClass:[INLGroup class]];
-        [[[descendant stub] andReturn:groups[2]] parent];
-        id hook = [OCMockObject niceMockForClass:[INLHook class]];
-        [[[hook stub] andReturn:descendant] parent];
-        [[hook reject] execute];
-        [test executeBeforeHooks];
-        [hook verify];
-    });
-});
-
-when(@"after hooks are executed", ^{
-    before(^{
-        [hooks enumerateObjectsUsingBlock:^(id hook, NSUInteger idx, BOOL *stop) {
-            [hook setPlacement:INLHookPlacementAfter];
-        }];
-    });
-    
-    it(@"executes hooks in outward order", ^{
-        [test executeAfterHooks];
-        expect(order[0]).to.beIdenticalTo(hooks[2]);
-        expect(order[1]).to.beIdenticalTo(hooks[1]);
-        expect(order[2]).to.beIdenticalTo(hooks[0]);
-    });
-    
-    it(@"doesn't execute hooks with a placement of 'before'", ^{
-        [groups[2] removeNode:hooks[2]];
-        hooks[2] = [OCMockObject partialMockForObject:[INLHook new]];
-        [hooks[2] setPlacement:INLHookPlacementBefore];
-        [[hooks[2] reject] execute];
-        [groups[2] addNode:hooks[2]];
-        [test executeAfterHooks];
-        [hooks[2] verify];
-    });
-    
-    it(@"ignores hooks in sibling groups", ^{
-        id sibling = [OCMockObject niceMockForClass:[INLGroup class]];
-        [[[sibling stub] andReturn:groups[1]] parent];
+    when(@"with a placement of 'after'", ^{
+        before(^{
+            [hooks enumerateObjectsUsingBlock:^(id hook, NSUInteger idx, BOOL *stop) {
+                [hook setPlacement:INLHookPlacementAfter];
+            }];
+        });
         
-        id hook = [OCMockObject niceMockForClass:[INLHook class]];
-        [[[hook stub] andReturn:sibling] parent];
-        [[hook reject] execute];
+        void(^execute)(void) = ^(void) {
+            [test executeHooksInNodePath:[test nodePath] placement:INLHookPlacementAfter];
+        };
         
-        [test executeAfterHooks];
-        [hook verify];
-    });
-    
-    it(@"ignores hooks in more deeply nested groups", ^{
-        id descendant = [OCMockObject niceMockForClass:[INLGroup class]];
-        [[[descendant stub] andReturn:groups[2]] parent];
+        it(@"executes hooks in outward order", ^{
+            execute();
+            expect(order[0]).to.beIdenticalTo(hooks[2]);
+            expect(order[1]).to.beIdenticalTo(hooks[1]);
+            expect(order[2]).to.beIdenticalTo(hooks[0]);
+        });
         
-        id hook = [OCMockObject niceMockForClass:[INLHook class]];
-        [[[hook stub] andReturn:descendant] parent];
-        [[hook reject] execute];
+        it(@"doesn't execute hooks with a placement of 'before'", ^{
+            [groups[2] removeNode:hooks[2]];
+            hooks[2] = [OCMockObject partialMockForObject:[INLHook new]];
+            [hooks[2] setPlacement:INLHookPlacementBefore];
+            [[hooks[2] reject] execute];
+            [groups[2] addNode:hooks[2]];
+            execute();
+            [hooks[2] verify];
+        });
         
-        [test executeAfterHooks];
-        [hook verify];
+        itIgnoresSiblingAndDeeperNestedHooks(INLHookPlacementAfter);
     });
 });
 

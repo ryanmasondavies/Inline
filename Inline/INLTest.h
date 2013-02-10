@@ -7,6 +7,7 @@
 //
 
 #import "INLNode.h"
+#import "INLHook.h"
 @class INLGroup;
 
 typedef NS_ENUM(NSInteger, INLTestState) {
@@ -21,11 +22,11 @@ typedef NS_ENUM(NSInteger, INLTestState) {
 /** Runs the test. Must be overridden by subclasses. It is advised that subclasses invoke executeBeforeHooks and executeAfterHooks around execution of the test itself. */
 - (void)execute;
 
-/** Invokes [INLHook execute] on all hooks with a placement of 'before' in outermost-first order. */
-- (void)executeBeforeHooks;
-
-/** Invokes [INLHook execute] on all hooks with a placement of 'after' in innermost-first order. */
-- (void)executeAfterHooks;
+/** Executes all hooks – with the given placement – attached to each group in the given node path.
+ @param nodePath The path for which to execute hooks.
+ @param placement The placement by which to filter hooks.
+ */
+- (void)executeHooksInNodePath:(INLNodePath *)nodePath placement:(INLHookPlacement)placement;
 
 /** The states a test can be in.
  

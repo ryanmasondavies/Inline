@@ -22,9 +22,9 @@
 - (void)execute
 {
     if (self.state == INLTestStatePending) return;
-    [self executeBeforeHooks];
+    [self executeHooksInNodePath:[self nodePath] placement:INLHookPlacementBefore];
     self.block();
-    [self executeAfterHooks];
+    [self executeHooksInNodePath:[self nodePath] placement:INLHookPlacementAfter];
     self.state = INLTestStateExecuted;
 }
 

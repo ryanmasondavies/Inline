@@ -37,13 +37,13 @@ before(^{
 itShouldBehaveLikeANode([INLBlockTest class]);
 
 describe(@"-setBlock:", ^{
-    it(@"should set test state to 'ready'", ^{
+    it(@"sets test state to 'ready'", ^{
         [test setBlock:^{}];
         expect([test state]).to.equal(INLTestStateReady);
     });
     
     when(@"passing in nil", ^{
-        it(@"should set test state to 'pending'", ^{
+        it(@"sets test state to 'pending'", ^{
             [test setState:INLTestStateReady];
             [test setBlock:nil];
             expect([test state]).to.equal(INLTestStatePending);
@@ -51,34 +51,30 @@ describe(@"-setBlock:", ^{
     });
 });
 
-describe(@"-execute", ^{
-    before(^{ test = [OCMockObject partialMockForObject:test]; });
+when(@"executed", ^{
+    __block INLNodePath *nodePath;
+    
+    before(^{
+        test = [OCMockObject partialMockForObject:test];
+        nodePath = [[INLNodePath alloc] init];
+        [[[test stub] andReturn:nodePath] nodePath];
+    });
     
     when(@"ready", ^{
-        it(@"should execute before hooks", ^{
-            __block BOOL performedExecutedBeforeHooks = NO;
-            [[[test expect] andDo:^(NSInvocation *invocation) { performedExecutedBeforeHooks = YES; }] executeBeforeHooks];
-            [test setBlock:^{ expect(performedExecutedBeforeHooks).to.beTruthy(); }];
+        it(@"executes hooks around block", ^{
+            __block NSString *step = @"";
+            [[[test expect] andDo:^(NSInvocation *invocation) {
+                step = @"before";
+            }] executeHooksInNodePath:nodePath placement:INLHookPlacementBefore];
+            [[[test expect] andDo:^(NSInvocation *invocation) {
+                step = @"after";
+            }] executeHooksInNodePath:nodePath placement:INLHookPlacementAfter];
+            [test setBlock:^{ expect(step).to.equal(@"before"); }];
             [test execute];
             [test verify];
         });
         
-        it(@"should invoke the block", ^{
-            __block BOOL executed = NO;
-            [test setBlock:^{ executed = YES; }];
-            [test execute];
-            expect(executed).to.beTruthy();
-        });
-        
-        it(@"should execute after hooks", ^{
-            __block BOOL performedBlock = NO;
-            [test setBlock:^{ performedBlock = YES; }];
-            [[[test expect] andDo:^(NSInvocation *invocation) { expect(performedBlock).to.beTruthy(); }] executeAfterHooks];
-            [test execute];
-            [test verify];
-        });
-        
-        it(@"should mark test as executed", ^{
+        it(@"marks test as executed", ^{
             [test setBlock:^{}];
             [test execute];
             expect([test state]).to.equal(INLTestStateExecuted);
@@ -86,7 +82,7 @@ describe(@"-execute", ^{
     });
     
     when(@"pending", ^{
-        it(@"should remain pending", ^{
+        it(@"remains pending", ^{
             [test setState:INLTestStatePending];
             [test execute];
             expect([test state]).to.equal(INLTestStatePending);

@@ -17,34 +17,33 @@
 {
 }
 
-- (NSArray *)hooks
+- (NSArray *)hooksInNodePath:(INLNodePath *)nodePath placement:(INLHookPlacement)placement
 {
     NSMutableArray *hooks = [NSMutableArray array];
-    [[[self nodePath] nodes] enumerateObjectsUsingBlock:^(INLGroup *group, NSUInteger i, BOOL *stop) {
-        [hooks addObjectsFromArray:[group hooks]];
+    [[nodePath nodes] enumerateObjectsUsingBlock:^(INLGroup *group, NSUInteger i, BOOL *stop) {
+        [[group hooks] enumerateObjectsUsingBlock:^(INLHook *hook, NSUInteger idx, BOOL *stop) {
+            if ([hook placement] == placement) {
+                [hooks addObject:hook];
+            }
+        }];
     }];
     return [NSArray arrayWithArray:hooks];
 }
 
-- (void)executeHooks:(NSArray *)hooks withPlacement:(INLHookPlacement)placement usingEnumerator:(NSEnumerator *)enumerator
+- (NSEnumerator *)enumeratorForHooks:(NSArray *)hooks placement:(INLHookPlacement)placement
 {
-    NSAssert(enumerator, @"Must be passed an enumerator.");
-    
-    for (INLHook *hook in enumerator) {
-        if ([hook placement] == placement) {
-            [hook execute];
-        }
+    if (placement == INLHookPlacementBefore) return [hooks objectEnumerator];
+    if (placement == INLHookPlacementAfter)  return [hooks reverseObjectEnumerator];
+    return nil;
+}
+
+- (void)executeHooksInNodePath:(INLNodePath *)nodePath placement:(INLHookPlacement)placement
+{
+    NSAssert(nodePath, @"Must pass in a node path.");
+    NSArray *hooks = [self hooksInNodePath:nodePath placement:placement];
+    for (INLHook *hook in [self enumeratorForHooks:hooks placement:placement]) {
+        [hook execute];
     }
-}
-
-- (void)executeBeforeHooks
-{
-    [self executeHooks:[self hooks] withPlacement:INLHookPlacementBefore usingEnumerator:[[self hooks] objectEnumerator]];
-}
-
-- (void)executeAfterHooks
-{
-    [self executeHooks:[self hooks] withPlacement:INLHookPlacementAfter usingEnumerator:[[self hooks] reverseObjectEnumerator]];
 }
 
 @end
