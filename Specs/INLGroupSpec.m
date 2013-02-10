@@ -19,27 +19,18 @@ void(^itShouldBehaveLikeANode)(Class) = ^(Class klass) {
         });
     });
     
-    describe(@"path", ^{
-        it(@"is built up of the groups leading to the test", ^{
-            NSMutableArray *groups = [NSMutableArray array];
-            for (NSUInteger i = 0; i < 5; i ++) groups[i] = [[INLGroup alloc] initWithParent:((i > 0) ? groups[i-1] : nil)];
-            INLNode *node = [[klass alloc] initWithParent:[groups lastObject]];
-            for (NSUInteger i = 0; i < 5; i ++) expect([node path][i]).to.beIdenticalTo(groups[i]);
+    describe(@"node path", ^{
+        __block INLNode     *node;
+        __block INLNodePath *nodePath;
+        
+        before(^{
+            node = [[klass alloc] init];
+            nodePath = [node nodePath];
         });
-    });
-};
-
-void(^itShouldBeEmpty)(INLGroup *) = ^(INLGroup *group) {
-    it(@"should have no groups", ^{
-        expect([group groups]).to.equal(@[]);
-    });
-    
-    it(@"should have no tests", ^{
-        expect([group tests]).to.equal(@[]);
-    });
-    
-    it(@"should have no hooks", ^{
-        expect([group hooks]).to.equal(@[]);
+        
+        it(@"points to the node", ^{
+            expect([nodePath destinationNode]).to.beIdenticalTo(node);
+        });
     });
 };
 
@@ -47,10 +38,6 @@ __block INLGroup *group;
 before(^{ group = [[INLGroup alloc] init]; });
 
 itShouldBehaveLikeANode([INLGroup class]);
-
-when(@"initialized", ^{
-    itShouldBeEmpty([INLGroup new]);
-});
 
 when(@"a group is added", ^{
     __block INLGroup *child;

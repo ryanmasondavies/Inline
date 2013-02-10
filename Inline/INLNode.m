@@ -8,6 +8,7 @@
 
 #import "INLNode.h"
 #import "INLGroup.h"
+#import "INLNodePath.h"
 
 @implementation INLNode
 
@@ -26,6 +27,11 @@
     path = [path arrayByAddingObjectsFromArray:[[self parent] path]];
     path = [path arrayByAddingObject:[self parent]];
     return path;
+}
+
+- (INLNodePath *)nodePath
+{
+    return [[INLNodePath alloc] initWithDestinationNode:self];
 }
 
 @end

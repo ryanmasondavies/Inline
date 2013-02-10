@@ -23,12 +23,12 @@
 - (void)removeNode:(INLNode *)node;
 
 /** A list of the child groups that have been added to the group. */
-@property (strong, nonatomic, readonly) NSArray *groups;
+@property (nonatomic, readonly) NSArray *groups;
 
 /** A list of the tests that have been added to the group. */
-@property (strong, nonatomic, readonly) NSArray *tests;
+@property (nonatomic, readonly) NSArray *tests;
 
 /** A list of the hooks that have been added to the group. */
-@property (strong, nonatomic, readonly) NSArray *hooks;
+@property (nonatomic, readonly) NSArray *hooks;
 
 @end

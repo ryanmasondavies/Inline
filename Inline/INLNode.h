@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@class INLGroup;
+@class INLGroup, INLNodePath;
 
 /** The superclass to elements that can appear in a group. */
 @interface INLNode : NSObject
@@ -19,6 +19,9 @@
 
 /** @return The groups which lead to the test. */
 - (NSArray *)path;
+
+/** @return A path pointing to the node within it's hierarchy. */
+- (INLNodePath *)nodePath;
 
 /** The parent group of the node. */
 @property (weak, nonatomic) INLGroup *parent;

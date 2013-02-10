@@ -11,6 +11,8 @@
 		94088D3116A9A8CA00D7DEFC /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A1C78616A97B3F008C170D /* SenTestingKit.framework */; };
 		94088D4016A9A9CD00D7DEFC /* INLInvocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 94088D3F16A9A9CD00D7DEFC /* INLInvocation.m */; };
 		940BE8C416C3C42300527DF5 /* INLGroupedReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 940BE8C316C3C42300527DF5 /* INLGroupedReporter.m */; };
+		9432FCF016C80ED200CBDE3D /* INLNodePathSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 9432FCEF16C80ED200CBDE3D /* INLNodePathSpec.m */; };
+		9432FCF316C8122900CBDE3D /* INLNodePath.m in Sources */ = {isa = PBXBuildFile; fileRef = 9432FCF216C8122900CBDE3D /* INLNodePath.m */; };
 		9460776D16C02F86001BD9FA /* INLBlockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9460776C16C02F86001BD9FA /* INLBlockTest.m */; };
 		9460777016C02F96001BD9FA /* INLBlockTestSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 9460776F16C02F96001BD9FA /* INLBlockTestSpec.m */; };
 		9460777316C089F0001BD9FA /* INLBlockHookSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 9460777216C089F0001BD9FA /* INLBlockHookSpec.m */; };
@@ -74,6 +76,9 @@
 		940BE8C316C3C42300527DF5 /* INLGroupedReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLGroupedReporter.m; sourceTree = "<group>"; };
 		94139B1C16B1FC3400EA1E4F /* INLCompiler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INLCompiler.h; sourceTree = "<group>"; };
 		9424A22616B1541F004FEFCD /* INLBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INLBuilder.h; sourceTree = "<group>"; };
+		9432FCEF16C80ED200CBDE3D /* INLNodePathSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLNodePathSpec.m; sourceTree = "<group>"; };
+		9432FCF116C8122900CBDE3D /* INLNodePath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLNodePath.h; sourceTree = "<group>"; };
+		9432FCF216C8122900CBDE3D /* INLNodePath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLNodePath.m; sourceTree = "<group>"; };
 		9460776B16C02F86001BD9FA /* INLBlockTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLBlockTest.h; sourceTree = "<group>"; };
 		9460776C16C02F86001BD9FA /* INLBlockTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLBlockTest.m; sourceTree = "<group>"; };
 		9460776F16C02F96001BD9FA /* INLBlockTestSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLBlockTestSpec.m; sourceTree = "<group>"; };
@@ -206,6 +211,8 @@
 				947EAA0E16B7550C00FE8D79 /* INLCompiler.m */,
 				949504F316C51FE30067F026 /* INLNode.h */,
 				946B31F616C7D85000EA9855 /* INLNode.m */,
+				9432FCF116C8122900CBDE3D /* INLNodePath.h */,
+				9432FCF216C8122900CBDE3D /* INLNodePath.m */,
 				947EA9F516B724D600FE8D79 /* INLGroup.h */,
 				947EA9F616B724D600FE8D79 /* INLGroup.m */,
 				94088D4116A9AA1800D7DEFC /* INLTest.h */,
@@ -228,6 +235,7 @@
 				94C76EA016AF2AE400F94E8F /* INLInvocationSpec.m */,
 				947EAA0316B7314400FE8D79 /* INLBuilderSpec.m */,
 				947EAA1116B7551D00FE8D79 /* INLCompilerSpec.m */,
+				9432FCEF16C80ED200CBDE3D /* INLNodePathSpec.m */,
 				947EA9ED16B7237900FE8D79 /* INLGroupSpec.m */,
 				947EA9FB16B72BB800FE8D79 /* INLTestSpec.m */,
 				9460776F16C02F96001BD9FA /* INLBlockTestSpec.m */,
@@ -401,6 +409,7 @@
 				9460777616C08A61001BD9FA /* INLBlockHook.m in Sources */,
 				940BE8C416C3C42300527DF5 /* INLGroupedReporter.m in Sources */,
 				946B31F716C7D85000EA9855 /* INLNode.m in Sources */,
+				9432FCF316C8122900CBDE3D /* INLNodePath.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +431,7 @@
 				946A063F16C531B300E385FB /* INLTestCaseB.m in Sources */,
 				946A064316C5324100E385FB /* INLFakeTest.m in Sources */,
 				946A064616C5333C00E385FB /* INLBlacklistedTestCase.m in Sources */,
+				9432FCF016C80ED200CBDE3D /* INLNodePathSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

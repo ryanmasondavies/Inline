@@ -11,6 +11,7 @@
 #import "INLBuilder.h"
 #import "INLCompiler.h"
 #import "INLInvocation.h"
+#import "INLNodePath.h"
 #import "INLGroup.h"
 #import "INLTest.h"
 #import "INLBlockTest.h"
