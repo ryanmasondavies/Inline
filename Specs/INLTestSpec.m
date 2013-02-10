@@ -49,7 +49,7 @@ when(@"initialized with a parent", ^{
 when(@"before hooks are executed", ^{
     before(^{
         [hooks enumerateObjectsUsingBlock:^(id hook, NSUInteger idx, BOOL *stop) {
-            [[[hook stub] andReturnValue:OCMOCK_VALUE((INLHookPlacement){INLHookPlacementBefore})] placement];
+            [hook setPlacement:INLHookPlacementBefore];
         }];
     });
     
@@ -62,8 +62,8 @@ when(@"before hooks are executed", ^{
     
     // This would be much easier if the return value of a stub could be modified.
     it(@"should not execute hooks with a placement of 'after'", ^{
-        id hook = [OCMockObject mockForClass:[INLHook class]];
-        [[[hook stub] andReturnValue:OCMOCK_VALUE((INLHookPlacement){INLHookPlacementAfter})] placement];
+        id hook = [OCMockObject partialMockForObject:[INLHook new]];
+        [hook setPlacement:INLHookPlacementAfter];
         [[hook reject] execute];
         [groups[2] setHooks:@[hook]];
         [test executeBeforeHooks];
@@ -98,7 +98,7 @@ when(@"before hooks are executed", ^{
 when(@"after hooks are executed", ^{
     before(^{
         [hooks enumerateObjectsUsingBlock:^(id hook, NSUInteger idx, BOOL *stop) {
-            [[[hook stub] andReturnValue:OCMOCK_VALUE((INLHookPlacement){INLHookPlacementAfter})] placement];
+            [hook setPlacement:INLHookPlacementAfter];
         }];
     });
     
@@ -110,8 +110,8 @@ when(@"after hooks are executed", ^{
     });
     
     it(@"should not execute hooks with a placement of 'before'", ^{
-        id hook = [OCMockObject mockForClass:[INLHook class]];
-        [[[hook stub] andReturnValue:OCMOCK_VALUE((INLHookPlacement){INLHookPlacementBefore})] placement];
+        id hook = [OCMockObject partialMockForObject:[INLHook new]];
+        [hook setPlacement:INLHookPlacementBefore];
         [[hook reject] execute];
         [groups[2] setHooks:@[hook]];
         [test executeAfterHooks];
