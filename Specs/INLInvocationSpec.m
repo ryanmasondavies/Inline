@@ -8,8 +8,8 @@
 
 SpecBegin(INLInvocation)
 
-describe(@"-invoke", ^{
-    it(@"should invoke the test", ^{
+when(@"invoked", ^{
+    it(@"should execute the test", ^{
         id test = [OCMockObject mockForClass:[INLTest class]];
         [[test expect] execute];
         

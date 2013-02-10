@@ -91,7 +91,7 @@ void(^itShouldBehaveLikeAPassingSuite)(void(^)(void), NSString *) = ^(void(^run)
     });
 };
 
-describe(@"+initialize", ^{
+when(@"class is initialized", ^{
     it(@"should activate INLGroupedReporter", ^{
         [TSCObserver setActiveReporter:nil];
         [INLGroupedReporter initialize];
@@ -99,7 +99,7 @@ describe(@"+initialize", ^{
     });
 });
 
-describe(@"a passing suite", ^{
+when(@"reporting a passing suite", ^{
     before(^{
         [tests enumerateObjectsUsingBlock:^(INLTest *test, NSUInteger idx, BOOL *stop) {
             [test setState:INLTestStateReady];
@@ -118,7 +118,7 @@ describe(@"a passing suite", ^{
     itShouldBehaveLikeAPassingSuite(run, @"");
 });
 
-describe(@"a pending suite", ^{
+when(@"reporting a pending suite", ^{
     void(^run)(void) = ^(void) {
         [reporter suiteDidStart:notificationForSuite(SenTestSuiteDidStartNotification, @"Suite")];
         [tests enumerateObjectsUsingBlock:^(INLTest *test, NSUInteger idx, BOOL *stop) {
@@ -137,7 +137,7 @@ describe(@"a pending suite", ^{
     });
 });
 
-describe(@"a failing suite", ^{
+when(@"reporting a failing suite", ^{
     before(^{
         [tests enumerateObjectsUsingBlock:^(INLTest *test, NSUInteger idx, BOOL *stop) {
             [test setState:INLTestStateReady];
