@@ -25,24 +25,23 @@
     return [NSArray arrayWithArray:hooks];
 }
 
-- (void)executeBeforeHooks
+- (void)executeHooks:(NSArray *)hooks withPlacement:(INLHookPlacement)placement usingEnumerator:(NSEnumerator *)enumerator
 {
-    // Execute all hooks with a placement of 'before' in forward order:
-    for (INLHook *hook in [[self hooks] objectEnumerator]) {
-        if ([hook placement] == INLHookPlacementBefore) {
+    for (INLHook *hook in enumerator) {
+        if ([hook placement] == placement) {
             [hook execute];
         }
     }
 }
 
+- (void)executeBeforeHooks
+{
+    [self executeHooks:[self hooks] withPlacement:INLHookPlacementBefore usingEnumerator:[[self hooks] objectEnumerator]];
+}
+
 - (void)executeAfterHooks
 {
-    // Execute all hooks with a placement of 'after' in reverse order:
-    for (INLHook *hook in [[self hooks] reverseObjectEnumerator]) {
-        if ([hook placement] == INLHookPlacementAfter) {
-            [hook execute];
-        }
-    }
+    [self executeHooks:[self hooks] withPlacement:INLHookPlacementBefore usingEnumerator:[[self hooks] reverseObjectEnumerator]];
 }
 
 @end
