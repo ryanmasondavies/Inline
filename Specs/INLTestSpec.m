@@ -43,7 +43,7 @@ before(^{
         groups[i] = [[INLGroup alloc] initWithParent:((i > 0) ? groups[i-1] : nil)];
         hooks[i] = [OCMockObject partialMockForObject:[[INLHook alloc] init]];
         [[[hooks[i] expect] andDo:^(NSInvocation *invocation) { [order addObject:hooks[i]]; }] execute];
-        [groups[i] addHook:hooks[i]];
+        [groups[i] addNode:hooks[i]];
     }
     
     test = [[INLTest alloc] initWithParent:[groups lastObject]];
@@ -79,12 +79,13 @@ when(@"before hooks are executed", ^{
     
     // This would be much easier if the return value of a stub could be modified.
     it(@"doesn't execute hooks with a placement of 'after'", ^{
-        id hook = [OCMockObject partialMockForObject:[INLHook new]];
-        [hook setPlacement:INLHookPlacementAfter];
-        [[hook reject] execute];
-        [groups[2] setHooks:@[hook]];
+        [groups[2] removeNode:hooks[2]];
+        hooks[2] = [OCMockObject partialMockForObject:[INLHook new]];
+        [hooks[2] setPlacement:INLHookPlacementAfter];
+        [[hooks[2] reject] execute];
+        [groups[2] addNode:hooks[2]];
         [test executeBeforeHooks];
-        [hook verify];
+        [hooks[2] verify];
     });
     
     it(@"ignores hooks in sibling groups", ^{
@@ -123,12 +124,13 @@ when(@"after hooks are executed", ^{
     });
     
     it(@"doesn't execute hooks with a placement of 'before'", ^{
-        id hook = [OCMockObject partialMockForObject:[INLHook new]];
-        [hook setPlacement:INLHookPlacementBefore];
-        [[hook reject] execute];
-        [groups[2] setHooks:@[hook]];
+        [groups[2] removeNode:hooks[2]];
+        hooks[2] = [OCMockObject partialMockForObject:[INLHook new]];
+        [hooks[2] setPlacement:INLHookPlacementBefore];
+        [[hooks[2] reject] execute];
+        [groups[2] addNode:hooks[2]];
         [test executeAfterHooks];
-        [hook verify];
+        [hooks[2] verify];
     });
     
     it(@"ignores hooks in sibling groups", ^{

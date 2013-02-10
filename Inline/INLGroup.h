@@ -13,27 +13,22 @@
 @interface INLGroup : INLNode
 
 /**
- Adds a group to groups.
- @param group The group to add as a child. */
-- (void)addGroup:(INLGroup *)group;
+ Adds a node to the group.
+ @param node The node to add. */
+- (void)addNode:(INLNode *)node;
 
 /**
- Adds a test to tests.
- @param test The test to add to tests. */
-- (void)addTest:(INLTest *)test;
-
-/**
- Adds a hook to hooks.
- @param hook The hook to add to hooks. */
-- (void)addHook:(INLHook *)hook;
+ Remove a node.
+ @param node The node to remove. */
+- (void)removeNode:(INLNode *)node;
 
 /** A list of the child groups that have been added to the group. */
-@property (strong, nonatomic) NSArray *groups;
+@property (strong, nonatomic, readonly) NSArray *groups;
 
 /** A list of the tests that have been added to the group. */
-@property (strong, nonatomic) NSArray *tests;
+@property (strong, nonatomic, readonly) NSArray *tests;
 
 /** A list of the hooks that have been added to the group. */
-@property (strong, nonatomic) NSArray *hooks;
+@property (strong, nonatomic, readonly) NSArray *hooks;
 
 @end

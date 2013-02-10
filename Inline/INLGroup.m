@@ -10,34 +10,56 @@
 #import "INLTest.h"
 #import "INLHook.h"
 
+@interface INLGroup ()
+@property (strong, nonatomic) NSMutableArray *nodes;
+@end
+
 @implementation INLGroup
 
 - (id)init
 {
     if (self = [super init]) {
-        self.groups = @[];
-        self.tests  = @[];
-        self.hooks  = @[];
+        self.nodes  = [NSMutableArray array];
     }
     return self;
 }
 
-- (void)addGroup:(INLGroup *)group
+- (NSArray *)nodesOfKind:(Class)klass
 {
-    group.parent = self;
-    self.groups = [[self groups] arrayByAddingObject:group];
+    NSMutableArray *nodes = [NSMutableArray array];
+    [[self nodes] enumerateObjectsUsingBlock:^(INLNode *node, NSUInteger idx, BOOL *stop) {
+        if ([node isKindOfClass:klass]) {
+            [nodes addObject:node];
+        }
+    }];
+    return [NSArray arrayWithArray:nodes];
 }
 
-- (void)addTest:(INLTest *)test
+- (void)addNode:(INLNode *)node
 {
-    test.parent = self;
-    self.tests = [[self tests] arrayByAddingObject:test];
+    [[self nodes] addObject:node];
+    [node setParent:self];
 }
 
-- (void)addHook:(INLHook *)hook
+- (void)removeNode:(INLNode *)node
 {
-    hook.parent = self;
-    self.hooks = [[self hooks] arrayByAddingObject:hook];
+    [[self nodes] removeObject:node];
+    [node setParent:nil];
+}
+
+- (NSArray *)groups
+{
+    return [self nodesOfKind:[INLGroup class]];
+}
+
+- (NSArray *)tests
+{
+    return [self nodesOfKind:[INLTest class]];
+}
+
+- (NSArray *)hooks
+{
+    return [self nodesOfKind:[INLHook class]];
 }
 
 @end
