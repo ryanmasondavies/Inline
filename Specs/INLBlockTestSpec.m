@@ -8,6 +8,8 @@
 
 SpecBegin(INLBlockTest)
 
+// TODO: Shared examples would allow BlockTest to verify the behaviour provided by INLTest.
+
 __block id test;
 before(^{ test = [[INLBlockTest alloc] init]; });
 
