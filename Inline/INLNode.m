@@ -12,14 +12,6 @@
 
 @implementation INLNode
 
-- (id)initWithParent:(INLGroup *)parent
-{
-    if (self = [self init]) {
-        self.parent = parent;
-    }
-    return self;
-}
-
 - (INLNodePath *)nodePath
 {
     return [[INLNodePath alloc] initWithDestinationNode:self];

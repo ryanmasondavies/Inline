@@ -12,11 +12,6 @@
 /** The superclass to elements that can appear in a group. */
 @interface INLNode : NSObject
 
-/**
- @param parent The parent for the node.
- @return A new node with the given parent. */
-- (id)initWithParent:(INLGroup *)parent;
-
 /** @return A path pointing to the node within it's hierarchy. */
 - (INLNodePath *)nodePath;
 

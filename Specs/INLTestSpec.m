@@ -8,43 +8,8 @@
 
 SpecBegin(INLTest)
 
-void(^itShouldBehaveLikeANode)(Class, NSString *) = ^(Class klass, NSString *collectionKey) {
+void(^itShouldBehaveLikeANode)(Class) = ^(Class klass) {
     // TODO: Use shared examples to use this across INLGroup, INLTest, and INLHook without repeating.
-    
-    when(@"initialized with a parent", ^{
-        it(@"adds the node to the parent", ^{
-            INLGroup *parent = [[INLGroup alloc] init];
-            INLNode *child = [[klass alloc] initWithParent:parent];
-            expect([parent valueForKey:collectionKey]).to.contain(child);
-        });
-    });
-    
-    when(@"assigned to a new parent", ^{
-        __block INLNode  *node;
-        __block INLGroup *oldParent;
-        __block INLGroup *newParent;
-        
-        before(^{
-            node      = [[INLNode  alloc] init];
-            oldParent = [[INLGroup alloc] init];
-            newParent = [[INLGroup alloc] init];
-            [oldParent addNode:node];
-        });
-        
-        void(^assign)(void) = ^(void) {
-            [node setParent:newParent];
-        };
-        
-        it(@"removes it from the old parent", ^{
-            assign();
-            expect([oldParent valueForKey:collectionKey]).toNot.contain(node);
-        });
-        
-        it(@"adds it to the new parent", ^{
-            assign();
-            expect([newParent valueForKey:collectionKey]).to.contain(node);
-        });
-    });
     
     describe(@"node path", ^{
         __block INLNode     *node;
@@ -72,16 +37,18 @@ before(^{
     order  = [NSMutableArray array];
     
     for (NSUInteger i = 0; i < 3; i ++) {
-        groups[i] = [[INLGroup alloc] initWithParent:((i > 0) ? groups[i-1] : nil)];
+        groups[i] = [[INLGroup alloc] init];
+        if (i > 0) [groups[i-1] addNode:groups[i]];
         hooks[i] = [OCMockObject partialMockForObject:[[INLHook alloc] init]];
         [[[hooks[i] expect] andDo:^(NSInvocation *invocation) { [order addObject:hooks[i]]; }] execute];
         [groups[i] addNode:hooks[i]];
     }
     
-    test = [[INLTest alloc] initWithParent:[groups lastObject]];
+    test = [[INLTest alloc] init];
+    [[groups lastObject] addNode:test];
 });
 
-itShouldBehaveLikeANode([INLTest class], @"tests");
+itShouldBehaveLikeANode([INLTest class]);
 
 when(@"initialized", ^{
     it(@"is in 'pending' state", ^{

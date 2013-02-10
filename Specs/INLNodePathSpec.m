@@ -15,8 +15,14 @@ describe(@"initializing from a node", ^{
     
     before(^{
         groups = [NSMutableArray arrayWithObject:[INLGroup new]];
-        for (NSUInteger i = 1; i < 10; i ++) groups[i] = [[INLGroup alloc] initWithParent:groups[i-1]];
-        node = [[INLNode alloc] initWithParent:[groups lastObject]];
+        node   = [[INLNode alloc] init];
+        
+        for (NSUInteger i = 1; i < 10; i ++) {
+            groups[i] = [[INLGroup alloc] init];
+            [groups[i-1] addNode:groups[i]];
+        }
+        
+        [[groups lastObject] addNode:node];
         nodePath = [[INLNodePath alloc] initWithDestinationNode:node];
     });
     
