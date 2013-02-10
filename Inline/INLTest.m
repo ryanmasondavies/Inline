@@ -7,6 +7,7 @@
 //
 
 #import "INLTest.h"
+#import "INLNodePath.h"
 #import "INLGroup.h"
 #import "INLHook.h"
 
@@ -19,7 +20,7 @@
 - (NSArray *)hooks
 {
     NSMutableArray *hooks = [NSMutableArray array];
-    [[self path] enumerateObjectsUsingBlock:^(INLGroup *group, NSUInteger i, BOOL *stop) {
+    [[[self nodePath] nodes] enumerateObjectsUsingBlock:^(INLGroup *group, NSUInteger i, BOOL *stop) {
         [hooks addObjectsFromArray:[group hooks]];
     }];
     return [NSArray arrayWithArray:hooks];

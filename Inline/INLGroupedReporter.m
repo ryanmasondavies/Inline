@@ -9,6 +9,7 @@
 #import "INLGroupedReporter.h"
 #import "INLTestCase.h"
 #import "INLInvocation.h"
+#import "INLNodePath.h"
 #import "INLTest.h"
 #import "INLGroup.h"
 
@@ -57,7 +58,7 @@
 - (NSArray *)pathForNotification:(NSNotification *)notification
 {
     INLTest *test = [self testFromNotification:notification];
-    return [[test path] arrayByAddingObject:test];
+    return [[[test nodePath] nodes] arrayByAddingObject:test];
 }
 
 - (void)logLabel:(NSString *)label prefix:(NSString *)prefix indentLevel:(NSUInteger)indentLevel

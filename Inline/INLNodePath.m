@@ -8,6 +8,7 @@
 
 #import "INLNodePath.h"
 #import "INLNode.h"
+#import "INLGroup.h"
 
 @interface INLNodePath ()
 @property (strong, nonatomic) NSArray *nodes;

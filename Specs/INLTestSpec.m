@@ -19,12 +19,17 @@ void(^itShouldBehaveLikeANode)(Class) = ^(Class klass) {
         });
     });
     
-    describe(@"path", ^{
-        it(@"is built up of the groups leading to the test", ^{
-            NSMutableArray *groups = [NSMutableArray array];
-            for (NSUInteger i = 0; i < 5; i ++) groups[i] = [[INLGroup alloc] initWithParent:((i > 0) ? groups[i-1] : nil)];
-            INLNode *node = [[klass alloc] initWithParent:[groups lastObject]];
-            for (NSUInteger i = 0; i < 5; i ++) expect([node path][i]).to.beIdenticalTo(groups[i]);
+    describe(@"node path", ^{
+        __block INLNode     *node;
+        __block INLNodePath *nodePath;
+        
+        before(^{
+            node = [[klass alloc] init];
+            nodePath = [node nodePath];
+        });
+        
+        it(@"points to the node", ^{
+            expect([nodePath destinationNode]).to.beIdenticalTo(node);
         });
     });
 };

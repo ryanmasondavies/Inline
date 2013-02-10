@@ -17,9 +17,6 @@
  @return A new node with the given parent. */
 - (id)initWithParent:(INLGroup *)parent;
 
-/** @return The groups which lead to the test. */
-- (NSArray *)path;
-
 /** @return A path pointing to the node within it's hierarchy. */
 - (INLNodePath *)nodePath;
 

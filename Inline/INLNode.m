@@ -20,15 +20,6 @@
     return self;
 }
 
-- (NSArray *)path
-{
-    if ([self parent] == nil) return @[];
-    NSArray *path = [NSArray array];
-    path = [path arrayByAddingObjectsFromArray:[[self parent] path]];
-    path = [path arrayByAddingObject:[self parent]];
-    return path;
-}
-
 - (INLNodePath *)nodePath
 {
     return [[INLNodePath alloc] initWithDestinationNode:self];
