@@ -8,42 +8,8 @@
 
 SpecBegin(INLTestCase)
 
-describe(@"+builder", ^{
-    it(@"should, by default, be an instance of INLBuilder", ^{
-        expect([INLTestCase builder]).to.beKindOf([INLBuilder class]);
-    });
-    
-    it(@"should be per-subclass", ^{
-        NSMutableArray *builders = [NSMutableArray array];
-        for (NSUInteger i = 0; i < 2; i ++) builders[i] = [[INLBuilder alloc] init];
-        [INLTestCaseA setBuilder:builders[0]];
-        [INLTestCaseB setBuilder:builders[1]];
-        expect([INLTestCaseA builder]).to.beIdenticalTo(builders[0]);
-        expect([INLTestCaseB builder]).to.beIdenticalTo(builders[1]);
-        [INLTestCaseA setBuilder:nil];
-        [INLTestCaseB setBuilder:nil];
-    });
-});
-
-describe(@"+compiler", ^{
-    it(@"should, by default, be an instance of INLCompiler", ^{
-        expect([INLTestCase compiler]).to.beKindOf([INLCompiler class]);
-    });
-    
-    it(@"should be per-subclass", ^{
-        NSMutableArray *compilers = [NSMutableArray array];
-        for (NSUInteger i = 0; i < 2; i ++) compilers[i] = [[INLCompiler alloc] init];
-        [INLTestCaseA setCompiler:compilers[0]];
-        [INLTestCaseB setCompiler:compilers[1]];
-        expect([INLTestCaseA compiler]).to.beIdenticalTo(compilers[0]);
-        expect([INLTestCaseB compiler]).to.beIdenticalTo(compilers[1]);
-        [INLTestCaseA setCompiler:nil];
-        [INLTestCaseB setCompiler:nil];
-    });
-});
-
 describe(@"+testInvocations", ^{
-    it(@"should pass the root group of the builder to the compiler", ^{
+    it(@"should return the result of passing the root group of the builder to the compiler", ^{
         INLBuilder  *builder  = [OCMockObject mockForClass:[INLBuilder class]];
         INLCompiler *compiler = [OCMockObject mockForClass:[INLCompiler class]];
         INLGroup *group = [[INLGroup alloc] init];
@@ -60,27 +26,31 @@ describe(@"+testInvocations", ^{
 });
 
 describe(@"+senAllSuperclasses", ^{
-    it(@"should return an array without SenTestCase for blacklisted classes", ^{
-        expect([INLBlacklistedTestCase senAllSuperclasses]).notTo.contain([SenTestCase class]);
-    });
-    
-    it(@"should return an array containing SenTestCase for classes which are not blacklisted", ^{
-        expect([INLTestCaseA senAllSuperclasses]).to.contain([SenTestCase class]);
-    });
-});
-
-describe(@"+blacklistedClasses", ^{
-    it(@"should contain INLTestCase", ^{
-        expect([INLTestCase blacklistedClasses]).to.contain([INLTestCase class]);
+    it(@"should not contain SenTestCase", ^{
+        expect([INLTestCase senAllSuperclasses]).notTo.contain([SenTestCase class]);
     });
 });
 
 describe(@"-name", ^{
-    it(@"should return the description of the current test", ^{
+    it(@"should be the description of the current test", ^{
         INLFakeTest *test = [[INLFakeTest alloc] initWithDescription:@"the test"];
         id invocation = [INLInvocation invocationWithTest:test];
         INLTestCase *testCase = [[INLTestCase alloc] initWithInvocation:invocation];
         expect([testCase name]).to.equal(@"the test");
+    });
+});
+
+describe(@"each subclass", ^{
+    it(@"should have its own instance of INLBuilder", ^{
+        expect([INLTestCaseA builder]).to.beKindOf([INLBuilder class]);
+        expect([INLTestCaseB builder]).to.beKindOf([INLBuilder class]);
+        expect([INLTestCaseA builder]).toNot.beIdenticalTo([INLTestCaseB builder]);
+    });
+    
+    it(@"should have its own instance of INLCompiler", ^{
+        expect([INLTestCaseA compiler]).to.beKindOf([INLCompiler class]);
+        expect([INLTestCaseB compiler]).to.beKindOf([INLCompiler class]);
+        expect([INLTestCaseA compiler]).toNot.beIdenticalTo([INLTestCaseB compiler]);
     });
 });
 

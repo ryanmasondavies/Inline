@@ -53,9 +53,9 @@ INLGroup *(^groupLabelled)(NSString *) = ^(NSString *label) {
 };
 
 __block NSMutableString *output;
-__block id reporter;
-__block NSArray *groups;
-__block NSArray *tests;
+__block id               reporter;
+__block NSArray         *groups;
+__block NSArray         *tests;
 
 before(^{
     output = [NSMutableString string];

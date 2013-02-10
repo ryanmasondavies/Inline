@@ -24,6 +24,9 @@ typedef NS_ENUM(NSInteger, INLTestState) {
  @return A new test with the given parent. */
 - (id)initWithParent:(INLGroup *)parent;
 
+/** @return The groups which lead to the test. */
+- (NSArray *)path;
+
 /** Runs the test. Must be overridden by subclasses. It is advised that subclasses invoke executeBeforeHooks and executeAfterHooks around execution of the test itself. */
 - (void)execute;
 
