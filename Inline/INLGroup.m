@@ -24,11 +24,11 @@
     return self;
 }
 
-- (NSArray *)nodesOfKind:(Class)klass
+- (NSArray *)nodesOfKind:(Class)kind
 {
     NSMutableArray *nodes = [NSMutableArray array];
     [[self nodes] enumerateObjectsUsingBlock:^(INLNode *node, NSUInteger idx, BOOL *stop) {
-        if ([node isKindOfClass:klass]) {
+        if ([node isKindOfClass:kind]) {
             [nodes addObject:node];
         }
     }];
