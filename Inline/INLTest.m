@@ -12,28 +12,6 @@
 
 @implementation INLTest
 
-- (id)initWithParent:(INLGroup *)parent
-{
-    if (self = [super init]) {
-        self.parent = parent;
-    }
-    return self;
-}
-
-- (NSArray *)pathForGroup:(INLGroup *)group
-{
-    if (group == nil) return @[];
-    NSArray *path = [NSArray array];
-    path = [path arrayByAddingObjectsFromArray:[self pathForGroup:[group parent]]];
-    path = [path arrayByAddingObject:group];
-    return path;
-}
-
-- (NSArray *)path
-{
-    return [self pathForGroup:[self parent]];
-}
-
 - (void)execute
 {
 }

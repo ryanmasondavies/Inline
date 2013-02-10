@@ -6,7 +6,6 @@
 //  Copyright (c) 2013 Ryan Davies. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "INLNode.h"
 @class INLGroup;
 
@@ -17,15 +16,7 @@ typedef NS_ENUM(NSInteger, INLTestState) {
 };
 
 /** Represents a test within the system. */
-@interface INLTest : NSObject <INLNode>
-
-/**
- @param parent The parent for the test.
- @return A new test with the given parent. */
-- (id)initWithParent:(INLGroup *)parent;
-
-/** @return The groups which lead to the test. */
-- (NSArray *)path;
+@interface INLTest : INLNode
 
 /** Runs the test. Must be overridden by subclasses. It is advised that subclasses invoke executeBeforeHooks and executeAfterHooks around execution of the test itself. */
 - (void)execute;
@@ -35,12 +26,6 @@ typedef NS_ENUM(NSInteger, INLTestState) {
 
 /** Invokes [INLHook execute] on all hooks with a placement of 'after' in innermost-first order. */
 - (void)executeAfterHooks;
-
-/** The parent group which the test is a child of. */
-@property (weak, nonatomic) INLGroup *parent;
-
-/** A label by which to identify the test. */
-@property (copy, nonatomic) NSString *label;
 
 /** The states a test can be in.
  

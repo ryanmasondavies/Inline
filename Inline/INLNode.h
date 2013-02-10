@@ -9,13 +9,19 @@
 #import <Foundation/Foundation.h>
 @class INLGroup;
 
-/** The protocol to which elements within a group must conform. */
-@protocol INLNode <NSObject>
+/** The superclass to elements that can appear in a group. */
+@interface INLNode : NSObject
+
+/**
+ @param parent The parent for the node.
+ @return A new node with the given parent. */
+- (id)initWithParent:(INLGroup *)parent;
+
+/** @return The groups which lead to the test. */
+- (NSArray *)path;
 
 /** The parent group of the node. */
 @property (weak, nonatomic) INLGroup *parent;
-
-@optional
 
 /** The label by which to identify the node; not applicable to all. */
 @property (copy, nonatomic) NSString *label;

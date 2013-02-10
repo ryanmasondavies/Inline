@@ -22,14 +22,6 @@
     return self;
 }
 
-- (id)initWithParent:(INLGroup *)parent
-{
-    if (self = [self init]) {
-        self.parent = parent;
-    }
-    return self;
-}
-
 - (void)addGroup:(INLGroup *)group
 {
     group.parent = self;

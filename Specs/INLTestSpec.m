@@ -8,6 +8,27 @@
 
 SpecBegin(INLTest)
 
+void(^itShouldBehaveLikeANode)(Class) = ^(Class klass) {
+    // TODO: Use shared examples to use this across INLGroup, INLTest, and INLHook without repeating.
+    
+    when(@"initialized with a parent", ^{
+        it(@"is marked as belonging to the given parent", ^{
+            INLGroup *parent = [[INLGroup alloc] init];
+            INLNode *child = [[klass alloc] initWithParent:parent];
+            expect([child parent]).to.beIdenticalTo(parent);
+        });
+    });
+    
+    describe(@"path", ^{
+        it(@"is built up of the groups leading to the test", ^{
+            NSMutableArray *groups = [NSMutableArray array];
+            for (NSUInteger i = 0; i < 5; i ++) groups[i] = [[INLGroup alloc] initWithParent:((i > 0) ? groups[i-1] : nil)];
+            INLNode *node = [[klass alloc] initWithParent:[groups lastObject]];
+            for (NSUInteger i = 0; i < 5; i ++) expect([node path][i]).to.beIdenticalTo(groups[i]);
+        });
+    });
+};
+
 __block NSMutableArray *hooks;
 __block NSMutableArray *groups;
 __block NSMutableArray *order;
@@ -28,6 +49,8 @@ before(^{
     test = [[INLTest alloc] initWithParent:[groups lastObject]];
 });
 
+itShouldBehaveLikeANode([INLTest class]);
+
 when(@"initialized", ^{
     it(@"is in 'pending' state", ^{
         expect([test state]).to.equal(INLTestStatePending);
@@ -37,21 +60,6 @@ when(@"initialized", ^{
 when(@"initialized with a parent", ^{
     it(@"is in 'pending' state", ^{
         expect([test state]).to.equal(INLTestStatePending);
-    });
-    
-    it(@"is marked as belonging to the given parent", ^{
-        INLGroup *parent = [[INLGroup alloc] init];
-        INLTest *child = [[INLTest alloc] initWithParent:parent];
-        expect([child parent]).to.beIdenticalTo(parent);
-    });
-});
-
-describe(@"path", ^{
-    it(@"is built up of the groups leading to the test", ^{
-        NSMutableArray *groups = [NSMutableArray array];
-        for (NSUInteger i = 0; i < 5; i ++) groups[i] = [[INLGroup alloc] initWithParent:((i > 0) ? groups[i-1] : nil)];
-        INLTest *test = [[INLTest alloc] initWithParent:[groups lastObject]];
-        for (NSUInteger i = 0; i < 5; i ++) expect([test path][i]).to.beIdenticalTo(groups[i]);
     });
 });
 

@@ -6,7 +6,6 @@
 //  Copyright (c) 2013 Ryan Davies. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "INLNode.h"
 @class INLGroup;
 
@@ -15,11 +14,8 @@ typedef NS_ENUM(NSInteger, INLHookPlacement) {
     INLHookPlacementAfter
 };
 
-/** Abstract superclass for hooks of varying scope. */
-@interface INLHook : NSObject <INLNode>
-
-/** The group which the hook has been added to. */
-@property (weak, nonatomic) INLGroup *parent;
+/** Superclass for hooks of varying scope. */
+@interface INLHook : INLNode
 
 /** The placement of the hook: either INLTestPlacementBefore or INLTestPlacementAfter. This defines whether the hook is to be executed before or after tests. */
 @property (nonatomic) INLHookPlacement placement;
