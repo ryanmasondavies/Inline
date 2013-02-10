@@ -41,13 +41,23 @@
     return [invocation test];
 }
 
-- (NSArray *)pathToTest:(INLTest *)test
+- (NSString *)prefixForNode:(INLNode *)node inRun:(SenTestRun *)run
 {
-    id target = test;
-    NSMutableArray *path = [NSMutableArray array];
-    while ((target = [target parent]) != nil) [path insertObject:target atIndex:0];
-    [path addObject:test];
-    return path;
+    if ([node isKindOfClass:[INLTest class]] == NO) return nil;
+    return [self prefixForTest:(INLTest *)node inRun:run];
+}
+
+- (NSString *)prefixForTest:(INLTest *)test inRun:(SenTestRun *)run
+{
+    if ([test state] == INLTestStatePending) return @"[P]";
+    if ([run hasSucceeded] == NO) return @"[F]";
+    return nil;
+}
+
+- (NSArray *)pathForNotification:(NSNotification *)notification
+{
+    INLTest *test = [self testFromNotification:notification];
+    return [[test path] arrayByAddingObject:test];
 }
 
 - (void)logLabel:(NSString *)label prefix:(NSString *)prefix indentLevel:(NSUInteger)indentLevel
@@ -59,20 +69,9 @@
     [self log:@"\n"];
 }
 
-- (NSString *)prefixForNode:(id)node inRun:(SenTestRun *)run
-{
-    if ([node isKindOfClass:[INLTest class]] == NO) return nil;
-    if ([node state] == INLTestStatePending) return @"[P]";
-    if ([run hasSucceeded] == NO) return @"[F]";
-    return nil;
-}
-
 - (void)testDidEnd:(NSNotification *)notification
 {
-    INLTest *test = [self testFromNotification:notification];
-    NSArray *path = [self pathToTest:test];
-    
-    [path enumerateObjectsUsingBlock:^(id node, NSUInteger idx, BOOL *stop) {
+    [[self pathForNotification:notification] enumerateObjectsUsingBlock:^(INLNode *node, NSUInteger idx, BOOL *stop) {
         if ([self.history containsObject:node]) return;
         [self logLabel:[node label] prefix:[self prefixForNode:node inRun:[notification run]] indentLevel:idx];
         [self.history addObject:node];
