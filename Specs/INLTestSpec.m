@@ -28,7 +28,17 @@ before(^{
     test = [[INLTest alloc] initWithParent:[groups lastObject]];
 });
 
-describe(@"-initWithParent:", ^{
+when(@"initialized", ^{
+    it(@"should be in 'pending' state'", ^{
+        expect([test state]).to.equal(INLTestStatePending);
+    });
+});
+
+when(@"initialized with a parent", ^{
+    it(@"should be in 'pending' state", ^{
+        expect([test state]).to.equal(INLTestStatePending);
+    });
+    
     it(@"should create a test with the given parent", ^{
         INLGroup *parent = [[INLGroup alloc] init];
         INLTest *child = [[INLTest alloc] initWithParent:parent];
@@ -36,13 +46,7 @@ describe(@"-initWithParent:", ^{
     });
 });
 
-describe(@"state", ^{
-    it(@"should be pending", ^{
-        expect([test state]).to.equal(INLTestStatePending);
-    });
-});
-
-describe(@"-executeBeforeHooks", ^{
+when(@"before hooks are executed", ^{
     before(^{
         [hooks enumerateObjectsUsingBlock:^(id hook, NSUInteger idx, BOOL *stop) {
             [[[hook stub] andReturnValue:OCMOCK_VALUE((INLHookPlacement){INLHookPlacementBefore})] placement];
@@ -91,7 +95,7 @@ describe(@"-executeBeforeHooks", ^{
     });
 });
 
-describe(@"-executeAfterHooks", ^{
+when(@"after hooks are executed", ^{
     before(^{
         [hooks enumerateObjectsUsingBlock:^(id hook, NSUInteger idx, BOOL *stop) {
             [[[hook stub] andReturnValue:OCMOCK_VALUE((INLHookPlacement){INLHookPlacementAfter})] placement];
