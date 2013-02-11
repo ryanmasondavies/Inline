@@ -8,14 +8,12 @@
 
 SpecBegin(INLInvocation)
 
-when(@"invoked", ^{
-    it(@"should execute the test", ^{
-        id test = [OCMockObject mockForClass:[INLTest class]];
-        [[test expect] execute];
-        INLInvocation *testInvocation = [INLInvocation invocationWithTest:test];
-        [testInvocation invoke];
-        [test verify];
-    });
+it(@"should execute the test", ^{
+    id test = [OCMockObject mockForClass:[INLTest class]];
+    [[test expect] execute];
+    INLInvocation *testInvocation = [INLInvocation invocationWithTest:test];
+    [testInvocation invoke];
+    [test verify];
 });
 
 SpecEnd
