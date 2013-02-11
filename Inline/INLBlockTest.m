@@ -7,6 +7,7 @@
 //
 
 #import "INLBlockTest.h"
+#import "INLNodePath.h"
 
 @implementation INLBlockTest
 
@@ -22,9 +23,9 @@
 - (void)execute
 {
     if (self.state == INLTestStatePending) return;
-    [self executeHooksInNodePath:[self nodePath] placement:INLHookPlacementBefore];
+    [self executeHooksInNodePath:[INLNodePath nodePathForDestinationNode:self] placement:INLHookPlacementBefore];
     self.block();
-    [self executeHooksInNodePath:[self nodePath] placement:INLHookPlacementAfter];
+    [self executeHooksInNodePath:[INLNodePath nodePathForDestinationNode:self] placement:INLHookPlacementAfter];
     self.state = INLTestStateExecuted;
 }
 

@@ -10,31 +10,11 @@ SpecBegin(INLBlockTest)
 
 // TODO: Shared examples would allow BlockTest to verify the behaviour provided by INLTest.
 
-void(^itShouldBehaveLikeANode)(Class) = ^(Class klass) {
-    // TODO: Use shared examples to use this across INLGroup, INLTest, and INLHook without repeating.
-    
-    describe(@"node path", ^{
-        __block INLNode     *node;
-        __block INLNodePath *nodePath;
-        
-        before(^{
-            node = [[klass alloc] init];
-            nodePath = [node nodePath];
-        });
-        
-        it(@"points to the node", ^{
-            expect([nodePath destinationNode]).to.beIdenticalTo(node);
-        });
-    });
-};
-
 __block id test;
 
 before(^{
     test = [[INLBlockTest alloc] init];
 });
-
-itShouldBehaveLikeANode([INLBlockTest class]);
 
 describe(@"-setBlock:", ^{
     it(@"sets test state to 'ready'", ^{
@@ -52,24 +32,32 @@ describe(@"-setBlock:", ^{
 });
 
 when(@"executed", ^{
-    __block INLNodePath *nodePath;
+    __block INLTest *realTest;
     
     before(^{
+        realTest = test;
         test = [OCMockObject partialMockForObject:test];
-        nodePath = [[INLNodePath alloc] init];
-        [[[test stub] andReturn:nodePath] nodePath];
     });
     
     when(@"ready", ^{
         it(@"executes hooks around block", ^{
+            OCMArg *nodePathCheck = [OCMArg checkWithBlock:^BOOL(id nodePath) {
+                return [nodePath destinationNode] == realTest;
+            }];
+            
             __block NSString *step = @"";
             [[[test expect] andDo:^(NSInvocation *invocation) {
                 step = @"before";
-            }] executeHooksInNodePath:nodePath placement:INLHookPlacementBefore];
+            }] executeHooksInNodePath:(id)nodePathCheck placement:INLHookPlacementBefore];
+            
             [[[test expect] andDo:^(NSInvocation *invocation) {
                 step = @"after";
-            }] executeHooksInNodePath:nodePath placement:INLHookPlacementAfter];
-            [test setBlock:^{ expect(step).to.equal(@"before"); }];
+            }] executeHooksInNodePath:(id)nodePathCheck placement:INLHookPlacementAfter];
+            
+            [test setBlock:^{
+                expect(step).to.equal(@"before");
+            }];
+            
             [test execute];
             [test verify];
         });

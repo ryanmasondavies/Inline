@@ -8,7 +8,7 @@
 
 SpecBegin(INLNodePath)
 
-describe(@"initializing from a node", ^{
+describe(@"initialization with a destination node", ^{
     __block NSMutableArray *groups;
     __block INLNode        *node;
     __block INLNodePath    *nodePath;
@@ -23,18 +23,35 @@ describe(@"initializing from a node", ^{
         }
         
         [[groups lastObject] addNode:node];
-        nodePath = [[INLNodePath alloc] initWithDestinationNode:node];
     });
     
-    it(@"generates a path of nodes which lead to the given node", ^{
-        expect([nodePath nodes]).to.haveCountOf([groups count]);
-        [groups enumerateObjectsUsingBlock:^(INLGroup *group, NSUInteger idx, BOOL *stop) {
-            expect([nodePath nodes][idx]).to.beIdenticalTo(group);
-        }];
+    void (^itBehavesLikeItPointsToDestinationNode)(void) = ^(void) {
+        it(@"generates a path of nodes which lead to the given node", ^{
+            expect([nodePath nodes]).to.haveCountOf([groups count]);
+            [groups enumerateObjectsUsingBlock:^(INLGroup *group, NSUInteger idx, BOOL *stop) {
+                expect([nodePath nodes][idx]).to.beIdenticalTo(group);
+            }];
+        });
+        
+        it(@"stores the destination node for reference", ^{
+            expect([nodePath destinationNode]).to.beIdenticalTo(node);
+        });
+    };
+    
+    describe(@"using class initializer", ^{
+        before(^{
+            nodePath = [INLNodePath nodePathForDestinationNode:node];
+        });
+        
+        itBehavesLikeItPointsToDestinationNode();
     });
     
-    it(@"stores the destination node for reference", ^{
-        expect([nodePath destinationNode]).to.beIdenticalTo(node);
+    describe(@"using instance initializer", ^{
+        before(^{
+            nodePath = [[INLNodePath alloc] initWithDestinationNode:node];
+        });
+        
+        itBehavesLikeItPointsToDestinationNode();
     });
 });
 

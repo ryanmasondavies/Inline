@@ -8,7 +8,7 @@
 
 #import "INLNode.h"
 #import "INLHook.h"
-@class INLGroup;
+@class INLGroup, INLNodePath;
 
 typedef NS_ENUM(NSInteger, INLTestState) {
     INLTestStatePending,

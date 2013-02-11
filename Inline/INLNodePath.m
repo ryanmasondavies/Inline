@@ -17,6 +17,12 @@
 
 @implementation INLNodePath
 
++ (instancetype)nodePathForDestinationNode:(INLNode *)destinationNode
+{
+    NSAssert(destinationNode, @"Must be passed a destination node.");
+    return [[self alloc] initWithDestinationNode:destinationNode];
+}
+
 - (id)initWithDestinationNode:(INLNode *)destinationNode
 {
     NSAssert(destinationNode, @"Must be passed a destination node.");

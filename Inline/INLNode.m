@@ -8,13 +8,7 @@
 
 #import "INLNode.h"
 #import "INLGroup.h"
-#import "INLNodePath.h"
 
 @implementation INLNode
-
-- (INLNodePath *)nodePath
-{
-    return [[INLNodePath alloc] initWithDestinationNode:self];
-}
 
 @end

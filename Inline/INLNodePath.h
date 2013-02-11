@@ -16,7 +16,13 @@
  @param node The destination node.
  @return An initialized node path which points to the destination node.
  */
-- (instancetype)initWithDestinationNode:(INLNode *)node;
++ (instancetype)nodePathForDestinationNode:(INLNode *)destinationNode;
+
+/**
+ @param node The destination node.
+ @return An initialized node path which points to the destination node.
+ */
+- (instancetype)initWithDestinationNode:(INLNode *)destinationNode;
 
 /** The nodes which point to the destination node. */
 @property (nonatomic, readonly) NSArray *nodes;

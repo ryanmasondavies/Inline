@@ -69,7 +69,7 @@
 {
     NSAssert(notification, @"Must be passed a notification.");
     INLTest *test = [self testFromNotification:notification];
-    return [[[test nodePath] nodes] arrayByAddingObject:test];
+    return [[[INLNodePath nodePathForDestinationNode:test] nodes] arrayByAddingObject:test];
 }
 
 - (void)logLabel:(NSString *)label prefix:(NSString *)prefix indentLevel:(NSUInteger)indentLevel

@@ -8,26 +8,6 @@
 
 SpecBegin(INLBlockHook)
 
-void(^itShouldBehaveLikeANode)(Class) = ^(Class klass) {
-    // TODO: Use shared examples to use this across INLGroup, INLTest, and INLHook without repeating.
-    
-    describe(@"node path", ^{
-        __block INLNode     *node;
-        __block INLNodePath *nodePath;
-        
-        before(^{
-            node = [[klass alloc] init];
-            nodePath = [node nodePath];
-        });
-        
-        it(@"points to the node", ^{
-            expect([nodePath destinationNode]).to.beIdenticalTo(node);
-        });
-    });
-};
-
-itShouldBehaveLikeANode([INLBlockHook class]);
-
 describe(@"-execute", ^{
     it(@"should invoke the assigned block", ^{
         INLBlockHook *hook = [[INLBlockHook alloc] init];

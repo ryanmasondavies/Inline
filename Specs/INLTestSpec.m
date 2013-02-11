@@ -8,24 +8,6 @@
 
 SpecBegin(INLTest)
 
-void(^itShouldBehaveLikeANode)(Class) = ^(Class klass) {
-    // TODO: Use shared examples to use this across INLGroup, INLTest, and INLHook without repeating.
-    
-    describe(@"node path", ^{
-        __block INLNode     *node;
-        __block INLNodePath *nodePath;
-        
-        before(^{
-            node = [[klass alloc] init];
-            nodePath = [node nodePath];
-        });
-        
-        it(@"points to the node", ^{
-            expect([nodePath destinationNode]).to.beIdenticalTo(node);
-        });
-    });
-};
-
 __block NSMutableArray *hooks;
 __block NSMutableArray *groups;
 __block NSMutableArray *order;
@@ -48,8 +30,6 @@ before(^{
     [[groups lastObject] addNode:test];
 });
 
-itShouldBehaveLikeANode([INLTest class]);
-
 when(@"initialized", ^{
     it(@"is in 'pending' state", ^{
         expect([test state]).to.equal(INLTestStatePending);
@@ -64,7 +44,7 @@ when(@"executing hooks", ^{
             id hook = [OCMockObject niceMockForClass:[INLHook class]];
             [[[hook stub] andReturn:sibling] parent];
             [[hook reject] execute];
-            [test executeHooksInNodePath:[test nodePath] placement:placement];
+            [test executeHooksInNodePath:[INLNodePath nodePathForDestinationNode:test] placement:placement];
             [hook verify];
         });
         
@@ -74,7 +54,7 @@ when(@"executing hooks", ^{
             id hook = [OCMockObject niceMockForClass:[INLHook class]];
             [[[hook stub] andReturn:descendant] parent];
             [[hook reject] execute];
-            [test executeHooksInNodePath:[test nodePath] placement:placement];
+            [test executeHooksInNodePath:[INLNodePath nodePathForDestinationNode:test] placement:placement];
             [hook verify];
         });
     };
@@ -87,7 +67,7 @@ when(@"executing hooks", ^{
         });
         
         void(^execute)(void) = ^(void) {
-            [test executeHooksInNodePath:[test nodePath] placement:INLHookPlacementBefore];
+            [test executeHooksInNodePath:[INLNodePath nodePathForDestinationNode:test] placement:INLHookPlacementBefore];
         };
         
         it(@"executes hooks in forward order", ^{
@@ -119,7 +99,7 @@ when(@"executing hooks", ^{
         });
         
         void(^execute)(void) = ^(void) {
-            [test executeHooksInNodePath:[test nodePath] placement:INLHookPlacementAfter];
+            [test executeHooksInNodePath:[INLNodePath nodePathForDestinationNode:test] placement:INLHookPlacementAfter];
         };
         
         it(@"executes hooks in outward order", ^{
