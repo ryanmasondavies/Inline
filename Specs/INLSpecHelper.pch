@@ -16,3 +16,6 @@
 #import "INLTestCaseB.h"
 #import "INLFakeTest.h"
 #import "INLBlacklistedTestCase.h"
+#import "INLNotificationFactory.h"
+#import "INLGroupFactory.h"
+#import "INLTestFactory.h"
