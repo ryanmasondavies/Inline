@@ -18,14 +18,14 @@ describe(@"-invocationsForGroup:", ^{
         for (NSUInteger i = 0; i < 3; i ++) tests[i] = [[INLTest alloc] init];
     });
     
-    it(@"should return invocations for top level tests", ^{
+    it(@"returns invocations for top level tests", ^{
         INLGroup *group = [[INLGroup alloc] init];
         for (NSUInteger i = 0; i < 3; i ++) [group addNode:tests[i]];
         NSArray *invocations = [compiler invocationsForGroup:group];
         for (NSUInteger i = 0; i < 3; i ++) expect([invocations[i] test]).to.beIdenticalTo(tests[i]);
     });
     
-    it(@"should move invocations for nested tests to the end of the list", ^{
+    it(@"moves invocations for nested tests to the end of the list", ^{
         NSMutableArray *groups = [NSMutableArray array];
         for (NSUInteger i = 0; i < 3; i ++) groups[i] = [[INLGroup alloc] init];
         [groups[0] addNode:groups[1]];

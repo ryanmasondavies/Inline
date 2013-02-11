@@ -16,18 +16,18 @@ before(^{
     test = [[INLBlockTest alloc] init];
 });
 
-describe(@"-setBlock:", ^{
+when(@"assigning a new block", ^{
     it(@"sets test state to 'ready'", ^{
         [test setBlock:^{}];
         expect([test state]).to.equal(INLTestStateReady);
     });
-    
-    when(@"passing in nil", ^{
-        it(@"sets test state to 'pending'", ^{
-            [test setState:INLTestStateReady];
-            [test setBlock:nil];
-            expect([test state]).to.equal(INLTestStatePending);
-        });
+});
+
+when(@"assigning a 'nil' block", ^{
+    it(@"sets test state to 'pending'", ^{
+        [test setState:INLTestStateReady];
+        [test setBlock:nil];
+        expect([test state]).to.equal(INLTestStatePending);
     });
 });
 

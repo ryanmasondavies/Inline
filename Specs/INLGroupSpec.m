@@ -25,11 +25,11 @@ when(@"a group is added", ^{
         [group addNode:child];
     };
     
-    it(@"should add it to 'groups'", ^{
+    it(@"adds it to 'groups'", ^{
         add(); expect([group groups][0]).to.beIdenticalTo(child);
     });
     
-    it(@"should mark it as a child of the parent group", ^{
+    it(@"marks it as a child of the parent group", ^{
         add(); expect([child parent]).to.beIdenticalTo(group);
     });
 });
@@ -45,11 +45,11 @@ when(@"a test is added", ^{
         [group addNode:test];
     };
     
-    it(@"should add it to 'tests'", ^{
+    it(@"adds it to 'tests'", ^{
         add(); expect([group tests][0]).to.beIdenticalTo(test);
     });
     
-    it(@"should mark it as a child of the parent group", ^{
+    it(@"marks it as a child of the parent group", ^{
         add(); expect([test parent]).to.beIdenticalTo(group);
     });
 });
@@ -65,11 +65,11 @@ when(@"a hook is added", ^{
         [group addNode:hook];
     };
     
-    it(@"should add it to 'hooks'", ^{
+    it(@"adds it to 'hooks'", ^{
         add(); expect([group hooks][0]).to.beIdenticalTo(hook);
     });
     
-    it(@"should mark it as a child of the parent group", ^{
+    it(@"marks it as a child of the parent group", ^{
         add(); expect([hook parent]).to.beIdenticalTo(group);
     });
 });
@@ -86,11 +86,11 @@ when(@"a group is removed", ^{
         [group removeNode:child];
     };
     
-    it(@"should remove it from 'groups'", ^{
+    it(@"removes it from 'groups'", ^{
         remove(); expect([group groups]).toNot.contain(child);
     });
     
-    it(@"should mark it as independent from the parent group", ^{
+    it(@"marks it as independent from the parent group", ^{
         remove(); expect([child parent]).to.beNil();
     });
 });
@@ -107,12 +107,12 @@ when(@"a test is removed", ^{
         [group removeNode:test];
     };
     
-    it(@"should remove it from 'tests'", ^{
+    it(@"removes it from 'tests'", ^{
         remove();
         expect([group tests]).toNot.contain(test);
     });
     
-    it(@"should mark it as independent from the parent group", ^{
+    it(@"marks it as independent from the parent group", ^{
         remove();
         expect([test parent]).to.beNil();
     });
@@ -130,12 +130,12 @@ when(@"a test is removed", ^{
         [group removeNode:hook];
     };
     
-    it(@"should remove it from 'hooks'", ^{
+    it(@"removes it from 'hooks'", ^{
         remove();
         expect([group hooks]).toNot.contain(hook);
     });
     
-    it(@"should mark it as independent from the parent group", ^{
+    it(@"marks it as independent from the parent group", ^{
         remove();
         expect([hook parent]).to.beNil();
     });

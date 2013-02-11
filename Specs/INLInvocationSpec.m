@@ -8,7 +8,7 @@
 
 SpecBegin(INLInvocation)
 
-it(@"should execute the test", ^{
+it(@"executes the test", ^{
     id test = [OCMockObject mockForClass:[INLTest class]];
     [[test expect] execute];
     INLInvocation *testInvocation = [INLInvocation invocationWithTest:test];
