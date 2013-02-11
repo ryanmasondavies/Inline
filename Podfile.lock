@@ -1,7 +1,8 @@
 
 PODS:
 - Expecta (0.2.1)
-- Inline (0.1.0)
+- Inline (0.2.0):
+  - Transcript (~> 0.1.0)
 - OCMock (2.0.1)
 - Specify (0.0.2):
   - Inline
@@ -12,7 +13,7 @@ DEPENDENCIES:
 - Inline (from `.')
 - OCMock
 - Specify
-- Transcript
+- Transcript (~> 0.1.0)
 
 EXTERNAL SOURCES:
   Inline:
@@ -21,7 +22,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Transcript: 396a15997011487ea9ec018add2fa9a89a007973
   Expecta: d46fb1bd78c90a83da0158b9b1e108de106e369f
-  Inline: f1af4456f99b23bbc9525c9ed1986edbe852e862
+  Inline: 44956d4be2971f54dfb4314a955b2d2276170939
   OCMock: 77a9c4c57af6bf258a537d34cf09abf422affede
   Specify: dde17eac50fae44e35498d2436c28dc7b451c783
 

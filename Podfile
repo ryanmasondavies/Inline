@@ -1,6 +1,6 @@
 platform :ios, '5.0'
 
-pod 'Transcript'
+pod 'Transcript', '~> 0.1.0'
 
 target 'Specs', exclusive: true do
   pod 'Inline', local: '.'
