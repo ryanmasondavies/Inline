@@ -14,5 +14,7 @@
 + (NSNotification *)createNotificationNamed:(NSString *)notificationName forSuiteNamed:(NSString *)suiteName;
 + (NSNotification *)createNotificationNamed:(NSString *)notificationName forTest:(INLTest *)test;
 + (NSNotification *)createNotificationNamed:(NSString *)notificationName forTest:(INLTest *)test thatFailsWithException:(NSException *)exception;
++ (NSNotification *)createNotificationNamed:(NSString *)notificationName forTestCase:(SenTestCase *)testCase;
++ (NSNotification *)createNotificationNamed:(NSString *)notificationName forTestCase:(SenTestCase *)testCase thatFailsWithException:(NSException *)exception;
 
 @end

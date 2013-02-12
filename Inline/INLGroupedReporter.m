@@ -84,6 +84,12 @@
 - (void)testDidEnd:(NSNotification *)notification
 {
     NSAssert(notification, @"Must be passed a notification.");
+    
+    if ([[notification test] isKindOfClass:[INLTestCase class]] == NO) {
+        [super testDidEnd:notification];
+        return;
+    }
+    
     [[self pathForNotification:notification] enumerateObjectsUsingBlock:^(INLNode *node, NSUInteger idx, BOOL *stop) {
         if ([self.history containsObject:node]) return;
         [self logLabel:[node label] prefix:[self prefixForNode:node inRun:[notification run]] indentLevel:idx];
