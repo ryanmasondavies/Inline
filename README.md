@@ -16,7 +16,7 @@ INLTestCase also overrides `-name`, the method which [OCUnit](http://www.sente.c
 Installation
 ============
 
-Inline is installed via [CocoaPods](https://github.com/CocoaPods/CocoaPods). Add `pod 'Inline'` to your Podfile and run `pod install`.
+Inline is installed via [CocoaPods](https://github.com/CocoaPods/CocoaPods) by adding `pod 'Inline', '~> 0.2.1'` to your Podfile.
 
 Documentation
 =============
