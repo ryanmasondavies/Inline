@@ -26,7 +26,7 @@ Comments are written using the [Appledoc](http://gentlebytes.com/appledoc/) synt
 License
 =======
 
-	Copyright (c) 2012 Ryan Davies
+	Copyright (c) 2013 Ryan Davies
 
 	Permission is hereby granted, free of charge, to any person obtaining a copy
 	of this software and associated documentation files (the "Software"), to deal
