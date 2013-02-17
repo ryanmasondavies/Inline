@@ -2,7 +2,7 @@ Inline
 ======
 
 Inline provides a layer upon which to build testing libraries.
-    
+
 Tests, groups, and hooks are added to the root group through the builder's API. This layer of abstraction allows for the DSL language to be visible through the builder's interface.
 
 [OCUnit](http://www.sente.ch/software/ocunit/) uses the `+testInvocations` method on SenTestCase to determine the tests available in that suite. The default implementation retrieves methods which return `void`, have no arguments, and are prefixed with 'test'. This implementation is not easily extendable. Dynamically adding tests would require dynamically adding methods, which is impractical and restrains tests to the rules by which methods must abide.
@@ -14,17 +14,17 @@ While the SenTestCase class manages all of the invocations in the suite, an inst
 INLTestCase also overrides `-name`, the method which [OCUnit](http://www.sente.ch/software/ocunit/) uses to format tests for printing to the console. The default implementation returns the method signature of the `test...` method, but INLTestCase returns the description of the current invocation's test.
 
 Installation
-------------
+============
 
 Inline is installed via [CocoaPods](https://github.com/CocoaPods/CocoaPods). Add `pod 'Inline'` to your Podfile and run `pod install`.
 
 Documentation
--------------
+=============
 
 Comments are written using the [Appledoc](http://gentlebytes.com/appledoc/) syntax, and documentation will be automatically generated and added to Xcode by [CocoaPods](https://github.com/CocoaPods/CocoaPods) upon installation.
 
 License
--------
+=======
 
 	Copyright (c) 2012 Ryan Davies
 
