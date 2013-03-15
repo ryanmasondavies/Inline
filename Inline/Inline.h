@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Ryan Davies. All rights reserved.
 //
 
+#define INLINE
+
 #import "INLGroupedReporter.h"
 #import "INLTestCase.h"
 #import "INLBuilder.h"
