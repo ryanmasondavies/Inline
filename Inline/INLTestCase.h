@@ -7,17 +7,17 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
-@class INLBuilder, INLCompiler;
+@class INLStack, INLCompiler;
 
 /** Extends SenTestCase to allow developers to set a builder and compiler for tests. This class is abstract and is intended to be subclassed. Class methods performed on a subclass apply only to that subclass, and not to the superclass or siblings. */
 @interface INLTestCase : SenTestCase
 
 /** Returns the builder assigned to the current class. */
-+ (INLBuilder *)builder;
++ (INLStack *)builder;
 
 /** Assigns a builder to the current class. 
  @param builder The builder to assign. */
-+ (void)setBuilder:(INLBuilder *)builder;
++ (void)setBuilder:(INLStack *)builder;
 
 /** Returns the compiler assigned to the current class. */
 + (INLCompiler *)compiler;

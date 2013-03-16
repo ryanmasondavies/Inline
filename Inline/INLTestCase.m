@@ -8,7 +8,7 @@
 
 #import "INLTestCase.h"
 #import "INLInvocation.h"
-#import "INLBuilder.h"
+#import "INLStack.h"
 #import "INLCompiler.h"
 #import "INLTest.h"
 
@@ -32,18 +32,18 @@
     return compilersByClass;
 }
 
-+ (INLBuilder *)builder
++ (INLStack *)builder
 {
-    INLBuilder *builder = [[self buildersByClass] objectForKey:NSStringFromClass(self)];
+    INLStack *builder = [[self buildersByClass] objectForKey:NSStringFromClass(self)];
     if (builder == nil) {
-        builder = [[INLBuilder alloc] init];
+        builder = [[INLStack alloc] init];
         [self setBuilder:builder];
     }
     
     return builder;
 }
 
-+ (void)setBuilder:(INLBuilder *)builder
++ (void)setBuilder:(INLStack *)builder
 {
     if (builder)
         [[self buildersByClass] setObject:builder forKey:NSStringFromClass(self)];
@@ -72,9 +72,11 @@
 
 + (NSArray *)testInvocations
 {
-    NSAssert([self compiler], @"Must have a compiler.");
-    NSAssert([self builder],  @"Must have a builder.");
-    return [[self compiler] invocationsForGroup:[[self builder] rootGroup]];
+//    NSAssert([self compiler], @"Must have a compiler.");
+//    NSAssert([self builder],  @"Must have a builder.");
+//    return [[self compiler] invocationsForGroup:[[self builder] rootGroup]];
+    
+    return nil;
 }
 
 + (NSArray *)senAllSuperclasses
