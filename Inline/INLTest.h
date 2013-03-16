@@ -7,35 +7,20 @@
 //
 
 #import "INLNode.h"
-#import "INLHook.h"
-@class INLGroup, INLNodePath;
 
-typedef NS_ENUM(NSInteger, INLTestState) {
-    INLTestStatePending,
-    INLTestStateReady,
-    INLTestStateExecuted
-};
+typedef void(^INLTestBlock)(void);
 
-/** Represents a test within the system. */
+/** An executable test which raises an exception is any expectations are not met. */
 @interface INLTest : INLNode
 
-/** Runs the test. Must be overridden by subclasses. It is advised that subclasses invoke executeBeforeHooks and executeAfterHooks around execution of the test itself. */
+/** Initializes a new test.
+ @param label The label for the test.
+ @param block The block to invoke on execution.
+ @param parentGroup The group in which the test exists.
+ @return An initialized test. */
+- (id)initWithLabel:(NSString *)label block:(INLTestBlock)block;
+
+/** Executes block. */
 - (void)execute;
-
-/** Executes all hooks – with the given placement – attached to each group in the given node path.
- @param nodePath The path for which to execute hooks.
- @param placement The placement by which to filter hooks.
- */
-- (void)executeHooksInNodePath:(INLNodePath *)nodePath placement:(INLHookPlacement)placement;
-
-/** The states a test can be in.
- 
- The possible values are:
- 
- - INLTestStatePending
- - INLTestStateReady
- - INLTestStateExecuted
- */
-@property (nonatomic) INLTestState state;
 
 @end
