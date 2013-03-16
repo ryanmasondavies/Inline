@@ -7,20 +7,24 @@
 //
 
 #import "INLNode.h"
-@class INLGroup;
+
+typedef void(^INLHookBlock)(void);
 
 typedef NS_ENUM(NSInteger, INLHookPlacement) {
     INLHookPlacementBefore,
     INLHookPlacementAfter
 };
 
-/** Superclass for hooks of varying scope. */
+/** A hook is invoked before or after a test. */
 @interface INLHook : INLNode
 
-/** The placement of the hook: either INLTestPlacementBefore or INLTestPlacementAfter. This defines whether the hook is to be executed before or after tests. */
-@property (nonatomic) INLHookPlacement placement;
+/** Initializes a hook.
+ @param block The block to be invoked on execution.
+ @param placement The hook's placement, either before or after.
+ @return An initialized hook. */
+- (id)initWithBlock:(INLHookBlock)block placement:(INLHookPlacement)placement;
 
-/** Executes the hook. */
+/** Executes block. */
 - (void)execute;
 
 @end

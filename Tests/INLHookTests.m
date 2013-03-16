@@ -12,4 +12,13 @@
 
 @implementation INLHookTests
 
+- (void)testExecutesBlock
+{
+    __block BOOL executed = NO;
+    INLHookBlock block = ^{ executed = YES; };
+    INLHook *hook = [[INLHook alloc] initWithBlock:block placement:0];
+    [hook execute];
+    [[@(executed) should] beTrue];
+}
+
 @end
