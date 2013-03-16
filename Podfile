@@ -1,10 +1,7 @@
 platform :ios, '5.0'
 
-pod 'Transcript', '~> 0.1.0'
-
-target 'Specs', exclusive: true do
-  pod 'Inline', local: '.'
-  pod 'Specify'
-  pod 'Expecta'
+target 'Tests', exclusive: true do
+  pod 'Transcript'
+  pod 'Posit'
   pod 'OCMock'
 end

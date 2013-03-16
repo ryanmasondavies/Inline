@@ -1,29 +1,17 @@
 
 PODS:
-- Expecta (0.2.1)
-- Inline (0.2.0):
-  - Transcript (~> 0.1.0)
 - OCMock (2.0.1)
-- Specify (0.0.2):
-  - Inline (~> 0.1.0)
+- Posit (0.0.2)
 - Transcript (0.1.0)
 
 DEPENDENCIES:
-- Expecta
-- Inline (from `.')
 - OCMock
-- Specify
-- Transcript (~> 0.1.0)
-
-EXTERNAL SOURCES:
-  Inline:
-    :local: .
+- Posit
+- Transcript
 
 SPEC CHECKSUMS:
-  Transcript: 396a15997011487ea9ec018add2fa9a89a007973
-  Expecta: d46fb1bd78c90a83da0158b9b1e108de106e369f
-  Inline: 44956d4be2971f54dfb4314a955b2d2276170939
   OCMock: 77a9c4c57af6bf258a537d34cf09abf422affede
-  Specify: 2f1a898f5643cbf3427c296b16064b2595f86413
+  Posit: cc326d26411b57634b395cc09a1d897b7578a94c
+  Transcript: 396a15997011487ea9ec018add2fa9a89a007973
 
 COCOAPODS: 0.16.1

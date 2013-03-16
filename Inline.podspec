@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'Inline'
-  s.version = '0.2.0'
+  s.version = '0.2.1'
   s.license = 'MIT'
   s.platform = :ios, '5.0'
   s.summary = "Extends SenTestCase to allow for easier implementation of alternative DSLs."

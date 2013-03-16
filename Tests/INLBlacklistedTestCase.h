@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 Ryan Davies. All rights reserved.
 //
 
-#import "INLTestCase.h"
-
 // TODO: Deprecate INLBlacklistedTestCase once Mockingbird supports class stubbing.
 
 @interface INLBlacklistedTestCase : INLTestCase

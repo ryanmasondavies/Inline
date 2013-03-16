@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 Ryan Davies. All rights reserved.
 //
 
-#import "INLTest.h"
-
 // OCMock does not allow stubbing of -description, so INLFakeTest is necessary.
 // TODO: Deprecate INLFakeTest once Mockingbird supports stubbing of @selector(description).
 

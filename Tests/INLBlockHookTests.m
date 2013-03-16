@@ -1,19 +1,23 @@
 //
-//  INLBlockHookSpec.m
+//  INLBlockHookTests.m
 //  Inline
 //
 //  Created by Ryan Davies on 05/02/2013.
 //  Copyright (c) 2013 Ryan Davies. All rights reserved.
 //
 
-SpecBegin(INLBlockHook)
+@interface INLBlockHookTests : SenTestCase
+@end
 
-it(@"invokes the assigned block", ^{
+@implementation INLBlockHookTests
+
+- (void)testInvokesTheAssignedBlock
+{
     INLBlockHook *hook = [[INLBlockHook alloc] init];
     __block BOOL executed = NO;
     [hook setBlock:^{ executed = YES; }];
     [hook execute];
-    expect(executed).to.beTruthy();
-});
+    STAssertTrue(executed, @"");
+}
 
-SpecEnd
+@end
