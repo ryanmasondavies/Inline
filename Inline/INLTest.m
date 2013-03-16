@@ -18,15 +18,15 @@
 - (id)initWithLabel:(NSString *)label block:(INLTestBlock)block
 {
     if (self = [self init]) {
-        self.label = label;
-        self.block = block;
+        [self setLabel:label];
+        [self setBlock:block];
     }
     return self;
 }
 
 - (void)execute
 {
-    self.block();
+    [self block]();
 }
 
 @end
