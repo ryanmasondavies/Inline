@@ -131,13 +131,13 @@
 		9401319916F49711004A76A4 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				940131A416F49711004A76A4 /* INLInvocationTests.m */,
 				9401319E16F49711004A76A4 /* INLStackTests.m */,
 				9401319F16F49711004A76A4 /* INLCompilerTests.m */,
-				940131A216F49711004A76A4 /* INLGroupTests.m */,
-				940131A316F49711004A76A4 /* INLHookTests.m */,
-				940131A416F49711004A76A4 /* INLInvocationTests.m */,
 				940131A516F49711004A76A4 /* INLNodePathTests.m */,
+				940131A216F49711004A76A4 /* INLGroupTests.m */,
 				940131AB16F49711004A76A4 /* INLTestTests.m */,
+				940131A316F49711004A76A4 /* INLHookTests.m */,
 				940131BB16F49720004A76A4 /* Supporting classes */,
 				940131BC16F49727004A76A4 /* Supporting files */,
 			);
