@@ -7,8 +7,10 @@
 //
 
 #import "INLTestCase.h"
-#import "INLStack.h"
 #import "INLInvocation.h"
+#import "INLStack.h"
+#import "INLNode.h"
+#import "INLVisitor.h"
 #import "INLNodePath.h"
 #import "INLGroup.h"
 #import "INLTest.h"

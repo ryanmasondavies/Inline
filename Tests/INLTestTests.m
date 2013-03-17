@@ -27,4 +27,18 @@
     [[@(executed) should] beTrue];
 }
 
+- (void)testTellsVisitorToVisitTest
+{
+    // given
+    INLTest *test = [[INLTest alloc] initWithLabel:nil block:nil];
+    id visitor = [OCMockObject mockForProtocol:@protocol(INLVisitor)];
+    [[visitor expect] visitTest:test];
+    
+    // when
+    [test acceptVisitor:visitor];
+    
+    // then
+    [visitor verify];
+}
+
 @end

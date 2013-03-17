@@ -7,6 +7,7 @@
 //
 
 #import "INLTest.h"
+#import "INLVisitor.h"
 
 @interface INLTest ()
 @property (copy, nonatomic) NSString *label;
@@ -32,6 +33,11 @@
 - (void)execute
 {
     [self block]();
+}
+
+- (void)acceptVisitor:(id<INLVisitor>)visitor
+{
+    [visitor visitTest:self];
 }
 
 @end
