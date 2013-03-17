@@ -11,12 +11,18 @@
 
 @implementation INLTestTests
 
-- (void)testExecutesBlock
+- (void)testUsesLabelAsDescription
 {
     NSString *label = @"Test";
+    INLTest *test = [[INLTest alloc] initWithLabel:label block:nil];
+    [[[test description] should] beEqualTo:label];
+}
+
+- (void)testExecutesBlock
+{
     __block BOOL executed = NO;
     INLTestBlock block = ^{ executed = YES; };
-    INLTest *test = [[INLTest alloc] initWithLabel:label block:block];
+    INLTest *test = [[INLTest alloc] initWithLabel:nil block:block];
     [test execute];
     [[@(executed) should] beTrue];
 }

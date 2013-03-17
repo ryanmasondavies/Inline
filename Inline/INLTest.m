@@ -24,6 +24,11 @@
     return self;
 }
 
+- (NSString *)description
+{
+    return [self label];
+}
+
 - (void)execute
 {
     [self block]();
