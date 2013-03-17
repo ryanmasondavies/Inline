@@ -7,27 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-@class INLNode;
 
 /** Defines the path to a node. */
 @interface INLNodePath : NSObject
 
-/**
- @param node The destination node.
- @return An initialized node path which points to the destination node.
- */
-+ (instancetype)nodePathForDestinationNode:(INLNode *)destinationNode;
-
-/**
- @param node The destination node.
- @return An initialized node path which points to the destination node.
- */
-- (instancetype)initWithDestinationNode:(INLNode *)destinationNode;
-
-/** The nodes which point to the destination node. */
-@property (nonatomic, readonly) NSArray *nodes;
-
-/** The destination node. */
-@property (nonatomic, readonly) INLNode *destinationNode;
+/** Initialize a new node path.
+ @param groups The groups which make up the path. 
+ @return An initialized node. */
+- (id)initWithGroups:(NSArray *)groups;
 
 @end

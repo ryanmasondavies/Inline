@@ -6,6 +6,9 @@
 //  Copyright (c) 2013 Ryan Davies. All rights reserved.
 //
 
+@interface INLTestTests : SenTestCase
+@end
+
 @implementation INLTestTests
 
 - (void)testExecutesBlock
