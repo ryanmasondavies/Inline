@@ -7,65 +7,32 @@
 //
 
 @interface INLGroupTests : SenTestCase
-@property (strong, nonatomic) INLGroup *group;
-@property (strong, nonatomic) INLGroup *child;
-@property (strong, nonatomic) INLTest  *test;
-@property (strong, nonatomic) INLHook  *hook;
 @end
 
 @implementation INLGroupTests
 
-- (void)setUp
+- (void)testAddsNodesToArray
 {
-    self.group = [[INLGroup alloc] init];
-    self.child = [[INLGroup alloc] init];
-    self.test  = [[INLTest  alloc] init];
-    self.hook  = [[INLHook  alloc] init];
+    id<INLNode> node = [OCMockObject mockForProtocol:@protocol(INLNode)];
+    NSMutableArray *nodes = [[NSMutableArray alloc] init];
+    INLGroup *group = [[INLGroup alloc] initWithLabel:nil nodes:nodes];
+    [group addNode:node];
+    [[@([nodes objectAtIndex:0] == node) should] beTrue];
 }
 
-- (void)test_WhenGroupIsAdded_AddsItToGroups
+- (void)testRemovesNodesFromArray
 {
-    [[self group] addNode:[self child]];
-    [[[[self group] groups][0] should] beIdenticalTo:[self child]];
+    id<INLNode> node = [OCMockObject mockForProtocol:@protocol(INLNode)];
+    NSMutableArray *nodes = [[NSMutableArray alloc] initWithObjects:node, nil];
+    INLGroup *group = [[INLGroup alloc] initWithLabel:nil nodes:nodes];
+    [group removeNode:node];
+    [[@([nodes count]) should] beEqualTo:@0];
 }
 
-- (void)test_WhenTestIsAdded_AddsItToTests
+- (void)testUsesLabelAsDescription
 {
-    [[self group] addNode:[self test]];
-    [[[[self group] tests][0] should] beIdenticalTo:[self test]];
-}
-
-- (void)test_WhenHookIsAdded_AddsItToHooks
-{
-    [[self group] addNode:[self hook]];
-    [[[[self group] hooks][0] should] beIdenticalTo:[self hook]];
-}
-
-- (void)test_WhenGroupIsRemoved_RemovesItFromGroups
-{
-    [[self group] addNode:[self child]];
-    [[self group] removeNode:[self child]];
-    
-    BOOL result = [[[self group] groups] containsObject:[self child]];
-    [[@(result) shouldNot] beTrue];
-}
-
-- (void)test_WhenTestIsRemoved_RemovesItFromTests
-{
-    [[self group] addNode:[self test]];
-    [[self group] removeNode:[self test]];
-    
-    BOOL result = [[[self group] tests] containsObject:[self test]];
-    [[@(result) shouldNot] beTrue];
-}
-
-- (void)test_WhenHookIsRemoved_RemovesItFromHooks
-{
-    [[self group] addNode:[self hook]];
-    [[self group] removeNode:[self hook]];
-    
-    BOOL result = [[[self group] hooks] containsObject:[self hook]];
-    [[@(result) shouldNot] beTrue];
+    INLGroup *group = [[INLGroup alloc] initWithLabel:@"Group" nodes:nil];
+    [[[group description] should] beEqualTo:@"Group"];
 }
 
 @end

@@ -6,28 +6,27 @@
 //  Copyright (c) 2013 Ryan Davies. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
 #import "INLNode.h"
 
 /** Represents a group of tests and their hooks. */
 @interface INLGroup : NSObject <INLNode>
 
-/**
- Adds a node to the group.
+/** Initializes a group with a set of nodes.
+ @param label A label for the group.
+ @param nodes A mutable array of nodes.
+ @return An initialized group. */
+- (id)initWithLabel:(NSString *)label nodes:(NSMutableArray *)nodes;
+
+/** @return The group's label. */
+- (NSString *)description;
+
+/** Adds a node to the group.
  @param node The node to add. */
 - (void)addNode:(id <INLNode>)node;
 
-/**
- Remove a node.
+/** Remove a node.
  @param node The node to remove. */
 - (void)removeNode:(id <INLNode>)node;
-
-/** A list of the child groups that have been added to the group. */
-@property (nonatomic, readonly) NSArray *groups;
-
-/** A list of the tests that have been added to the group. */
-@property (nonatomic, readonly) NSArray *tests;
-
-/** A list of the hooks that have been added to the group. */
-@property (nonatomic, readonly) NSArray *hooks;
 
 @end

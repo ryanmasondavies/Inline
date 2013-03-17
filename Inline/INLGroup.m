@@ -11,58 +11,34 @@
 #import "INLHook.h"
 
 @interface INLGroup ()
+@property (copy, nonatomic) NSString *label;
 @property (strong, nonatomic) NSMutableArray *nodes;
 @end
 
 @implementation INLGroup
 
-- (id)init
+- (id)initWithLabel:(NSString *)label nodes:(NSMutableArray *)nodes
 {
     if (self = [super init]) {
-        self.nodes  = [NSMutableArray array];
+        [self setLabel:label];
+        [self setNodes:nodes];
     }
     return self;
 }
 
-- (NSArray *)nodesOfKind:(Class)kind
+- (NSString *)description
 {
-    NSAssert(kind, @"Must be passed a class.");
-    
-    NSMutableArray *nodes = [NSMutableArray array];
-    [[self nodes] enumerateObjectsUsingBlock:^(id <INLNode> node, NSUInteger idx, BOOL *stop) {
-        if ([node isKindOfClass:kind]) {
-            [nodes addObject:node];
-        }
-    }];
-    
-    return [NSArray arrayWithArray:nodes];
+    return [self label];
 }
 
 - (void)addNode:(id <INLNode>)node
 {
-    NSAssert(node, @"Must be passed a node.");
     [[self nodes] addObject:node];
 }
 
 - (void)removeNode:(id <INLNode>)node
 {
-    NSAssert(node, @"Must be passed a node.");
     [[self nodes] removeObject:node];
-}
-
-- (NSArray *)groups
-{
-    return [self nodesOfKind:[INLGroup class]];
-}
-
-- (NSArray *)tests
-{
-    return [self nodesOfKind:[INLTest class]];
-}
-
-- (NSArray *)hooks
-{
-    return [self nodesOfKind:[INLHook class]];
 }
 
 @end
