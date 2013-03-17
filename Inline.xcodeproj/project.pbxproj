@@ -15,13 +15,11 @@
 		947EA9F916B72AFC00FE8D79 /* INLTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 947EA9F816B72AFC00FE8D79 /* INLTest.m */; };
 		947EA9FF16B72F4700FE8D79 /* INLHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 947EA9FE16B72F4700FE8D79 /* INLHook.m */; };
 		947EAA0116B7306900FE8D79 /* INLStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 947EAA0016B7306900FE8D79 /* INLStack.m */; };
-		947EAA0F16B7550C00FE8D79 /* INLCompiler.m in Sources */ = {isa = PBXBuildFile; fileRef = 947EAA0E16B7550C00FE8D79 /* INLCompiler.m */; };
 		9498982416F49B69005E06AB /* libInline.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A1C77416A97B3F008C170D /* libInline.a */; };
 		9498982616F49B75005E06AB /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9498982516F49B75005E06AB /* SenTestingKit.framework */; };
 		9498982716F49B7D005E06AB /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9498982516F49B75005E06AB /* SenTestingKit.framework */; };
 		9498982C16F49D64005E06AB /* INLTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 94088D5D16A9B85600D7DEFC /* INLTestCase.m */; };
 		9498982E16F4C924005E06AB /* INLStackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9401319E16F49711004A76A4 /* INLStackTests.m */; };
-		9498982F16F4C99E005E06AB /* INLCompilerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9401319F16F49711004A76A4 /* INLCompilerTests.m */; };
 		9498983016F4CA38005E06AB /* INLGroupTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 940131A216F49711004A76A4 /* INLGroupTests.m */; };
 		9498983116F4CFDF005E06AB /* INLInvocationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 940131A416F49711004A76A4 /* INLInvocationTests.m */; };
 		9498983216F4CFE1005E06AB /* INLHookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 940131A316F49711004A76A4 /* INLHookTests.m */; };
@@ -58,7 +56,6 @@
 /* Begin PBXFileReference section */
 		7BAA5701D5BB4EED90E59C22 /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9401319E16F49711004A76A4 /* INLStackTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLStackTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		9401319F16F49711004A76A4 /* INLCompilerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLCompilerTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		940131A216F49711004A76A4 /* INLGroupTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLGroupTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		940131A316F49711004A76A4 /* INLHookTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLHookTests.m; sourceTree = "<group>"; };
 		940131A416F49711004A76A4 /* INLInvocationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLInvocationTests.m; sourceTree = "<group>"; };
@@ -71,7 +68,6 @@
 		94088D4116A9AA1800D7DEFC /* INLTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLTest.h; sourceTree = "<group>"; };
 		94088D5C16A9B85600D7DEFC /* INLTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLTestCase.h; sourceTree = "<group>"; };
 		94088D5D16A9B85600D7DEFC /* INLTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLTestCase.m; sourceTree = "<group>"; };
-		94139B1C16B1FC3400EA1E4F /* INLCompiler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INLCompiler.h; sourceTree = "<group>"; };
 		9424A22616B1541F004FEFCD /* INLStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INLStack.h; sourceTree = "<group>"; };
 		9432FCF116C8122900CBDE3D /* INLNodePath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLNodePath.h; sourceTree = "<group>"; };
 		9432FCF216C8122900CBDE3D /* INLNodePath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLNodePath.m; sourceTree = "<group>"; };
@@ -82,7 +78,6 @@
 		947EA9FD16B72F4700FE8D79 /* INLHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLHook.h; sourceTree = "<group>"; };
 		947EA9FE16B72F4700FE8D79 /* INLHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLHook.m; sourceTree = "<group>"; };
 		947EAA0016B7306900FE8D79 /* INLStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLStack.m; sourceTree = "<group>"; };
-		947EAA0E16B7550C00FE8D79 /* INLCompiler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLCompiler.m; sourceTree = "<group>"; };
 		949504F316C51FE30067F026 /* INLNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INLNode.h; sourceTree = "<group>"; };
 		9498982516F49B75005E06AB /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		94A1C77416A97B3F008C170D /* libInline.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libInline.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,7 +116,6 @@
 			children = (
 				940131A416F49711004A76A4 /* INLInvocationTests.m */,
 				9401319E16F49711004A76A4 /* INLStackTests.m */,
-				9401319F16F49711004A76A4 /* INLCompilerTests.m */,
 				940131A516F49711004A76A4 /* INLNodePathTests.m */,
 				940131A216F49711004A76A4 /* INLGroupTests.m */,
 				940131AB16F49711004A76A4 /* INLTestTests.m */,
@@ -180,8 +174,6 @@
 				94088D3F16A9A9CD00D7DEFC /* INLInvocation.m */,
 				9424A22616B1541F004FEFCD /* INLStack.h */,
 				947EAA0016B7306900FE8D79 /* INLStack.m */,
-				94139B1C16B1FC3400EA1E4F /* INLCompiler.h */,
-				947EAA0E16B7550C00FE8D79 /* INLCompiler.m */,
 				949504F316C51FE30067F026 /* INLNode.h */,
 				946B31F616C7D85000EA9855 /* INLNode.m */,
 				9432FCF116C8122900CBDE3D /* INLNodePath.h */,
@@ -314,7 +306,6 @@
 				947EA9F916B72AFC00FE8D79 /* INLTest.m in Sources */,
 				947EA9FF16B72F4700FE8D79 /* INLHook.m in Sources */,
 				947EAA0116B7306900FE8D79 /* INLStack.m in Sources */,
-				947EAA0F16B7550C00FE8D79 /* INLCompiler.m in Sources */,
 				946B31F716C7D85000EA9855 /* INLNode.m in Sources */,
 				9432FCF316C8122900CBDE3D /* INLNodePath.m in Sources */,
 				9498982C16F49D64005E06AB /* INLTestCase.m in Sources */,
@@ -326,7 +317,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9498982E16F4C924005E06AB /* INLStackTests.m in Sources */,
-				9498982F16F4C99E005E06AB /* INLCompilerTests.m in Sources */,
 				9498983016F4CA38005E06AB /* INLGroupTests.m in Sources */,
 				9498983116F4CFDF005E06AB /* INLInvocationTests.m in Sources */,
 				9498983216F4CFE1005E06AB /* INLHookTests.m in Sources */,
