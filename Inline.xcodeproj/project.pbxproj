@@ -10,7 +10,6 @@
 		5115D79D33B6494CBBF82CB8 /* libPods-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BAA5701D5BB4EED90E59C22 /* libPods-Tests.a */; };
 		94088D4016A9A9CD00D7DEFC /* INLInvocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 94088D3F16A9A9CD00D7DEFC /* INLInvocation.m */; };
 		9432FCF316C8122900CBDE3D /* INLNodePath.m in Sources */ = {isa = PBXBuildFile; fileRef = 9432FCF216C8122900CBDE3D /* INLNodePath.m */; };
-		946B31F716C7D85000EA9855 /* INLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 946B31F616C7D85000EA9855 /* INLNode.m */; };
 		947EA9F716B724D600FE8D79 /* INLGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 947EA9F616B724D600FE8D79 /* INLGroup.m */; };
 		947EA9F916B72AFC00FE8D79 /* INLTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 947EA9F816B72AFC00FE8D79 /* INLTest.m */; };
 		947EA9FF16B72F4700FE8D79 /* INLHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 947EA9FE16B72F4700FE8D79 /* INLHook.m */; };
@@ -71,7 +70,6 @@
 		9424A22616B1541F004FEFCD /* INLStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INLStack.h; sourceTree = "<group>"; };
 		9432FCF116C8122900CBDE3D /* INLNodePath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLNodePath.h; sourceTree = "<group>"; };
 		9432FCF216C8122900CBDE3D /* INLNodePath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLNodePath.m; sourceTree = "<group>"; };
-		946B31F616C7D85000EA9855 /* INLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLNode.m; sourceTree = "<group>"; };
 		947EA9F516B724D600FE8D79 /* INLGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLGroup.h; sourceTree = "<group>"; };
 		947EA9F616B724D600FE8D79 /* INLGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLGroup.m; sourceTree = "<group>"; };
 		947EA9F816B72AFC00FE8D79 /* INLTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLTest.m; sourceTree = "<group>"; };
@@ -175,7 +173,6 @@
 				9424A22616B1541F004FEFCD /* INLStack.h */,
 				947EAA0016B7306900FE8D79 /* INLStack.m */,
 				949504F316C51FE30067F026 /* INLNode.h */,
-				946B31F616C7D85000EA9855 /* INLNode.m */,
 				9432FCF116C8122900CBDE3D /* INLNodePath.h */,
 				9432FCF216C8122900CBDE3D /* INLNodePath.m */,
 				947EA9F516B724D600FE8D79 /* INLGroup.h */,
@@ -306,7 +303,6 @@
 				947EA9F916B72AFC00FE8D79 /* INLTest.m in Sources */,
 				947EA9FF16B72F4700FE8D79 /* INLHook.m in Sources */,
 				947EAA0116B7306900FE8D79 /* INLStack.m in Sources */,
-				946B31F716C7D85000EA9855 /* INLNode.m in Sources */,
 				9432FCF316C8122900CBDE3D /* INLNodePath.m in Sources */,
 				9498982C16F49D64005E06AB /* INLTestCase.m in Sources */,
 			);

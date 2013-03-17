@@ -8,7 +8,6 @@
 
 #import "INLTestCase.h"
 #import "INLStack.h"
-#import "INLCompiler.h"
 #import "INLInvocation.h"
 #import "INLNodePath.h"
 #import "INLGroup.h"

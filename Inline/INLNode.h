@@ -7,15 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-@class INLGroup;
+@protocol INLVisitor;
 
-/** The superclass to elements that can appear in a group. */
-@interface INLNode : NSObject
+/** The interface for groups, tests, and hooks to conform to. */
+@protocol INLNode <NSObject>
 
-/** The parent group of the node. */
-@property (weak, nonatomic) INLGroup *parent;
-
-/** The label by which to identify the node; not applicable to all. */
-@property (copy, nonatomic) NSString *label;
+/** Used to trigger methods for visitors, allowing them to easily traverse the structure. */
+- (void)acceptVisitor:(id <INLVisitor>)visitor;
 
 @end

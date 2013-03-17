@@ -6,12 +6,13 @@
 //  Copyright (c) 2013 Ryan Davies. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
 #import "INLNode.h"
 
 typedef void(^INLTestBlock)(void);
 
 /** An executable test which raises an exception is any expectations are not met. */
-@interface INLTest : INLNode
+@interface INLTest : NSObject <INLNode>
 
 /** Initializes a new test.
  @param label The label for the test.

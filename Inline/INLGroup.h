@@ -7,20 +7,19 @@
 //
 
 #import "INLNode.h"
-@class INLTest, INLHook;
 
 /** Represents a group of tests and their hooks. */
-@interface INLGroup : INLNode
+@interface INLGroup : NSObject <INLNode>
 
 /**
  Adds a node to the group.
  @param node The node to add. */
-- (void)addNode:(INLNode *)node;
+- (void)addNode:(id <INLNode>)node;
 
 /**
  Remove a node.
  @param node The node to remove. */
-- (void)removeNode:(INLNode *)node;
+- (void)removeNode:(id <INLNode>)node;
 
 /** A list of the child groups that have been added to the group. */
 @property (nonatomic, readonly) NSArray *groups;

@@ -29,34 +29,16 @@
     [[[[self group] groups][0] should] beIdenticalTo:[self child]];
 }
 
-- (void)test_WhenGroupIsAdded_MarksItAsChildOfParent
-{
-    [[self group] addNode:[self child]];
-    [[[[self child] parent] should] beIdenticalTo:[self group]];
-}
-
 - (void)test_WhenTestIsAdded_AddsItToTests
 {
     [[self group] addNode:[self test]];
     [[[[self group] tests][0] should] beIdenticalTo:[self test]];
 }
 
-- (void)test_WhenTestIsAdded_MarksItAsChildOfParentGroup
-{
-    [[self group] addNode:[self test]];
-    [[[[self test] parent] should] beIdenticalTo:[self group]];
-}
-
 - (void)test_WhenHookIsAdded_AddsItToHooks
 {
     [[self group] addNode:[self hook]];
     [[[[self group] hooks][0] should] beIdenticalTo:[self hook]];
-}
-
-- (void)test_WhenHookIsAdded_MarksItAsChildOfParentGroup
-{
-    [[self group] addNode:[self hook]];
-    [[[[self hook] parent] should] beIdenticalTo:[self group]];
 }
 
 - (void)test_WhenGroupIsRemoved_RemovesItFromGroups
@@ -68,13 +50,6 @@
     [[@(result) shouldNot] beTrue];
 }
 
-- (void)test_WhenGroupIsRemoved_MarksItAsIndependentFromParentGroup
-{
-    [[self group] addNode:[self child]];
-    [[self group] removeNode:[self child]];
-    [[@([[self child] parent] != nil) shouldNot] beTrue];
-}
-
 - (void)test_WhenTestIsRemoved_RemovesItFromTests
 {
     [[self group] addNode:[self test]];
@@ -84,13 +59,6 @@
     [[@(result) shouldNot] beTrue];
 }
 
-- (void)test_WhenTestIsRemoved_MarksItAsIndependentFromParentGroup
-{
-    [[self group] addNode:[self test]];
-    [[self group] removeNode:[self test]];
-    [[@([[self test] parent] != nil) shouldNot] beTrue];
-}
-
 - (void)test_WhenHookIsRemoved_RemovesItFromHooks
 {
     [[self group] addNode:[self hook]];
@@ -98,13 +66,6 @@
     
     BOOL result = [[[self group] hooks] containsObject:[self hook]];
     [[@(result) shouldNot] beTrue];
-}
-
-- (void)test_WhenHookIsRemoved_MarksItAsIndependentFromParentGroup
-{
-    [[self group] addNode:[self hook]];
-    [[self group] removeNode:[self hook]];
-    [[@([[self hook] parent] != nil) shouldNot] beTrue];
 }
 
 @end
