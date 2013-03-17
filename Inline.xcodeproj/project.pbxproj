@@ -19,9 +19,6 @@
 		9498982416F49B69005E06AB /* libInline.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A1C77416A97B3F008C170D /* libInline.a */; };
 		9498982616F49B75005E06AB /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9498982516F49B75005E06AB /* SenTestingKit.framework */; };
 		9498982716F49B7D005E06AB /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9498982516F49B75005E06AB /* SenTestingKit.framework */; };
-		9498982816F49CA1005E06AB /* INLBlacklistedTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9401319B16F49711004A76A4 /* INLBlacklistedTestCase.m */; };
-		9498982A16F49CA1005E06AB /* INLTestCaseA.m in Sources */ = {isa = PBXBuildFile; fileRef = 940131A716F49711004A76A4 /* INLTestCaseA.m */; };
-		9498982B16F49CA1005E06AB /* INLTestCaseB.m in Sources */ = {isa = PBXBuildFile; fileRef = 940131A916F49711004A76A4 /* INLTestCaseB.m */; };
 		9498982C16F49D64005E06AB /* INLTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 94088D5D16A9B85600D7DEFC /* INLTestCase.m */; };
 		9498982E16F4C924005E06AB /* INLStackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9401319E16F49711004A76A4 /* INLStackTests.m */; };
 		9498982F16F4C99E005E06AB /* INLCompilerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9401319F16F49711004A76A4 /* INLCompilerTests.m */; };
@@ -60,18 +57,12 @@
 
 /* Begin PBXFileReference section */
 		7BAA5701D5BB4EED90E59C22 /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9401319A16F49711004A76A4 /* INLBlacklistedTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLBlacklistedTestCase.h; sourceTree = "<group>"; };
-		9401319B16F49711004A76A4 /* INLBlacklistedTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLBlacklistedTestCase.m; sourceTree = "<group>"; };
 		9401319E16F49711004A76A4 /* INLStackTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLStackTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		9401319F16F49711004A76A4 /* INLCompilerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLCompilerTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		940131A216F49711004A76A4 /* INLGroupTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLGroupTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		940131A316F49711004A76A4 /* INLHookTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLHookTests.m; sourceTree = "<group>"; };
 		940131A416F49711004A76A4 /* INLInvocationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLInvocationTests.m; sourceTree = "<group>"; };
 		940131A516F49711004A76A4 /* INLNodePathTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLNodePathTests.m; sourceTree = "<group>"; };
-		940131A616F49711004A76A4 /* INLTestCaseA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLTestCaseA.h; sourceTree = "<group>"; };
-		940131A716F49711004A76A4 /* INLTestCaseA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLTestCaseA.m; sourceTree = "<group>"; };
-		940131A816F49711004A76A4 /* INLTestCaseB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLTestCaseB.h; sourceTree = "<group>"; };
-		940131A916F49711004A76A4 /* INLTestCaseB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLTestCaseB.m; sourceTree = "<group>"; };
 		940131AA16F49711004A76A4 /* INLTestHelper.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLTestHelper.pch; sourceTree = "<group>"; };
 		940131AB16F49711004A76A4 /* INLTestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLTestTests.m; sourceTree = "<group>"; };
 		940131AC16F49711004A76A4 /* Tests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
@@ -135,23 +126,9 @@
 				940131A216F49711004A76A4 /* INLGroupTests.m */,
 				940131AB16F49711004A76A4 /* INLTestTests.m */,
 				940131A316F49711004A76A4 /* INLHookTests.m */,
-				940131BB16F49720004A76A4 /* Supporting classes */,
 				940131BC16F49727004A76A4 /* Supporting files */,
 			);
 			path = Tests;
-			sourceTree = "<group>";
-		};
-		940131BB16F49720004A76A4 /* Supporting classes */ = {
-			isa = PBXGroup;
-			children = (
-				9401319A16F49711004A76A4 /* INLBlacklistedTestCase.h */,
-				9401319B16F49711004A76A4 /* INLBlacklistedTestCase.m */,
-				940131A616F49711004A76A4 /* INLTestCaseA.h */,
-				940131A716F49711004A76A4 /* INLTestCaseA.m */,
-				940131A816F49711004A76A4 /* INLTestCaseB.h */,
-				940131A916F49711004A76A4 /* INLTestCaseB.m */,
-			);
-			name = "Supporting classes";
 			sourceTree = "<group>";
 		};
 		940131BC16F49727004A76A4 /* Supporting files */ = {
@@ -348,9 +325,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9498982816F49CA1005E06AB /* INLBlacklistedTestCase.m in Sources */,
-				9498982A16F49CA1005E06AB /* INLTestCaseA.m in Sources */,
-				9498982B16F49CA1005E06AB /* INLTestCaseB.m in Sources */,
 				9498982E16F4C924005E06AB /* INLStackTests.m in Sources */,
 				9498982F16F4C99E005E06AB /* INLCompilerTests.m in Sources */,
 				9498983016F4CA38005E06AB /* INLGroupTests.m in Sources */,
