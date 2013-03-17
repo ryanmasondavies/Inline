@@ -25,6 +25,11 @@
     return self;
 }
 
+- (void)acceptVisitor:(id<INLVisitor>)visitor
+{
+    [[self nodes] makeObjectsPerformSelector:@selector(acceptVisitor:) withObject:visitor];
+}
+
 - (NSString *)description
 {
     return [self label];
@@ -38,11 +43,6 @@
 - (void)removeNode:(id<INLNode>)node
 {
     [[self nodes] removeObject:node];
-}
-
-- (void)acceptVisitor:(id<INLVisitor>)visitor
-{
-    [[self nodes] makeObjectsPerformSelector:@selector(acceptVisitor:) withObject:visitor];
 }
 
 @end

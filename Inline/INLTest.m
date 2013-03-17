@@ -25,6 +25,11 @@
     return self;
 }
 
+- (void)acceptVisitor:(id<INLVisitor>)visitor
+{
+    [visitor visitTest:self];
+}
+
 - (NSString *)description
 {
     return [self label];
@@ -33,11 +38,6 @@
 - (void)execute
 {
     [self block]();
-}
-
-- (void)acceptVisitor:(id<INLVisitor>)visitor
-{
-    [visitor visitTest:self];
 }
 
 @end
