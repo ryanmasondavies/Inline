@@ -7,6 +7,7 @@
 //
 
 #import "INLHook.h"
+#import "INLVisitor.h"
 
 @interface INLHook ()
 @property (copy, nonatomic) INLHookBlock block;
@@ -22,6 +23,11 @@
         [self setPlacement:placement];
     }
     return self;
+}
+
+- (void)acceptVisitor:(id<INLVisitor>)visitor
+{
+    [visitor visitHook:self];
 }
 
 - (void)execute
