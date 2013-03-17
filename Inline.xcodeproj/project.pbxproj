@@ -76,6 +76,7 @@
 		947EA9FD16B72F4700FE8D79 /* INLHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLHook.h; sourceTree = "<group>"; };
 		947EA9FE16B72F4700FE8D79 /* INLHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLHook.m; sourceTree = "<group>"; };
 		947EAA0016B7306900FE8D79 /* INLStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLStack.m; sourceTree = "<group>"; };
+		948DBCE816F6170F00B473FD /* INLVisitor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INLVisitor.h; sourceTree = "<group>"; };
 		949504F316C51FE30067F026 /* INLNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INLNode.h; sourceTree = "<group>"; };
 		9498982516F49B75005E06AB /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		94A1C77416A97B3F008C170D /* libInline.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libInline.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -173,6 +174,7 @@
 				9424A22616B1541F004FEFCD /* INLStack.h */,
 				947EAA0016B7306900FE8D79 /* INLStack.m */,
 				949504F316C51FE30067F026 /* INLNode.h */,
+				948DBCE816F6170F00B473FD /* INLVisitor.h */,
 				9432FCF116C8122900CBDE3D /* INLNodePath.h */,
 				9432FCF216C8122900CBDE3D /* INLNodePath.m */,
 				947EA9F516B724D600FE8D79 /* INLGroup.h */,

@@ -7,8 +7,7 @@
 //
 
 #import "INLGroup.h"
-#import "INLTest.h"
-#import "INLHook.h"
+#import "INLVisitor.h"
 
 @interface INLGroup ()
 @property (copy, nonatomic) NSString *label;
@@ -31,14 +30,19 @@
     return [self label];
 }
 
-- (void)addNode:(id <INLNode>)node
+- (void)addNode:(id<INLNode>)node
 {
     [[self nodes] addObject:node];
 }
 
-- (void)removeNode:(id <INLNode>)node
+- (void)removeNode:(id<INLNode>)node
 {
     [[self nodes] removeObject:node];
+}
+
+- (void)acceptVisitor:(id<INLVisitor>)visitor
+{
+    [[self nodes] makeObjectsPerformSelector:@selector(acceptVisitor:) withObject:visitor];
 }
 
 @end
