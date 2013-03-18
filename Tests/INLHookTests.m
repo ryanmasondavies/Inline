@@ -15,7 +15,7 @@
 - (void)testTellsVisitorToVisitTest
 {
     // given
-    INLHook *hook = [[INLHook alloc] initWithLabel:nil block:nil];
+    INLHook *hook = [[INLHook alloc] initWithBlock:nil placement:0];
     id visitor = [OCMockObject mockForProtocol:@protocol(INLVisitor)];
     [[visitor expect] visitHook:hook];
     
