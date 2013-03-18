@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 Ryan Davies. All rights reserved.
 //
 
-#import "INLTestCase.h"
-#import "INLInvocation.h"
 #import "INLTestRunner.h"
 #import "INLStack.h"
 #import "INLGroup.h"

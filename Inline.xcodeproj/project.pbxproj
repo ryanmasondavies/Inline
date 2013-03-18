@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5115D79D33B6494CBBF82CB8 /* libPods-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BAA5701D5BB4EED90E59C22 /* libPods-Tests.a */; };
-		94088D4016A9A9CD00D7DEFC /* INLInvocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 94088D3F16A9A9CD00D7DEFC /* INLInvocation.m */; };
 		941BF00D16F770D900819A8D /* INLTestRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 941BF00C16F770D900819A8D /* INLTestRunner.m */; };
 		941BF00F16F770F200819A8D /* INLTestRunnerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 941BF00E16F770F200819A8D /* INLTestRunnerTests.m */; };
 		947EA9F716B724D600FE8D79 /* INLGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 947EA9F616B724D600FE8D79 /* INLGroup.m */; };
@@ -18,10 +17,8 @@
 		9498982416F49B69005E06AB /* libInline.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A1C77416A97B3F008C170D /* libInline.a */; };
 		9498982616F49B75005E06AB /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9498982516F49B75005E06AB /* SenTestingKit.framework */; };
 		9498982716F49B7D005E06AB /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9498982516F49B75005E06AB /* SenTestingKit.framework */; };
-		9498982C16F49D64005E06AB /* INLTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 94088D5D16A9B85600D7DEFC /* INLTestCase.m */; };
 		9498982E16F4C924005E06AB /* INLStackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9401319E16F49711004A76A4 /* INLStackTests.m */; };
 		9498983016F4CA38005E06AB /* INLGroupTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 940131A216F49711004A76A4 /* INLGroupTests.m */; };
-		9498983116F4CFDF005E06AB /* INLInvocationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 940131A416F49711004A76A4 /* INLInvocationTests.m */; };
 		9498983216F4CFE1005E06AB /* INLHookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 940131A316F49711004A76A4 /* INLHookTests.m */; };
 		9498983416F4D13A005E06AB /* INLTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 940131AB16F49711004A76A4 /* INLTestTests.m */; };
 		94A1C77816A97B3F008C170D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A1C77716A97B3F008C170D /* Foundation.framework */; };
@@ -57,15 +54,10 @@
 		9401319E16F49711004A76A4 /* INLStackTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLStackTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		940131A216F49711004A76A4 /* INLGroupTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLGroupTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		940131A316F49711004A76A4 /* INLHookTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLHookTests.m; sourceTree = "<group>"; };
-		940131A416F49711004A76A4 /* INLInvocationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLInvocationTests.m; sourceTree = "<group>"; };
 		940131AA16F49711004A76A4 /* INLTestHelper.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLTestHelper.pch; sourceTree = "<group>"; };
 		940131AB16F49711004A76A4 /* INLTestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLTestTests.m; sourceTree = "<group>"; };
 		940131AC16F49711004A76A4 /* Tests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
-		94088D3E16A9A9CD00D7DEFC /* INLInvocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLInvocation.h; sourceTree = "<group>"; };
-		94088D3F16A9A9CD00D7DEFC /* INLInvocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLInvocation.m; sourceTree = "<group>"; };
 		94088D4116A9AA1800D7DEFC /* INLTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLTest.h; sourceTree = "<group>"; };
-		94088D5C16A9B85600D7DEFC /* INLTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLTestCase.h; sourceTree = "<group>"; };
-		94088D5D16A9B85600D7DEFC /* INLTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLTestCase.m; sourceTree = "<group>"; };
 		941BF00B16F770D900819A8D /* INLTestRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLTestRunner.h; sourceTree = "<group>"; };
 		941BF00C16F770D900819A8D /* INLTestRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLTestRunner.m; sourceTree = "<group>"; };
 		941BF00E16F770F200819A8D /* INLTestRunnerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLTestRunnerTests.m; sourceTree = "<group>"; };
@@ -113,7 +105,6 @@
 		9401319916F49711004A76A4 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				940131A416F49711004A76A4 /* INLInvocationTests.m */,
 				9401319E16F49711004A76A4 /* INLStackTests.m */,
 				941BF00E16F770F200819A8D /* INLTestRunnerTests.m */,
 				940131A216F49711004A76A4 /* INLGroupTests.m */,
@@ -167,10 +158,6 @@
 			isa = PBXGroup;
 			children = (
 				94A1C77C16A97B3F008C170D /* Inline.h */,
-				94088D5C16A9B85600D7DEFC /* INLTestCase.h */,
-				94088D5D16A9B85600D7DEFC /* INLTestCase.m */,
-				94088D3E16A9A9CD00D7DEFC /* INLInvocation.h */,
-				94088D3F16A9A9CD00D7DEFC /* INLInvocation.m */,
 				948DBCE816F6170F00B473FD /* INLVisitor.h */,
 				941BF00B16F770D900819A8D /* INLTestRunner.h */,
 				941BF00C16F770D900819A8D /* INLTestRunner.m */,
@@ -300,12 +287,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94088D4016A9A9CD00D7DEFC /* INLInvocation.m in Sources */,
 				947EA9F716B724D600FE8D79 /* INLGroup.m in Sources */,
 				947EA9F916B72AFC00FE8D79 /* INLTest.m in Sources */,
 				947EA9FF16B72F4700FE8D79 /* INLHook.m in Sources */,
 				947EAA0116B7306900FE8D79 /* INLStack.m in Sources */,
-				9498982C16F49D64005E06AB /* INLTestCase.m in Sources */,
 				941BF00D16F770D900819A8D /* INLTestRunner.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,7 +301,6 @@
 			files = (
 				9498982E16F4C924005E06AB /* INLStackTests.m in Sources */,
 				9498983016F4CA38005E06AB /* INLGroupTests.m in Sources */,
-				9498983116F4CFDF005E06AB /* INLInvocationTests.m in Sources */,
 				9498983216F4CFE1005E06AB /* INLHookTests.m in Sources */,
 				9498983416F4D13A005E06AB /* INLTestTests.m in Sources */,
 				941BF00F16F770F200819A8D /* INLTestRunnerTests.m in Sources */,
