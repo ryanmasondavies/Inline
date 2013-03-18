@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Ryan Davies. All rights reserved.
 //
 
-#import "INLTestRunner.h"
+#import "INLNodeRunner.h"
 #import "INLStack.h"
 #import "INLGroup.h"
 #import "INLTest.h"
