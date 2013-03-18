@@ -13,10 +13,15 @@
 
 - (void)testExecutesTest
 {
+    // given
     id test = [OCMockObject mockForClass:[INLTest class]];
     [[test expect] execute];
     INLInvocation *testInvocation = [INLInvocation invocationWithTest:test];
+    
+    // when
     [testInvocation invoke];
+    
+    // then
     [test verify];
 }
 

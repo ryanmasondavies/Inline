@@ -27,17 +27,24 @@
 
 - (void)testUsesLabelAsDescription
 {
-    NSString *label = @"Test";
-    INLTest *test = [[INLTest alloc] initWithLabel:label block:nil];
-    [[[test description] should] beEqualTo:label];
+    // given
+    INLTest *test = [[INLTest alloc] initWithLabel:@"Test" block:nil];
+    
+    // then
+    [[[test description] should] beEqualTo:@"Test"];
 }
 
 - (void)testExecutesBlock
 {
+    // given
     __block BOOL executed = NO;
     INLTestBlock block = ^{ executed = YES; };
     INLTest *test = [[INLTest alloc] initWithLabel:nil block:block];
+    
+    // when
     [test execute];
+    
+    // then
     [[@(executed) should] beTrue];
 }
 
