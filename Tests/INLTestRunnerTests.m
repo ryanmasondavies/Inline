@@ -31,7 +31,7 @@
     // given
     id hook = [OCMockObject mockForClass:[INLHook class]];
     INLTestRunner *runner = [[INLTestRunner alloc] init];
-    [[hook expect] execute];
+    [(INLHook *)[hook expect] run];
     
     // when
     [runner visitHook:hook];

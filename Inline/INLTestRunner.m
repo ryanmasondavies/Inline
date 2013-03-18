@@ -19,7 +19,7 @@
 
 - (void)visitHook:(INLHook *)hook
 {
-    [hook execute];
+    [hook run];
 }
 
 @end

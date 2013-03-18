@@ -26,6 +26,6 @@ typedef NS_ENUM(NSInteger, INLHookPlacement) {
 - (id)initWithBlock:(INLHookBlock)block placement:(INLHookPlacement)placement;
 
 /** Executes block. */
-- (void)execute;
+- (void)run;
 
 @end

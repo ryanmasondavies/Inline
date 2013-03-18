@@ -34,7 +34,7 @@
     INLHook *hook = [[INLHook alloc] initWithBlock:block placement:0];
     
     // when
-    [hook execute];
+    [hook run];
     
     // then
     [[@(executed) should] beTrue];

@@ -30,7 +30,7 @@
     [visitor visitHook:self];
 }
 
-- (void)execute
+- (void)run
 {
     [self block]();
 }
