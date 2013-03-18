@@ -26,7 +26,7 @@
     [test verify];
 }
 
-- (void)testExecutesHooks
+- (void)testRunsHooks
 {
     // given
     id hook = [OCMockObject mockForClass:[INLHook class]];
