@@ -22,6 +22,6 @@ typedef void(^INLTestBlock)(void);
 - (id)initWithLabel:(NSString *)label block:(INLTestBlock)block;
 
 /** Executes block. */
-- (void)execute;
+- (void)run;
 
 @end

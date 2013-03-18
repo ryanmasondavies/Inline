@@ -12,12 +12,12 @@
 
 @implementation INLTestRunnerTests
 
-- (void)testExecutesTests
+- (void)testRunsTests
 {
     // given
     id test = [OCMockObject mockForClass:[INLTest class]];
     INLTestRunner *runner = [[INLTestRunner alloc] init];
-    [[test expect] execute];
+    [(INLTest *)[test expect] run];
     
     // when
     [runner visitTest:test];

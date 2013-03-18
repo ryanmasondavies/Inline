@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "INLVisitor.h"
 
-/** A test runner visits each element in a node tree and calls `execute` on each. */
+/** A test runner visits each element in a node tree and runs each. */
 @interface INLTestRunner : NSObject <INLVisitor>
 
 @end

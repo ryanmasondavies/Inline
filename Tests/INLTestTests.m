@@ -42,7 +42,7 @@
     INLTest *test = [[INLTest alloc] initWithLabel:nil block:block];
     
     // when
-    [test execute];
+    [test run];
     
     // then
     [[@(executed) should] beTrue];

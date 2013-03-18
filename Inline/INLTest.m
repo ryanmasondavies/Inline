@@ -35,7 +35,7 @@
     return [self label];
 }
 
-- (void)execute
+- (void)run
 {
     [self block]();
 }

@@ -14,7 +14,7 @@
 
 - (void)visitTest:(INLTest *)test
 {
-    [test execute];
+    [test run];
 }
 
 - (void)visitHook:(INLHook *)hook
