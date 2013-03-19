@@ -15,11 +15,9 @@
 		947EA9F716B724D600FE8D79 /* INLGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 947EA9F616B724D600FE8D79 /* INLGroup.m */; };
 		947EA9F916B72AFC00FE8D79 /* INLTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 947EA9F816B72AFC00FE8D79 /* INLTest.m */; };
 		947EA9FF16B72F4700FE8D79 /* INLHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 947EA9FE16B72F4700FE8D79 /* INLHook.m */; };
-		947EAA0116B7306900FE8D79 /* INLStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 947EAA0016B7306900FE8D79 /* INLStack.m */; };
 		9498982416F49B69005E06AB /* libInline.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A1C77416A97B3F008C170D /* libInline.a */; };
 		9498982616F49B75005E06AB /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9498982516F49B75005E06AB /* SenTestingKit.framework */; };
 		9498982716F49B7D005E06AB /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9498982516F49B75005E06AB /* SenTestingKit.framework */; };
-		9498982E16F4C924005E06AB /* INLStackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9401319E16F49711004A76A4 /* INLStackTests.m */; };
 		9498983016F4CA38005E06AB /* INLGroupTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 940131A216F49711004A76A4 /* INLGroupTests.m */; };
 		9498983216F4CFE1005E06AB /* INLHookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 940131A316F49711004A76A4 /* INLHookTests.m */; };
 		9498983416F4D13A005E06AB /* INLTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 940131AB16F49711004A76A4 /* INLTestTests.m */; };
@@ -53,7 +51,6 @@
 
 /* Begin PBXFileReference section */
 		7BAA5701D5BB4EED90E59C22 /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9401319E16F49711004A76A4 /* INLStackTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLStackTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		940131A216F49711004A76A4 /* INLGroupTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLGroupTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		940131A316F49711004A76A4 /* INLHookTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLHookTests.m; sourceTree = "<group>"; };
 		940131AA16F49711004A76A4 /* INLTestHelper.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLTestHelper.pch; sourceTree = "<group>"; };
@@ -67,13 +64,11 @@
 		941BF01116F8726500819A8D /* INLNodeIterator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLNodeIterator.m; sourceTree = "<group>"; };
 		941BF01316F8733E00819A8D /* INLIterator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INLIterator.h; sourceTree = "<group>"; };
 		941BF01416F8738A00819A8D /* INLNodeIteratorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLNodeIteratorTests.m; sourceTree = "<group>"; };
-		9424A22616B1541F004FEFCD /* INLStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INLStack.h; sourceTree = "<group>"; };
 		947EA9F516B724D600FE8D79 /* INLGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLGroup.h; sourceTree = "<group>"; };
 		947EA9F616B724D600FE8D79 /* INLGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLGroup.m; sourceTree = "<group>"; };
 		947EA9F816B72AFC00FE8D79 /* INLTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLTest.m; sourceTree = "<group>"; };
 		947EA9FD16B72F4700FE8D79 /* INLHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLHook.h; sourceTree = "<group>"; };
 		947EA9FE16B72F4700FE8D79 /* INLHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLHook.m; sourceTree = "<group>"; };
-		947EAA0016B7306900FE8D79 /* INLStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLStack.m; sourceTree = "<group>"; };
 		948DBCE816F6170F00B473FD /* INLVisitor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INLVisitor.h; sourceTree = "<group>"; };
 		949504F316C51FE30067F026 /* INLNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INLNode.h; sourceTree = "<group>"; };
 		9498982516F49B75005E06AB /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -113,7 +108,6 @@
 			children = (
 				941BF00E16F770F200819A8D /* INLNodeRunnerTests.m */,
 				941BF01416F8738A00819A8D /* INLNodeIteratorTests.m */,
-				9401319E16F49711004A76A4 /* INLStackTests.m */,
 				940131A216F49711004A76A4 /* INLGroupTests.m */,
 				940131AB16F49711004A76A4 /* INLTestTests.m */,
 				940131A316F49711004A76A4 /* INLHookTests.m */,
@@ -171,8 +165,6 @@
 				941BF01316F8733E00819A8D /* INLIterator.h */,
 				941BF01016F8726500819A8D /* INLNodeIterator.h */,
 				941BF01116F8726500819A8D /* INLNodeIterator.m */,
-				9424A22616B1541F004FEFCD /* INLStack.h */,
-				947EAA0016B7306900FE8D79 /* INLStack.m */,
 				949504F316C51FE30067F026 /* INLNode.h */,
 				947EA9F516B724D600FE8D79 /* INLGroup.h */,
 				947EA9F616B724D600FE8D79 /* INLGroup.m */,
@@ -300,7 +292,6 @@
 				947EA9F716B724D600FE8D79 /* INLGroup.m in Sources */,
 				947EA9F916B72AFC00FE8D79 /* INLTest.m in Sources */,
 				947EA9FF16B72F4700FE8D79 /* INLHook.m in Sources */,
-				947EAA0116B7306900FE8D79 /* INLStack.m in Sources */,
 				941BF00D16F770D900819A8D /* INLNodeRunner.m in Sources */,
 				941BF01216F8726500819A8D /* INLNodeIterator.m in Sources */,
 			);
@@ -310,7 +301,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9498982E16F4C924005E06AB /* INLStackTests.m in Sources */,
 				9498983016F4CA38005E06AB /* INLGroupTests.m in Sources */,
 				9498983216F4CFE1005E06AB /* INLHookTests.m in Sources */,
 				9498983416F4D13A005E06AB /* INLTestTests.m in Sources */,
