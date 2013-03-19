@@ -7,6 +7,7 @@
 //
 
 #import "INLNodeRunner.h"
+#import "INLNodeIterator.h"
 #import "INLStack.h"
 #import "INLGroup.h"
 #import "INLTest.h"
