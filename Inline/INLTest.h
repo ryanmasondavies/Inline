@@ -15,11 +15,12 @@ typedef void(^INLTestBlock)(void);
 @interface INLTest : NSObject <INLNode>
 
 /** Initializes a new test.
- @param label The label for the test.
- @param block The block to invoke on execution.
+ @param block  The block to invoke on execution.
+ @param label  The label for the test.
+ @param weight The weight of the test, for ordering the node graph.
  @param parentGroup The group in which the test exists.
  @return An initialized test. */
-- (id)initWithLabel:(NSString *)label block:(INLTestBlock)block;
+- (id)initWithBlock:(INLTestBlock)block label:(NSString *)label weight:(NSNumber *)weight;
 
 /** Executes block. */
 - (void)run;

@@ -14,7 +14,7 @@
 - (void)testTellsVisitorToVisitTest
 {
     // given
-    INLTest *test = [[INLTest alloc] initWithLabel:nil block:nil];
+    INLTest *test = [[INLTest alloc] initWithBlock:nil label:nil weight:nil];
     id visitor = [OCMockObject mockForProtocol:@protocol(INLVisitor)];
     [[visitor expect] visitTest:test];
     
@@ -28,7 +28,7 @@
 - (void)testUsesLabelAsDescription
 {
     // given
-    INLTest *test = [[INLTest alloc] initWithLabel:@"Test" block:nil];
+    INLTest *test = [[INLTest alloc] initWithBlock:nil label:@"Test" weight:nil];
     
     // then
     [[[test description] should] beEqualTo:@"Test"];
@@ -39,7 +39,7 @@
     // given
     __block BOOL executed = NO;
     INLTestBlock block = ^{ executed = YES; };
-    INLTest *test = [[INLTest alloc] initWithLabel:nil block:block];
+    INLTest *test = [[INLTest alloc] initWithBlock:block label:nil weight:nil];
     
     // when
     [test run];

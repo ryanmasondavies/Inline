@@ -12,6 +12,9 @@
 /** The interface for groups, tests, and hooks to conform to. */
 @protocol INLNode <NSObject>
 
+/** Used for ordering nodes within a node graph. */
+- (NSNumber *)weight;
+
 /** Used to trigger methods for visitors, allowing them to easily traverse the structure. */
 - (void)acceptVisitor:(id <INLVisitor>)visitor;
 

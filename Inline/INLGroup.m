@@ -12,15 +12,17 @@
 @interface INLGroup ()
 @property (copy, nonatomic) NSString *label;
 @property (strong, nonatomic) NSMutableArray *nodes;
+@property (copy, nonatomic) NSNumber *weight;
 @end
 
 @implementation INLGroup
 
-- (id)initWithLabel:(NSString *)label nodes:(NSMutableArray *)nodes
+- (id)initWithLabel:(NSString *)label nodes:(NSMutableArray *)nodes weight:(NSNumber *)weight
 {
     if (self = [super init]) {
         [self setLabel:label];
         [self setNodes:nodes];
+        [self setWeight:weight];
     }
     return self;
 }

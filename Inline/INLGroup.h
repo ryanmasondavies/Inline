@@ -13,10 +13,11 @@
 @interface INLGroup : NSObject <INLNode>
 
 /** Initializes a group with a set of nodes.
- @param label A label for the group.
- @param nodes A mutable array of nodes.
+ @param label  A label for the group.
+ @param weight The weight for this node, used for ordering the graph.
+ @param nodes  A mutable array of nodes.
  @return An initialized group. */
-- (id)initWithLabel:(NSString *)label nodes:(NSMutableArray *)nodes;
+- (id)initWithLabel:(NSString *)label nodes:(NSMutableArray *)nodes weight:(NSNumber *)weight;
 
 /** @return The group's label. */
 - (NSString *)description;

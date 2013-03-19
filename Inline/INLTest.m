@@ -10,17 +10,19 @@
 #import "INLVisitor.h"
 
 @interface INLTest ()
-@property (copy, nonatomic) NSString *label;
 @property (copy, nonatomic) INLTestBlock block;
+@property (copy, nonatomic) NSString *label;
+@property (copy, nonatomic) NSNumber *weight;
 @end
 
 @implementation INLTest
 
-- (id)initWithLabel:(NSString *)label block:(INLTestBlock)block
+- (id)initWithBlock:(INLTestBlock)block label:(NSString *)label weight:(NSNumber *)weight
 {
     if (self = [self init]) {
-        [self setLabel:label];
         [self setBlock:block];
+        [self setLabel:label];
+        [self setWeight:weight];
     }
     return self;
 }

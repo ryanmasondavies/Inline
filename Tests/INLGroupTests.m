@@ -16,7 +16,7 @@
     // given
     id<INLVisitor> visitor = [OCMockObject mockForProtocol:@protocol(INLVisitor)];
     NSMutableArray *nodes = [[NSMutableArray alloc] init];
-    INLGroup *group = [[INLGroup alloc] initWithLabel:nil nodes:nodes];
+    INLGroup *group = [[INLGroup alloc] initWithLabel:nil nodes:nodes weight:nil];
     for (NSUInteger i = 0; i < 3; i ++) {
         nodes[i] = [OCMockObject mockForProtocol:@protocol(INLNode)];
         [[nodes[i] expect] acceptVisitor:visitor];
@@ -34,7 +34,7 @@
     // given
     id<INLNode> node = [OCMockObject mockForProtocol:@protocol(INLNode)];
     NSMutableArray *nodes = [[NSMutableArray alloc] init];
-    INLGroup *group = [[INLGroup alloc] initWithLabel:nil nodes:nodes];
+    INLGroup *group = [[INLGroup alloc] initWithLabel:nil nodes:nodes weight:nil];
     
     // when
     [group addNode:node];
@@ -48,7 +48,7 @@
     // given
     id<INLNode> node = [OCMockObject mockForProtocol:@protocol(INLNode)];
     NSMutableArray *nodes = [[NSMutableArray alloc] initWithObjects:node, nil];
-    INLGroup *group = [[INLGroup alloc] initWithLabel:nil nodes:nodes];
+    INLGroup *group = [[INLGroup alloc] initWithLabel:nil nodes:nodes weight:nil];
     
     // when
     [group removeNode:node];
@@ -60,7 +60,7 @@
 - (void)testUsesLabelAsDescription
 {
     // given
-    INLGroup *group = [[INLGroup alloc] initWithLabel:@"Group" nodes:nil];
+    INLGroup *group = [[INLGroup alloc] initWithLabel:@"Group" nodes:nil weight:nil];
     
     // then
     [[[group description] should] beEqualTo:@"Group"];

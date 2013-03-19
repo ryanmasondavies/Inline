@@ -11,16 +11,16 @@
 
 @interface INLHook ()
 @property (copy, nonatomic) INLHookBlock block;
-@property (nonatomic) INLHookPlacement placement;
+@property (copy, nonatomic) NSNumber *weight;
 @end
 
 @implementation INLHook
 
-- (id)initWithBlock:(INLHookBlock)block placement:(INLHookPlacement)placement
+- (id)initWithBlock:(INLHookBlock)block weight:(NSNumber *)weight
 {
     if (self = [self init]) {
         [self setBlock:block];
-        [self setPlacement:placement];
+        [self setWeight:weight];
     }
     return self;
 }

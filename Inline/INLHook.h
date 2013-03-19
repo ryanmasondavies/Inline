@@ -11,19 +11,14 @@
 
 typedef void(^INLHookBlock)(void);
 
-typedef NS_ENUM(NSInteger, INLHookPlacement) {
-    INLHookPlacementBefore,
-    INLHookPlacementAfter
-};
-
 /** A hook is invoked before or after a test. */
 @interface INLHook : NSObject <INLNode>
 
 /** Initializes a hook.
  @param block The block to be invoked on execution.
- @param placement The hook's placement, either before or after.
+ @param weight The weight for the node, used for ordering within the graph.
  @return An initialized hook. */
-- (id)initWithBlock:(INLHookBlock)block placement:(INLHookPlacement)placement;
+- (id)initWithBlock:(INLHookBlock)block weight:(NSNumber *)weight;
 
 /** Executes block. */
 - (void)run;
