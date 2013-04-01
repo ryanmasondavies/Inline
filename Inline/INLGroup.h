@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Caboodle/Caboodle.h>
 #import "INLNode.h"
 
 /** Represents a group of tests and their hooks. */
@@ -14,10 +15,10 @@
 
 /** Initializes a group with a set of nodes.
  @param label  A label for the group.
+ @param nodes  A sorted array of nodes.
  @param weight The weight for this node, used for ordering the graph.
- @param nodes  A mutable array of nodes.
  @return An initialized group. */
-- (id)initWithLabel:(NSString *)label nodes:(NSMutableArray *)nodes weight:(NSNumber *)weight;
+- (id)initWithLabel:(NSString *)label nodes:(CBDSortedArray *)nodes weight:(NSNumber *)weight;
 
 /** @return The group's label. */
 - (NSString *)description;

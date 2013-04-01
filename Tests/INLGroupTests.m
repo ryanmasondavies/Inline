@@ -16,25 +16,29 @@
     // given
     id<INLVisitor> visitor = [OCMockObject mockForProtocol:@protocol(INLVisitor)];
     NSMutableArray *nodes = [[NSMutableArray alloc] init];
-    INLGroup *group = [[INLGroup alloc] initWithLabel:nil nodes:nodes weight:nil];
-    for (NSUInteger i = 0; i < 3; i ++) {
-        nodes[i] = [OCMockObject mockForProtocol:@protocol(INLNode)];
-        [[nodes[i] expect] acceptVisitor:visitor];
-    }
+    NSMutableArray *order = [[NSMutableArray alloc] init];
+    [@[@1, @2, @3] enumerateObjectsUsingBlock:^(NSNumber *value, NSUInteger idx, BOOL *stop) {
+        id node = [OCMockObject mockForProtocol:@protocol(INLNode)];
+        [[[node stub] andDo:^(NSInvocation *inv) { [order addObject:value]; }] acceptVisitor:visitor];
+        [nodes addObject:node];
+    }];
+    CBDSortedArray *sorted = [[CBDSortedArray alloc] initWithObjects:nodes sortDescriptors:@[]];
+    INLGroup *group = [[INLGroup alloc] initWithLabel:nil nodes:sorted weight:nil];
     
     // when
     [group acceptVisitor:visitor];
     
     // then
-    [nodes makeObjectsPerformSelector:@selector(verify)];
+    [[order should] beEqualTo:@[@1, @2, @3]];
 }
 
 - (void)testAddsNodesToArray
 {
     // given
     id<INLNode> node = [OCMockObject mockForProtocol:@protocol(INLNode)];
-    NSMutableArray *nodes = [[NSMutableArray alloc] init];
-    INLGroup *group = [[INLGroup alloc] initWithLabel:nil nodes:nodes weight:nil];
+    NSMutableArray *nodes = [[NSMutableArray alloc] initWithArray:@[node]];
+    CBDSortedArray *sorted = [[CBDSortedArray alloc] initWithObjects:nodes sortDescriptors:@[]];
+    INLGroup *group = [[INLGroup alloc] initWithLabel:nil nodes:sorted weight:nil];
     
     // when
     [group addNode:node];
@@ -48,13 +52,14 @@
     // given
     id<INLNode> node = [OCMockObject mockForProtocol:@protocol(INLNode)];
     NSMutableArray *nodes = [[NSMutableArray alloc] initWithObjects:node, nil];
-    INLGroup *group = [[INLGroup alloc] initWithLabel:nil nodes:nodes weight:nil];
+    CBDSortedArray *sorted = [[CBDSortedArray alloc] initWithObjects:nodes sortDescriptors:@[]];
+    INLGroup *group = [[INLGroup alloc] initWithLabel:nil nodes:sorted weight:nil];
     
     // when
     [group removeNode:node];
     
     // then
-    [[@([nodes count]) should] beEqualTo:@0];
+    [[@([sorted count]) should] beEqualTo:@0];
 }
 
 - (void)testUsesLabelAsDescription

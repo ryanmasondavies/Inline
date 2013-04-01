@@ -11,13 +11,13 @@
 
 @interface INLGroup ()
 @property (copy, nonatomic) NSString *label;
-@property (strong, nonatomic) NSMutableArray *nodes;
+@property (strong, nonatomic) CBDSortedArray *nodes;
 @property (copy, nonatomic) NSNumber *weight;
 @end
 
 @implementation INLGroup
 
-- (id)initWithLabel:(NSString *)label nodes:(NSMutableArray *)nodes weight:(NSNumber *)weight
+- (id)initWithLabel:(NSString *)label nodes:(CBDSortedArray *)nodes weight:(NSNumber *)weight
 {
     if (self = [super init]) {
         [self setLabel:label];
@@ -29,7 +29,9 @@
 
 - (void)acceptVisitor:(id<INLVisitor>)visitor
 {
-    [[self nodes] makeObjectsPerformSelector:@selector(acceptVisitor:) withObject:visitor];
+    [[self nodes] enumerateObjectsUsingBlock:^(id<INLNode> node, NSUInteger idx, BOOL *stop) {
+        [node acceptVisitor:visitor];
+    }];
 }
 
 - (NSString *)description
