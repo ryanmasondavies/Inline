@@ -29,9 +29,11 @@
 
 - (void)acceptVisitor:(id<INLVisitor>)visitor
 {
+    [visitor visitGroup:self];
     [[self nodes] enumerateObjectsUsingBlock:^(id<INLNode> node, NSUInteger idx, BOOL *stop) {
         [node acceptVisitor:visitor];
     }];
+    [visitor leaveGroup:self];
 }
 
 - (NSString *)description

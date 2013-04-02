@@ -7,15 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
-@class INLTest, INLHook;
+@class INLGroup, INLTest, INLHook;
 
 /** The interface for all objects that traverse the hierarchy. See the Visitor design pattern. */
 @protocol INLVisitor <NSObject>
+
+/** Visit a group. Invoked by [INLGroup acceptVisitor:]. */
+- (void)visitGroup:(INLGroup *)group;
 
 /** Visit a test. Invoked by [INLTest acceptVisitor:]. */
 - (void)visitTest:(INLTest *)test;
 
 /** Visit a hook. Invoked by [INLHook acceptVisitor:]. */
 - (void)visitHook:(INLHook *)hook;
+
+/** Leave a group. Invoked by [INLGroup acceptVisitor:]. */
+- (void)leaveGroup:(INLGroup *)group;
 
 @end

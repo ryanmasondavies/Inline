@@ -7,14 +7,33 @@
 //
 
 @interface INLGroupTests : SenTestCase
+
 @end
 
 @implementation INLGroupTests
 
+- (void)testTellsVisitorToVisitGroup
+{
+    // todo: verify order
+    
+    // given
+    INLGroup *group = [[INLGroup alloc] initWithLabel:nil nodes:nil weight:nil];
+    id visitor = [OCMockObject niceMockForProtocol:@protocol(INLVisitor)];
+    [[visitor expect] visitGroup:group];
+    
+    // when
+    [group acceptVisitor:visitor];
+    
+    // then
+    [visitor verify];
+}
+
 - (void)testForwardsVisitsToEachNode
 {
+    // todo: verify order
+    
     // given
-    id<INLVisitor> visitor = [OCMockObject mockForProtocol:@protocol(INLVisitor)];
+    id<INLVisitor> visitor = [OCMockObject niceMockForProtocol:@protocol(INLVisitor)];
     NSMutableArray *nodes = [[NSMutableArray alloc] init];
     NSMutableArray *order = [[NSMutableArray alloc] init];
     [@[@1, @2, @3] enumerateObjectsUsingBlock:^(NSNumber *value, NSUInteger idx, BOOL *stop) {
@@ -30,6 +49,22 @@
     
     // then
     [[order should] beEqualTo:@[@1, @2, @3]];
+}
+
+- (void)testTellsVisitorToLeaveGroup
+{
+    // todo: verify order
+    
+    // given
+    INLGroup *group = [[INLGroup alloc] initWithLabel:nil nodes:nil weight:nil];
+    id visitor = [OCMockObject niceMockForProtocol:@protocol(INLVisitor)];
+    [[visitor expect] leaveGroup:group];
+    
+    // when
+    [group acceptVisitor:visitor];
+    
+    // then
+    [visitor verify];
 }
 
 - (void)testAddsNodesToArray

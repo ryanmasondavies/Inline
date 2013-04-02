@@ -7,10 +7,15 @@
 //
 
 #import "INLNodeRunner.h"
+#import "INLGroup.h"
 #import "INLTest.h"
 #import "INLHook.h"
 
 @implementation INLNodeRunner
+
+- (void)visitGroup:(INLGroup *)group
+{
+}
 
 - (void)visitTest:(INLTest *)test
 {
@@ -20,6 +25,10 @@
 - (void)visitHook:(INLHook *)hook
 {
     [hook run];
+}
+
+- (void)leaveGroup:(INLGroup *)group
+{
 }
 
 @end
