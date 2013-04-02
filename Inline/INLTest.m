@@ -7,21 +7,20 @@
 //
 
 #import "INLTest.h"
+#import "INLTestState.h"
 #import "INLVisitor.h"
 
 @interface INLTest ()
-@property (copy, nonatomic) INLTestBlock block;
-@property (copy, nonatomic) NSString *label;
+@property (strong, nonatomic) id<INLTestState> state;
 @property (copy, nonatomic) NSNumber *weight;
 @end
 
 @implementation INLTest
 
-- (id)initWithBlock:(INLTestBlock)block label:(NSString *)label weight:(NSNumber *)weight
+- (id)initWithState:(id<INLTestState>)state weight:(NSNumber *)weight
 {
     if (self = [self init]) {
-        [self setBlock:block];
-        [self setLabel:label];
+        [self setState:state];
         [self setWeight:weight];
     }
     return self;
@@ -32,14 +31,14 @@
     [visitor visitTest:self];
 }
 
-- (NSString *)description
+- (void)transitionToState:(id<INLTestState>)state
 {
-    return [self label];
+    [self setState:state];
 }
 
 - (void)run
 {
-    [self block]();
+    [[self state] runForTest:self];
 }
 
 @end

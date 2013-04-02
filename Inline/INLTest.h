@@ -8,19 +8,19 @@
 
 #import <Foundation/Foundation.h>
 #import "INLNode.h"
+@protocol INLTestState;
 
-typedef void(^INLTestBlock)(void);
-
-/** An executable test which raises an exception is any expectations are not met. */
+/** An executable test which raises an exception if any expectations are not met. */
 @interface INLTest : NSObject <INLNode>
 
 /** Initializes a new test.
- @param block  The block to invoke on execution.
- @param label  The label for the test.
+ @param activeState The active state of the test.
  @param weight The weight of the test, for ordering the node graph.
- @param parentGroup The group in which the test exists.
  @return An initialized test. */
-- (id)initWithBlock:(INLTestBlock)block label:(NSString *)label weight:(NSNumber *)weight;
+- (id)initWithState:(id<INLTestState>)state weight:(NSNumber *)weight;
+
+/** Change the state of the test. */
+- (void)transitionToState:(id<INLTestState>)state;
 
 /** Executes block. */
 - (void)run;

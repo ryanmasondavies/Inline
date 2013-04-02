@@ -14,7 +14,7 @@
 - (void)testTellsVisitorToVisitTest
 {
     // given
-    INLTest *test = [[INLTest alloc] initWithBlock:nil label:nil weight:nil];
+    INLTest *test = [[INLTest alloc] initWithState:nil weight:nil];
     id visitor = [OCMockObject mockForProtocol:@protocol(INLVisitor)];
     [[visitor expect] visitTest:test];
     
@@ -25,27 +25,33 @@
     [visitor verify];
 }
 
-- (void)testUsesLabelAsDescription
+- (void)testForwardsRunningToState
 {
     // given
-    INLTest *test = [[INLTest alloc] initWithBlock:nil label:@"Test" weight:nil];
-    
-    // then
-    [[[test description] should] beEqualTo:@"Test"];
-}
-
-- (void)testExecutesBlock
-{
-    // given
-    __block BOOL executed = NO;
-    INLTestBlock block = ^{ executed = YES; };
-    INLTest *test = [[INLTest alloc] initWithBlock:block label:nil weight:nil];
+    id state = [OCMockObject mockForProtocol:@protocol(INLTestState)];
+    INLTest *test = [[INLTest alloc] initWithState:state weight:nil];
+    [[state expect] runForTest:test];
     
     // when
     [test run];
     
     // then
-    [[@(executed) should] beTrue];
+    [state verify];
+}
+
+- (void)testChangingStateForwardsRunningToNewState
+{
+    // given
+    INLTest *test = [[INLTest alloc] initWithState:nil weight:nil];
+    id state = [OCMockObject mockForProtocol:@protocol(INLTestState)];
+    [[state expect] runForTest:test];
+    
+    // when
+    [test transitionToState:state];
+    [test run];
+    
+    // then
+    [state verify];
 }
 
 @end
