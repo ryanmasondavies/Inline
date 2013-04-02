@@ -1,17 +1,17 @@
 //
-//  INLNodeRunner.m
+//  INLRunner.m
 //  Inline
 //
 //  Created by Ryan Davies on 18/03/2013.
 //  Copyright (c) 2013 Ryan Davies. All rights reserved.
 //
 
-#import "INLNodeRunner.h"
+#import "INLRunner.h"
 #import "INLGroup.h"
 #import "INLTest.h"
 #import "INLHook.h"
 
-@implementation INLNodeRunner
+@implementation INLRunner
 
 - (void)visitGroup:(INLGroup *)group
 {

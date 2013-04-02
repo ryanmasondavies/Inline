@@ -1,5 +1,5 @@
 //
-//  INLNodeRunner.h
+//  INLRunner.h
 //  Inline
 //
 //  Created by Ryan Davies on 18/03/2013.
@@ -10,6 +10,6 @@
 #import "INLVisitor.h"
 
 /** A node runner visits each element in a node tree and runs each. */
-@interface INLNodeRunner : NSObject <INLVisitor>
+@interface INLRunner : NSObject <INLVisitor>
 
 @end

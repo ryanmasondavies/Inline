@@ -1,22 +1,22 @@
 //
-//  INLNodeRunnerTests.m
+//  INLRunnerTests.m
 //  Inline
 //
 //  Created by Ryan Davies on 18/03/2013.
 //  Copyright (c) 2013 Ryan Davies. All rights reserved.
 //
 
-@interface INLNodeRunnerTests : SenTestCase
+@interface INLRunnerTests : SenTestCase
 
 @end
 
-@implementation INLNodeRunnerTests
+@implementation INLRunnerTests
 
 - (void)testRunsTests
 {
     // given
     id test = [OCMockObject mockForClass:[INLTest class]];
-    INLNodeRunner *runner = [[INLNodeRunner alloc] init];
+    INLRunner *runner = [[INLRunner alloc] init];
     [(INLTest *)[test expect] run];
     
     // when
@@ -30,7 +30,7 @@
 {
     // given
     id hook = [OCMockObject mockForClass:[INLHook class]];
-    INLNodeRunner *runner = [[INLNodeRunner alloc] init];
+    INLRunner *runner = [[INLRunner alloc] init];
     [(INLHook *)[hook expect] run];
     
     // when
