@@ -1,7 +1,7 @@
 def write_podfile(path, dependencies)
   content = ""
   dependencies.each do |dependency|
-    if dependency.eql? "Specify"
+    if dependency.eql? "Inline"
       content << "pod \"#{dependency}\", :local => \"../../../\"\n"
     else
       content << "pod \"#{dependency}\"\n"
@@ -11,7 +11,7 @@ def write_podfile(path, dependencies)
   podfile = File.open(path, "w")
   podfile.write <<-EOF
   platform :ios, '5.0'
-  target 'Specs' do
+  target 'Tests' do
     #{content}
   end
   EOF

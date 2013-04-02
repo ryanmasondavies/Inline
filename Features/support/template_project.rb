@@ -10,7 +10,7 @@ def create_temporary_project
 end
 
 def write_spec_for_temporary_project(content)
-  f = File.open(File.join(@dirs[0], TEMPLATE_PROJECT_DIRECTORY_NAME, 'Specs', 'Specs.m'), "w")
+  f = File.open(File.join(@dirs[0], TEMPLATE_PROJECT_DIRECTORY_NAME, 'Tests', 'Tests.m'), "w")
   f.write content
   f.close
 end

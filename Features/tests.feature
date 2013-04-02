@@ -9,12 +9,11 @@ Feature: Tests
       And I have successfully installed my pods
   
   Scenario: Passing Tests
-    Given the test suite has the tests:
+    Given my test suite has the tests:
       """
       #import <Inline/Inline.h>
       @interface Tests : INLSuite; @end
       @implementation Tests
-      
       - (void)addNodesToGroup:(INLGroup *)group
       {
           INLTest *catTest = [[INLTest alloc] initWithLabel:@"test my cat" block:^{}];
@@ -22,42 +21,37 @@ Feature: Tests
           [group addNode:catTest];
           [group addNode:dogTest];
       }
-      
       @end
       """
      When I run my tests
-     Then I should see the output:
+     Then the output should contain:
        """
        ✓ test my cat
        ✓ test my dog
        """
 
   Scenario: Failing Tests
-    Given the test suite has the tests:
+    Given my test suite has the tests:
       """
       #import <Inline/Inline.h>
       @interface Tests : INLSuite; @end
       @implementation Tests
-      
       - (void)addNodesToGroup:(INLGroup *)group
       {
           INLTest *catTest = [[INLTest alloc] initWithLabel:@"test my cat" block:^{
-              // fail somehow
+              [NSException raise:NSInternalInconsistencyException format:@"cat fails"];
           }];
-  
           INLTest *dogTest = [[INLTest alloc] initWithLabel:@"test my dog" block:^{
-              // fail somehow
+              [NSException raise:NSInternalInconsistencyException format:@"dog fails"];
           }];
-          
           [group addNode:catTest];
           [group addNode:dogTest];
       }
-      
       @end
       """
      When I run my tests
-     Then I should see the output:
+     Then the output should contain:
        """
-       × test my cat
-       × test my dog
+       × test my cat (cat fails)
+       × test my dog (dog fails)
        """

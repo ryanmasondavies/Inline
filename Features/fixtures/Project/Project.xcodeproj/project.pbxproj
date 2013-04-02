@@ -63,8 +63,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9423AFF216AD5EFA0022ED11 /* SenTestingKit.framework in Frameworks */,
 				9423AFF516AD5EFA0022ED11 /* Foundation.framework in Frameworks */,
+				9423AFF216AD5EFA0022ED11 /* SenTestingKit.framework in Frameworks */,
 				9423AFF816AD5EFA0022ED11 /* libProject.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
