@@ -21,6 +21,8 @@
 		947EA9F716B724D600FE8D79 /* INLGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 947EA9F616B724D600FE8D79 /* INLGroup.m */; };
 		947EA9F916B72AFC00FE8D79 /* INLTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 947EA9F816B72AFC00FE8D79 /* INLTest.m */; };
 		947EA9FF16B72F4700FE8D79 /* INLHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 947EA9FE16B72F4700FE8D79 /* INLHook.m */; };
+		948D2FB1170C47CD0057A396 /* INLReporterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 948D2FB0170C47CD0057A396 /* INLReporterTests.m */; };
+		948D2FB4170C49420057A396 /* INLReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 948D2FB3170C49420057A396 /* INLReporter.m */; };
 		9498982416F49B69005E06AB /* libInline.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A1C77416A97B3F008C170D /* libInline.a */; };
 		9498982616F49B75005E06AB /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9498982516F49B75005E06AB /* SenTestingKit.framework */; };
 		9498982716F49B7D005E06AB /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9498982516F49B75005E06AB /* SenTestingKit.framework */; };
@@ -87,6 +89,9 @@
 		947EA9F816B72AFC00FE8D79 /* INLTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLTest.m; sourceTree = "<group>"; };
 		947EA9FD16B72F4700FE8D79 /* INLHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLHook.h; sourceTree = "<group>"; };
 		947EA9FE16B72F4700FE8D79 /* INLHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLHook.m; sourceTree = "<group>"; };
+		948D2FB0170C47CD0057A396 /* INLReporterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLReporterTests.m; sourceTree = "<group>"; };
+		948D2FB2170C49420057A396 /* INLReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLReporter.h; sourceTree = "<group>"; };
+		948D2FB3170C49420057A396 /* INLReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLReporter.m; sourceTree = "<group>"; };
 		948DBCE816F6170F00B473FD /* INLVisitor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INLVisitor.h; sourceTree = "<group>"; };
 		949504F316C51FE30067F026 /* INLNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INLNode.h; sourceTree = "<group>"; };
 		9498982516F49B75005E06AB /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -127,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				941BF00E16F770F200819A8D /* INLRunnerTests.m */,
+				948D2FB0170C47CD0057A396 /* INLReporterTests.m */,
 				940131A216F49711004A76A4 /* INLGroupTests.m */,
 				940131A316F49711004A76A4 /* INLHookTests.m */,
 				940131AB16F49711004A76A4 /* INLTestTests.m */,
@@ -188,6 +194,8 @@
 				948DBCE816F6170F00B473FD /* INLVisitor.h */,
 				941BF00B16F770D900819A8D /* INLRunner.h */,
 				941BF00C16F770D900819A8D /* INLRunner.m */,
+				948D2FB2170C49420057A396 /* INLReporter.h */,
+				948D2FB3170C49420057A396 /* INLReporter.m */,
 				949504F316C51FE30067F026 /* INLNode.h */,
 				947EA9F516B724D600FE8D79 /* INLGroup.h */,
 				947EA9F616B724D600FE8D79 /* INLGroup.m */,
@@ -344,6 +352,7 @@
 				943A034E170B94CA0071D7F6 /* INLPendingState.m in Sources */,
 				943A0351170B96AA0071D7F6 /* INLPassedState.m in Sources */,
 				943A0354170B96AF0071D7F6 /* INLFailedState.m in Sources */,
+				948D2FB4170C49420057A396 /* INLReporter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +368,7 @@
 				943A0345170B94660071D7F6 /* INLPendingStateTests.m in Sources */,
 				943A0348170B94910071D7F6 /* INLPassedStateTests.m in Sources */,
 				943A034B170B94A40071D7F6 /* INLFailedStateTests.m in Sources */,
+				948D2FB1170C47CD0057A396 /* INLReporterTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

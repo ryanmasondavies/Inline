@@ -7,6 +7,7 @@
 //
 
 #import "INLRunner.h"
+#import "INLReporter.h"
 #import "INLGroup.h"
 #import "INLHook.h"
 #import "INLTest.h"
