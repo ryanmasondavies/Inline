@@ -22,6 +22,9 @@
 /** Change the state of the test. */
 - (void)transitionToState:(id<INLTestState>)state;
 
+/** @return The label for the test. */
+- (NSString *)label;
+
 /** Executes block. */
 - (void)run;
 

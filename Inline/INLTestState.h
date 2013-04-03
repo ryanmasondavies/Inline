@@ -12,8 +12,8 @@
 /** A state in which a test can be in: pending, ready, passed, failed. */
 @protocol INLTestState <NSObject>
 
-/** Describe the state of the test. */
-- (NSString *)description;
+/** The label for the test's state. */
+- (NSString *)label;
 
 /**
  Run the test. Applicable only to the ready state.

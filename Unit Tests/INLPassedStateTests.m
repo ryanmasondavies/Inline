@@ -12,16 +12,4 @@
 
 @implementation INLPassedStateTests
 
-- (void)testDescriptionReturnsLabel
-{
-    // given
-    INLPassedState *state = [[INLPassedState alloc] initWithLabel:@"state"];
-    
-    // when
-    NSString *description = [state description];
-    
-    // then
-    [[description should] beEqualTo:@"state"];
-}
-
 @end

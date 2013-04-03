@@ -12,18 +12,6 @@
 
 @implementation INLReadyStateTests
 
-- (void)testDescriptionReturnsLabel
-{
-    // given
-    INLReadyState *state = [[INLReadyState alloc] initWithLabel:@"state" block:nil passedState:nil failedState:nil];
-    
-    // when
-    NSString *description = [state description];
-    
-    // then
-    [[description should] beEqualTo:@"state"];
-}
-
 - (void)testIfBlockDoesNotRaiseAnExceptionTransitionsToPassedState
 {
     // given
@@ -55,7 +43,6 @@
     [test verify];
 }
 
-
 - (void)testIfBlockRaisesAnExceptionSetsReasonForFailedState
 {
     // given
@@ -70,6 +57,5 @@
     // then
     [failedState verify];
 }
-
 
 @end

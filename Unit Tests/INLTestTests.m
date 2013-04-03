@@ -54,4 +54,18 @@
     [state verify];
 }
 
+- (void)testReturnsLabelOfState
+{
+    // given
+    id state = [OCMockObject niceMockForProtocol:@protocol(INLTestState)];
+    INLTest *test = [[INLTest alloc] initWithState:state weight:nil];
+    [[[state stub] andReturn:@"some label"] label];
+    
+    // when
+    NSString *label = [test label];
+    
+    // then
+    [[label should] beEqualTo:@"some label"];
+}
+
 @end

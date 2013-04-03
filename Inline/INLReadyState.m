@@ -29,11 +29,6 @@
     return self;
 }
 
-- (NSString *)description
-{
-    return [self label];
-}
-
 - (void)runForTest:(INLTest *)test
 {
     NSException *exception = nil;

@@ -12,16 +12,4 @@
 
 @implementation INLPendingStateTests
 
-- (void)testDescriptionReturnsLabel
-{
-    // given
-    INLPendingState *state = [[INLPendingState alloc] initWithLabel:@"state"];
-    
-    // when
-    NSString *description = [state description];
-    
-    // then
-    [[description should] beEqualTo:@"state"];
-}
-
 @end

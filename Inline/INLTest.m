@@ -36,14 +36,14 @@
     [self setState:state];
 }
 
+- (NSString *)label
+{
+    return [[self state] label];
+}
+
 - (void)run
 {
     [[self state] runForTest:self];
-}
-
-- (NSString *)description
-{
-    return [[self state] description];
 }
 
 @end
