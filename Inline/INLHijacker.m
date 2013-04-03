@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Ryan Davies. All rights reserved.
 //
 
-#ifdef INLINE_RUN_AS_OCUNIT
+#ifndef RUN_OCUNIT_TESTS
 
 #import <Foundation/Foundation.h>
 #import <objc/objc-runtime.h>
