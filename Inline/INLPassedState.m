@@ -27,4 +27,12 @@
     return [self label];
 }
 
+- (void)runForTest:(INLTest *)test
+{
+}
+
+- (void)setReason:(NSString *)reason
+{
+}
+
 @end

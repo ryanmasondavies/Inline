@@ -29,4 +29,8 @@
     return [NSString stringWithFormat:@"%@ (%@)", [self label], [self reason]];
 }
 
+- (void)runForTest:(INLTest *)test
+{
+}
+
 @end

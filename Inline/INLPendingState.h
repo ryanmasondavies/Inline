@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "INLTestState.h"
 
 /** The pending state of a test. */
-@interface INLPendingState : NSObject
+@interface INLPendingState : NSObject <INLTestState>
 
 /**
  Initialize a pending state.

@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "INLTestState.h"
 
 /** The passed state of a test. */
-@interface INLPassedState : NSObject
+@interface INLPassedState : NSObject <INLTestState>
 
 /**
  Initialize a passed state.

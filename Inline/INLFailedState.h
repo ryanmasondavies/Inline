@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "INLTestState.h"
 
-@interface INLFailedState : NSObject
+@interface INLFailedState : NSObject <INLTestState>
 
 /**
  Initialize a failed state.
@@ -17,8 +18,5 @@
  @return An initialized failed state.
  */
 - (id)initWithLabel:(NSString *)label reason:(NSString *)reason;
-
-/** @param reason The new reason for the failure. */
-- (void)setReason:(NSString *)reason;
 
 @end

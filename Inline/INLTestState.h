@@ -12,10 +12,19 @@
 /** A state in which a test can be in: pending, ready, passed, failed. */
 @protocol INLTestState <NSObject>
 
-/** Run the test. Applicable only to the ready state. */
-- (void)runForTest:(INLTest *)test;
-
 /** Describe the state of the test. */
 - (NSString *)description;
+
+/**
+ Run the test. Applicable only to the ready state.
+ @param test The test requesting the run.
+ */
+- (void)runForTest:(INLTest *)test;
+
+/**
+ Set the failure reason. Applicable only the failed state.
+ @param reason The reason for failure.
+ */
+- (void)setReason:(NSString *)reason;
 
 @end
