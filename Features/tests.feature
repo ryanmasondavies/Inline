@@ -16,8 +16,8 @@ Feature: Tests
       @implementation Tests
       - (void)addNodesToGroup:(INLGroup *)group
       {
-          INLTestPassed *catPassed = [[INLTestPassed alloc] initWithLabel:@"[passed] test my cat"];
-          INLTestReady *catReady = [[INLTestReady alloc] initWithLabel:@"test my cat" block:^{} passedState:catPassed failedState:nil];
+          INLPassedState *catPassed = [[INLPassedState alloc] initWithLabel:@"[passed] test my cat"];
+          INLReadyState *catReady = [[INLReadyState alloc] initWithLabel:@"test my cat" block:^{} passedState:catPassed failedState:nil];
           INLTest *catTest = [[INLTest alloc] initWithState:catReady weight:@0];
           [group addNode:catTest];
       }
@@ -37,10 +37,10 @@ Feature: Tests
       @implementation Tests
       - (void)addNodesToGroup:(INLGroup *)group
       {
-          INLTestFailed *catFailed = [[INLTestFailed alloc] initWithLabel:@"[failed] test my cat" reason:@""];
-          INLTestReady *catReady = [[INLTestReady alloc] initWithLabel:@"test my cat" block:^{
-              [NSException raise:NSInternalInconsistencyException reason:@"cat fails"];
-          } passedState:catFailed failedState:nil];
+          INLFailedState *catFailed = [[INLFailedState alloc] initWithLabel:@"[failed] test my cat" reason:@""];
+          INLReadyState *catReady = [[INLReadyState alloc] initWithLabel:@"test my cat" block:^{
+              [NSException raise:NSInternalInconsistencyException format:@"cat fails"];
+          } passedState:nil failedState:catFailed];
           INLTest *catTest = [[INLTest alloc] initWithState:catReady weight:@0];
           [group addNode:catTest];
       }

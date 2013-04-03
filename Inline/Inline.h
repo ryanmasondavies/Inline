@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Ryan Davies. All rights reserved.
 //
 
+#import "INLSuite.h"
 #import "INLRunner.h"
 #import "INLReporter.h"
 #import "INLGroup.h"
