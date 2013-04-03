@@ -16,18 +16,17 @@ Feature: Tests
       @implementation Tests
       - (void)addNodesToGroup:(INLGroup *)group
       {
-          INLTest *catTest = [[INLTest alloc] initWithLabel:@"test my cat" block:^{}];
-          INLTest *dogTest = [[INLTest alloc] initWithLabel:@"test my dog" block:^{}];
+          INLTestPassed *catPassed = [[INLTestPassed alloc] initWithLabel:@"[passed] test my cat"];
+          INLTestReady *catReady = [[INLTestReady alloc] initWithLabel:@"test my cat" block:^{} passedState:catPassed failedState:nil];
+          INLTest *catTest = [[INLTest alloc] initWithState:catReady weight:@0];
           [group addNode:catTest];
-          [group addNode:dogTest];
       }
       @end
       """
      When I run my tests
      Then the output should contain:
        """
-       ✓ test my cat
-       ✓ test my dog
+       [passed] test my cat
        """
 
   Scenario: Failing Tests
@@ -38,20 +37,17 @@ Feature: Tests
       @implementation Tests
       - (void)addNodesToGroup:(INLGroup *)group
       {
-          INLTest *catTest = [[INLTest alloc] initWithLabel:@"test my cat" block:^{
-              [NSException raise:NSInternalInconsistencyException format:@"cat fails"];
-          }];
-          INLTest *dogTest = [[INLTest alloc] initWithLabel:@"test my dog" block:^{
-              [NSException raise:NSInternalInconsistencyException format:@"dog fails"];
-          }];
+          INLTestFailed *catFailed = [[INLTestFailed alloc] initWithLabel:@"[failed] test my cat" reason:@""];
+          INLTestReady *catReady = [[INLTestReady alloc] initWithLabel:@"test my cat" block:^{
+              [NSException raise:NSInternalInconsistencyException reason:@"cat fails"];
+          } passedState:catFailed failedState:nil];
+          INLTest *catTest = [[INLTest alloc] initWithState:catReady weight:@0];
           [group addNode:catTest];
-          [group addNode:dogTest];
       }
       @end
       """
      When I run my tests
      Then the output should contain:
        """
-       × test my cat (cat fails)
-       × test my dog (dog fails)
+       [failed] test my cat (cat fails)
        """
