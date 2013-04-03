@@ -19,10 +19,12 @@
 #import "INLPassedState.h"
 #import "INLFailedState.h"
 
-// recording
+// recording tests
 #import "INLTimeProvider.h"
 #import "INLStopwatch.h"
 
-// running and reporting
+// running tests
 #import "INLRunner.h"
+
+// reporting tests
 #import "INLReporter.h"

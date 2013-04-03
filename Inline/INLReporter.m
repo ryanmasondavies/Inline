@@ -8,6 +8,7 @@
 
 #import "INLReporter.h"
 #import "INLGroup.h"
+#import "INLHook.h"
 #import "INLTest.h"
 
 @interface INLReporter ()
@@ -26,7 +27,7 @@
     return self;
 }
 
-- (void)enterGroup:(INLGroup *)group
+- (void)didEnterGroup:(INLGroup *)group
 {
     if ([[group description] isEqualToString:@""]) return;
     for (NSUInteger i = 0; i < [self indentationLevel]; i ++) [[self output] appendString:@"\t"];
@@ -35,18 +36,18 @@
     [self setIndentationLevel:[self indentationLevel] + 1];
 }
 
-- (void)visitTest:(INLTest *)test
+- (void)willRunTest:(INLTest *)test
+{
+}
+
+- (void)didRunTest:(INLTest *)test
 {
     for (NSUInteger i = 0; i < [self indentationLevel]; i ++) [[self output] appendString:@"\t"];
     [[self output] appendString:[test description]];
     [[self output] appendString:@"\n"];
 }
 
-- (void)visitHook:(INLHook *)hook
-{
-}
-
-- (void)leaveGroup:(INLGroup *)group
+- (void)didLeaveGroup:(INLGroup *)group
 {
     [self setIndentationLevel:[self indentationLevel] - 1];
 }

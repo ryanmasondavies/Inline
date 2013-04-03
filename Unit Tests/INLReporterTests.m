@@ -43,7 +43,8 @@
     id test = [[INLDescribableNode alloc] initWithDescription:@"test"];
     
     // when
-    [reporter visitTest:test];
+    [reporter willRunTest:test];
+    [reporter didRunTest:test];
     
     // then
     [[output should] beEqualTo:@"test\n"];
@@ -58,8 +59,10 @@
     id test = [[INLDescribableNode alloc] initWithDescription:@"test"];
     
     // when
-    [reporter enterGroup:group];
-    [reporter visitTest:test];
+    [reporter didEnterGroup:group];
+    [reporter willRunTest:test];
+    [reporter didRunTest:test];
+    [reporter didLeaveGroup:group];
     
     // then
     [[output should] beEqualTo:@"test\n"];
@@ -74,8 +77,10 @@
     id test = [[INLDescribableNode alloc] initWithDescription:@"test"];
     
     // when
-    [reporter enterGroup:group];
-    [reporter visitTest:test];
+    [reporter didEnterGroup:group];
+    [reporter willRunTest:test];
+    [reporter didRunTest:test];
+    [reporter didLeaveGroup:group];
     
     // then
     [[output should] beEqualTo:@"group\n\ttest\n"];
@@ -91,9 +96,12 @@
     id test = [[INLDescribableNode alloc] initWithDescription:@"test"];
     
     // when
-    [reporter enterGroup:groups[0]];
-    [reporter enterGroup:groups[1]];
-    [reporter visitTest:test];
+    [reporter didEnterGroup:groups[0]];
+    [reporter didEnterGroup:groups[1]];
+    [reporter willRunTest:test];
+    [reporter didRunTest:test];
+    [reporter didLeaveGroup:groups[1]];
+    [reporter didLeaveGroup:groups[0]];
     
     // then
     [[output should] beEqualTo:@"group\n\tgroup\n\t\ttest\n"];
@@ -109,10 +117,12 @@
     for (NSUInteger i = 0; i < 2; i ++) tests[i] = [[INLDescribableNode alloc] initWithDescription:@"test"];
     
     // when
-    [reporter enterGroup:group];
-    [reporter visitTest:tests[0]];
-    [reporter leaveGroup:group];
-    [reporter enterGroup:tests[1]];
+    [reporter didEnterGroup:group];
+    [reporter willRunTest:tests[0]];
+    [reporter didRunTest:tests[0]];
+    [reporter didLeaveGroup:group];
+    [reporter didEnterGroup:tests[1]];
+    [reporter didLeaveGroup:tests[1]];
     
     // then
     [[output should] beEqualTo:@"group\n\ttest\ntest\n"];
