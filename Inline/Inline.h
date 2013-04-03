@@ -7,12 +7,22 @@
 //
 
 #import "INLSuite.h"
-#import "INLRunner.h"
-#import "INLReporter.h"
+
+// nodes
 #import "INLGroup.h"
 #import "INLHook.h"
 #import "INLTest.h"
+
+// test states
 #import "INLReadyState.h"
 #import "INLPendingState.h"
 #import "INLPassedState.h"
 #import "INLFailedState.h"
+
+// recording
+#import "INLTimeProvider.h"
+#import "INLStopwatch.h"
+
+// running and reporting
+#import "INLRunner.h"
+#import "INLReporter.h"

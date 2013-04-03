@@ -31,6 +31,9 @@
 		9498982716F49B7D005E06AB /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9498982516F49B75005E06AB /* SenTestingKit.framework */; };
 		949CDA46170C52C800A09B71 /* INLSuite.m in Sources */ = {isa = PBXBuildFile; fileRef = 949CDA45170C52C800A09B71 /* INLSuite.m */; };
 		949CDA49170C535600A09B71 /* INLHijacker.m in Sources */ = {isa = PBXBuildFile; fileRef = 949CDA48170C535600A09B71 /* INLHijacker.m */; };
+		949CDA4C170CB4D400A09B71 /* INLStopwatchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 949CDA4B170CB4D400A09B71 /* INLStopwatchTests.m */; };
+		949CDA50170CB6F500A09B71 /* INLStopwatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 949CDA4F170CB6F500A09B71 /* INLStopwatch.m */; };
+		949CDA54170CB71100A09B71 /* INLTimeProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 949CDA53170CB71100A09B71 /* INLTimeProvider.m */; };
 		94A1C77816A97B3F008C170D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A1C77716A97B3F008C170D /* Foundation.framework */; };
 		94A1C77D16A97B3F008C170D /* Inline.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 94A1C77C16A97B3F008C170D /* Inline.h */; };
 		94A1C78A16A97B3F008C170D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A1C77716A97B3F008C170D /* Foundation.framework */; };
@@ -99,6 +102,11 @@
 		949CDA44170C52C800A09B71 /* INLSuite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLSuite.h; sourceTree = "<group>"; };
 		949CDA45170C52C800A09B71 /* INLSuite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLSuite.m; sourceTree = "<group>"; };
 		949CDA48170C535600A09B71 /* INLHijacker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLHijacker.m; sourceTree = "<group>"; };
+		949CDA4B170CB4D400A09B71 /* INLStopwatchTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLStopwatchTests.m; sourceTree = "<group>"; };
+		949CDA4E170CB6F500A09B71 /* INLStopwatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLStopwatch.h; sourceTree = "<group>"; };
+		949CDA4F170CB6F500A09B71 /* INLStopwatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLStopwatch.m; sourceTree = "<group>"; };
+		949CDA52170CB71100A09B71 /* INLTimeProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLTimeProvider.h; sourceTree = "<group>"; };
+		949CDA53170CB71100A09B71 /* INLTimeProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLTimeProvider.m; sourceTree = "<group>"; };
 		94A1C77416A97B3F008C170D /* libInline.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libInline.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		94A1C77716A97B3F008C170D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		94A1C77C16A97B3F008C170D /* Inline.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Inline.h; sourceTree = "<group>"; };
@@ -147,7 +155,7 @@
 			name = Nodes;
 			sourceTree = "<group>";
 		};
-		948D2FB6170C4CCA0057A396 /* Visitors */ = {
+		948D2FB6170C4CCA0057A396 /* Running and reporting */ = {
 			isa = PBXGroup;
 			children = (
 				948DBCE816F6170F00B473FD /* INLVisitor.h */,
@@ -156,7 +164,7 @@
 				948D2FB2170C49420057A396 /* INLReporter.h */,
 				948D2FB3170C49420057A396 /* INLReporter.m */,
 			);
-			name = Visitors;
+			name = "Running and reporting";
 			sourceTree = "<group>";
 		};
 		948D2FB7170C4CD60057A396 /* Test states */ = {
@@ -180,7 +188,8 @@
 			children = (
 				948D2FD2170C4DCC0057A396 /* Nodes */,
 				948D2FD3170C4DD40057A396 /* Test states */,
-				948D2FD4170C4DDB0057A396 /* Visitors */,
+				949CDA4D170CB6D300A09B71 /* Recording time */,
+				948D2FD4170C4DDB0057A396 /* Running and reporting */,
 				948D2FD1170C4DC10057A396 /* Supporting files */,
 			);
 			path = "Unit Tests";
@@ -216,13 +225,32 @@
 			name = "Test states";
 			sourceTree = "<group>";
 		};
-		948D2FD4170C4DDB0057A396 /* Visitors */ = {
+		948D2FD4170C4DDB0057A396 /* Running and reporting */ = {
 			isa = PBXGroup;
 			children = (
 				948D2FC3170C4DB70057A396 /* INLRunnerTests.m */,
 				948D2FC2170C4DB70057A396 /* INLReporterTests.m */,
 			);
-			name = Visitors;
+			name = "Running and reporting";
+			sourceTree = "<group>";
+		};
+		949CDA4D170CB6D300A09B71 /* Recording time */ = {
+			isa = PBXGroup;
+			children = (
+				949CDA4B170CB4D400A09B71 /* INLStopwatchTests.m */,
+			);
+			name = "Recording time";
+			sourceTree = "<group>";
+		};
+		949CDA51170CB6F700A09B71 /* Recording time */ = {
+			isa = PBXGroup;
+			children = (
+				949CDA52170CB71100A09B71 /* INLTimeProvider.h */,
+				949CDA53170CB71100A09B71 /* INLTimeProvider.m */,
+				949CDA4E170CB6F500A09B71 /* INLStopwatch.h */,
+				949CDA4F170CB6F500A09B71 /* INLStopwatch.m */,
+			);
+			name = "Recording time";
 			sourceTree = "<group>";
 		};
 		94A1C76916A97B3F008C170D = {
@@ -267,7 +295,8 @@
 				949CDA45170C52C800A09B71 /* INLSuite.m */,
 				948D2FB5170C4CB90057A396 /* Nodes */,
 				948D2FB7170C4CD60057A396 /* Test states */,
-				948D2FB6170C4CCA0057A396 /* Visitors */,
+				949CDA51170CB6F700A09B71 /* Recording time */,
+				948D2FB6170C4CCA0057A396 /* Running and reporting */,
 			);
 			path = Inline;
 			sourceTree = "<group>";
@@ -411,6 +440,8 @@
 				948D2FB4170C49420057A396 /* INLReporter.m in Sources */,
 				949CDA46170C52C800A09B71 /* INLSuite.m in Sources */,
 				949CDA49170C535600A09B71 /* INLHijacker.m in Sources */,
+				949CDA50170CB6F500A09B71 /* INLStopwatch.m in Sources */,
+				949CDA54170CB71100A09B71 /* INLTimeProvider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,6 +458,7 @@
 				948D2FCD170C4DB70057A396 /* INLReporterTests.m in Sources */,
 				948D2FCE170C4DB70057A396 /* INLRunnerTests.m in Sources */,
 				948D2FCF170C4DB70057A396 /* INLTestTests.m in Sources */,
+				949CDA4C170CB4D400A09B71 /* INLStopwatchTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
