@@ -13,7 +13,7 @@
 
 @implementation INLRunner
 
-- (void)visitGroup:(INLGroup *)group
+- (void)enterGroup:(INLGroup *)group
 {
 }
 

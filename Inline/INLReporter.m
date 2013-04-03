@@ -26,7 +26,7 @@
     return self;
 }
 
-- (void)visitGroup:(INLGroup *)group
+- (void)enterGroup:(INLGroup *)group
 {
     if ([[group description] isEqualToString:@""]) return;
     for (NSUInteger i = 0; i < [self indentationLevel]; i ++) [[self output] appendString:@"\t"];

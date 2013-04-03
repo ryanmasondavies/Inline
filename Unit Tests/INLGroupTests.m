@@ -19,7 +19,7 @@
     // given
     INLGroup *group = [[INLGroup alloc] initWithLabel:nil nodes:nil weight:nil];
     id visitor = [OCMockObject niceMockForProtocol:@protocol(INLVisitor)];
-    [[visitor expect] visitGroup:group];
+    [[visitor expect] enterGroup:group];
     
     // when
     [group acceptVisitor:visitor];

@@ -12,8 +12,8 @@
 /** The interface for all objects that traverse the hierarchy. See the Visitor design pattern. */
 @protocol INLVisitor <NSObject>
 
-/** Visit a group. Invoked by [INLGroup acceptVisitor:]. */
-- (void)visitGroup:(INLGroup *)group;
+/** Enter a group. Invoked by [INLGroup acceptVisitor:]. */
+- (void)enterGroup:(INLGroup *)group;
 
 /** Visit a test. Invoked by [INLTest acceptVisitor:]. */
 - (void)visitTest:(INLTest *)test;

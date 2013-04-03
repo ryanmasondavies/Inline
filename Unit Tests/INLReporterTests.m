@@ -58,7 +58,7 @@
     id test = [[INLDescribableNode alloc] initWithDescription:@"test"];
     
     // when
-    [reporter visitGroup:group];
+    [reporter enterGroup:group];
     [reporter visitTest:test];
     
     // then
@@ -74,7 +74,7 @@
     id test = [[INLDescribableNode alloc] initWithDescription:@"test"];
     
     // when
-    [reporter visitGroup:group];
+    [reporter enterGroup:group];
     [reporter visitTest:test];
     
     // then
@@ -91,8 +91,8 @@
     id test = [[INLDescribableNode alloc] initWithDescription:@"test"];
     
     // when
-    [reporter visitGroup:groups[0]];
-    [reporter visitGroup:groups[1]];
+    [reporter enterGroup:groups[0]];
+    [reporter enterGroup:groups[1]];
     [reporter visitTest:test];
     
     // then
@@ -109,10 +109,10 @@
     for (NSUInteger i = 0; i < 2; i ++) tests[i] = [[INLDescribableNode alloc] initWithDescription:@"test"];
     
     // when
-    [reporter visitGroup:group];
+    [reporter enterGroup:group];
     [reporter visitTest:tests[0]];
     [reporter leaveGroup:group];
-    [reporter visitGroup:tests[1]];
+    [reporter enterGroup:tests[1]];
     
     // then
     [[output should] beEqualTo:@"group\n\ttest\ntest\n"];
