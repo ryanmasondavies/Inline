@@ -58,12 +58,10 @@ void INLRunTests(id self, SEL _cmd, id ignored)
         [suite addNodesToGroup:group];
     }];
     
-    INLRunner *runner = [[INLRunner alloc] init];
-    [group acceptVisitor:runner];
-    
     NSMutableString *output = [[NSMutableString alloc] init];
-    INLReporter *reporter = [[INLReporter alloc] initWithOutput:output];
-    [group acceptVisitor:reporter];
+    id<INLRunnerDelegate> reporter = [[INLReporter alloc] initWithOutput:output];
+    INLRunner *runner = [[INLRunner alloc] initWithDelegate:reporter];
+    [group acceptVisitor:runner];
     
     printf("%s", [output cStringUsingEncoding:NSUTF8StringEncoding]);
     exit(0);
