@@ -20,8 +20,8 @@
  @return An initialized group. */
 - (id)initWithLabel:(NSString *)label nodes:(CBDSortedArray *)nodes weight:(NSNumber *)weight;
 
-/** @return The group's label. */
-- (NSString *)description;
+/** The group's label. */
+- (NSString *)label;
 
 /** Adds a node to the group.
  @param node The node to add. */

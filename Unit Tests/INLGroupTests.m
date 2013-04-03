@@ -97,13 +97,4 @@
     [[@([sorted count]) should] beEqualTo:@0];
 }
 
-- (void)testUsesLabelAsDescription
-{
-    // given
-    INLGroup *group = [[INLGroup alloc] initWithLabel:@"Group" nodes:nil weight:nil];
-    
-    // then
-    [[[group description] should] beEqualTo:@"Group"];
-}
-
 @end

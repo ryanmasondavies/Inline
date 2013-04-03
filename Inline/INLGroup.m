@@ -36,11 +36,6 @@
     [visitor leaveGroup:self];
 }
 
-- (NSString *)description
-{
-    return [self label];
-}
-
 - (void)addNode:(id<INLNode>)node
 {
     [[self nodes] addObject:node];
