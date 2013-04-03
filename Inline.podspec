@@ -13,5 +13,4 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   
   s.dependency "Caboodle", "~> 0.2.0"
-  s.dependency "MAObjCRuntime", "~> 0.0.1"
 end

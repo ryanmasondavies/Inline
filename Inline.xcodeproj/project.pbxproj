@@ -62,7 +62,6 @@
 
 /* Begin PBXFileReference section */
 		60393545CE184FBABA042F2F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
-		7BAA5701D5BB4EED90E59C22 /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		94088D4116A9AA1800D7DEFC /* INLTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLTest.h; sourceTree = "<group>"; };
 		941BF00B16F770D900819A8D /* INLRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLRunner.h; sourceTree = "<group>"; };
 		941BF00C16F770D900819A8D /* INLRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLRunner.m; sourceTree = "<group>"; };
@@ -253,7 +252,6 @@
 				94A1C77716A97B3F008C170D /* Foundation.framework */,
 				9498982516F49B75005E06AB /* SenTestingKit.framework */,
 				B81748F369994F9CAD780A8E /* libPods.a */,
-				7BAA5701D5BB4EED90E59C22 /* libPods-Tests.a */,
 				CFAE5470718542C68A1DE9E7 /* libPods-Unit Tests.a */,
 			);
 			name = Frameworks;
