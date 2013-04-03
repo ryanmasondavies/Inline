@@ -29,9 +29,9 @@
 
 - (void)didEnterGroup:(INLGroup *)group
 {
-    if ([[group description] isEqualToString:@""]) return;
+    if ([[group label] isEqualToString:@""]) return;
     for (NSUInteger i = 0; i < [self indentationLevel]; i ++) [[self output] appendString:@"\t"];
-    [[self output] appendString:[group description]];
+    [[self output] appendString:[group label]];
     [[self output] appendString:@"\n"];
     [self setIndentationLevel:[self indentationLevel] + 1];
 }
@@ -43,7 +43,7 @@
 - (void)didRunTest:(INLTest *)test
 {
     for (NSUInteger i = 0; i < [self indentationLevel]; i ++) [[self output] appendString:@"\t"];
-    [[self output] appendString:[test description]];
+    [[self output] appendString:[test label]];
     [[self output] appendString:@"\n"];
 }
 
