@@ -49,6 +49,22 @@
     [[output should] beEqualTo:@"test\n"];
 }
 
+- (void)testWhenNestedInBlankGroupDoesNotIndentTest
+{
+    // given
+    NSMutableString *output = [[NSMutableString alloc] init];
+    INLReporter *reporter = [[INLReporter alloc] initWithOutput:output];
+    id group = [[INLDescribableNode alloc] initWithDescription:@""];
+    id test = [[INLDescribableNode alloc] initWithDescription:@"test"];
+    
+    // when
+    [reporter visitGroup:group];
+    [reporter visitTest:test];
+    
+    // then
+    [[output should] beEqualTo:@"test\n"];
+}
+
 - (void)testWhenNestedOnceIndentsTestOnce
 {
     // given

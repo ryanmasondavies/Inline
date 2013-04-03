@@ -28,6 +28,7 @@
 
 - (void)visitGroup:(INLGroup *)group
 {
+    if ([[group description] isEqualToString:@""]) return;
     for (NSUInteger i = 0; i < [self indentationLevel]; i ++) [[self output] appendString:@"\t"];
     [[self output] appendString:[group description]];
     [[self output] appendString:@"\n"];
