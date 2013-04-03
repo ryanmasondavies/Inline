@@ -22,4 +22,9 @@
     return self;
 }
 
+- (NSString *)description
+{
+    return [self label];
+}
+
 @end

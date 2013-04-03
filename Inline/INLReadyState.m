@@ -29,4 +29,9 @@
     [self block]();
 }
 
+- (NSString *)description
+{
+    return [self label];
+}
+
 @end

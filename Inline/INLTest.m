@@ -41,4 +41,9 @@
     [[self state] runForTest:self];
 }
 
+- (NSString *)description
+{
+    return [[self state] description];
+}
+
 @end

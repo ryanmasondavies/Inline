@@ -11,7 +11,8 @@
 /** The pending state of a test. */
 @interface INLPendingState : NSObject
 
-/** Initialize a pending state.
+/**
+ Initialize a pending state.
  @param label The label for the pending state.
  @return An initialized pending state.
  */

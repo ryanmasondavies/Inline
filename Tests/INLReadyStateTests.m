@@ -12,18 +12,30 @@
 
 @implementation INLReadyStateTests
 
-- (void)testOnRunExecutesBlock
+- (void)testRunExecutesBlock
 {
     // given
     __block BOOL executed = NO;
     INLTestBlock block = ^{ executed = YES; };
-    INLReadyState *state = [[INLReadyState alloc] initWithBlock:block];
+    INLReadyState *state = [[INLReadyState alloc] initWithBlock:block label:nil];
     
     // when
     [state runForTest:nil];
     
     // then
     [[@(executed) should] beTrue];
+}
+
+- (void)testDescriptionReturnsLabel
+{
+    // given
+    INLReadyState *state = [[INLReadyState alloc] initWithBlock:nil label:@"state"];
+    
+    // when
+    NSString *description = [state description];
+    
+    // then
+    [[description should] beEqualTo:@"state"];
 }
 
 @end

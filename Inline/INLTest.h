@@ -25,4 +25,7 @@
 /** Executes block. */
 - (void)run;
 
+/** Test description. */
+- (NSString *)description;
+
 @end

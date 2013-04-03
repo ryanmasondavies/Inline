@@ -8,6 +8,23 @@
 
 #import "INLPassedState.h"
 
+@interface INLPassedState ()
+@property (copy, nonatomic) NSString *label;
+@end
+
 @implementation INLPassedState
+
+- (id)initWithLabel:(NSString *)label
+{
+    if (self = [self init]) {
+        [self setLabel:label];
+    }
+    return self;
+}
+
+- (NSString *)description
+{
+    return [self label];
+}
 
 @end

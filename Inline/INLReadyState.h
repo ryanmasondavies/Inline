@@ -13,9 +13,11 @@
 /** A test in ready state: it has a block to run, and a label to display. */
 @interface INLReadyState : NSObject <INLTestState>
 
-/** Initialize a ready state.
+/**
+ Initialize a ready state.
  @param block The block to execute when run.
  @param label The label to identify the test.
+ @return An initialized ready state.
  */
 - (id)initWithBlock:(INLTestBlock)block label:(NSString *)label;
 

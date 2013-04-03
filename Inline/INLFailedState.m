@@ -8,6 +8,25 @@
 
 #import "INLFailedState.h"
 
+@interface INLFailedState ()
+@property (copy, nonatomic) NSString *label;
+@property (copy, nonatomic) NSString *reason;
+@end
+
 @implementation INLFailedState
+
+- (id)initWithLabel:(NSString *)label reason:(NSString *)reason
+{
+    if (self = [self init]) {
+        [self setLabel:label];
+        [self setReason:reason];
+    }
+    return self;
+}
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"%@ (%@)", [self label], [self reason]];
+}
 
 @end

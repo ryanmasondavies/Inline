@@ -15,4 +15,7 @@
 /** Run the test. Applicable only to the ready state. */
 - (void)runForTest:(INLTest *)test;
 
+/** Describe the state of the test. */
+- (NSString *)description;
+
 @end
