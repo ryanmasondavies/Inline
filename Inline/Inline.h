@@ -28,5 +28,6 @@
 
 // reporting tests
 #import "INLNodeWriter.h"
+#import "INLNewlineWriter.h"
 #import "INLGroupIndenter.h"
 #import "INLTestIndenter.h"
