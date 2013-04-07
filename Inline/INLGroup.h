@@ -23,12 +23,4 @@
 /** The group's label. */
 - (NSString *)label;
 
-/** Adds a node to the group.
- @param node The node to add. */
-- (void)addNode:(id <INLNode>)node;
-
-/** Remove a node.
- @param node The node to remove. */
-- (void)removeNode:(id <INLNode>)node;
-
 @end

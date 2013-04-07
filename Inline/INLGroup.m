@@ -36,14 +36,4 @@
     [visitor leaveGroup:self];
 }
 
-- (void)addNode:(id<INLNode>)node
-{
-    [[self nodes] addObject:node];
-}
-
-- (void)removeNode:(id<INLNode>)node
-{
-    [[self nodes] removeObject:node];
-}
-
 @end
