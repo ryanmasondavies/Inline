@@ -36,9 +36,9 @@
     [self setState:state];
 }
 
-- (NSString *)label
+- (NSString *)name
 {
-    return [[self state] label];
+    return [[self state] name];
 }
 
 - (void)run

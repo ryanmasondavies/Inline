@@ -9,15 +9,15 @@
 #import "INLPassedState.h"
 
 @interface INLPassedState ()
-@property (copy, nonatomic) NSString *label;
+@property (copy, nonatomic) NSString *name;
 @end
 
 @implementation INLPassedState
 
-- (id)initWithLabel:(NSString *)label
+- (id)initWithName:(NSString *)name
 {
     if (self = [self init]) {
-        [self setLabel:label];
+        [self setName:name];
     }
     return self;
 }

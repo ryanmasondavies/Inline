@@ -14,9 +14,9 @@
 
 /**
  Initialize a pending state.
- @param label The label for the pending state.
+ @param name The name for the pending state.
  @return An initialized pending state.
  */
-- (id)initWithLabel:(NSString *)label;
+- (id)initWithName:(NSString *)name;
 
 @end

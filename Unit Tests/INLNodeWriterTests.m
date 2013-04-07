@@ -18,7 +18,7 @@
     NSMutableString *output = [[NSMutableString alloc] init];
     INLNodeWriter *writer = [[INLNodeWriter alloc] initWithOutput:output];
     id test = [OCMockObject niceMockForClass:[INLTest class]];
-    [[[test stub] andReturn:@"test"] label];
+    [(INLTest *)[[test stub] andReturn:@"test"] name];
     
     // when
     [writer willRunTest:test];
@@ -35,8 +35,8 @@
     INLNodeWriter *writer = [[INLNodeWriter alloc] initWithOutput:output];
     id group = [OCMockObject niceMockForClass:[INLGroup class]];
     id test = [OCMockObject niceMockForClass:[INLTest class]];
-    [[[group stub] andReturn:@""] label];
-    [[[test stub] andReturn:@"test"] label];
+    [(INLGroup *)[[group stub] andReturn:@""] name];
+    [(INLTest *)[[test stub] andReturn:@"test"] name];
     
     // when
     [writer didEnterGroup:group];
@@ -55,8 +55,8 @@
     INLNodeWriter *writer = [[INLNodeWriter alloc] initWithOutput:output];
     id group = [OCMockObject niceMockForClass:[INLGroup class]];
     id test = [OCMockObject niceMockForClass:[INLTest class]];
-    [[[group stub] andReturn:@"group"] label];
-    [[[test stub] andReturn:@"test"] label];
+    [(INLGroup *)[[group stub] andReturn:@"group"] name];
+    [(INLTest *)[[test stub] andReturn:@"test"] name];
     
     // when
     [writer didEnterGroup:group];
@@ -76,10 +76,10 @@
     NSMutableArray *groups = [[NSMutableArray alloc] init];
     for (NSUInteger i = 0; i < 2; i ++) {
         groups[i] = [OCMockObject niceMockForClass:[INLGroup class]];
-        [[[groups[i] stub] andReturn:@"group"] label];
+        [(INLGroup *)[[groups[i] stub] andReturn:@"group"] name];
     }
     id test = [OCMockObject niceMockForClass:[INLTest class]];
-    [[[test stub] andReturn:@"test"] label];
+    [(INLTest *)[[test stub] andReturn:@"test"] name];
     
     // when
     [writer didEnterGroup:groups[0]];
@@ -99,11 +99,11 @@
     NSMutableString *output = [[NSMutableString alloc] init];
     INLNodeWriter *writer = [[INLNodeWriter alloc] initWithOutput:output];
     id group = [OCMockObject niceMockForClass:[INLGroup class]];
-    [[[group stub] andReturn:@"group"] label];
+    [(INLGroup *)[[group stub] andReturn:@"group"] name];
     NSMutableArray *tests = [[NSMutableArray alloc] init];
     for (NSUInteger i = 0; i < 2; i ++) {
         tests[i] = [OCMockObject niceMockForClass:[INLTest class]];
-        [[[tests[i] stub] andReturn:@"test"] label];
+        [(INLTest *)[[tests[i] stub] andReturn:@"test"] name];
     }
     
     // when

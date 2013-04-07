@@ -18,7 +18,7 @@
     NSMutableString *output = [[NSMutableString alloc] init];
     INLTestIndenter *indenter = [[INLTestIndenter alloc] initWithOutput:output];
     id test = [OCMockObject niceMockForClass:[INLTest class]];
-    [[[test stub] andReturn:@"test"] label];
+    [[[test stub] andReturn:@"test"] name];
     
     // when
     [indenter willRunTest:test];
@@ -35,8 +35,8 @@
     INLTestIndenter *indenter = [[INLTestIndenter alloc] initWithOutput:output];
     id group = [OCMockObject niceMockForClass:[INLGroup class]];
     id test = [OCMockObject niceMockForClass:[INLTest class]];
-    [[[group stub] andReturn:@"group"] label];
-    [[[test stub] andReturn:@"test"] label];
+    [[[group stub] andReturn:@"group"] name];
+    [[[test stub] andReturn:@"test"] name];
     
     // when
     [indenter didEnterGroup:group];
@@ -55,8 +55,8 @@
     INLTestIndenter *indenter = [[INLTestIndenter alloc] initWithOutput:output];
     id group = [OCMockObject niceMockForClass:[INLGroup class]];
     id test = [OCMockObject niceMockForClass:[INLTest class]];
-    [[[group stub] andReturn:@"group"] label];
-    [[[test stub] andReturn:@"test"] label];
+    [[[group stub] andReturn:@"group"] name];
+    [[[test stub] andReturn:@"test"] name];
     
     // when
     [indenter didEnterGroup:group];
@@ -77,8 +77,8 @@
     INLTestIndenter *indenter = [[INLTestIndenter alloc] initWithOutput:output];
     id group = [OCMockObject niceMockForClass:[INLGroup class]];
     id test = [OCMockObject niceMockForClass:[INLTest class]];
-    [[[group stub] andReturn:@"group"] label];
-    [[[test stub] andReturn:@"test"] label];
+    [[[group stub] andReturn:@"group"] name];
+    [[[test stub] andReturn:@"test"] name];
     
     // when
     [indenter didEnterGroup:group];

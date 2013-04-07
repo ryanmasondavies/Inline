@@ -11,17 +11,17 @@
 #import "INLTypes.h"
 @class INLPassedState, INLFailedState;
 
-/** A test in ready state: it has a block to run, and a label to display. */
+/** A test in ready state: it has a block to run, and a name to display. */
 @interface INLReadyState : NSObject <INLTestState>
 
 /**
  Initialize a ready state.
- @param label The label to identify the test.
+ @param name The name to identify the test.
  @param block The block to execute when run.
  @param passedState The passed state of the test, transitioned to if the block runs without issue.
  @param failedState The failed state of the test, transitioned to if the block raises an exception.
  @return An initialized ready state.
  */
-- (id)initWithLabel:(NSString *)label block:(INLTestBlock)block passedState:(INLPassedState *)passedState failedState:(INLFailedState *)failedState;
+- (id)initWithName:(NSString *)name block:(INLTestBlock)block passedState:(INLPassedState *)passedState failedState:(INLFailedState *)failedState;
 
 @end

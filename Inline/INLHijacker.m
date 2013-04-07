@@ -50,7 +50,7 @@ void INLRunTests(id self, SEL _cmd, id ignored)
     NSMutableArray *nodes = [[NSMutableArray alloc] init];
     NSSortDescriptor *lightestToHeaviest = [[NSSortDescriptor alloc] initWithKey:@"weight" ascending:YES];
     CBDSortedArray *sortedNodes = [[CBDSortedArray alloc] initWithObjects:nodes sortDescriptors:@[lightestToHeaviest]];
-    INLGroup *group = [[INLGroup alloc] initWithLabel:@"" nodes:sortedNodes weight:@0];
+    INLGroup *group = [[INLGroup alloc] initWithName:@"" nodes:sortedNodes weight:@0];
     
     NSArray *subclasses = [[INLSuite class] subclasses];
     [subclasses enumerateObjectsUsingBlock:^(Class subclass, NSUInteger idx, BOOL *stop) {

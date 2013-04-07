@@ -9,16 +9,16 @@
 #import "INLFailedState.h"
 
 @interface INLFailedState ()
-@property (copy, nonatomic) NSString *label;
+@property (copy, nonatomic) NSString *name;
 @property (copy, nonatomic) NSString *reason;
 @end
 
 @implementation INLFailedState
 
-- (id)initWithLabel:(NSString *)label reason:(NSString *)reason
+- (id)initWithName:(NSString *)name reason:(NSString *)reason
 {
     if (self = [self init]) {
-        [self setLabel:label];
+        [self setName:name];
         [self setReason:reason];
     }
     return self;

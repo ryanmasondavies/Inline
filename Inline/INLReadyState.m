@@ -10,7 +10,7 @@
 #import "INLTest.h"
 
 @interface INLReadyState ()
-@property (copy, nonatomic) NSString *label;
+@property (copy, nonatomic) NSString *name;
 @property (strong, nonatomic) INLTestBlock block;
 @property (strong, nonatomic) id<INLTestState> passedState;
 @property (strong, nonatomic) id<INLTestState> failedState;
@@ -18,10 +18,10 @@
 
 @implementation INLReadyState
 
-- (id)initWithLabel:(NSString *)label block:(INLTestBlock)block passedState:(id<INLTestState>)passedState failedState:(id<INLTestState>)failedState
+- (id)initWithName:(NSString *)name block:(INLTestBlock)block passedState:(id<INLTestState>)passedState failedState:(id<INLTestState>)failedState
 {
     if (self = [self init]) {
-        [self setLabel:label];
+        [self setName:name];
         [self setBlock:block];
         [self setPassedState:passedState];
         [self setFailedState:failedState];

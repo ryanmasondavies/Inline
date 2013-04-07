@@ -17,7 +17,7 @@
     // given
     id node = [OCMockObject niceMockForProtocol:@protocol(INLNode)];
     id nodes = [[CBDSortedArray alloc] initWithObjects:[@[node] mutableCopy] sortDescriptors:nil];
-    INLGroup *group = [[INLGroup alloc] initWithLabel:nil nodes:nodes weight:nil];
+    INLGroup *group = [[INLGroup alloc] initWithName:nil nodes:nodes weight:nil];
     id visitor = [OCMockObject niceMockForProtocol:@protocol(INLVisitor)];
     __block BOOL forwardedVisitsToNodes = NO;
     [[[node stub] andDo:^(NSInvocation *i) { forwardedVisitsToNodes = YES; }] acceptVisitor:visitor];
@@ -42,7 +42,7 @@
         [nodes addObject:node];
     }];
     CBDSortedArray *sorted = [[CBDSortedArray alloc] initWithObjects:nodes sortDescriptors:@[]];
-    INLGroup *group = [[INLGroup alloc] initWithLabel:nil nodes:sorted weight:nil];
+    INLGroup *group = [[INLGroup alloc] initWithName:nil nodes:sorted weight:nil];
     
     // when
     [group acceptVisitor:visitor];
@@ -56,7 +56,7 @@
     // given
     id node = [OCMockObject niceMockForProtocol:@protocol(INLNode)];
     id nodes = [[CBDSortedArray alloc] initWithObjects:[@[node] mutableCopy] sortDescriptors:nil];
-    INLGroup *group = [[INLGroup alloc] initWithLabel:nil nodes:nodes weight:nil];
+    INLGroup *group = [[INLGroup alloc] initWithName:nil nodes:nodes weight:nil];
     id visitor = [OCMockObject niceMockForProtocol:@protocol(INLVisitor)];
     __block BOOL forwardedVisitsToNodes = NO;
     [[[node stub] andDo:^(NSInvocation *i) { forwardedVisitsToNodes = YES; }] acceptVisitor:visitor];

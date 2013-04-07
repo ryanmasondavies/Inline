@@ -18,7 +18,7 @@
     NSMutableString *output = [[NSMutableString alloc] init];
     INLGroupIndenter *indenter = [[INLGroupIndenter alloc] initWithOutput:output];
     id group = [OCMockObject niceMockForClass:[INLGroup class]];
-    [[[group stub] andReturn:@"group"] label];
+    [[[group stub] andReturn:@"group"] name];
     
     // when
     [indenter didEnterGroup:group];
@@ -34,7 +34,7 @@
     NSMutableString *output = [[NSMutableString alloc] init];
     INLGroupIndenter *indenter = [[INLGroupIndenter alloc] initWithOutput:output];
     id group = [OCMockObject niceMockForClass:[INLGroup class]];
-    [[[group stub] andReturn:@"group"] label];
+    [[[group stub] andReturn:@"group"] name];
     
     // when
     [indenter didEnterGroup:group];
@@ -52,7 +52,7 @@
     NSMutableString *output = [[NSMutableString alloc] init];
     INLGroupIndenter *indenter = [[INLGroupIndenter alloc] initWithOutput:output];
     id group = [OCMockObject niceMockForClass:[INLGroup class]];
-    [[[group stub] andReturn:@"group"] label];
+    [[[group stub] andReturn:@"group"] name];
     
     // when
     [indenter didEnterGroup:group];
@@ -72,7 +72,7 @@
     NSMutableString *output = [[NSMutableString alloc] init];
     INLGroupIndenter *indenter = [[INLGroupIndenter alloc] initWithOutput:output];
     id group = [OCMockObject niceMockForClass:[INLGroup class]];
-    [[[group stub] andReturn:@"group"] label];
+    [[[group stub] andReturn:@"group"] name];
     
     // when
     [indenter didEnterGroup:group];

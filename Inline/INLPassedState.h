@@ -14,9 +14,9 @@
 
 /**
  Initialize a passed state.
- @param label The label for the passed state.
+ @param name The name for the passed state.
  @return An initialized passed state.
  */
-- (id)initWithLabel:(NSString *)label;
+- (id)initWithName:(NSString *)name;
 
 @end

@@ -22,13 +22,10 @@
 /** Change the state of the test. */
 - (void)transitionToState:(id<INLTestState>)state;
 
-/** @return The label for the test. */
-- (NSString *)label;
+/** @return The name for the test. */
+- (NSString *)name;
 
 /** Executes block. */
 - (void)run;
-
-/** Test description. */
-- (NSString *)description;
 
 @end

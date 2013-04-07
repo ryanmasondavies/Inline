@@ -29,7 +29,7 @@
 
 - (void)didEnterGroup:(INLGroup *)group
 {
-//    if ([[group label] isEqualToString:@""]) return;
+//    if ([[group name] isEqualToString:@""]) return;
     for (NSUInteger i = 0; i < [self indentationLevel]; i ++) [[self output] appendString:@"\t"];
     [self setIndentationLevel:[self indentationLevel] + 1];
 }

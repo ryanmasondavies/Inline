@@ -17,7 +17,7 @@
     // given
     id test = [OCMockObject niceMockForClass:[INLTest class]];
     id passedState = [OCMockObject niceMockForProtocol:@protocol(INLTestState)];
-    INLReadyState *state = [[INLReadyState alloc] initWithLabel:nil block:^{} passedState:passedState failedState:nil];
+    INLReadyState *state = [[INLReadyState alloc] initWithName:nil block:^{} passedState:passedState failedState:nil];
     [[test expect] transitionToState:passedState];
     
     // when
@@ -33,7 +33,7 @@
     id test = [OCMockObject niceMockForClass:[INLTest class]];
     id failedState = [OCMockObject niceMockForProtocol:@protocol(INLTestState)];
     INLTestBlock block = ^{ [NSException raise:@"Exception" format:nil]; };
-    INLReadyState *state = [[INLReadyState alloc] initWithLabel:nil block:block passedState:nil failedState:failedState];
+    INLReadyState *state = [[INLReadyState alloc] initWithName:nil block:block passedState:nil failedState:failedState];
     [[test expect] transitionToState:failedState];
     
     // when
@@ -48,7 +48,7 @@
     // given
     id failedState = [OCMockObject niceMockForProtocol:@protocol(INLTestState)];
     INLTestBlock block = ^{ [NSException raise:@"Exception" format:@"some reason"]; };
-    INLReadyState *state = [[INLReadyState alloc] initWithLabel:nil block:block passedState:nil failedState:failedState];
+    INLReadyState *state = [[INLReadyState alloc] initWithName:nil block:block passedState:nil failedState:failedState];
     [[failedState expect] setReason:@"some reason"];
     
     // when

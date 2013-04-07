@@ -10,17 +10,17 @@
 #import "INLVisitor.h"
 
 @interface INLGroup ()
-@property (copy, nonatomic) NSString *label;
+@property (copy, nonatomic) NSString *name;
 @property (strong, nonatomic) CBDSortedArray *nodes;
 @property (copy, nonatomic) NSNumber *weight;
 @end
 
 @implementation INLGroup
 
-- (id)initWithLabel:(NSString *)label nodes:(CBDSortedArray *)nodes weight:(NSNumber *)weight
+- (id)initWithName:(NSString *)name nodes:(CBDSortedArray *)nodes weight:(NSNumber *)weight
 {
     if (self = [super init]) {
-        [self setLabel:label];
+        [self setName:name];
         [self setNodes:nodes];
         [self setWeight:weight];
     }

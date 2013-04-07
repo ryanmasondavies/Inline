@@ -13,10 +13,10 @@
 
 /**
  Initialize a failed state.
- @param label The label for the failed state.
+ @param name The name for the failed state.
  @param reason The reason for the failure.
  @return An initialized failed state.
  */
-- (id)initWithLabel:(NSString *)label reason:(NSString *)reason;
+- (id)initWithName:(NSString *)name reason:(NSString *)reason;
 
 @end

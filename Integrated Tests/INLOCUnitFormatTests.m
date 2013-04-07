@@ -15,14 +15,14 @@
 - (void)testReporterOutputsPassingTestsInOCUnitFormat
 {
     // given
-    void(^passingTest)(NSString *) = ^(NSString *label, NSNumber *weight) {
-        id<INLTestState> passed = [[INLPassedState alloc] initWithLabel:label];
+    void(^passingTest)(NSString *) = ^(NSString *name, NSNumber *weight) {
+        id<INLTestState> passed = [[INLPassedState alloc] initWithName:name];
         return [[INLTest alloc] initWithState:passed weight:weight];
     };
-    void(^groupWithNodes)(NSString *, NSNumber *, NSArray *) = ^(NSString *label, NSNumber *weight, NSArray *nodes) {
+    void(^groupWithNodes)(NSString *, NSNumber *, NSArray *) = ^(NSString *name, NSNumber *weight, NSArray *nodes) {
         NSArray *sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:@"weight" ascending:YES]];
         CBDSortedArray *sorted = [[CBDSortedArray alloc] initWithObjects:[nodes mutableCopy] sortDescriptors:sortDescriptors];
-        INLGroup *group = [[INLGroup alloc] initWithLabel:@"Group A" nodes:sorted weight:weight];
+        INLGroup *group = [[INLGroup alloc] initWithName:@"Group A" nodes:sorted weight:weight];
     };
     
     id<INLNode> subgroup = groupWithNodes(@"Group B", @3, @[passingTest(@"Test C", @1), passingTest(@"Test D", @2)]);
