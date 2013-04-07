@@ -28,3 +28,5 @@
 
 // reporting tests
 #import "INLReporter.h"
+#import "INLReportGroupIndenter.h"
+#import "INLReportTestIndenter.h"
