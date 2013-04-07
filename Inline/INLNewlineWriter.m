@@ -26,6 +26,7 @@
 
 - (void)didEnterGroup:(INLGroup *)group
 {
+    [[self output] appendString:@"\n"];
 }
 
 - (void)willRunTest:(INLTest *)test
@@ -39,7 +40,6 @@
 
 - (void)didLeaveGroup:(INLGroup *)group
 {
-    [[self output] appendString:@"\n"];
 }
 
 @end

@@ -12,6 +12,19 @@
 
 @implementation INLNewlineWriterTests
 
+- (void)testWhenEnteringGroupOutputsNewline
+{
+    // given
+    NSMutableString *output = [[NSMutableString alloc] init];
+    INLNewlineWriter *writer = [[INLNewlineWriter alloc] initWithOutput:output];
+    
+    // when
+    [writer didEnterGroup:nil];
+    
+    // then
+    [[output should] beEqualTo:@"\n"];
+}
+
 - (void)testWhenRanTestOutputsNewline
 {
     // given
@@ -20,19 +33,6 @@
     
     // when
     [writer didRunTest:nil];
-    
-    // then
-    [[output should] beEqualTo:@"\n"];
-}
-
-- (void)testWhenLeavingGroupOutputsNewline
-{
-    // given
-    NSMutableString *output = [[NSMutableString alloc] init];
-    INLNewlineWriter *writer = [[INLNewlineWriter alloc] initWithOutput:output];
-    
-    // when
-    [writer didLeaveGroup:nil];
     
     // then
     [[output should] beEqualTo:@"\n"];
