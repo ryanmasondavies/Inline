@@ -1,22 +1,22 @@
 //
-//  INLNameWriterTests.m
+//  INLNodeWriterTests.m
 //  Inline
 //
 //  Created by Ryan Davies on 03/04/2013.
 //  Copyright (c) 2013 Ryan Davies. All rights reserved.
 //
 
-@interface INLNameWriterTests : SenTestCase
+@interface INLNodeWriterTests : SenTestCase
 
 @end
 
-@implementation INLNameWriterTests
+@implementation INLNodeWriterTests
 
 - (void)testWhenNotNestedDoesNotIndentTest
 {
     // given
     NSMutableString *output = [[NSMutableString alloc] init];
-    INLNameWriter *writer = [[INLNameWriter alloc] initWithOutput:output];
+    INLNodeWriter *writer = [[INLNodeWriter alloc] initWithOutput:output];
     id test = [OCMockObject niceMockForClass:[INLTest class]];
     [[[test stub] andReturn:@"test"] label];
     
@@ -32,7 +32,7 @@
 {
     // given
     NSMutableString *output = [[NSMutableString alloc] init];
-    INLNameWriter *writer = [[INLNameWriter alloc] initWithOutput:output];
+    INLNodeWriter *writer = [[INLNodeWriter alloc] initWithOutput:output];
     id group = [OCMockObject niceMockForClass:[INLGroup class]];
     id test = [OCMockObject niceMockForClass:[INLTest class]];
     [[[group stub] andReturn:@""] label];
@@ -52,7 +52,7 @@
 {
     // given
     NSMutableString *output = [[NSMutableString alloc] init];
-    INLNameWriter *writer = [[INLNameWriter alloc] initWithOutput:output];
+    INLNodeWriter *writer = [[INLNodeWriter alloc] initWithOutput:output];
     id group = [OCMockObject niceMockForClass:[INLGroup class]];
     id test = [OCMockObject niceMockForClass:[INLTest class]];
     [[[group stub] andReturn:@"group"] label];
@@ -72,7 +72,7 @@
 {
     // given
     NSMutableString *output = [[NSMutableString alloc] init];
-    INLNameWriter *writer = [[INLNameWriter alloc] initWithOutput:output];
+    INLNodeWriter *writer = [[INLNodeWriter alloc] initWithOutput:output];
     NSMutableArray *groups = [[NSMutableArray alloc] init];
     for (NSUInteger i = 0; i < 2; i ++) {
         groups[i] = [OCMockObject niceMockForClass:[INLGroup class]];
@@ -97,7 +97,7 @@
 {
     // given
     NSMutableString *output = [[NSMutableString alloc] init];
-    INLNameWriter *writer = [[INLNameWriter alloc] initWithOutput:output];
+    INLNodeWriter *writer = [[INLNodeWriter alloc] initWithOutput:output];
     id group = [OCMockObject niceMockForClass:[INLGroup class]];
     [[[group stub] andReturn:@"group"] label];
     NSMutableArray *tests = [[NSMutableArray alloc] init];

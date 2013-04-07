@@ -1,22 +1,22 @@
 //
-//  INLGroupNameIndenterTests.m
+//  INLGroupIndenterTests.m
 //  Inline
 //
 //  Created by Ryan Davies on 07/04/2013.
 //  Copyright (c) 2013 Ryan Davies. All rights reserved.
 //
 
-@interface INLGroupNameIndenterTests : SenTestCase
+@interface INLGroupIndenterTests : SenTestCase
 
 @end
 
-@implementation INLGroupNameIndenterTests
+@implementation INLGroupIndenterTests
 
 - (void)testWhenNotNestedDoesNotIndentGroup
 {
     // given
     NSMutableString *output = [[NSMutableString alloc] init];
-    INLGroupNameIndenter *indenter = [[INLGroupNameIndenter alloc] initWithOutput:output];
+    INLGroupIndenter *indenter = [[INLGroupIndenter alloc] initWithOutput:output];
     id group = [OCMockObject niceMockForClass:[INLGroup class]];
     [[[group stub] andReturn:@"group"] label];
     
@@ -32,7 +32,7 @@
 {
     // given
     NSMutableString *output = [[NSMutableString alloc] init];
-    INLGroupNameIndenter *indenter = [[INLGroupNameIndenter alloc] initWithOutput:output];
+    INLGroupIndenter *indenter = [[INLGroupIndenter alloc] initWithOutput:output];
     id group = [OCMockObject niceMockForClass:[INLGroup class]];
     [[[group stub] andReturn:@"group"] label];
     
@@ -50,7 +50,7 @@
 {
     // given
     NSMutableString *output = [[NSMutableString alloc] init];
-    INLGroupNameIndenter *indenter = [[INLGroupNameIndenter alloc] initWithOutput:output];
+    INLGroupIndenter *indenter = [[INLGroupIndenter alloc] initWithOutput:output];
     id group = [OCMockObject niceMockForClass:[INLGroup class]];
     [[[group stub] andReturn:@"group"] label];
     
@@ -70,7 +70,7 @@
 {
     // given
     NSMutableString *output = [[NSMutableString alloc] init];
-    INLGroupNameIndenter *indenter = [[INLGroupNameIndenter alloc] initWithOutput:output];
+    INLGroupIndenter *indenter = [[INLGroupIndenter alloc] initWithOutput:output];
     id group = [OCMockObject niceMockForClass:[INLGroup class]];
     [[[group stub] andReturn:@"group"] label];
     
