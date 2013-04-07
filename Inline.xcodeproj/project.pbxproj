@@ -189,8 +189,8 @@
 				948D2FD2170C4DCC0057A396 /* Nodes */,
 				948D2FD3170C4DD40057A396 /* Test states */,
 				949CDA4D170CB6D300A09B71 /* Recording tests */,
-				948D2FD4170C4DDB0057A396 /* Running tests */,
 				949CDA59170CC00C00A09B71 /* Reporting tests */,
+				948D2FD4170C4DDB0057A396 /* Running tests */,
 				948D2FD1170C4DC10057A396 /* Supporting files */,
 			);
 			path = "Unit Tests";

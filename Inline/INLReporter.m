@@ -27,6 +27,14 @@
     return self;
 }
 
+- (void)willStartRunningWithNode:(id<INLNode>)node
+{
+}
+
+- (void)didFinishRunningWithNode:(id<INLNode>)node
+{
+}
+
 - (void)didEnterGroup:(INLGroup *)group
 {
     if ([[group label] isEqualToString:@""]) return;

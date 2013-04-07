@@ -26,6 +26,13 @@
     return self;
 }
 
+- (void)runByStartingAtNode:(id<INLNode>)node
+{
+    [[self delegate] willStartRunningWithNode:node];
+    [node acceptVisitor:self];
+    [[self delegate] didFinishRunningWithNode:node];
+}
+
 - (void)enterGroup:(INLGroup *)group
 {
     [[self delegate] didEnterGroup:group];
