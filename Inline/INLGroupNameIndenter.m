@@ -1,22 +1,22 @@
 //
-//  INLReportGroupIndenter.m
+//  INLGroupNameIndenter.m
 //  Inline
 //
 //  Created by Ryan Davies on 07/04/2013.
 //  Copyright (c) 2013 Ryan Davies. All rights reserved.
 //
 
-#import "INLReportGroupIndenter.h"
+#import "INLGroupNameIndenter.h"
 #import "INLGroup.h"
 #import "INLHook.h"
 #import "INLTest.h"
 
-@interface INLReportGroupIndenter ()
+@interface INLGroupNameIndenter ()
 @property (strong, nonatomic) NSMutableString *output;
 @property (nonatomic) NSUInteger indentationLevel;
 @end
 
-@implementation INLReportGroupIndenter
+@implementation INLGroupNameIndenter
 
 - (id)initWithOutput:(NSMutableString *)output
 {

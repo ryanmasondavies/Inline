@@ -1,22 +1,22 @@
 //
-//  INLReportGroupIndenterTests.m
+//  INLGroupNameIndenterTests.m
 //  Inline
 //
 //  Created by Ryan Davies on 07/04/2013.
 //  Copyright (c) 2013 Ryan Davies. All rights reserved.
 //
 
-@interface INLReportGroupIndenterTests : SenTestCase
+@interface INLGroupNameIndenterTests : SenTestCase
 
 @end
 
-@implementation INLReportGroupIndenterTests
+@implementation INLGroupNameIndenterTests
 
 - (void)testWhenNotNestedDoesNotIndentGroup
 {
     // given
     NSMutableString *output = [[NSMutableString alloc] init];
-    INLReportGroupIndenter *indenter = [[INLReportGroupIndenter alloc] initWithOutput:output];
+    INLGroupNameIndenter *indenter = [[INLGroupNameIndenter alloc] initWithOutput:output];
     id group = [OCMockObject niceMockForClass:[INLGroup class]];
     [[[group stub] andReturn:@"group"] label];
     
@@ -32,7 +32,7 @@
 {
     // given
     NSMutableString *output = [[NSMutableString alloc] init];
-    INLReportGroupIndenter *indenter = [[INLReportGroupIndenter alloc] initWithOutput:output];
+    INLGroupNameIndenter *indenter = [[INLGroupNameIndenter alloc] initWithOutput:output];
     id group = [OCMockObject niceMockForClass:[INLGroup class]];
     [[[group stub] andReturn:@"group"] label];
     
@@ -50,7 +50,7 @@
 {
     // given
     NSMutableString *output = [[NSMutableString alloc] init];
-    INLReportGroupIndenter *indenter = [[INLReportGroupIndenter alloc] initWithOutput:output];
+    INLGroupNameIndenter *indenter = [[INLGroupNameIndenter alloc] initWithOutput:output];
     id group = [OCMockObject niceMockForClass:[INLGroup class]];
     [[[group stub] andReturn:@"group"] label];
     
@@ -70,7 +70,7 @@
 {
     // given
     NSMutableString *output = [[NSMutableString alloc] init];
-    INLReportGroupIndenter *indenter = [[INLReportGroupIndenter alloc] initWithOutput:output];
+    INLGroupNameIndenter *indenter = [[INLGroupNameIndenter alloc] initWithOutput:output];
     id group = [OCMockObject niceMockForClass:[INLGroup class]];
     [[[group stub] andReturn:@"group"] label];
     
