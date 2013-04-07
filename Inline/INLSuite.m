@@ -7,11 +7,13 @@
 //
 
 #import "INLSuite.h"
+#import "INLGroup.h"
 
 @implementation INLSuite
 
-- (void)addNodesToGroup:(INLGroup *)group
+- (INLGroup *)rootGroup
 {
+    return nil;
 }
 
 @end

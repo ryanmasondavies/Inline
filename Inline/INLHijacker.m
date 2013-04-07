@@ -47,23 +47,29 @@
 
 void INLRunTests(id self, SEL _cmd, id ignored)
 {
-    NSMutableArray *nodes = [[NSMutableArray alloc] init];
-    NSSortDescriptor *lightestToHeaviest = [[NSSortDescriptor alloc] initWithKey:@"weight" ascending:YES];
-    CBDSortedArray *sortedNodes = [[CBDSortedArray alloc] initWithObjects:nodes sortDescriptors:@[lightestToHeaviest]];
-    INLGroup *group = [[INLGroup alloc] initWithName:@"" nodes:sortedNodes weight:@0];
-    
     NSArray *subclasses = [[INLSuite class] subclasses];
+    NSMutableArray *groups = [[NSMutableArray alloc] init];
     [subclasses enumerateObjectsUsingBlock:^(Class subclass, NSUInteger idx, BOOL *stop) {
         INLSuite *suite = [[subclass alloc] init];
-        [suite addNodesToGroup:group];
+        [groups addObject:[suite rootGroup]];
     }];
     
     NSMutableString *output = [[NSMutableString alloc] init];
-    id<INLRunnerDelegate> reporter = [[INLReporter alloc] initWithOutput:output];
+    NSMutableArray *writers = [[NSMutableArray alloc] init];
+    writers[0] = [[INLGroupIndenter alloc] initWithOutput:output];
+    writers[1] = [[INLTestIndenter alloc] initWithOutput:output];
+    writers[2] = [[INLGroupWriter alloc] initWithOutput:output];
+    writers[3] = [[INLTestWriter alloc] initWithOutput:output];
+    writers[4] = [[INLNewlineWriter alloc] initWithOutput:output];
+    
+    id<INLRunnerDelegate> reporter = [[INLReporter alloc] initWithWriters:writers];
     INLRunner *runner = [[INLRunner alloc] initWithDelegate:reporter];
-    [group acceptVisitor:runner];
+    [groups enumerateObjectsUsingBlock:^(INLGroup *group, NSUInteger idx, BOOL *stop) {
+        [runner runByStartingAtNode:group];
+    }];
     
     printf("%s", [output cStringUsingEncoding:NSUTF8StringEncoding]);
+    
     exit(0);
 }
 

@@ -9,13 +9,12 @@
 #import <Foundation/Foundation.h>
 @class INLGroup;
 
-/** Each subclass creates tests and adds them to a group. */
+/** Each subclass returns nodes (tests, hooks, groups) in a root group. */
 @interface INLSuite : NSObject
 
 /**
- Add nodes to the group. Used to gather nodes for running.
- @param group The group to which nodes must be added.
+ @return The root group in the suite's node hierarchy.
  */
-- (void)addNodesToGroup:(INLGroup *)group;
+- (INLGroup *)rootGroup;
 
 @end
