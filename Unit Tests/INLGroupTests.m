@@ -12,7 +12,7 @@
 
 @implementation INLGroupTests
 
-- (void)testTellsVisitorToVisitGroup
+- (void)testTellsVisitorToEnterGroup
 {
     // todo: verify order
     
