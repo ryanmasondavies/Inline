@@ -12,14 +12,16 @@
 
 @implementation INLGroupTests
 
-- (void)testTellsVisitorToEnterGroup
+- (void)testTellsVisitorToEnterGroupBeforeForwardingVisitsToNodes
 {
-    // todo: verify order
-    
     // given
-    INLGroup *group = [[INLGroup alloc] initWithLabel:nil nodes:nil weight:nil];
+    id node = [OCMockObject niceMockForProtocol:@protocol(INLNode)];
+    id nodes = [[CBDSortedArray alloc] initWithObjects:[@[node] mutableCopy] sortDescriptors:nil];
+    INLGroup *group = [[INLGroup alloc] initWithLabel:nil nodes:nodes weight:nil];
     id visitor = [OCMockObject niceMockForProtocol:@protocol(INLVisitor)];
-    [[visitor expect] enterGroup:group];
+    __block BOOL forwardedVisitsToNodes = NO;
+    [[[node stub] andDo:^(NSInvocation *i) { forwardedVisitsToNodes = YES; }] acceptVisitor:visitor];
+    [[[visitor expect] andDo:^(NSInvocation *i) { [[@(forwardedVisitsToNodes) should] beFalse]; }] enterGroup:group];
     
     // when
     [group acceptVisitor:visitor];
@@ -30,8 +32,6 @@
 
 - (void)testForwardsVisitsToEachNode
 {
-    // todo: verify order
-    
     // given
     id<INLVisitor> visitor = [OCMockObject niceMockForProtocol:@protocol(INLVisitor)];
     NSMutableArray *nodes = [[NSMutableArray alloc] init];
@@ -51,14 +51,16 @@
     [[order should] beEqualTo:@[@1, @2, @3]];
 }
 
-- (void)testTellsVisitorToLeaveGroup
+- (void)testTellsVisitorToLeaveGroupAfterForwardingVisitsToNodes
 {
-    // todo: verify order
-    
     // given
-    INLGroup *group = [[INLGroup alloc] initWithLabel:nil nodes:nil weight:nil];
+    id node = [OCMockObject niceMockForProtocol:@protocol(INLNode)];
+    id nodes = [[CBDSortedArray alloc] initWithObjects:[@[node] mutableCopy] sortDescriptors:nil];
+    INLGroup *group = [[INLGroup alloc] initWithLabel:nil nodes:nodes weight:nil];
     id visitor = [OCMockObject niceMockForProtocol:@protocol(INLVisitor)];
-    [[visitor expect] leaveGroup:group];
+    __block BOOL forwardedVisitsToNodes = NO;
+    [[[node stub] andDo:^(NSInvocation *i) { forwardedVisitsToNodes = YES; }] acceptVisitor:visitor];
+    [[[visitor expect] andDo:^(NSInvocation *i) { [[@(forwardedVisitsToNodes) should] beTrue]; }] leaveGroup:group];
     
     // when
     [group acceptVisitor:visitor];
