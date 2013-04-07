@@ -12,6 +12,20 @@
 
 @implementation INLRunnerTests
 
+- (void)testRunVisitsNode
+{
+    // given
+    id node = [OCMockObject niceMockForProtocol:@protocol(INLNode)];
+    INLRunner *runner = [[INLRunner alloc] initWithDelegate:nil];
+    [[node expect] acceptVisitor:runner];
+    
+    // when
+    [runner runByStartingAtNode:node];
+    
+    // then
+    [node verify];
+}
+
 - (void)testNotifiesDelegateWhenEnteringGroup
 {
     // given
