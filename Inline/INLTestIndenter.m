@@ -8,7 +8,6 @@
 
 #import "INLTestIndenter.h"
 #import "INLGroup.h"
-#import "INLHook.h"
 #import "INLTest.h"
 
 @interface INLTestIndenter ()

@@ -7,6 +7,8 @@
 //
 
 #import "INLNewlineWriter.h"
+#import "INLGroup.h"
+#import "INLTest.h"
 
 @interface INLNewlineWriter ()
 @property (strong, nonatomic) NSMutableString *output;

@@ -8,7 +8,6 @@
 
 #import "INLGroupIndenter.h"
 #import "INLGroup.h"
-#import "INLHook.h"
 #import "INLTest.h"
 
 @interface INLGroupIndenter ()
@@ -29,7 +28,6 @@
 
 - (void)didEnterGroup:(INLGroup *)group
 {
-//    if ([[group name] isEqualToString:@""]) return;
     for (NSUInteger i = 0; i < [self indentationLevel]; i ++) [[self output] appendString:@"\t"];
     [self setIndentationLevel:[self indentationLevel] + 1];
 }
