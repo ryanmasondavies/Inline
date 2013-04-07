@@ -27,7 +27,8 @@
 #import "INLRunner.h"
 
 // reporting tests
-#import "INLNodeWriter.h"
-#import "INLNewlineWriter.h"
 #import "INLGroupIndenter.h"
+#import "INLGroupWriter.h"
+#import "INLNewlineWriter.h"
 #import "INLTestIndenter.h"
+#import "INLTestWriter.h"
