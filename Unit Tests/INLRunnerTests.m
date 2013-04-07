@@ -12,54 +12,6 @@
 
 @implementation INLRunnerTests
 
-- (void)testRunNotifiesDelegateBeforeVisitingNode
-{
-    // given
-    id node = [OCMockObject niceMockForProtocol:@protocol(INLNode)];
-    id delegate = [OCMockObject niceMockForProtocol:@protocol(INLRunnerDelegate)];
-    INLRunner *runner = [[INLRunner alloc] initWithDelegate:delegate];
-    __block BOOL notifiedDelegate = NO;
-    [[[delegate stub] andDo:^(NSInvocation *i) { notifiedDelegate = YES; }] willStartRunningWithNode:node];
-    [[[node expect] andDo:^(NSInvocation *i) { [[@(notifiedDelegate) should] beTrue]; }] acceptVisitor:runner];
-    
-    // when
-    [runner runByStartingAtNode:node];
-    
-    // then
-    [node verify];
-}
-
-- (void)testRunVisitsNode
-{
-    // given
-    id node = [OCMockObject niceMockForProtocol:@protocol(INLNode)];
-    INLRunner *runner = [[INLRunner alloc] initWithDelegate:nil];
-    [[node expect] acceptVisitor:runner];
-    
-    // when
-    [runner runByStartingAtNode:node];
-    
-    // then
-    [node verify];
-}
-
-- (void)testRunNotifiesDelegateAfterVisitingNode
-{
-    // given
-    id node = [OCMockObject niceMockForProtocol:@protocol(INLNode)];
-    id delegate = [OCMockObject niceMockForProtocol:@protocol(INLRunnerDelegate)];
-    INLRunner *runner = [[INLRunner alloc] initWithDelegate:delegate];
-    __block BOOL visitedNode = NO;
-    [[[node expect] andDo:^(NSInvocation *i) { visitedNode = YES; }] acceptVisitor:runner];
-    [[[delegate stub] andDo:^(NSInvocation *i) { [[@(visitedNode) should] beTrue]; }] didFinishRunningWithNode:node];
-    
-    // when
-    [runner runByStartingAtNode:node];
-    
-    // then
-    [node verify];
-}
-
 - (void)testNotifiesDelegateWhenEnteringGroup
 {
     // given

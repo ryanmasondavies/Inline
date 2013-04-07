@@ -14,18 +14,6 @@
 @protocol INLRunnerDelegate <NSObject>
 
 /**
- Sent when the runner starts running with a node of any kind.
- @param node The node the runner has started with.
- */
-- (void)willStartRunningWithNode:(id<INLNode>)node;
-
-/**
- Sent when the runner has finished running through a node hierarchy.
- @param node The node the runner has stopped running.
- */
-- (void)didFinishRunningWithNode:(id<INLNode>)node;
-
-/**
  Sent when the runner enters a group.
  @param group The group entered.
  */
