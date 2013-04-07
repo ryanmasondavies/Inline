@@ -26,7 +26,8 @@
 // running tests
 #import "INLRunner.h"
 
-// reporting tests
+// writing reports
+#import "INLReporter.h"
 #import "INLGroupIndenter.h"
 #import "INLGroupWriter.h"
 #import "INLNewlineWriter.h"
