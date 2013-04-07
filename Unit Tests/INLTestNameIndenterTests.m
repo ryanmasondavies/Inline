@@ -1,22 +1,22 @@
 //
-//  INLReportTestIndenterTests.m
+//  INLTestNameIndenterTests.m
 //  Inline
 //
 //  Created by Ryan Davies on 07/04/2013.
 //  Copyright (c) 2013 Ryan Davies. All rights reserved.
 //
 
-@interface INLReportTestIndenterTests : SenTestCase
+@interface INLTestNameIndenterTests : SenTestCase
 
 @end
 
-@implementation INLReportTestIndenterTests
+@implementation INLTestNameIndenterTests
 
 - (void)testWhenNotNestedDoesNotIndentTest
 {
     // given
     NSMutableString *output = [[NSMutableString alloc] init];
-    INLReportTestIndenter *indenter = [[INLReportTestIndenter alloc] initWithOutput:output];
+    INLTestNameIndenter *indenter = [[INLTestNameIndenter alloc] initWithOutput:output];
     id test = [OCMockObject niceMockForClass:[INLTest class]];
     [[[test stub] andReturn:@"test"] label];
     
@@ -32,7 +32,7 @@
 {
     // given
     NSMutableString *output = [[NSMutableString alloc] init];
-    INLReportTestIndenter *indenter = [[INLReportTestIndenter alloc] initWithOutput:output];
+    INLTestNameIndenter *indenter = [[INLTestNameIndenter alloc] initWithOutput:output];
     id group = [OCMockObject niceMockForClass:[INLGroup class]];
     id test = [OCMockObject niceMockForClass:[INLTest class]];
     [[[group stub] andReturn:@"group"] label];
@@ -52,7 +52,7 @@
 {
     // given
     NSMutableString *output = [[NSMutableString alloc] init];
-    INLReportTestIndenter *indenter = [[INLReportTestIndenter alloc] initWithOutput:output];
+    INLTestNameIndenter *indenter = [[INLTestNameIndenter alloc] initWithOutput:output];
     id group = [OCMockObject niceMockForClass:[INLGroup class]];
     id test = [OCMockObject niceMockForClass:[INLTest class]];
     [[[group stub] andReturn:@"group"] label];
@@ -74,7 +74,7 @@
 {
     // given
     NSMutableString *output = [[NSMutableString alloc] init];
-    INLReportTestIndenter *indenter = [[INLReportTestIndenter alloc] initWithOutput:output];
+    INLTestNameIndenter *indenter = [[INLTestNameIndenter alloc] initWithOutput:output];
     id group = [OCMockObject niceMockForClass:[INLGroup class]];
     id test = [OCMockObject niceMockForClass:[INLTest class]];
     [[[group stub] andReturn:@"group"] label];

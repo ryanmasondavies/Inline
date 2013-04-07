@@ -1,22 +1,22 @@
 //
-//  INLReportTestIndenter.m
+//  INLTestNameIndenter.m
 //  Inline
 //
 //  Created by Ryan Davies on 07/04/2013.
 //  Copyright (c) 2013 Ryan Davies. All rights reserved.
 //
 
-#import "INLReportTestIndenter.h"
+#import "INLTestNameIndenter.h"
 #import "INLGroup.h"
 #import "INLHook.h"
 #import "INLTest.h"
 
-@interface INLReportTestIndenter ()
+@interface INLTestNameIndenter ()
 @property (strong, nonatomic) NSMutableString *output;
 @property (nonatomic) NSUInteger indentationLevel;
 @end
 
-@implementation INLReportTestIndenter
+@implementation INLTestNameIndenter
 
 - (id)initWithOutput:(NSMutableString *)output
 {
