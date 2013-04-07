@@ -1,22 +1,22 @@
 //
-//  INLReporter.m
+//  INLNameWriter.m
 //  Inline
 //
 //  Created by Ryan Davies on 03/04/2013.
 //  Copyright (c) 2013 Ryan Davies. All rights reserved.
 //
 
-#import "INLReporter.h"
+#import "INLNameWriter.h"
 #import "INLGroup.h"
 #import "INLHook.h"
 #import "INLTest.h"
 
-@interface INLReporter ()
+@interface INLNameWriter ()
 @property (strong, nonatomic) NSMutableString *output;
 @property (nonatomic) NSUInteger indentationLevel;
 @end
 
-@implementation INLReporter
+@implementation INLNameWriter
 
 - (id)initWithOutput:(NSMutableString *)output
 {

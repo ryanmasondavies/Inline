@@ -1,28 +1,28 @@
 //
-//  INLReporterTests.m
+//  INLNameWriterTests.m
 //  Inline
 //
 //  Created by Ryan Davies on 03/04/2013.
 //  Copyright (c) 2013 Ryan Davies. All rights reserved.
 //
 
-@interface INLReporterTests : SenTestCase
+@interface INLNameWriterTests : SenTestCase
 
 @end
 
-@implementation INLReporterTests
+@implementation INLNameWriterTests
 
 - (void)testWhenNotNestedDoesNotIndentTest
 {
     // given
     NSMutableString *output = [[NSMutableString alloc] init];
-    INLReporter *reporter = [[INLReporter alloc] initWithOutput:output];
+    INLNameWriter *writer = [[INLNameWriter alloc] initWithOutput:output];
     id test = [OCMockObject niceMockForClass:[INLTest class]];
     [[[test stub] andReturn:@"test"] label];
     
     // when
-    [reporter willRunTest:test];
-    [reporter didRunTest:test];
+    [writer willRunTest:test];
+    [writer didRunTest:test];
     
     // then
     [[output should] beEqualTo:@"test\n"];
@@ -32,17 +32,17 @@
 {
     // given
     NSMutableString *output = [[NSMutableString alloc] init];
-    INLReporter *reporter = [[INLReporter alloc] initWithOutput:output];
+    INLNameWriter *writer = [[INLNameWriter alloc] initWithOutput:output];
     id group = [OCMockObject niceMockForClass:[INLGroup class]];
     id test = [OCMockObject niceMockForClass:[INLTest class]];
     [[[group stub] andReturn:@""] label];
     [[[test stub] andReturn:@"test"] label];
     
     // when
-    [reporter didEnterGroup:group];
-    [reporter willRunTest:test];
-    [reporter didRunTest:test];
-    [reporter didLeaveGroup:group];
+    [writer didEnterGroup:group];
+    [writer willRunTest:test];
+    [writer didRunTest:test];
+    [writer didLeaveGroup:group];
     
     // then
     [[output should] beEqualTo:@"test\n"];
@@ -52,17 +52,17 @@
 {
     // given
     NSMutableString *output = [[NSMutableString alloc] init];
-    INLReporter *reporter = [[INLReporter alloc] initWithOutput:output];
+    INLNameWriter *writer = [[INLNameWriter alloc] initWithOutput:output];
     id group = [OCMockObject niceMockForClass:[INLGroup class]];
     id test = [OCMockObject niceMockForClass:[INLTest class]];
     [[[group stub] andReturn:@"group"] label];
     [[[test stub] andReturn:@"test"] label];
     
     // when
-    [reporter didEnterGroup:group];
-    [reporter willRunTest:test];
-    [reporter didRunTest:test];
-    [reporter didLeaveGroup:group];
+    [writer didEnterGroup:group];
+    [writer willRunTest:test];
+    [writer didRunTest:test];
+    [writer didLeaveGroup:group];
     
     // then
     [[output should] beEqualTo:@"group\n\ttest\n"];
@@ -72,7 +72,7 @@
 {
     // given
     NSMutableString *output = [[NSMutableString alloc] init];
-    INLReporter *reporter = [[INLReporter alloc] initWithOutput:output];
+    INLNameWriter *writer = [[INLNameWriter alloc] initWithOutput:output];
     NSMutableArray *groups = [[NSMutableArray alloc] init];
     for (NSUInteger i = 0; i < 2; i ++) {
         groups[i] = [OCMockObject niceMockForClass:[INLGroup class]];
@@ -82,12 +82,12 @@
     [[[test stub] andReturn:@"test"] label];
     
     // when
-    [reporter didEnterGroup:groups[0]];
-    [reporter didEnterGroup:groups[1]];
-    [reporter willRunTest:test];
-    [reporter didRunTest:test];
-    [reporter didLeaveGroup:groups[1]];
-    [reporter didLeaveGroup:groups[0]];
+    [writer didEnterGroup:groups[0]];
+    [writer didEnterGroup:groups[1]];
+    [writer willRunTest:test];
+    [writer didRunTest:test];
+    [writer didLeaveGroup:groups[1]];
+    [writer didLeaveGroup:groups[0]];
     
     // then
     [[output should] beEqualTo:@"group\n\tgroup\n\t\ttest\n"];
@@ -97,7 +97,7 @@
 {
     // given
     NSMutableString *output = [[NSMutableString alloc] init];
-    INLReporter *reporter = [[INLReporter alloc] initWithOutput:output];
+    INLNameWriter *writer = [[INLNameWriter alloc] initWithOutput:output];
     id group = [OCMockObject niceMockForClass:[INLGroup class]];
     [[[group stub] andReturn:@"group"] label];
     NSMutableArray *tests = [[NSMutableArray alloc] init];
@@ -107,12 +107,12 @@
     }
     
     // when
-    [reporter didEnterGroup:group];
-    [reporter willRunTest:tests[0]];
-    [reporter didRunTest:tests[0]];
-    [reporter didLeaveGroup:group];
-    [reporter didEnterGroup:tests[1]];
-    [reporter didLeaveGroup:tests[1]];
+    [writer didEnterGroup:group];
+    [writer willRunTest:tests[0]];
+    [writer didRunTest:tests[0]];
+    [writer didLeaveGroup:group];
+    [writer didEnterGroup:tests[1]];
+    [writer didLeaveGroup:tests[1]];
     
     // then
     [[output should] beEqualTo:@"group\n\ttest\ntest\n"];

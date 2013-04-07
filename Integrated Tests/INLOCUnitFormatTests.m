@@ -29,7 +29,7 @@
     id<INLNode> topGroup = groupWithNodes(@"Group A", @1, @[passingTest(@"Test A", @1), passingTest(@"Test B", @2), subgroup]);
     
     NSMutableString *output = [[NSMutableString alloc] init];
-    id<INLRunnerDelegate> reporter = [[INLReporter alloc] initWithOutput:output];
+    id<INLRunnerDelegate> reporter = [[INLReportWriter alloc] initWithOutput:output];
 //    reporter = [[INLOCFormatter alloc] initWithOutput:output];
 //    reporter = [[INLOCStatistician alloc] initWithOutput:output];
 //    reporter = [[INLExpander alloc] initWithOutput:output];
