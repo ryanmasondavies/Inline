@@ -9,13 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "INLReporter.h"
 
-/** Writes out the name of each group as a runner proceeds through a hierarchy. */
-@interface INLGroupWriter : NSObject <INLReporter>
+/** Creates a report containing the names of each group. */
+@interface INLGroupReporter : NSObject <INLReporter>
 
 /**
- Initialize a test writer.
- @param output The output for the test writer.
- @return An initialized test writer.
+ Initialize a group reporter.
+ @param output The output for the group reporter.
+ @return An initialized test reporter.
  */
 - (id)initWithOutput:(NSMutableString *)output;
 

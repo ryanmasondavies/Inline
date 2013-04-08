@@ -26,7 +26,7 @@
 
 // writing reports
 #import "INLGroupIndenter.h"
-#import "INLGroupWriter.h"
+#import "INLGroupReporter.h"
 #import "INLNewlineWriter.h"
 #import "INLTestIndenter.h"
 #import "INLTestWriter.h"

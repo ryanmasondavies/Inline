@@ -6,15 +6,15 @@
 //  Copyright (c) 2013 Ryan Davies. All rights reserved.
 //
 
-#import "INLGroupWriter.h"
+#import "INLGroupReporter.h"
 #import "INLGroup.h"
 #import "INLTest.h"
 
-@interface INLGroupWriter ()
+@interface INLGroupReporter ()
 @property (strong, nonatomic) NSMutableString *output;
 @end
 
-@implementation INLGroupWriter
+@implementation INLGroupReporter
 
 - (id)initWithOutput:(NSMutableString *)output
 {
