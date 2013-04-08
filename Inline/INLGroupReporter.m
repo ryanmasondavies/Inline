@@ -1,5 +1,5 @@
 //
-//  INLGroupWriter.m
+//  INLGroupReporter.m
 //  Inline
 //
 //  Created by Ryan Davies on 07/04/2013.

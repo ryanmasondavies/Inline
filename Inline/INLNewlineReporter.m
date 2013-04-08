@@ -1,20 +1,20 @@
 //
-//  INLTestWriter.m
+//  INLNewlineReporter.m
 //  Inline
 //
-//  Created by Ryan Davies on 03/04/2013.
+//  Created by Ryan Davies on 07/04/2013.
 //  Copyright (c) 2013 Ryan Davies. All rights reserved.
 //
 
-#import "INLTestWriter.h"
+#import "INLNewlineReporter.h"
 #import "INLGroup.h"
 #import "INLTest.h"
 
-@interface INLTestWriter ()
+@interface INLNewlineReporter ()
 @property (strong, nonatomic) NSMutableString *output;
 @end
 
-@implementation INLTestWriter
+@implementation INLNewlineReporter
 
 - (id)initWithOutput:(NSMutableString *)output
 {
@@ -26,6 +26,7 @@
 
 - (void)groupDidStart:(INLGroup *)group
 {
+    [[self output] appendString:@"\n"];
 }
 
 - (void)testDidStart:(INLTest *)test
@@ -34,17 +35,17 @@
 
 - (void)testDidPass:(INLTest *)test
 {
-    [[self output] appendString:[test name]];
+    [[self output] appendString:@"\n"];
 }
 
 - (void)testDidSkip:(INLTest *)test
 {
-    [[self output] appendString:[test name]];
+    [[self output] appendString:@"\n"];
 }
 
 - (void)testDidFail:(INLTest *)test withException:(NSException *)exception
 {
-    [[self output] appendString:[test name]];
+    [[self output] appendString:@"\n"];
 }
 
 - (void)groupDidFinish:(INLGroup *)group

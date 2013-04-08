@@ -18,14 +18,14 @@
 		947EA9FF16B72F4700FE8D79 /* INLHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 947EA9FE16B72F4700FE8D79 /* INLHook.m */; };
 		9485424F17134684009EAB96 /* INLGroupIndenterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 944C4D631711999500B13F5A /* INLGroupIndenterTests.m */; };
 		9485425017134684009EAB96 /* INLGroupReporterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 946B28271711A3C0009B8CBF /* INLGroupReporterTests.m */; };
-		9485425117134684009EAB96 /* INLNewlineWriterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 946B28211711A117009B8CBF /* INLNewlineWriterTests.m */; };
+		9485425117134684009EAB96 /* INLNewlineReporterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 946B28211711A117009B8CBF /* INLNewlineReporterTests.m */; };
 		9485425217134684009EAB96 /* INLTestIndenterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F66ABB1711967E00F93685 /* INLTestIndenterTests.m */; };
-		9485425317134684009EAB96 /* INLTestWriterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 948D2FC2170C4DB70057A396 /* INLTestWriterTests.m */; };
+		9485425317134684009EAB96 /* INLTestReporterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 948D2FC2170C4DB70057A396 /* INLTestReporterTests.m */; };
 		9485425417134751009EAB96 /* INLGroupIndenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 944C4D601711998D00B13F5A /* INLGroupIndenter.m */; };
 		9485425517134751009EAB96 /* INLGroupReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 946B282A1711A440009B8CBF /* INLGroupReporter.m */; };
-		9485425617134751009EAB96 /* INLNewlineWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 946B28241711A1C1009B8CBF /* INLNewlineWriter.m */; };
+		9485425617134751009EAB96 /* INLNewlineReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 946B28241711A1C1009B8CBF /* INLNewlineReporter.m */; };
 		9485425717134751009EAB96 /* INLTestIndenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F66ABE1711970000F93685 /* INLTestIndenter.m */; };
-		9485425817134751009EAB96 /* INLTestWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 949CDA57170CBFFA00A09B71 /* INLTestWriter.m */; };
+		9485425817134751009EAB96 /* INLTestReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 949CDA57170CBFFA00A09B71 /* INLTestReporter.m */; };
 		948D2FC7170C4DB70057A396 /* INLFailedStateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 948D2FBC170C4DB70057A396 /* INLFailedStateTests.m */; };
 		948D2FC8170C4DB70057A396 /* INLGroupTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 948D2FBD170C4DB70057A396 /* INLGroupTests.m */; };
 		948D2FC9170C4DB70057A396 /* INLHookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 948D2FBE170C4DB70057A396 /* INLHookTests.m */; };
@@ -91,9 +91,9 @@
 		944C4D5F1711998D00B13F5A /* INLGroupIndenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLGroupIndenter.h; sourceTree = "<group>"; };
 		944C4D601711998D00B13F5A /* INLGroupIndenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLGroupIndenter.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		944C4D631711999500B13F5A /* INLGroupIndenterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLGroupIndenterTests.m; sourceTree = "<group>"; };
-		946B28211711A117009B8CBF /* INLNewlineWriterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = INLNewlineWriterTests.m; sourceTree = "<group>"; };
-		946B28231711A1C1009B8CBF /* INLNewlineWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLNewlineWriter.h; sourceTree = "<group>"; };
-		946B28241711A1C1009B8CBF /* INLNewlineWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLNewlineWriter.m; sourceTree = "<group>"; };
+		946B28211711A117009B8CBF /* INLNewlineReporterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = INLNewlineReporterTests.m; sourceTree = "<group>"; };
+		946B28231711A1C1009B8CBF /* INLNewlineReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLNewlineReporter.h; sourceTree = "<group>"; };
+		946B28241711A1C1009B8CBF /* INLNewlineReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLNewlineReporter.m; sourceTree = "<group>"; };
 		946B28271711A3C0009B8CBF /* INLGroupReporterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLGroupReporterTests.m; sourceTree = "<group>"; };
 		946B28291711A440009B8CBF /* INLGroupReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLGroupReporter.h; sourceTree = "<group>"; };
 		946B282A1711A440009B8CBF /* INLGroupReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLGroupReporter.m; sourceTree = "<group>"; };
@@ -108,7 +108,7 @@
 		948D2FBF170C4DB70057A396 /* INLPassedStateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLPassedStateTests.m; sourceTree = "<group>"; };
 		948D2FC0170C4DB70057A396 /* INLPendingStateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLPendingStateTests.m; sourceTree = "<group>"; };
 		948D2FC1170C4DB70057A396 /* INLReadyStateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLReadyStateTests.m; sourceTree = "<group>"; };
-		948D2FC2170C4DB70057A396 /* INLTestWriterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLTestWriterTests.m; sourceTree = "<group>"; };
+		948D2FC2170C4DB70057A396 /* INLTestReporterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLTestReporterTests.m; sourceTree = "<group>"; };
 		948D2FC4170C4DB70057A396 /* INLTestHelper.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLTestHelper.pch; sourceTree = "<group>"; };
 		948D2FC5170C4DB70057A396 /* INLTestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLTestTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		948D2FC6170C4DB70057A396 /* Unit Tests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Unit Tests-Info.plist"; sourceTree = "<group>"; };
@@ -123,8 +123,8 @@
 		949CDA4F170CB6F500A09B71 /* INLStopwatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLStopwatch.m; sourceTree = "<group>"; };
 		949CDA52170CB71100A09B71 /* INLTimeProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLTimeProvider.h; sourceTree = "<group>"; };
 		949CDA53170CB71100A09B71 /* INLTimeProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLTimeProvider.m; sourceTree = "<group>"; };
-		949CDA56170CBFFA00A09B71 /* INLTestWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLTestWriter.h; sourceTree = "<group>"; };
-		949CDA57170CBFFA00A09B71 /* INLTestWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLTestWriter.m; sourceTree = "<group>"; };
+		949CDA56170CBFFA00A09B71 /* INLTestReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLTestReporter.h; sourceTree = "<group>"; };
+		949CDA57170CBFFA00A09B71 /* INLTestReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLTestReporter.m; sourceTree = "<group>"; };
 		94A1C77416A97B3F008C170D /* libInline.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libInline.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		94A1C77716A97B3F008C170D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		94A1C77C16A97B3F008C170D /* Inline.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Inline.h; sourceTree = "<group>"; };
@@ -247,12 +247,12 @@
 				944C4D601711998D00B13F5A /* INLGroupIndenter.m */,
 				946B28291711A440009B8CBF /* INLGroupReporter.h */,
 				946B282A1711A440009B8CBF /* INLGroupReporter.m */,
-				946B28231711A1C1009B8CBF /* INLNewlineWriter.h */,
-				946B28241711A1C1009B8CBF /* INLNewlineWriter.m */,
+				946B28231711A1C1009B8CBF /* INLNewlineReporter.h */,
+				946B28241711A1C1009B8CBF /* INLNewlineReporter.m */,
 				94F66ABD171196FF00F93685 /* INLTestIndenter.h */,
 				94F66ABE1711970000F93685 /* INLTestIndenter.m */,
-				949CDA56170CBFFA00A09B71 /* INLTestWriter.h */,
-				949CDA57170CBFFA00A09B71 /* INLTestWriter.m */,
+				949CDA56170CBFFA00A09B71 /* INLTestReporter.h */,
+				949CDA57170CBFFA00A09B71 /* INLTestReporter.m */,
 			);
 			name = "Creating reports";
 			sourceTree = "<group>";
@@ -263,9 +263,9 @@
 				949CDA4B170CB4D400A09B71 /* INLStopwatchTests.m */,
 				944C4D631711999500B13F5A /* INLGroupIndenterTests.m */,
 				946B28271711A3C0009B8CBF /* INLGroupReporterTests.m */,
-				946B28211711A117009B8CBF /* INLNewlineWriterTests.m */,
+				946B28211711A117009B8CBF /* INLNewlineReporterTests.m */,
 				94F66ABB1711967E00F93685 /* INLTestIndenterTests.m */,
-				948D2FC2170C4DB70057A396 /* INLTestWriterTests.m */,
+				948D2FC2170C4DB70057A396 /* INLTestReporterTests.m */,
 			);
 			name = "Creating reports";
 			sourceTree = "<group>";
@@ -534,9 +534,9 @@
 				949CDA54170CB71100A09B71 /* INLTimeProvider.m in Sources */,
 				9485425417134751009EAB96 /* INLGroupIndenter.m in Sources */,
 				9485425517134751009EAB96 /* INLGroupReporter.m in Sources */,
-				9485425617134751009EAB96 /* INLNewlineWriter.m in Sources */,
+				9485425617134751009EAB96 /* INLNewlineReporter.m in Sources */,
 				9485425717134751009EAB96 /* INLTestIndenter.m in Sources */,
-				9485425817134751009EAB96 /* INLTestWriter.m in Sources */,
+				9485425817134751009EAB96 /* INLTestReporter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,9 +554,9 @@
 				949CDA4C170CB4D400A09B71 /* INLStopwatchTests.m in Sources */,
 				9485424F17134684009EAB96 /* INLGroupIndenterTests.m in Sources */,
 				9485425017134684009EAB96 /* INLGroupReporterTests.m in Sources */,
-				9485425117134684009EAB96 /* INLNewlineWriterTests.m in Sources */,
+				9485425117134684009EAB96 /* INLNewlineReporterTests.m in Sources */,
 				9485425217134684009EAB96 /* INLTestIndenterTests.m in Sources */,
-				9485425317134684009EAB96 /* INLTestWriterTests.m in Sources */,
+				9485425317134684009EAB96 /* INLTestReporterTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

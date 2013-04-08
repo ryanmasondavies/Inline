@@ -1,5 +1,5 @@
 //
-//  INLGroupWriter.h
+//  INLGroupReporter.h
 //  Inline
 //
 //  Created by Ryan Davies on 07/04/2013.

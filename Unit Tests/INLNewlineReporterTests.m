@@ -1,25 +1,25 @@
 //
-//  INLNewlineWriterTests.h
+//  INLNewlineReporterTests.h
 //  Inline
 //
 //  Created by Ryan Davies on 07/04/2013.
 //  Copyright (c) 2013 Ryan Davies. All rights reserved.
 //
 
-@interface INLNewlineWriterTests : SenTestCase
+@interface INLNewlineReporterTests : SenTestCase
 
 @end
 
-@implementation INLNewlineWriterTests
+@implementation INLNewlineReporterTests
 
 - (void)testWhenEnteringGroupOutputsNewline
 {
     // given
     NSMutableString *output = [[NSMutableString alloc] init];
-    INLNewlineWriter *writer = [[INLNewlineWriter alloc] initWithOutput:output];
+    INLNewlineReporter *reporter = [[INLNewlineReporter alloc] initWithOutput:output];
     
     // when
-    [writer groupDidStart:nil];
+    [reporter groupDidStart:nil];
     
     // then
     [[output should] beEqualTo:@"\n"];
@@ -29,10 +29,10 @@
 {
     // given
     NSMutableString *output = [[NSMutableString alloc] init];
-    INLNewlineWriter *writer = [[INLNewlineWriter alloc] initWithOutput:output];
+    INLNewlineReporter *reporter = [[INLNewlineReporter alloc] initWithOutput:output];
     
     // when
-    [writer testDidPass:nil];
+    [reporter testDidPass:nil];
     
     // then
     [[output should] beEqualTo:@"\n"];
@@ -42,10 +42,10 @@
 {
     // given
     NSMutableString *output = [[NSMutableString alloc] init];
-    INLNewlineWriter *writer = [[INLNewlineWriter alloc] initWithOutput:output];
+    INLNewlineReporter *reporter = [[INLNewlineReporter alloc] initWithOutput:output];
     
     // when
-    [writer testDidSkip:nil];
+    [reporter testDidSkip:nil];
     
     // then
     [[output should] beEqualTo:@"\n"];
@@ -55,10 +55,10 @@
 {
     // given
     NSMutableString *output = [[NSMutableString alloc] init];
-    INLNewlineWriter *writer = [[INLNewlineWriter alloc] initWithOutput:output];
+    INLNewlineReporter *reporter = [[INLNewlineReporter alloc] initWithOutput:output];
     
     // when
-    [writer testDidFail:nil withException:nil];
+    [reporter testDidFail:nil withException:nil];
     
     // then
     [[output should] beEqualTo:@"\n"];

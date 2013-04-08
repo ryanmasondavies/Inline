@@ -1,16 +1,16 @@
 //
-//  INLTestWriterTests.m
+//  INLTestReporterTests.m
 //  Inline
 //
 //  Created by Ryan Davies on 03/04/2013.
 //  Copyright (c) 2013 Ryan Davies. All rights reserved.
 //
 
-@interface INLTestWriterTests : SenTestCase
+@interface INLTestReporterTests : SenTestCase
 
 @end
 
-@implementation INLTestWriterTests
+@implementation INLTestReporterTests
 
 - (void)testWhenTestPassesOutputsTestName
 {
@@ -18,10 +18,10 @@
     id test = [OCMockObject niceMockForClass:[INLTest class]];
     [(INLTest *)[[test stub] andReturn:@"test"] name];
     NSMutableString *output = [[NSMutableString alloc] init];
-    INLTestWriter *writer = [[INLTestWriter alloc] initWithOutput:output];
+    INLTestReporter *reporter = [[INLTestReporter alloc] initWithOutput:output];
     
     // when
-    [writer testDidPass:test];
+    [reporter testDidPass:test];
     
     // then
     [[output should] beEqualTo:@"test"];
@@ -33,10 +33,10 @@
     id test = [OCMockObject niceMockForClass:[INLTest class]];
     [(INLTest *)[[test stub] andReturn:@"test"] name];
     NSMutableString *output = [[NSMutableString alloc] init];
-    INLTestWriter *writer = [[INLTestWriter alloc] initWithOutput:output];
+    INLTestReporter *reporter = [[INLTestReporter alloc] initWithOutput:output];
     
     // when
-    [writer testDidSkip:test];
+    [reporter testDidSkip:test];
     
     // then
     [[output should] beEqualTo:@"test"];
@@ -48,10 +48,10 @@
     id test = [OCMockObject niceMockForClass:[INLTest class]];
     [(INLTest *)[[test stub] andReturn:@"test"] name];
     NSMutableString *output = [[NSMutableString alloc] init];
-    INLTestWriter *writer = [[INLTestWriter alloc] initWithOutput:output];
+    INLTestReporter *reporter = [[INLTestReporter alloc] initWithOutput:output];
     
     // when
-    [writer testDidFail:test withException:nil];
+    [reporter testDidFail:test withException:nil];
     
     // then
     [[output should] beEqualTo:@"test"];
