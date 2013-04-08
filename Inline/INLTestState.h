@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-@class INLTest;
 @protocol INLReporter;
+@class INLTest;
 
 /** A state in which a test can be in: pending, ready, passed, failed. */
 @protocol INLTestState <NSObject>
@@ -22,11 +22,5 @@
  @param test The test requesting the run.
  */
 - (void)runWithReporter:(id<INLReporter>)reporter forTest:(INLTest *)test;
-
-/**
- Set the failure reason. Applicable only to the failed state.
- @param reason The reason for failure.
- */
-- (void)setReason:(NSString *)reason;
 
 @end

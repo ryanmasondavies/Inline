@@ -7,24 +7,24 @@
 //
 
 #import "INLFailedState.h"
+#import "INLReporter.h"
+#import "INLTest.h"
 
 @interface INLFailedState ()
 @property (copy, nonatomic) NSString *name;
-@property (copy, nonatomic) NSString *reason;
 @end
 
 @implementation INLFailedState
 
-- (id)initWithName:(NSString *)name reason:(NSString *)reason
+- (id)initWithName:(NSString *)name
 {
     if (self = [self init]) {
         [self setName:name];
-        [self setReason:reason];
     }
     return self;
 }
 
-- (void)runForTest:(INLTest *)test
+- (void)runWithReporter:(id<INLReporter>)reporter forTest:(INLTest *)test
 {
 }
 

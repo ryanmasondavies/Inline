@@ -7,6 +7,8 @@
 //
 
 #import "INLPendingState.h"
+#import "INLReporter.h"
+#import "INLTest.h"
 
 @interface INLPendingState ()
 @property (copy, nonatomic) NSString *name;
@@ -22,12 +24,9 @@
     return self;
 }
 
-- (void)runForTest:(INLTest *)test
+- (void)runWithReporter:(id<INLReporter>)reporter forTest:(INLTest *)test
 {
-}
-
-- (void)setReason:(NSString *)reason
-{
+    [reporter testDidSkip:test];
 }
 
 @end

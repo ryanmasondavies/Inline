@@ -14,9 +14,8 @@
 /**
  Initialize a failed state.
  @param name The name for the failed state.
- @param reason The reason for the failure.
  @return An initialized failed state.
  */
-- (id)initWithName:(NSString *)name reason:(NSString *)reason;
+- (id)initWithName:(NSString *)name;
 
 @end

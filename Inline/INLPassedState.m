@@ -7,6 +7,8 @@
 //
 
 #import "INLPassedState.h"
+#import "INLReporter.h"
+#import "INLTest.h"
 
 @interface INLPassedState ()
 @property (copy, nonatomic) NSString *name;
@@ -22,11 +24,7 @@
     return self;
 }
 
-- (void)runForTest:(INLTest *)test
-{
-}
-
-- (void)setReason:(NSString *)reason
+- (void)runWithReporter:(id<INLReporter>)reporter forTest:(INLTest *)test
 {
 }
 

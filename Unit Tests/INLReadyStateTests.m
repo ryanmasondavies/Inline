@@ -75,19 +75,4 @@
     [test verify];
 }
 
-- (void)testIfBlockRaisesAnExceptionSetsReasonForFailedState
-{
-    // given
-    id failedState = [OCMockObject niceMockForProtocol:@protocol(INLTestState)];
-    INLTestBlock block = ^{ [NSException raise:@"Exception" format:@"some reason"]; };
-    INLReadyState *state = [[INLReadyState alloc] initWithName:nil block:block passedState:nil failedState:failedState];
-    [[failedState expect] setReason:@"some reason"];
-    
-    // when
-    [state runWithReporter:nil forTest:nil];
-    
-    // then
-    [failedState verify];
-}
-
 @end

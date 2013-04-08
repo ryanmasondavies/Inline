@@ -41,13 +41,8 @@
         [test transitionToState:[self passedState]];
     } else {
         [reporter testDidFail:test withException:exception];
-        [[self failedState] setReason:[exception reason]];
         [test transitionToState:[self failedState]];
     }
-}
-
-- (void)setReason:(NSString *)reason
-{
 }
 
 @end
