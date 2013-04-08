@@ -9,6 +9,7 @@
 #import "INLSuite.h"
 
 // nodes
+#import "INLReporter.h"
 #import "INLGroup.h"
 #import "INLHook.h"
 #import "INLTest.h"
@@ -23,11 +24,7 @@
 #import "INLTimeProvider.h"
 #import "INLStopwatch.h"
 
-// running tests
-#import "INLRunner.h"
-
 // writing reports
-#import "INLReporter.h"
 #import "INLGroupIndenter.h"
 #import "INLGroupWriter.h"
 #import "INLNewlineWriter.h"

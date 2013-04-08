@@ -12,61 +12,61 @@
 
 @implementation INLGroupTests
 
-- (void)testTellsVisitorToEnterGroupBeforeForwardingVisitsToNodes
+- (void)testNotifiesReporterThatGroupHasStartedBeforeForwardingRunToComponents
 {
     // given
     id node = [OCMockObject niceMockForProtocol:@protocol(INLNode)];
     id nodes = [[CBDSortedArray alloc] initWithObjects:[@[node] mutableCopy] sortDescriptors:nil];
     INLGroup *group = [[INLGroup alloc] initWithName:nil nodes:nodes weight:nil];
-    id visitor = [OCMockObject niceMockForProtocol:@protocol(INLVisitor)];
-    __block BOOL forwardedVisitsToNodes = NO;
-    [[[node stub] andDo:^(NSInvocation *i) { forwardedVisitsToNodes = YES; }] acceptVisitor:visitor];
-    [[[visitor expect] andDo:^(NSInvocation *i) { [[@(forwardedVisitsToNodes) should] beFalse]; }] enterGroup:group];
+    id reporter = [OCMockObject niceMockForProtocol:@protocol(INLReporter)];
+    __block BOOL forwardedReportersToNodes = NO;
+    [[[node stub] andDo:^(NSInvocation *i) { forwardedReportersToNodes = YES; }] runWithReporter:reporter];
+    [[[reporter expect] andDo:^(NSInvocation *i) { [[@(forwardedReportersToNodes) should] beFalse]; }] groupDidStart:group];
     
     // when
-    [group acceptVisitor:visitor];
+    [group runWithReporter:reporter];
     
     // then
-    [visitor verify];
+    [reporter verify];
 }
 
-- (void)testForwardsVisitsToEachNode
+- (void)testForwardsRunToEachComponent
 {
     // given
-    id<INLVisitor> visitor = [OCMockObject niceMockForProtocol:@protocol(INLVisitor)];
+    id<INLReporter> reporter = [OCMockObject niceMockForProtocol:@protocol(INLReporter)];
     NSMutableArray *nodes = [[NSMutableArray alloc] init];
     NSMutableArray *order = [[NSMutableArray alloc] init];
     [@[@1, @2, @3] enumerateObjectsUsingBlock:^(NSNumber *value, NSUInteger idx, BOOL *stop) {
         id node = [OCMockObject mockForProtocol:@protocol(INLNode)];
-        [[[node stub] andDo:^(NSInvocation *inv) { [order addObject:value]; }] acceptVisitor:visitor];
+        [[[node stub] andDo:^(NSInvocation *inv) { [order addObject:value]; }] runWithReporter:reporter];
         [nodes addObject:node];
     }];
     CBDSortedArray *sorted = [[CBDSortedArray alloc] initWithObjects:nodes sortDescriptors:@[]];
     INLGroup *group = [[INLGroup alloc] initWithName:nil nodes:sorted weight:nil];
     
     // when
-    [group acceptVisitor:visitor];
+    [group runWithReporter:reporter];
     
     // then
     [[order should] beEqualTo:@[@1, @2, @3]];
 }
 
-- (void)testTellsVisitorToLeaveGroupAfterForwardingVisitsToNodes
+- (void)testNotifiesReporterThatGroupHasFinishedAfterForwardingRunToComponents
 {
     // given
     id node = [OCMockObject niceMockForProtocol:@protocol(INLNode)];
     id nodes = [[CBDSortedArray alloc] initWithObjects:[@[node] mutableCopy] sortDescriptors:nil];
     INLGroup *group = [[INLGroup alloc] initWithName:nil nodes:nodes weight:nil];
-    id visitor = [OCMockObject niceMockForProtocol:@protocol(INLVisitor)];
-    __block BOOL forwardedVisitsToNodes = NO;
-    [[[node stub] andDo:^(NSInvocation *i) { forwardedVisitsToNodes = YES; }] acceptVisitor:visitor];
-    [[[visitor expect] andDo:^(NSInvocation *i) { [[@(forwardedVisitsToNodes) should] beTrue]; }] leaveGroup:group];
+    id reporter = [OCMockObject niceMockForProtocol:@protocol(INLReporter)];
+    __block BOOL forwardedReportersToNodes = NO;
+    [[[node stub] andDo:^(NSInvocation *i) { forwardedReportersToNodes = YES; }] runWithReporter:reporter];
+    [[[reporter expect] andDo:^(NSInvocation *i) { [[@(forwardedReportersToNodes) should] beTrue]; }] groupDidFinish:group];
     
     // when
-    [group acceptVisitor:visitor];
+    [group runWithReporter:reporter];
     
     // then
-    [visitor verify];
+    [reporter verify];
 }
 
 @end

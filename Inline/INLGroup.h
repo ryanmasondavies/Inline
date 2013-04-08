@@ -20,7 +20,7 @@
  @return An initialized group. */
 - (id)initWithName:(NSString *)name nodes:(CBDSortedArray *)nodes weight:(NSNumber *)weight;
 
-/** The group's name. */
+/** @return The group's name. */
 - (NSString *)name;
 
 @end

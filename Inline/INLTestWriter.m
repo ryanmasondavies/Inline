@@ -24,20 +24,30 @@
     return self;
 }
 
-- (void)didEnterGroup:(INLGroup *)group
+- (void)groupDidStart:(INLGroup *)group
 {
 }
 
-- (void)willRunTest:(INLTest *)test
+- (void)testDidStart:(INLTest *)test
 {
 }
 
-- (void)didRunTest:(INLTest *)test
+- (void)testDidPass:(INLTest *)test
 {
     [[self output] appendString:[test name]];
 }
 
-- (void)didLeaveGroup:(INLGroup *)group
+- (void)testDidSkip:(INLTest *)test
+{
+    [[self output] appendString:[test name]];
+}
+
+- (void)testDidFail:(INLTest *)test withException:(NSException *)exception
+{
+    [[self output] appendString:[test name]];
+}
+
+- (void)groupDidFinish:(INLGroup *)group
 {
 }
 

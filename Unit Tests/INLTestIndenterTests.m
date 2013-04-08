@@ -12,84 +12,63 @@
 
 @implementation INLTestIndenterTests
 
-- (void)testWhenNotNestedDoesNotIndentTest
+- (void)testWhenTestStartsWhenNotNestedDoesNotIndentTestName
 {
     // given
     NSMutableString *output = [[NSMutableString alloc] init];
     INLTestIndenter *indenter = [[INLTestIndenter alloc] initWithOutput:output];
-    id test = [OCMockObject niceMockForClass:[INLTest class]];
-    [[[test stub] andReturn:@"test"] name];
     
     // when
-    [indenter willRunTest:test];
-    [indenter didRunTest:test];
+    [indenter testDidStart:nil];
     
     // then
     [[output should] beEqualTo:@""];
 }
 
-- (void)testWhenNestedOnceIndentsTestOnce
+- (void)testWhenTestStartsWhenNestedOnceIndentsTestNameOnce
 {
     // given
     NSMutableString *output = [[NSMutableString alloc] init];
     INLTestIndenter *indenter = [[INLTestIndenter alloc] initWithOutput:output];
-    id group = [OCMockObject niceMockForClass:[INLGroup class]];
-    id test = [OCMockObject niceMockForClass:[INLTest class]];
-    [[[group stub] andReturn:@"group"] name];
-    [[[test stub] andReturn:@"test"] name];
     
     // when
-    [indenter didEnterGroup:group];
-    [indenter willRunTest:test];
-    [indenter didRunTest:test];
-    [indenter didLeaveGroup:group];
+    [indenter groupDidStart:nil];
+    [indenter testDidStart:nil];
     
     // then
     [[output should] beEqualTo:@"\t"];
 }
 
-- (void)testWhenNestedTwiceIndentsTestTwice
+- (void)testWhenTestStartsWhenNestedTwiceIndentsTestNameTwice
 {
     // given
     NSMutableString *output = [[NSMutableString alloc] init];
     INLTestIndenter *indenter = [[INLTestIndenter alloc] initWithOutput:output];
-    id group = [OCMockObject niceMockForClass:[INLGroup class]];
-    id test = [OCMockObject niceMockForClass:[INLTest class]];
-    [[[group stub] andReturn:@"group"] name];
-    [[[test stub] andReturn:@"test"] name];
     
     // when
-    [indenter didEnterGroup:group];
-    [indenter didEnterGroup:group];
-    [indenter willRunTest:test];
-    [indenter didRunTest:test];
-    [indenter didLeaveGroup:group];
-    [indenter didLeaveGroup:group];
+    [indenter groupDidStart:nil];
+    [indenter groupDidStart:nil];
+    [indenter testDidStart:nil];
     
     // then
     [[output should] beEqualTo:@"\t\t"];
 }
 
-- (void)testWhenUnnestedGroupComesAfterNestedTestDoesNotIndent
+- (void)testWhenTestStartsWhenNotNestedAfterNestingOnceDoesNotIndentTestName
 {
     // given
     NSMutableString *output = [[NSMutableString alloc] init];
     INLTestIndenter *indenter = [[INLTestIndenter alloc] initWithOutput:output];
-    id group = [OCMockObject niceMockForClass:[INLGroup class]];
     id test = [OCMockObject niceMockForClass:[INLTest class]];
-    [[[group stub] andReturn:@"group"] name];
     [[[test stub] andReturn:@"test"] name];
     
     // when
-    [indenter didEnterGroup:group];
-    [indenter willRunTest:test];
-    [indenter didRunTest:test];
-    [indenter didLeaveGroup:group];
-    [indenter didEnterGroup:test];
-    [indenter didLeaveGroup:test];
+    [indenter groupDidStart:test];
+    [indenter groupDidFinish:test];
+    [indenter testDidStart:test];
     
     // then
-    [[output should] beEqualTo:@"\t"];
+    [[output should] beEqualTo:@""];
 }
 
 @end

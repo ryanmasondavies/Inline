@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "INLRunnerDelegate.h"
+#import "INLReporter.h"
 
 /** Writes out the name of each group as a runner proceeds through a hierarchy. */
-@interface INLGroupWriter : NSObject <INLRunnerDelegate>
+@interface INLGroupWriter : NSObject <INLReporter>
 
 /**
  Initialize a test writer.

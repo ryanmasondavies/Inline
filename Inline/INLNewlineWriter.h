@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "INLRunnerDelegate.h"
+#import "INLReporter.h"
 
-@interface INLNewlineWriter : NSObject <INLRunnerDelegate>
+@interface INLNewlineWriter : NSObject <INLReporter>
 
 /**
  Initialize a newline writer.

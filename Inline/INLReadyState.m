@@ -7,6 +7,7 @@
 //
 
 #import "INLReadyState.h"
+#import "INLReporter.h"
 #import "INLTest.h"
 
 @interface INLReadyState ()
@@ -29,15 +30,17 @@
     return self;
 }
 
-- (void)runForTest:(INLTest *)test
+- (void)runWithReporter:(id<INLReporter>)reporter forTest:(INLTest *)test
 {
     NSException *exception = nil;
     @try { [self block](); }
     @catch (NSException *e) { exception = e; }
     
     if (exception == nil) {
+        [reporter testDidPass:test];
         [test transitionToState:[self passedState]];
     } else {
+        [reporter testDidFail:test withException:exception];
         [[self failedState] setReason:[exception reason]];
         [test transitionToState:[self failedState]];
     }

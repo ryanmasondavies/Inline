@@ -7,7 +7,7 @@
 //
 
 #import "INLGroup.h"
-#import "INLVisitor.h"
+#import "INLReporter.h"
 
 @interface INLGroup ()
 @property (copy, nonatomic) NSString *name;
@@ -27,13 +27,13 @@
     return self;
 }
 
-- (void)acceptVisitor:(id<INLVisitor>)visitor
+- (void)runWithReporter:(id<INLReporter>)reporter
 {
-    [visitor enterGroup:self];
+    [reporter groupDidStart:self];
     [[self nodes] enumerateObjectsUsingBlock:^(id<INLNode> node, NSUInteger idx, BOOL *stop) {
-        [node acceptVisitor:visitor];
+        [node runWithReporter:reporter];
     }];
-    [visitor leaveGroup:self];
+    [reporter groupDidFinish:self];
 }
 
 @end

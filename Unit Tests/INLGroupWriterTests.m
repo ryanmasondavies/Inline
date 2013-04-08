@@ -12,7 +12,7 @@
 
 @implementation INLGroupWriterTests
 
-- (void)testWhenEnteringGroupOutputsGroupName
+- (void)testWhenGroupStartsOutputsGroupName
 {
     // given
     NSMutableString *output = [[NSMutableString alloc] init];
@@ -21,7 +21,7 @@
     [[[group stub] andReturn:@"group"] name];
     
     // when
-    [writer didEnterGroup:group];
+    [writer groupDidStart:group];
     
     // then
     [[output should] beEqualTo:@"group"];

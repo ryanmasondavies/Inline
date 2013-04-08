@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "INLRunnerDelegate.h"
+#import "INLReporter.h"
 
 /** Writes out the name of each test as a runner proceeds through a hierarchy. */
-@interface INLTestWriter : NSObject <INLRunnerDelegate>
+@interface INLTestWriter : NSObject <INLReporter>
 
 /**
  Initialize a test writer.

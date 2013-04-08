@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "INLRunnerDelegate.h"
+#import "INLReporter.h"
 
 /** Indents tests according to their position in the hierarchy. */
-@interface INLTestIndenter : NSObject <INLRunnerDelegate>
+@interface INLTestIndenter : NSObject <INLReporter>
 
 /**
  Initialize a test indenter.

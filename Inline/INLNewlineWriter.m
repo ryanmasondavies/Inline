@@ -24,21 +24,31 @@
     return self;
 }
 
-- (void)didEnterGroup:(INLGroup *)group
+- (void)groupDidStart:(INLGroup *)group
 {
     [[self output] appendString:@"\n"];
 }
 
-- (void)willRunTest:(INLTest *)test
+- (void)testDidStart:(INLTest *)test
 {
 }
 
-- (void)didRunTest:(INLTest *)test
+- (void)testDidPass:(INLTest *)test
 {
     [[self output] appendString:@"\n"];
 }
 
-- (void)didLeaveGroup:(INLGroup *)group
+- (void)testDidSkip:(INLTest *)test
+{
+    [[self output] appendString:@"\n"];
+}
+
+- (void)testDidFail:(INLTest *)test withException:(NSException *)exception
+{
+    [[self output] appendString:@"\n"];
+}
+
+- (void)groupDidFinish:(INLGroup *)group
 {
 }
 

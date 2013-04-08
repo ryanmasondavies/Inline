@@ -8,7 +8,7 @@
 
 #import "INLTest.h"
 #import "INLTestState.h"
-#import "INLVisitor.h"
+#import "INLReporter.h"
 
 @interface INLTest ()
 @property (strong, nonatomic) id<INLTestState> state;
@@ -26,11 +26,6 @@
     return self;
 }
 
-- (void)acceptVisitor:(id<INLVisitor>)visitor
-{
-    [visitor visitTest:self];
-}
-
 - (void)transitionToState:(id<INLTestState>)state
 {
     [self setState:state];
@@ -41,9 +36,9 @@
     return [[self state] name];
 }
 
-- (void)run
+- (void)runWithReporter:(id<INLReporter>)reporter
 {
-    [[self state] runForTest:self];
+    [[self state] runWithReporter:reporter forTest:self];
 }
 
 @end

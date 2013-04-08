@@ -7,7 +7,7 @@
 //
 
 #import "INLHook.h"
-#import "INLVisitor.h"
+#import "INLReporter.h"
 
 @interface INLHook ()
 @property (copy, nonatomic) INLHookBlock block;
@@ -25,12 +25,7 @@
     return self;
 }
 
-- (void)acceptVisitor:(id<INLVisitor>)visitor
-{
-    [visitor visitHook:self];
-}
-
-- (void)run
+- (void)runWithReporter:(id<INLReporter>)reporter
 {
     [self block]();
 }

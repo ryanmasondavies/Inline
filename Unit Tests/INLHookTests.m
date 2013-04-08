@@ -12,21 +12,7 @@
 
 @implementation INLHookTests
 
-- (void)testTellsVisitorToVisitTest
-{
-    // given
-    INLHook *hook = [[INLHook alloc] initWithBlock:nil weight:nil];
-    id visitor = [OCMockObject mockForProtocol:@protocol(INLVisitor)];
-    [[visitor expect] visitHook:hook];
-    
-    // when
-    [hook acceptVisitor:visitor];
-    
-    // then
-    [visitor verify];
-}
-
-- (void)testExecutesBlock
+- (void)testRunExecutesBlock
 {
     // given
     __block BOOL executed = NO;
@@ -34,7 +20,7 @@
     INLHook *hook = [[INLHook alloc] initWithBlock:block weight:nil];
     
     // when
-    [hook run];
+    [hook runWithReporter:nil];
     
     // then
     [[@(executed) should] beTrue];

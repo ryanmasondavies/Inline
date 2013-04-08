@@ -19,20 +19,46 @@
     INLNewlineWriter *writer = [[INLNewlineWriter alloc] initWithOutput:output];
     
     // when
-    [writer didEnterGroup:nil];
+    [writer groupDidStart:nil];
     
     // then
     [[output should] beEqualTo:@"\n"];
 }
 
-- (void)testWhenRanTestOutputsNewline
+- (void)testWhenTestPassesOutputsNewline
 {
     // given
     NSMutableString *output = [[NSMutableString alloc] init];
     INLNewlineWriter *writer = [[INLNewlineWriter alloc] initWithOutput:output];
     
     // when
-    [writer didRunTest:nil];
+    [writer testDidPass:nil];
+    
+    // then
+    [[output should] beEqualTo:@"\n"];
+}
+
+- (void)testWhenTestSkipsOutputsNewline
+{
+    // given
+    NSMutableString *output = [[NSMutableString alloc] init];
+    INLNewlineWriter *writer = [[INLNewlineWriter alloc] initWithOutput:output];
+    
+    // when
+    [writer testDidSkip:nil];
+    
+    // then
+    [[output should] beEqualTo:@"\n"];
+}
+
+- (void)testWhenTestFailsOutputsNewline
+{
+    // given
+    NSMutableString *output = [[NSMutableString alloc] init];
+    INLNewlineWriter *writer = [[INLNewlineWriter alloc] initWithOutput:output];
+    
+    // when
+    [writer testDidFail:nil withException:nil];
     
     // then
     [[output should] beEqualTo:@"\n"];

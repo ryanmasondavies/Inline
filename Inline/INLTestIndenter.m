@@ -26,21 +26,29 @@
     return self;
 }
 
-- (void)didEnterGroup:(INLGroup *)group
+- (void)groupDidStart:(INLGroup *)group
 {
     [self setIndentationLevel:[self indentationLevel] + 1];
 }
 
-- (void)willRunTest:(INLTest *)test
-{
-}
-
-- (void)didRunTest:(INLTest *)test
+- (void)testDidStart:(INLTest *)test
 {
     for (NSUInteger i = 0; i < [self indentationLevel]; i ++) [[self output] appendString:@"\t"];
 }
 
-- (void)didLeaveGroup:(INLGroup *)group
+- (void)testDidPass:(INLTest *)test
+{
+}
+
+- (void)testDidSkip:(INLTest *)test
+{
+}
+
+- (void)testDidFail:(INLTest *)test withException:(NSException *)exception
+{
+}
+
+- (void)groupDidFinish:(INLGroup *)group
 {
     [self setIndentationLevel:[self indentationLevel] - 1];
 }

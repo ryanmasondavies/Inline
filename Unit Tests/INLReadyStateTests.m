@@ -12,6 +12,21 @@
 
 @implementation INLReadyStateTests
 
+- (void)testIfBlockDoesNotRaiseAnExceptionNotifiesReporterThatTestPassed
+{
+    // given
+    INLReadyState *state = [[INLReadyState alloc] initWithName:nil block:^{} passedState:nil failedState:nil];
+    
+    // when
+    id test = [OCMockObject niceMockForClass:[INLTest class]];
+    id reporter = [OCMockObject niceMockForProtocol:@protocol(INLReporter)];
+    [[reporter expect] testDidPass:test];
+    [state runWithReporter:reporter forTest:test];
+    
+    // then
+    [reporter verify];
+}
+
 - (void)testIfBlockDoesNotRaiseAnExceptionTransitionsToPassedState
 {
     // given
@@ -21,10 +36,27 @@
     [[test expect] transitionToState:passedState];
     
     // when
-    [state runForTest:test];
+    [state runWithReporter:nil forTest:test];
     
     // then
     [test verify];
+}
+
+- (void)testIfBlockRaisesAnExceptionNotifiesReporterThatTestFailed
+{
+    // given
+    NSException *exception = [NSException exceptionWithName:NSInternalInconsistencyException reason:@"" userInfo:nil];
+    INLTestBlock block = ^{ [exception raise]; };
+    INLReadyState *state = [[INLReadyState alloc] initWithName:nil block:block passedState:nil failedState:nil];
+    
+    // when
+    id test = [OCMockObject niceMockForClass:[INLTest class]];
+    id reporter = [OCMockObject niceMockForProtocol:@protocol(INLReporter)];
+    [[reporter expect] testDidFail:test withException:exception];
+    [state runWithReporter:reporter forTest:test];
+    
+    // then
+    [reporter verify];
 }
 
 - (void)testIfBlockRaisesAnExceptionTransitionsToFailedState
@@ -37,7 +69,7 @@
     [[test expect] transitionToState:failedState];
     
     // when
-    [state runForTest:test];
+    [state runWithReporter:nil forTest:test];
     
     // then
     [test verify];
@@ -52,7 +84,7 @@
     [[failedState expect] setReason:@"some reason"];
     
     // when
-    [state runForTest:nil];
+    [state runWithReporter:nil forTest:nil];
     
     // then
     [failedState verify];

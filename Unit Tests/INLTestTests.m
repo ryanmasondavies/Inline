@@ -11,44 +11,32 @@
 
 @implementation INLTestTests
 
-- (void)testTellsVisitorToVisitTest
+- (void)testForwardsRunToState
 {
     // given
-    INLTest *test = [[INLTest alloc] initWithState:nil weight:nil];
-    id visitor = [OCMockObject mockForProtocol:@protocol(INLVisitor)];
-    [[visitor expect] visitTest:test];
-    
-    // when
-    [test acceptVisitor:visitor];
-    
-    // then
-    [visitor verify];
-}
-
-- (void)testForwardsRunningToState
-{
-    // given
-    id state = [OCMockObject mockForProtocol:@protocol(INLTestState)];
+    id state = [OCMockObject niceMockForProtocol:@protocol(INLTestState)];
+    id reporter = [OCMockObject niceMockForProtocol:@protocol(INLReporter)];
     INLTest *test = [[INLTest alloc] initWithState:state weight:nil];
-    [[state expect] runForTest:test];
+    [[state expect] runWithReporter:reporter forTest:test];
     
     // when
-    [test run];
+    [test runWithReporter:reporter];
     
     // then
     [state verify];
 }
 
-- (void)testChangingStateForwardsRunningToNewState
+- (void)testChangingStateForwardsRunToNewState
 {
     // given
     INLTest *test = [[INLTest alloc] initWithState:nil weight:nil];
-    id state = [OCMockObject mockForProtocol:@protocol(INLTestState)];
-    [[state expect] runForTest:test];
+    id state = [OCMockObject niceMockForProtocol:@protocol(INLTestState)];
+    id reporter = [OCMockObject niceMockForProtocol:@protocol(INLReporter)];
+    [[state expect] runWithReporter:reporter forTest:test];
     
     // when
     [test transitionToState:state];
-    [test run];
+    [test runWithReporter:reporter];
     
     // then
     [state verify];

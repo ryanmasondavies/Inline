@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "INLRunnerDelegate.h"
+#import "INLReporter.h"
 
 /** Indents groups according to their position in the hierarchy. */
-@interface INLGroupIndenter : NSObject <INLRunnerDelegate>
+@interface INLGroupIndenter : NSObject <INLReporter>
 
 /**
  Initialize a group indenter.

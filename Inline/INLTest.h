@@ -19,13 +19,13 @@
  @return An initialized test. */
 - (id)initWithState:(id<INLTestState>)state weight:(NSNumber *)weight;
 
-/** Change the state of the test. */
+/**
+ Change the state of the test.
+ @param state The new state for the test.
+ */
 - (void)transitionToState:(id<INLTestState>)state;
 
 /** @return The name for the test. */
 - (NSString *)name;
-
-/** Executes block. */
-- (void)run;
 
 @end
