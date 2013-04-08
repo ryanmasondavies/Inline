@@ -1,25 +1,25 @@
 //
-//  INLNewlineReporterTests.h
+//  INLNewlineFormatterTests.h
 //  Inline
 //
 //  Created by Ryan Davies on 07/04/2013.
 //  Copyright (c) 2013 Ryan Davies. All rights reserved.
 //
 
-@interface INLNewlineReporterTests : SenTestCase
+@interface INLNewlineFormatterTests : SenTestCase
 
 @end
 
-@implementation INLNewlineReporterTests
+@implementation INLNewlineFormatterTests
 
 - (void)testWhenEnteringGroupOutputsNewline
 {
     // given
     NSMutableString *output = [[NSMutableString alloc] init];
-    INLNewlineReporter *reporter = [[INLNewlineReporter alloc] initWithOutput:output];
+    INLNewlineFormatter *formatter = [[INLNewlineFormatter alloc] initWithOutput:output];
     
     // when
-    [reporter groupDidStart:nil];
+    [formatter groupDidStart:nil];
     
     // then
     [[output should] beEqualTo:@"\n"];
@@ -29,10 +29,10 @@
 {
     // given
     NSMutableString *output = [[NSMutableString alloc] init];
-    INLNewlineReporter *reporter = [[INLNewlineReporter alloc] initWithOutput:output];
+    INLNewlineFormatter *formatter = [[INLNewlineFormatter alloc] initWithOutput:output];
     
     // when
-    [reporter testDidPass:nil];
+    [formatter testDidPass:nil];
     
     // then
     [[output should] beEqualTo:@"\n"];
@@ -42,10 +42,10 @@
 {
     // given
     NSMutableString *output = [[NSMutableString alloc] init];
-    INLNewlineReporter *reporter = [[INLNewlineReporter alloc] initWithOutput:output];
+    INLNewlineFormatter *formatter = [[INLNewlineFormatter alloc] initWithOutput:output];
     
     // when
-    [reporter testDidSkip:nil];
+    [formatter testDidSkip:nil];
     
     // then
     [[output should] beEqualTo:@"\n"];
@@ -55,10 +55,10 @@
 {
     // given
     NSMutableString *output = [[NSMutableString alloc] init];
-    INLNewlineReporter *reporter = [[INLNewlineReporter alloc] initWithOutput:output];
+    INLNewlineFormatter *formatter = [[INLNewlineFormatter alloc] initWithOutput:output];
     
     // when
-    [reporter testDidFail:nil withException:nil];
+    [formatter testDidFail:nil withException:nil];
     
     // then
     [[output should] beEqualTo:@"\n"];

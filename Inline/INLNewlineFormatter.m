@@ -1,20 +1,20 @@
 //
-//  INLNewlineReporter.m
+//  INLNewlineFormatter.m
 //  Inline
 //
 //  Created by Ryan Davies on 07/04/2013.
 //  Copyright (c) 2013 Ryan Davies. All rights reserved.
 //
 
-#import "INLNewlineReporter.h"
+#import "INLNewlineFormatter.h"
 #import "INLGroup.h"
 #import "INLTest.h"
 
-@interface INLNewlineReporter ()
+@interface INLNewlineFormatter ()
 @property (strong, nonatomic) NSMutableString *output;
 @end
 
-@implementation INLNewlineReporter
+@implementation INLNewlineFormatter
 
 - (id)initWithOutput:(NSMutableString *)output
 {
