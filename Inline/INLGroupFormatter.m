@@ -1,20 +1,20 @@
 //
-//  INLGroupReporter.m
+//  INLGroupFormatter.m
 //  Inline
 //
 //  Created by Ryan Davies on 07/04/2013.
 //  Copyright (c) 2013 Ryan Davies. All rights reserved.
 //
 
-#import "INLGroupReporter.h"
+#import "INLGroupFormatter.h"
 #import "INLGroup.h"
 #import "INLTest.h"
 
-@interface INLGroupReporter ()
+@interface INLGroupFormatter ()
 @property (strong, nonatomic) NSMutableString *output;
 @end
 
-@implementation INLGroupReporter
+@implementation INLGroupFormatter
 
 - (id)initWithOutput:(NSMutableString *)output
 {
