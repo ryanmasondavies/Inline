@@ -21,7 +21,6 @@
 		946B28281711A3C0009B8CBF /* INLGroupWriterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 946B28271711A3C0009B8CBF /* INLGroupWriterTests.m */; };
 		946B282B1711A440009B8CBF /* INLGroupWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 946B282A1711A440009B8CBF /* INLGroupWriter.m */; };
 		946B282E1711AC67009B8CBF /* INLReporterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 946B282D1711AC67009B8CBF /* INLReporterTests.m */; };
-		946B28311711AD82009B8CBF /* INLReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 946B28301711AD82009B8CBF /* INLReporter.m */; };
 		947EA9F716B724D600FE8D79 /* INLGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 947EA9F616B724D600FE8D79 /* INLGroup.m */; };
 		947EA9F916B72AFC00FE8D79 /* INLTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 947EA9F816B72AFC00FE8D79 /* INLTest.m */; };
 		947EA9FF16B72F4700FE8D79 /* INLHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 947EA9FE16B72F4700FE8D79 /* INLHook.m */; };
@@ -104,8 +103,6 @@
 		946B28291711A440009B8CBF /* INLGroupWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLGroupWriter.h; sourceTree = "<group>"; };
 		946B282A1711A440009B8CBF /* INLGroupWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLGroupWriter.m; sourceTree = "<group>"; };
 		946B282D1711AC67009B8CBF /* INLReporterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLReporterTests.m; sourceTree = "<group>"; };
-		946B282F1711AD82009B8CBF /* INLReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLReporter.h; sourceTree = "<group>"; };
-		946B28301711AD82009B8CBF /* INLReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLReporter.m; sourceTree = "<group>"; };
 		947EA9F516B724D600FE8D79 /* INLGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = INLGroup.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		947EA9F616B724D600FE8D79 /* INLGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLGroup.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		947EA9F816B72AFC00FE8D79 /* INLTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLTest.m; sourceTree = "<group>"; };
@@ -304,8 +301,6 @@
 		949CDA55170CBFD900A09B71 /* Writing reports */ = {
 			isa = PBXGroup;
 			children = (
-				946B282F1711AD82009B8CBF /* INLReporter.h */,
-				946B28301711AD82009B8CBF /* INLReporter.m */,
 				944C4D5F1711998D00B13F5A /* INLGroupIndenter.h */,
 				944C4D601711998D00B13F5A /* INLGroupIndenter.m */,
 				946B28291711A440009B8CBF /* INLGroupWriter.h */,
@@ -604,7 +599,6 @@
 				944C4D611711998D00B13F5A /* INLGroupIndenter.m in Sources */,
 				946B28251711A1C1009B8CBF /* INLNewlineWriter.m in Sources */,
 				946B282B1711A440009B8CBF /* INLGroupWriter.m in Sources */,
-				946B28311711AD82009B8CBF /* INLReporter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
