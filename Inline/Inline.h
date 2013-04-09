@@ -25,7 +25,7 @@
 
 // reporting results
 #import "INLReporter.h"
-#import "INLFormatter.h"
+#import "INLTextFormatter.h"
 #import "INLOCUnitFormatter.h"
 #import "INLPublisher.h"
 

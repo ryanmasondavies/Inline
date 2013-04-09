@@ -18,6 +18,8 @@
 		943FED62171480EA00BC4051 /* INLOCUnitFormatterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 943FED61171480EA00BC4051 /* INLOCUnitFormatterTests.m */; };
 		943FED65171481B100BC4051 /* INLDateProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 943FED64171481B100BC4051 /* INLDateProvider.m */; };
 		943FED681714894100BC4051 /* INLOCUnitFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 943FED671714894100BC4051 /* INLOCUnitFormatter.m */; };
+		943FED6D1714CF7B00BC4051 /* INLTextFormatterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 943FED6C1714CF7B00BC4051 /* INLTextFormatterTests.m */; };
+		943FED701714D17F00BC4051 /* INLTextFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 943FED6F1714D17F00BC4051 /* INLTextFormatter.m */; };
 		947EA9F716B724D600FE8D79 /* INLGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 947EA9F616B724D600FE8D79 /* INLGroup.m */; };
 		947EA9F916B72AFC00FE8D79 /* INLTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 947EA9F816B72AFC00FE8D79 /* INLTest.m */; };
 		947EA9FF16B72F4700FE8D79 /* INLHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 947EA9FE16B72F4700FE8D79 /* INLHook.m */; };
@@ -93,6 +95,9 @@
 		943FED64171481B100BC4051 /* INLDateProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLDateProvider.m; sourceTree = "<group>"; };
 		943FED661714894100BC4051 /* INLOCUnitFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLOCUnitFormatter.h; sourceTree = "<group>"; };
 		943FED671714894100BC4051 /* INLOCUnitFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLOCUnitFormatter.m; sourceTree = "<group>"; };
+		943FED6C1714CF7B00BC4051 /* INLTextFormatterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLTextFormatterTests.m; sourceTree = "<group>"; };
+		943FED6E1714D17F00BC4051 /* INLTextFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLTextFormatter.h; sourceTree = "<group>"; };
+		943FED6F1714D17F00BC4051 /* INLTextFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLTextFormatter.m; sourceTree = "<group>"; };
 		947EA9F516B724D600FE8D79 /* INLGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = INLGroup.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		947EA9F616B724D600FE8D79 /* INLGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLGroup.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		947EA9F816B72AFC00FE8D79 /* INLTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLTest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -275,6 +280,8 @@
 				948DBCE816F6170F00B473FD /* INLReporter.h */,
 				94B3EF151714270700B6FD5F /* INLReporter.m */,
 				94B3EF141714101000B6FD5F /* INLFormatter.h */,
+				943FED6E1714D17F00BC4051 /* INLTextFormatter.h */,
+				943FED6F1714D17F00BC4051 /* INLTextFormatter.m */,
 				943FED661714894100BC4051 /* INLOCUnitFormatter.h */,
 				943FED671714894100BC4051 /* INLOCUnitFormatter.m */,
 				94B3EF1A1714340400B6FD5F /* INLPublisher.h */,
@@ -286,6 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				94B3EF181714274D00B6FD5F /* INLReporterTests.m */,
+				943FED6C1714CF7B00BC4051 /* INLTextFormatterTests.m */,
 				943FED61171480EA00BC4051 /* INLOCUnitFormatterTests.m */,
 			);
 			name = "Reporting results";
@@ -559,6 +567,7 @@
 				943FED5B171477A700BC4051 /* INLRunner.m in Sources */,
 				943FED65171481B100BC4051 /* INLDateProvider.m in Sources */,
 				943FED681714894100BC4051 /* INLOCUnitFormatter.m in Sources */,
+				943FED701714D17F00BC4051 /* INLTextFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -577,6 +586,7 @@
 				94B3EF191714274D00B6FD5F /* INLReporterTests.m in Sources */,
 				943FED5E1714789D00BC4051 /* INLRunnerTests.m in Sources */,
 				943FED62171480EA00BC4051 /* INLOCUnitFormatterTests.m in Sources */,
+				943FED6D1714CF7B00BC4051 /* INLTextFormatterTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
