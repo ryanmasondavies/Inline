@@ -69,8 +69,8 @@
     
     // when
     id test = [OCMockObject niceMockForClass:[INLTest class]];
-    [[formatter expect] writeTestDidPass:test toReport:report];
-    [reporter testDidPass:test];
+    [[formatter expect] writeTestDidPass:test withDuration:0 toReport:report];
+    [reporter testDidPass:test withDuration:0];
     
     // then
     [formatter verify];

@@ -179,6 +179,10 @@
 				943A0350170B96AA0071D7F6 /* INLPassedState.m */,
 				943A0352170B96AF0071D7F6 /* INLFailedState.h */,
 				943A0353170B96AF0071D7F6 /* INLFailedState.m */,
+				949CDA52170CB71100A09B71 /* INLTimeProvider.h */,
+				949CDA53170CB71100A09B71 /* INLTimeProvider.m */,
+				949CDA4E170CB6F500A09B71 /* INLStopwatch.h */,
+				949CDA4F170CB6F500A09B71 /* INLStopwatch.m */,
 			);
 			name = "Defining tests";
 			sourceTree = "<group>";
@@ -212,6 +216,7 @@
 				948D2FC0170C4DB70057A396 /* INLPendingStateTests.m */,
 				948D2FBF170C4DB70057A396 /* INLPassedStateTests.m */,
 				948D2FBC170C4DB70057A396 /* INLFailedStateTests.m */,
+				949CDA4B170CB4D400A09B71 /* INLStopwatchTests.m */,
 			);
 			name = "Defining tests";
 			sourceTree = "<group>";
@@ -221,10 +226,6 @@
 			children = (
 				948DBCE816F6170F00B473FD /* INLReporter.h */,
 				94B3EF151714270700B6FD5F /* INLReporter.m */,
-				949CDA52170CB71100A09B71 /* INLTimeProvider.h */,
-				949CDA53170CB71100A09B71 /* INLTimeProvider.m */,
-				949CDA4E170CB6F500A09B71 /* INLStopwatch.h */,
-				949CDA4F170CB6F500A09B71 /* INLStopwatch.m */,
 				94B3EF141714101000B6FD5F /* INLFormatter.h */,
 				94B3EF1A1714340400B6FD5F /* INLPublisher.h */,
 			);
@@ -235,7 +236,6 @@
 			isa = PBXGroup;
 			children = (
 				94B3EF181714274D00B6FD5F /* INLReporterTests.m */,
-				949CDA4B170CB4D400A09B71 /* INLStopwatchTests.m */,
 			);
 			name = "Reporting results";
 			sourceTree = "<group>";

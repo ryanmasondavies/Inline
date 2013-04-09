@@ -37,9 +37,10 @@
 /**
  Write to a report that a test passed.
  @param test The test that has passed.
+ @param duration The amount of time it took for the test to pass, in seconds.
  @param report The report to be written to.
  */
-- (void)writeTestDidPass:(INLTest *)test toReport:(NSMutableString *)report;
+- (void)writeTestDidPass:(INLTest *)test withDuration:(NSTimeInterval)duration toReport:(NSMutableString *)report;
 
 /**
  Write to a report that a test skipped.

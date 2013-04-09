@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-@protocol INLFormatter, INLPublisher;
 @class INLGroup, INLTest, INLHook;
+@protocol INLFormatter, INLPublisher;
 
 /** A reporter is notified as a run event propagates through a component hierarchy. */
 @interface INLReporter : NSObject
@@ -43,8 +43,9 @@
 /**
  Invoked by INLTest when it has passed.
  @param test The test that has passed.
+ @param duration The amount of time it took for the test to pass, in seconds.
  */
-- (void)testDidPass:(INLTest *)test;
+- (void)testDidPass:(INLTest *)test withDuration:(NSTimeInterval)duration;
 
 /**
  Invoked by INLTest when it has skipped running.
