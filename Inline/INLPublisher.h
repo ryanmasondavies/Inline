@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-/** Publishes a report to any medium e.g to the system log, to a file, or over the internet. */
+/** Publishes a report e.g to the system log, to a file, or over the internet. */
 @protocol INLPublisher <NSObject>
 
 /**
