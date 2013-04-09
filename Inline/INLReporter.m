@@ -30,10 +30,12 @@
 
 - (void)runDidStart
 {
+    [[self formatter] writeRunDidStartToReport:[self report]];
 }
 
 - (void)runDidFinish
 {
+    [[self formatter] writeRunDidFinishToReport:[self report]];
 }
 
 - (void)groupDidStart:(INLGroup *)group

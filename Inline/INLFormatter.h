@@ -14,6 +14,18 @@
 @protocol INLFormatter
 
 /**
+ Write to a report that the run started.
+ @param report The report to be written to.
+ */
+- (void)writeRunDidStartToReport:(NSMutableString *)report;
+
+/**
+ Write to a report that the run finished.
+ @param report The report to be written to.
+ */
+- (void)writeRunDidFinishToReport:(NSMutableString *)report;
+
+/**
  Write to a report that a group started.
  @param group The group that has started.
  @param report The report to be written to.

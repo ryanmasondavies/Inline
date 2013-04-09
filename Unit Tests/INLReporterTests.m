@@ -12,6 +12,36 @@
 
 @implementation INLReporterTests
 
+- (void)testWhenRunStartsWritesGroupDidStartToReportUsingFormatter
+{
+    // given
+    NSMutableString *report = [[NSMutableString alloc] init];
+    id formatter = [OCMockObject niceMockForProtocol:@protocol(INLFormatter)];
+    INLReporter *reporter = [[INLReporter alloc] initWithFormatter:formatter publisher:nil report:report];
+    
+    // when
+    [[formatter expect] writeRunDidStartToReport:report];
+    [reporter runDidStart];
+    
+    // then
+    [formatter verify];
+}
+
+- (void)testWhenRunFinishesWritesGroupDidStartToReportUsingFormatter
+{
+    // given
+    NSMutableString *report = [[NSMutableString alloc] init];
+    id formatter = [OCMockObject niceMockForProtocol:@protocol(INLFormatter)];
+    INLReporter *reporter = [[INLReporter alloc] initWithFormatter:formatter publisher:nil report:report];
+    
+    // when
+    [[formatter expect] writeRunDidFinishToReport:report];
+    [reporter runDidFinish];
+    
+    // then
+    [formatter verify];
+}
+
 - (void)testWhenGroupStartsWritesGroupDidStartToReportUsingFormatter
 {
     // given
