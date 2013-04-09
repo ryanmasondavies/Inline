@@ -1,5 +1,5 @@
 //
-//  INLNewlineFormatter.h
+//  INLLineSeparator.h
 //  Inline
 //
 //  Created by Ryan Davies on 07/04/2013.
@@ -10,12 +10,12 @@
 #import "INLFormatter.h"
 
 /** Inserts newlines after group and test names. */
-@interface INLNewlineFormatter : NSObject <INLFormatter>
+@interface INLLineSeparator : NSObject <INLFormatter>
 
 /**
- Initialize a newline formatter.
- @param output The output for the newline formatter.
- @return An initialized newline formatter.
+ Initialize a line separator.
+ @param output The output for the line separator.
+ @return An initialized line separator.
  */
 - (id)initWithOutput:(NSMutableString *)output;
 

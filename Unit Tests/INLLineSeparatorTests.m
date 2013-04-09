@@ -1,22 +1,22 @@
 //
-//  INLNewlineFormatterTests.h
+//  INLLineSeparatorTests.h
 //  Inline
 //
 //  Created by Ryan Davies on 07/04/2013.
 //  Copyright (c) 2013 Ryan Davies. All rights reserved.
 //
 
-@interface INLNewlineFormatterTests : SenTestCase
+@interface INLLineSeparatorTests : SenTestCase
 
 @end
 
-@implementation INLNewlineFormatterTests
+@implementation INLLineSeparatorTests
 
 - (void)testWhenEnteringGroupOutputsNewline
 {
     // given
     NSMutableString *output = [[NSMutableString alloc] init];
-    INLNewlineFormatter *formatter = [[INLNewlineFormatter alloc] initWithOutput:output];
+    INLLineSeparator *formatter = [[INLLineSeparator alloc] initWithOutput:output];
     
     // when
     [formatter groupDidStart:nil];
@@ -29,7 +29,7 @@
 {
     // given
     NSMutableString *output = [[NSMutableString alloc] init];
-    INLNewlineFormatter *formatter = [[INLNewlineFormatter alloc] initWithOutput:output];
+    INLLineSeparator *formatter = [[INLLineSeparator alloc] initWithOutput:output];
     
     // when
     [formatter testDidPass:nil];
@@ -42,7 +42,7 @@
 {
     // given
     NSMutableString *output = [[NSMutableString alloc] init];
-    INLNewlineFormatter *formatter = [[INLNewlineFormatter alloc] initWithOutput:output];
+    INLLineSeparator *formatter = [[INLLineSeparator alloc] initWithOutput:output];
     
     // when
     [formatter testDidSkip:nil];
@@ -55,7 +55,7 @@
 {
     // given
     NSMutableString *output = [[NSMutableString alloc] init];
-    INLNewlineFormatter *formatter = [[INLNewlineFormatter alloc] initWithOutput:output];
+    INLLineSeparator *formatter = [[INLLineSeparator alloc] initWithOutput:output];
     
     // when
     [formatter testDidFail:nil withException:nil];

@@ -6,15 +6,15 @@
 //  Copyright (c) 2013 Ryan Davies. All rights reserved.
 //
 
-#import "INLNewlineFormatter.h"
+#import "INLLineSeparator.h"
 #import "INLGroup.h"
 #import "INLTest.h"
 
-@interface INLNewlineFormatter ()
+@interface INLLineSeparator ()
 @property (strong, nonatomic) NSMutableString *output;
 @end
 
-@implementation INLNewlineFormatter
+@implementation INLLineSeparator
 
 - (id)initWithOutput:(NSMutableString *)output
 {
