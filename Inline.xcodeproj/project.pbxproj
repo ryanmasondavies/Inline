@@ -160,7 +160,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		948D2FB5170C4CB90057A396 /* Defining tests */ = {
+		948D2FB5170C4CB90057A396 /* Composing tests */ = {
 			isa = PBXGroup;
 			children = (
 				949504F316C51FE30067F026 /* INLNode.h */,
@@ -184,13 +184,13 @@
 				949CDA4E170CB6F500A09B71 /* INLStopwatch.h */,
 				949CDA4F170CB6F500A09B71 /* INLStopwatch.m */,
 			);
-			name = "Defining tests";
+			name = "Composing tests";
 			sourceTree = "<group>";
 		};
 		948D2FBB170C4DB70057A396 /* Unit Tests */ = {
 			isa = PBXGroup;
 			children = (
-				948D2FD2170C4DCC0057A396 /* Defining tests */,
+				948D2FD2170C4DCC0057A396 /* Composing tests */,
 				949CDA59170CC00C00A09B71 /* Reporting results */,
 				948D2FD1170C4DC10057A396 /* Supporting files */,
 			);
@@ -206,7 +206,7 @@
 			name = "Supporting files";
 			sourceTree = "<group>";
 		};
-		948D2FD2170C4DCC0057A396 /* Defining tests */ = {
+		948D2FD2170C4DCC0057A396 /* Composing tests */ = {
 			isa = PBXGroup;
 			children = (
 				948D2FBD170C4DB70057A396 /* INLGroupTests.m */,
@@ -218,7 +218,7 @@
 				948D2FBC170C4DB70057A396 /* INLFailedStateTests.m */,
 				949CDA4B170CB4D400A09B71 /* INLStopwatchTests.m */,
 			);
-			name = "Defining tests";
+			name = "Composing tests";
 			sourceTree = "<group>";
 		};
 		949CDA55170CBFD900A09B71 /* Reporting results */ = {
@@ -285,7 +285,7 @@
 				949CDA48170C535600A09B71 /* INLHijacker.m */,
 				949CDA44170C52C800A09B71 /* INLSuite.h */,
 				949CDA45170C52C800A09B71 /* INLSuite.m */,
-				948D2FB5170C4CB90057A396 /* Defining tests */,
+				948D2FB5170C4CB90057A396 /* Composing tests */,
 				949CDA55170CBFD900A09B71 /* Reporting results */,
 			);
 			path = Inline;
