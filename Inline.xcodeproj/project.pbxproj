@@ -16,16 +16,6 @@
 		947EA9F716B724D600FE8D79 /* INLGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 947EA9F616B724D600FE8D79 /* INLGroup.m */; };
 		947EA9F916B72AFC00FE8D79 /* INLTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 947EA9F816B72AFC00FE8D79 /* INLTest.m */; };
 		947EA9FF16B72F4700FE8D79 /* INLHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 947EA9FE16B72F4700FE8D79 /* INLHook.m */; };
-		9485424F17134684009EAB96 /* INLGroupIndenterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 944C4D631711999500B13F5A /* INLGroupIndenterTests.m */; };
-		9485425017134684009EAB96 /* INLGroupFormatterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 946B28271711A3C0009B8CBF /* INLGroupFormatterTests.m */; };
-		9485425117134684009EAB96 /* INLLineSeparatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 946B28211711A117009B8CBF /* INLLineSeparatorTests.m */; };
-		9485425217134684009EAB96 /* INLTestIndenterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F66ABB1711967E00F93685 /* INLTestIndenterTests.m */; };
-		9485425317134684009EAB96 /* INLTestReporterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 948D2FC2170C4DB70057A396 /* INLTestReporterTests.m */; };
-		9485425417134751009EAB96 /* INLGroupIndenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 944C4D601711998D00B13F5A /* INLGroupIndenter.m */; };
-		9485425517134751009EAB96 /* INLGroupFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 946B282A1711A440009B8CBF /* INLGroupFormatter.m */; };
-		9485425617134751009EAB96 /* INLLineSeparator.m in Sources */ = {isa = PBXBuildFile; fileRef = 946B28241711A1C1009B8CBF /* INLLineSeparator.m */; };
-		9485425717134751009EAB96 /* INLTestIndenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F66ABE1711970000F93685 /* INLTestIndenter.m */; };
-		9485425817134751009EAB96 /* INLTestReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 949CDA57170CBFFA00A09B71 /* INLTestReporter.m */; };
 		948D2FC7170C4DB70057A396 /* INLFailedStateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 948D2FBC170C4DB70057A396 /* INLFailedStateTests.m */; };
 		948D2FC8170C4DB70057A396 /* INLGroupTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 948D2FBD170C4DB70057A396 /* INLGroupTests.m */; };
 		948D2FC9170C4DB70057A396 /* INLHookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 948D2FBE170C4DB70057A396 /* INLHookTests.m */; };
@@ -88,15 +78,6 @@
 		943A0350170B96AA0071D7F6 /* INLPassedState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLPassedState.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		943A0352170B96AF0071D7F6 /* INLFailedState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = INLFailedState.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		943A0353170B96AF0071D7F6 /* INLFailedState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLFailedState.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		944C4D5F1711998D00B13F5A /* INLGroupIndenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLGroupIndenter.h; sourceTree = "<group>"; };
-		944C4D601711998D00B13F5A /* INLGroupIndenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLGroupIndenter.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		944C4D631711999500B13F5A /* INLGroupIndenterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLGroupIndenterTests.m; sourceTree = "<group>"; };
-		946B28211711A117009B8CBF /* INLLineSeparatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = INLLineSeparatorTests.m; sourceTree = "<group>"; };
-		946B28231711A1C1009B8CBF /* INLLineSeparator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLLineSeparator.h; sourceTree = "<group>"; };
-		946B28241711A1C1009B8CBF /* INLLineSeparator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLLineSeparator.m; sourceTree = "<group>"; };
-		946B28271711A3C0009B8CBF /* INLGroupFormatterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLGroupFormatterTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		946B28291711A440009B8CBF /* INLGroupFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = INLGroupFormatter.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		946B282A1711A440009B8CBF /* INLGroupFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLGroupFormatter.m; sourceTree = "<group>"; };
 		947EA9F516B724D600FE8D79 /* INLGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = INLGroup.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		947EA9F616B724D600FE8D79 /* INLGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLGroup.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		947EA9F816B72AFC00FE8D79 /* INLTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLTest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -108,7 +89,6 @@
 		948D2FBF170C4DB70057A396 /* INLPassedStateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLPassedStateTests.m; sourceTree = "<group>"; };
 		948D2FC0170C4DB70057A396 /* INLPendingStateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLPendingStateTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		948D2FC1170C4DB70057A396 /* INLReadyStateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLReadyStateTests.m; sourceTree = "<group>"; };
-		948D2FC2170C4DB70057A396 /* INLTestReporterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLTestReporterTests.m; sourceTree = "<group>"; };
 		948D2FC4170C4DB70057A396 /* INLTestHelper.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLTestHelper.pch; sourceTree = "<group>"; };
 		948D2FC5170C4DB70057A396 /* INLTestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLTestTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		948D2FC6170C4DB70057A396 /* Unit Tests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Unit Tests-Info.plist"; sourceTree = "<group>"; };
@@ -123,8 +103,6 @@
 		949CDA4F170CB6F500A09B71 /* INLStopwatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLStopwatch.m; sourceTree = "<group>"; };
 		949CDA52170CB71100A09B71 /* INLTimeProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLTimeProvider.h; sourceTree = "<group>"; };
 		949CDA53170CB71100A09B71 /* INLTimeProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLTimeProvider.m; sourceTree = "<group>"; };
-		949CDA56170CBFFA00A09B71 /* INLTestReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLTestReporter.h; sourceTree = "<group>"; };
-		949CDA57170CBFFA00A09B71 /* INLTestReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLTestReporter.m; sourceTree = "<group>"; };
 		94A1C77416A97B3F008C170D /* libInline.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libInline.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		94A1C77716A97B3F008C170D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		94A1C77C16A97B3F008C170D /* Inline.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Inline.h; sourceTree = "<group>"; };
@@ -135,9 +113,6 @@
 		94F66AA617117BF200F93685 /* Integrated Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Integrated Tests-Info.plist"; sourceTree = "<group>"; };
 		94F66AAB17117BF200F93685 /* INLOCUnitFormatTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLOCUnitFormatTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		94F66AAD17117BF200F93685 /* INLTestHelper.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INLTestHelper.pch; sourceTree = "<group>"; };
-		94F66ABB1711967E00F93685 /* INLTestIndenterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLTestIndenterTests.m; sourceTree = "<group>"; };
-		94F66ABD171196FF00F93685 /* INLTestIndenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLTestIndenter.h; sourceTree = "<group>"; };
-		94F66ABE1711970000F93685 /* INLTestIndenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLTestIndenter.m; sourceTree = "<group>"; };
 		9A6358ECFE0243D18DEAEC0E /* Pods-Unit Tests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unit Tests.xcconfig"; path = "Pods/Pods-Unit Tests.xcconfig"; sourceTree = SOURCE_ROOT; };
 		9A6FC86C17E540ACBFF3B6F2 /* libPods-Integrated Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Integrated Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B81748F369994F9CAD780A8E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -245,16 +220,6 @@
 				949CDA4E170CB6F500A09B71 /* INLStopwatch.h */,
 				949CDA4F170CB6F500A09B71 /* INLStopwatch.m */,
 				94B3EF141714101000B6FD5F /* INLFormatter.h */,
-				946B28291711A440009B8CBF /* INLGroupFormatter.h */,
-				946B282A1711A440009B8CBF /* INLGroupFormatter.m */,
-				944C4D5F1711998D00B13F5A /* INLGroupIndenter.h */,
-				944C4D601711998D00B13F5A /* INLGroupIndenter.m */,
-				946B28231711A1C1009B8CBF /* INLLineSeparator.h */,
-				946B28241711A1C1009B8CBF /* INLLineSeparator.m */,
-				94F66ABD171196FF00F93685 /* INLTestIndenter.h */,
-				94F66ABE1711970000F93685 /* INLTestIndenter.m */,
-				949CDA56170CBFFA00A09B71 /* INLTestReporter.h */,
-				949CDA57170CBFFA00A09B71 /* INLTestReporter.m */,
 			);
 			name = "Creating reports";
 			sourceTree = "<group>";
@@ -263,11 +228,6 @@
 			isa = PBXGroup;
 			children = (
 				949CDA4B170CB4D400A09B71 /* INLStopwatchTests.m */,
-				946B28271711A3C0009B8CBF /* INLGroupFormatterTests.m */,
-				944C4D631711999500B13F5A /* INLGroupIndenterTests.m */,
-				946B28211711A117009B8CBF /* INLLineSeparatorTests.m */,
-				94F66ABB1711967E00F93685 /* INLTestIndenterTests.m */,
-				948D2FC2170C4DB70057A396 /* INLTestReporterTests.m */,
 			);
 			name = "Creating reports";
 			sourceTree = "<group>";
@@ -534,11 +494,6 @@
 				949CDA49170C535600A09B71 /* INLHijacker.m in Sources */,
 				949CDA50170CB6F500A09B71 /* INLStopwatch.m in Sources */,
 				949CDA54170CB71100A09B71 /* INLTimeProvider.m in Sources */,
-				9485425417134751009EAB96 /* INLGroupIndenter.m in Sources */,
-				9485425517134751009EAB96 /* INLGroupFormatter.m in Sources */,
-				9485425617134751009EAB96 /* INLLineSeparator.m in Sources */,
-				9485425717134751009EAB96 /* INLTestIndenter.m in Sources */,
-				9485425817134751009EAB96 /* INLTestReporter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,11 +509,6 @@
 				948D2FCC170C4DB70057A396 /* INLReadyStateTests.m in Sources */,
 				948D2FCF170C4DB70057A396 /* INLTestTests.m in Sources */,
 				949CDA4C170CB4D400A09B71 /* INLStopwatchTests.m in Sources */,
-				9485424F17134684009EAB96 /* INLGroupIndenterTests.m in Sources */,
-				9485425017134684009EAB96 /* INLGroupFormatterTests.m in Sources */,
-				9485425117134684009EAB96 /* INLLineSeparatorTests.m in Sources */,
-				9485425217134684009EAB96 /* INLTestIndenterTests.m in Sources */,
-				9485425317134684009EAB96 /* INLTestReporterTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
