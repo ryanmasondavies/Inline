@@ -25,7 +25,7 @@
     return self;
 }
 
-- (void)runWithReporter:(id<INLReporter>)reporter
+- (void)runWithReporter:(INLReporter *)reporter
 {
     [self block]();
 }

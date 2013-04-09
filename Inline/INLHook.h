@@ -20,10 +20,4 @@ typedef void(^INLHookBlock)(void);
  @return An initialized hook. */
 - (id)initWithBlock:(INLHookBlock)block weight:(NSNumber *)weight;
 
-/**
- Execute the hook's block.
- @param reporter The reporter is not notified of events within the hook, as they are unimportant.
- */
-- (void)runWithReporter:(id<INLReporter>)reporter;
-
 @end

@@ -30,7 +30,7 @@
     return self;
 }
 
-- (void)runWithReporter:(id<INLReporter>)reporter forTest:(INLTest *)test
+- (void)runWithReporter:(INLReporter *)reporter forTest:(INLTest *)test
 {
     NSException *exception = nil;
     @try { [self block](); }

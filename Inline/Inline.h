@@ -23,10 +23,3 @@
 // recording tests
 #import "INLTimeProvider.h"
 #import "INLStopwatch.h"
-
-// writing reports
-#import "INLGroupIndenter.h"
-#import "INLGroupFormatter.h"
-#import "INLNewlineFormatter.h"
-#import "INLTestIndenter.h"
-#import "INLTestReporter.h"

@@ -24,7 +24,7 @@
     return self;
 }
 
-- (void)runWithReporter:(id<INLReporter>)reporter forTest:(INLTest *)test
+- (void)runWithReporter:(INLReporter *)reporter forTest:(INLTest *)test
 {
     [reporter testDidSkip:test];
 }

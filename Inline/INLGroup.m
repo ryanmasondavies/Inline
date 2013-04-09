@@ -27,7 +27,7 @@
     return self;
 }
 
-- (void)runWithReporter:(id<INLReporter>)reporter
+- (void)runWithReporter:(INLReporter *)reporter
 {
     [reporter groupDidStart:self];
     [[self nodes] enumerateObjectsUsingBlock:^(id<INLNode> node, NSUInteger idx, BOOL *stop) {

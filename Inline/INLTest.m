@@ -36,7 +36,7 @@
     return [[self state] name];
 }
 
-- (void)runWithReporter:(id<INLReporter>)reporter
+- (void)runWithReporter:(INLReporter *)reporter
 {
     [[self state] runWithReporter:reporter forTest:self];
 }

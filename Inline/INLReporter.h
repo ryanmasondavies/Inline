@@ -10,7 +10,7 @@
 @class INLGroup, INLTest, INLHook;
 
 /** A reporter is notified as a run event propagates through a component hierarchy. */
-@protocol INLReporter <NSObject>
+@interface INLReporter : NSObject
 
 /**
  Invoked by INLGroup when a group is about to run its components.

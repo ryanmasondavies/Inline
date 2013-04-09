@@ -19,7 +19,7 @@
     
     // when
     id test = [OCMockObject niceMockForClass:[INLTest class]];
-    id reporter = [OCMockObject niceMockForProtocol:@protocol(INLReporter)];
+    id reporter = [OCMockObject niceMockForClass:[INLReporter class]];
     [[reporter expect] testDidPass:test];
     [state runWithReporter:reporter forTest:test];
     
@@ -51,7 +51,7 @@
     
     // when
     id test = [OCMockObject niceMockForClass:[INLTest class]];
-    id reporter = [OCMockObject niceMockForProtocol:@protocol(INLReporter)];
+    id reporter = [OCMockObject niceMockForClass:[INLReporter class]];
     [[reporter expect] testDidFail:test withException:exception];
     [state runWithReporter:reporter forTest:test];
     

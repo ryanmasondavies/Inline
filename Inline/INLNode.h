@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@protocol INLReporter;
+@class INLReporter;
 
 /** The interface for groups, tests, and hooks to conform to. */
 @protocol INLNode <NSObject>
@@ -18,7 +18,7 @@
  A test will be run and the reporter notified of the outcome.
  @param reporter A reporter to be notified of events during the run.
  */
-- (void)runWithReporter:(id<INLReporter>)reporter;
+- (void)runWithReporter:(INLReporter *)reporter;
 
 /** @return A numerical value used for ordering nodes within a node graph. */
 - (NSNumber *)weight;
