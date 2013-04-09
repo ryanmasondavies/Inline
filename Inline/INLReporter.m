@@ -28,6 +28,14 @@
     return self;
 }
 
+- (void)runDidStart
+{
+}
+
+- (void)runDidFinish
+{
+}
+
 - (void)groupDidStart:(INLGroup *)group
 {
     [[self formatter] writeGroupDidStart:group toReport:[self report]];

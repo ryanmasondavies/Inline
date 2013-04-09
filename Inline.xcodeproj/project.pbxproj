@@ -13,6 +13,8 @@
 		943A034E170B94CA0071D7F6 /* INLPendingState.m in Sources */ = {isa = PBXBuildFile; fileRef = 943A034D170B94CA0071D7F6 /* INLPendingState.m */; };
 		943A0351170B96AA0071D7F6 /* INLPassedState.m in Sources */ = {isa = PBXBuildFile; fileRef = 943A0350170B96AA0071D7F6 /* INLPassedState.m */; };
 		943A0354170B96AF0071D7F6 /* INLFailedState.m in Sources */ = {isa = PBXBuildFile; fileRef = 943A0353170B96AF0071D7F6 /* INLFailedState.m */; };
+		943FED5B171477A700BC4051 /* INLRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 943FED5A171477A700BC4051 /* INLRunner.m */; };
+		943FED5E1714789D00BC4051 /* INLRunnerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 943FED5D1714789D00BC4051 /* INLRunnerTests.m */; };
 		947EA9F716B724D600FE8D79 /* INLGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 947EA9F616B724D600FE8D79 /* INLGroup.m */; };
 		947EA9F916B72AFC00FE8D79 /* INLTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 947EA9F816B72AFC00FE8D79 /* INLTest.m */; };
 		947EA9FF16B72F4700FE8D79 /* INLHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 947EA9FE16B72F4700FE8D79 /* INLHook.m */; };
@@ -80,6 +82,9 @@
 		943A0350170B96AA0071D7F6 /* INLPassedState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLPassedState.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		943A0352170B96AF0071D7F6 /* INLFailedState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = INLFailedState.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		943A0353170B96AF0071D7F6 /* INLFailedState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLFailedState.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		943FED59171477A700BC4051 /* INLRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLRunner.h; sourceTree = "<group>"; };
+		943FED5A171477A700BC4051 /* INLRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLRunner.m; sourceTree = "<group>"; };
+		943FED5D1714789D00BC4051 /* INLRunnerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLRunnerTests.m; sourceTree = "<group>"; };
 		947EA9F516B724D600FE8D79 /* INLGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = INLGroup.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		947EA9F616B724D600FE8D79 /* INLGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLGroup.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		947EA9F816B72AFC00FE8D79 /* INLTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLTest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -160,6 +165,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		943FED581714779F00BC4051 /* Running tests */ = {
+			isa = PBXGroup;
+			children = (
+				943FED59171477A700BC4051 /* INLRunner.h */,
+				943FED5A171477A700BC4051 /* INLRunner.m */,
+			);
+			name = "Running tests";
+			sourceTree = "<group>";
+		};
+		943FED5F171478A100BC4051 /* Running tests */ = {
+			isa = PBXGroup;
+			children = (
+				943FED5D1714789D00BC4051 /* INLRunnerTests.m */,
+			);
+			name = "Running tests";
+			sourceTree = "<group>";
+		};
 		948D2FB5170C4CB90057A396 /* Composing tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +214,7 @@
 			children = (
 				948D2FD2170C4DCC0057A396 /* Composing tests */,
 				949CDA59170CC00C00A09B71 /* Reporting results */,
+				943FED5F171478A100BC4051 /* Running tests */,
 				948D2FD1170C4DC10057A396 /* Supporting files */,
 			);
 			path = "Unit Tests";
@@ -287,6 +310,7 @@
 				949CDA45170C52C800A09B71 /* INLSuite.m */,
 				948D2FB5170C4CB90057A396 /* Composing tests */,
 				949CDA55170CBFD900A09B71 /* Reporting results */,
+				943FED581714779F00BC4051 /* Running tests */,
 			);
 			path = Inline;
 			sourceTree = "<group>";
@@ -503,6 +527,7 @@
 				949CDA50170CB6F500A09B71 /* INLStopwatch.m in Sources */,
 				949CDA54170CB71100A09B71 /* INLTimeProvider.m in Sources */,
 				94B3EF161714270700B6FD5F /* INLReporter.m in Sources */,
+				943FED5B171477A700BC4051 /* INLRunner.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,6 +544,7 @@
 				948D2FCF170C4DB70057A396 /* INLTestTests.m in Sources */,
 				949CDA4C170CB4D400A09B71 /* INLStopwatchTests.m in Sources */,
 				94B3EF191714274D00B6FD5F /* INLReporterTests.m in Sources */,
+				943FED5E1714789D00BC4051 /* INLRunnerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

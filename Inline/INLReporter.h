@@ -22,6 +22,12 @@
  */
 - (id)initWithFormatter:(id<INLFormatter>)formatter publisher:(id<INLPublisher>)publisher report:(NSMutableString *)report;
 
+/** Invoked by INLRunner when a run has started. */
+- (void)runDidStart;
+
+/** Invoked by INLRunner when a run has finished. */
+- (void)runDidFinish;
+
 /**
  Invoked by INLGroup when a group is about to run its components.
  @param group The group that has started.

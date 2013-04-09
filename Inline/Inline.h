@@ -8,7 +8,7 @@
 
 #import "INLSuite.h"
 
-// defining tests
+// composing tests
 #import "INLGroup.h"
 #import "INLHook.h"
 #import "INLTest.h"
@@ -23,3 +23,6 @@
 #import "INLStopwatch.h"
 #import "INLFormatter.h"
 #import "INLPublisher.h"
+
+// running tests
+#import "INLRunner.h"
