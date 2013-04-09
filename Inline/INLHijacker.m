@@ -65,7 +65,7 @@ void INLRunTests(id self, SEL _cmd, id ignored)
     id<INLRunnerDelegate> reporter = [[INLReporter alloc] initWithReporters:reporters];
     INLRunner *runner = [[INLRunner alloc] initWithDelegate:reporter];
     [groups enumerateObjectsUsingBlock:^(INLGroup *group, NSUInteger idx, BOOL *stop) {
-        [runner runByStartingAtNode:group];
+        [runner runByStartingAtComponent:group];
     }];
     
     printf("%s", [output cStringUsingEncoding:NSUTF8StringEncoding]);

@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 @class INLGroup;
 
-/** Each subclass returns nodes (tests, hooks, groups) in a root group. */
+/** Each subclass returns components (tests, hooks, groups) in a root group. */
 @interface INLSuite : NSObject
 
 /**
- @return The root group in the suite's node hierarchy.
+ @return The root group in the suite's component hierarchy.
  */
 - (INLGroup *)rootGroup;
 

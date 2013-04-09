@@ -7,16 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "INLNode.h"
+#import "INLComponent.h"
 
 typedef void(^INLHookBlock)(void);
 
 /** A hook is invoked before or after a test. */
-@interface INLHook : NSObject <INLNode>
+@interface INLHook : NSObject <INLComponent>
 
 /** Initializes a hook.
  @param block The block to be invoked on execution.
- @param weight The weight for the node, used for ordering within the graph.
+ @param weight The weight for the component, used for ordering within the graph.
  @return An initialized hook. */
 - (id)initWithBlock:(INLHookBlock)block weight:(NSNumber *)weight;
 

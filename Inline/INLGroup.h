@@ -8,17 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import <Caboodle/Caboodle.h>
-#import "INLNode.h"
+#import "INLComponent.h"
 
 /** Represents a group of tests and their hooks. */
-@interface INLGroup : NSObject <INLNode>
+@interface INLGroup : NSObject <INLComponent>
 
-/** Initializes a group with a set of nodes.
+/** Initializes a group with a set of components.
  @param name  A name for the group.
- @param nodes  A sorted array of nodes.
- @param weight The weight for this node, used for ordering the graph.
+ @param components  A sorted array of components.
+ @param weight The weight for this component, used for ordering the graph.
  @return An initialized group. */
-- (id)initWithName:(NSString *)name nodes:(CBDSortedArray *)nodes weight:(NSNumber *)weight;
+- (id)initWithName:(NSString *)name components:(CBDSortedArray *)components weight:(NSNumber *)weight;
 
 /** @return The group's name. */
 - (NSString *)name;

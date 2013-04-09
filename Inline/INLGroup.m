@@ -11,17 +11,17 @@
 
 @interface INLGroup ()
 @property (copy, nonatomic) NSString *name;
-@property (strong, nonatomic) CBDSortedArray *nodes;
+@property (strong, nonatomic) CBDSortedArray *components;
 @property (copy, nonatomic) NSNumber *weight;
 @end
 
 @implementation INLGroup
 
-- (id)initWithName:(NSString *)name nodes:(CBDSortedArray *)nodes weight:(NSNumber *)weight
+- (id)initWithName:(NSString *)name components:(CBDSortedArray *)components weight:(NSNumber *)weight
 {
     if (self = [super init]) {
         [self setName:name];
-        [self setNodes:nodes];
+        [self setComponents:components];
         [self setWeight:weight];
     }
     return self;
@@ -30,8 +30,8 @@
 - (void)runWithReporter:(INLReporter *)reporter
 {
     [reporter groupDidStart:self];
-    [[self nodes] enumerateObjectsUsingBlock:^(id<INLNode> node, NSUInteger idx, BOOL *stop) {
-        [node runWithReporter:reporter];
+    [[self components] enumerateObjectsUsingBlock:^(id<INLComponent> component, NSUInteger idx, BOOL *stop) {
+        [component runWithReporter:reporter];
     }];
     [reporter groupDidFinish:self];
 }

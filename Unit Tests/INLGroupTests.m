@@ -15,13 +15,13 @@
 - (void)testNotifiesReporterThatGroupHasStartedBeforeForwardingRunToComponents
 {
     // given
-    id node = [OCMockObject niceMockForProtocol:@protocol(INLNode)];
-    id nodes = [[CBDSortedArray alloc] initWithObjects:[@[node] mutableCopy] sortDescriptors:nil];
-    INLGroup *group = [[INLGroup alloc] initWithName:nil nodes:nodes weight:nil];
+    id component = [OCMockObject niceMockForProtocol:@protocol(INLComponent)];
+    id components = [[CBDSortedArray alloc] initWithObjects:[@[component] mutableCopy] sortDescriptors:nil];
+    INLGroup *group = [[INLGroup alloc] initWithName:nil components:components weight:nil];
     id reporter = [OCMockObject niceMockForClass:[INLReporter class]];
-    __block BOOL forwardedReportersToNodes = NO;
-    [[[node stub] andDo:^(NSInvocation *i) { forwardedReportersToNodes = YES; }] runWithReporter:reporter];
-    [[[reporter expect] andDo:^(NSInvocation *i) { [[@(forwardedReportersToNodes) should] beFalse]; }] groupDidStart:group];
+    __block BOOL forwardedReportersToComponents = NO;
+    [[[component stub] andDo:^(NSInvocation *i) { forwardedReportersToComponents = YES; }] runWithReporter:reporter];
+    [[[reporter expect] andDo:^(NSInvocation *i) { [[@(forwardedReportersToComponents) should] beFalse]; }] groupDidStart:group];
     
     // when
     [group runWithReporter:reporter];
@@ -34,15 +34,15 @@
 {
     // given
     id reporter = [OCMockObject niceMockForClass:[INLReporter class]];
-    NSMutableArray *nodes = [[NSMutableArray alloc] init];
+    NSMutableArray *components = [[NSMutableArray alloc] init];
     NSMutableArray *order = [[NSMutableArray alloc] init];
     [@[@1, @2, @3] enumerateObjectsUsingBlock:^(NSNumber *value, NSUInteger idx, BOOL *stop) {
-        id node = [OCMockObject mockForProtocol:@protocol(INLNode)];
-        [[[node stub] andDo:^(NSInvocation *inv) { [order addObject:value]; }] runWithReporter:reporter];
-        [nodes addObject:node];
+        id component = [OCMockObject mockForProtocol:@protocol(INLComponent)];
+        [[[component stub] andDo:^(NSInvocation *inv) { [order addObject:value]; }] runWithReporter:reporter];
+        [components addObject:component];
     }];
-    CBDSortedArray *sorted = [[CBDSortedArray alloc] initWithObjects:nodes sortDescriptors:@[]];
-    INLGroup *group = [[INLGroup alloc] initWithName:nil nodes:sorted weight:nil];
+    CBDSortedArray *sorted = [[CBDSortedArray alloc] initWithObjects:components sortDescriptors:@[]];
+    INLGroup *group = [[INLGroup alloc] initWithName:nil components:sorted weight:nil];
     
     // when
     [group runWithReporter:reporter];
@@ -54,13 +54,13 @@
 - (void)testNotifiesReporterThatGroupHasFinishedAfterForwardingRunToComponents
 {
     // given
-    id node = [OCMockObject niceMockForProtocol:@protocol(INLNode)];
-    id nodes = [[CBDSortedArray alloc] initWithObjects:[@[node] mutableCopy] sortDescriptors:nil];
-    INLGroup *group = [[INLGroup alloc] initWithName:nil nodes:nodes weight:nil];
+    id component = [OCMockObject niceMockForProtocol:@protocol(INLComponent)];
+    id components = [[CBDSortedArray alloc] initWithObjects:[@[component] mutableCopy] sortDescriptors:nil];
+    INLGroup *group = [[INLGroup alloc] initWithName:nil components:components weight:nil];
     id reporter = [OCMockObject niceMockForClass:[INLReporter class]];
-    __block BOOL forwardedReportersToNodes = NO;
-    [[[node stub] andDo:^(NSInvocation *i) { forwardedReportersToNodes = YES; }] runWithReporter:reporter];
-    [[[reporter expect] andDo:^(NSInvocation *i) { [[@(forwardedReportersToNodes) should] beTrue]; }] groupDidFinish:group];
+    __block BOOL forwardedReportersToComponents = NO;
+    [[[component stub] andDo:^(NSInvocation *i) { forwardedReportersToComponents = YES; }] runWithReporter:reporter];
+    [[[reporter expect] andDo:^(NSInvocation *i) { [[@(forwardedReportersToComponents) should] beTrue]; }] groupDidFinish:group];
     
     // when
     [group runWithReporter:reporter];

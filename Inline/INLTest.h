@@ -7,15 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "INLNode.h"
+#import "INLComponent.h"
 @protocol INLTestState;
 
 /** An executable test which raises an exception if any expectations are not met. */
-@interface INLTest : NSObject <INLNode>
+@interface INLTest : NSObject <INLComponent>
 
 /** Initializes a new test.
  @param activeState The active state of the test.
- @param weight The weight of the test, for ordering the node graph.
+ @param weight The weight of the test, for ordering the component graph.
  @return An initialized test. */
 - (id)initWithState:(id<INLTestState>)state weight:(NSNumber *)weight;
 

@@ -19,14 +19,14 @@
         id<INLTestState> passed = [[INLPassedState alloc] initWithName:name];
         return [[INLTest alloc] initWithState:passed weight:weight];
     };
-    void(^groupWithNodes)(NSString *, NSNumber *, NSArray *) = ^(NSString *name, NSNumber *weight, NSArray *nodes) {
+    void(^groupWithComponents)(NSString *, NSNumber *, NSArray *) = ^(NSString *name, NSNumber *weight, NSArray *components) {
         NSArray *sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:@"weight" ascending:YES]];
-        CBDSortedArray *sorted = [[CBDSortedArray alloc] initWithObjects:[nodes mutableCopy] sortDescriptors:sortDescriptors];
-        INLGroup *group = [[INLGroup alloc] initWithName:@"Group A" nodes:sorted weight:weight];
+        CBDSortedArray *sorted = [[CBDSortedArray alloc] initWithObjects:[components mutableCopy] sortDescriptors:sortDescriptors];
+        INLGroup *group = [[INLGroup alloc] initWithName:@"Group A" components:sorted weight:weight];
     };
     
-    id<INLNode> subgroup = groupWithNodes(@"Group B", @3, @[passingTest(@"Test C", @1), passingTest(@"Test D", @2)]);
-    id<INLNode> topGroup = groupWithNodes(@"Group A", @1, @[passingTest(@"Test A", @1), passingTest(@"Test B", @2), subgroup]);
+    id<INLComponent> subgroup = groupWithComponents(@"Group B", @3, @[passingTest(@"Test C", @1), passingTest(@"Test D", @2)]);
+    id<INLComponent> topGroup = groupWithComponents(@"Group A", @1, @[passingTest(@"Test A", @1), passingTest(@"Test B", @2), subgroup]);
     
     NSMutableString *output = [[NSMutableString alloc] init];
     id<INLRunnerDelegate> reporter = [[INLReportReporter alloc] initWithOutput:output];
@@ -38,7 +38,7 @@
     INLRunner *runner = [[INLRunner alloc] initWithDelegate:reporter];
     
     // when
-    [runner runByStartingAtNode:topGroup];
+    [runner runByStartingAtComponent:topGroup];
     
     // then
     NSString *expected = @"";
