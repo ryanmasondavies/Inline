@@ -7,10 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+@protocol INLFormatter, INLPublisher;
 @class INLGroup, INLTest, INLHook;
 
 /** A reporter is notified as a run event propagates through a component hierarchy. */
 @interface INLReporter : NSObject
+
+/**
+ Initialize a reporter.
+ @param formatter Formats the events recorded by the reporter into a report.
+ @param publisher Publishes the report.
+ @param report The report to write to.
+ @return An initialized reporter.
+ */
+- (id)initWithFormatter:(id<INLFormatter>)formatter publisher:(id<INLPublisher>)publisher report:(NSMutableString *)report;
 
 /**
  Invoked by INLGroup when a group is about to run its components.

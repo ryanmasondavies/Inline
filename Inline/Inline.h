@@ -8,18 +8,18 @@
 
 #import "INLSuite.h"
 
-// nodes
-#import "INLReporter.h"
+// defining tests
 #import "INLGroup.h"
 #import "INLHook.h"
 #import "INLTest.h"
-
-// test states
 #import "INLReadyState.h"
 #import "INLPendingState.h"
 #import "INLPassedState.h"
 #import "INLFailedState.h"
 
-// recording tests
+// reporting results
+#import "INLReporter.h"
 #import "INLTimeProvider.h"
 #import "INLStopwatch.h"
+#import "INLFormatter.h"
+#import "INLPublisher.h"
