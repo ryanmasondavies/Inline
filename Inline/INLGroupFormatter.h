@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "INLReporter.h"
+#import "INLFormatter.h"
 
 /** Adds group names to a report. */
-@interface INLGroupFormatter : NSObject <INLReporter>
+@interface INLGroupFormatter : NSObject <INLFormatter>
 
 /**
  Initialize a group formatter.

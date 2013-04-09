@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "INLReporter.h"
+#import "INLFormatter.h"
 
 /** Creates a report containing the name of each test. */
-@interface INLTestReporter : NSObject <INLReporter>
+@interface INLTestReporter : NSObject <INLFormatter>
 
 /**
  Initialize a test reporter.

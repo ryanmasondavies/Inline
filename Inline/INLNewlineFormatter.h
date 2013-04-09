@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "INLReporter.h"
+#import "INLFormatter.h"
 
 /** Inserts newlines after group and test names. */
-@interface INLNewlineFormatter : NSObject <INLReporter>
+@interface INLNewlineFormatter : NSObject <INLFormatter>
 
 /**
  Initialize a newline formatter.

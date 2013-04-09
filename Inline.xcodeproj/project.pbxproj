@@ -129,6 +129,7 @@
 		94A1C77716A97B3F008C170D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		94A1C77C16A97B3F008C170D /* Inline.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Inline.h; sourceTree = "<group>"; };
 		94A1C78516A97B3F008C170D /* Unit Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		94B3EF141714101000B6FD5F /* INLFormatter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INLFormatter.h; sourceTree = "<group>"; };
 		94F66A9F17117BF200F93685 /* Integrated Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Integrated Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		94F66AA117117BF200F93685 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		94F66AA617117BF200F93685 /* Integrated Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Integrated Tests-Info.plist"; sourceTree = "<group>"; };
@@ -243,6 +244,7 @@
 				949CDA53170CB71100A09B71 /* INLTimeProvider.m */,
 				949CDA4E170CB6F500A09B71 /* INLStopwatch.h */,
 				949CDA4F170CB6F500A09B71 /* INLStopwatch.m */,
+				94B3EF141714101000B6FD5F /* INLFormatter.h */,
 				944C4D5F1711998D00B13F5A /* INLGroupIndenter.h */,
 				944C4D601711998D00B13F5A /* INLGroupIndenter.m */,
 				94F66ABD171196FF00F93685 /* INLTestIndenter.h */,
