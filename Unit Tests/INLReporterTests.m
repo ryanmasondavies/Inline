@@ -60,7 +60,7 @@
     [formatter verify];
 }
 
-- (void)testWhenTestPassesWritesTestDidStartToReportUsingFormatter
+- (void)testWhenTestPassesWritesTestDidPassToReportUsingFormatter
 {
     // given
     NSMutableString *report = [[NSMutableString alloc] init];
@@ -69,8 +69,8 @@
     
     // when
     id test = [OCMockObject niceMockForClass:[INLTest class]];
-    [[formatter expect] writeTestDidPass:test withDuration:0 toReport:report];
-    [reporter testDidPass:test withDuration:0];
+    [[formatter expect] writeTestDidPass:test withDuration:5 toReport:report];
+    [reporter testDidPass:test withDuration:5];
     
     // then
     [formatter verify];

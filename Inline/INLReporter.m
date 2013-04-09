@@ -45,7 +45,7 @@
 
 - (void)testDidPass:(INLTest *)test withDuration:(NSTimeInterval)duration
 {
-    [[self formatter] writeTestDidPass:test withDuration:0 toReport:[self report]];
+    [[self formatter] writeTestDidPass:test withDuration:duration toReport:[self report]];
 }
 
 - (void)testDidSkip:(INLTest *)test
