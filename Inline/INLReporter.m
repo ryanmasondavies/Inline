@@ -7,21 +7,21 @@
 //
 
 #import "INLReporter.h"
-#import "INLFormatter.h"
+#import "INLDateProvider.h"
 #import "INLPublisher.h"
 
 @interface INLReporter ()
-@property (strong, nonatomic) NSMutableString *report;
-@property (strong, nonatomic) id<INLFormatter> formatter;
+@property (strong, nonatomic) INLDateProvider *dateProvider;
+@property (strong, nonatomic) NSMutableDictionary *report;
 @property (strong, nonatomic) id<INLPublisher> publisher;
 @end
 
 @implementation INLReporter
 
-- (id)initWithFormatter:(id<INLFormatter>)formatter publisher:(id<INLPublisher>)publisher report:(NSMutableString *)report
+- (id)initWithDateProvider:(INLDateProvider *)dateProvider publisher:(id<INLPublisher>)publisher report:(NSMutableDictionary *)report
 {
     if (self = [self init]) {
-        [self setFormatter:formatter];
+        [self setDateProvider:dateProvider];
         [self setPublisher:publisher];
         [self setReport:report];
     }
@@ -30,42 +30,36 @@
 
 - (void)runDidStart
 {
-    [[self formatter] writeRunDidStartToReport:[self report]];
+    [[self report] setObject:[[self dateProvider] currentDate] forKey:@"startDate"];
 }
 
 - (void)runDidFinish
 {
-    [[self formatter] writeRunDidFinishToReport:[self report]];
+    [[self report] setObject:[[self dateProvider] currentDate] forKey:@"finishDate"];
 }
 
 - (void)groupDidStart:(INLGroup *)group
 {
-    [[self formatter] writeGroupDidStart:group toReport:[self report]];
 }
 
 - (void)groupDidFinish:(INLGroup *)group
 {
-    [[self formatter] writeGroupDidFinish:group toReport:[self report]];
 }
 
 - (void)testDidStart:(INLTest *)test
 {
-    [[self formatter] writeTestDidStart:test toReport:[self report]];
 }
 
 - (void)testDidPass:(INLTest *)test withDuration:(NSTimeInterval)duration
 {
-    [[self formatter] writeTestDidPass:test withDuration:duration toReport:[self report]];
 }
 
 - (void)testDidSkip:(INLTest *)test
 {
-    [[self formatter] writeTestDidSkip:test toReport:[self report]];
 }
 
 - (void)testDidFail:(INLTest *)test withException:(NSException *)exception
 {
-    [[self formatter] writeTestDidFail:test withException:exception toReport:[self report]];
 }
 
 @end

@@ -7,20 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
-@class INLGroup, INLTest, INLHook;
-@protocol INLFormatter, INLPublisher;
+@class INLDateProvider, INLGroup, INLTest, INLHook;
+@protocol INLPublisher;
 
 /** A reporter is notified as a run event propagates through a component hierarchy. */
 @interface INLReporter : NSObject
 
 /**
  Initialize a reporter.
- @param formatter Formats the events recorded by the reporter into a report.
+ @param dateProvider A necessary abstraction for testing purposes, used to retrieve the current date.
  @param publisher Publishes the report.
- @param report The report to write to.
+ @param report Accumulated as the reporter is notified about events.
  @return An initialized reporter.
  */
-- (id)initWithFormatter:(id<INLFormatter>)formatter publisher:(id<INLPublisher>)publisher report:(NSMutableString *)report;
+- (id)initWithDateProvider:(INLDateProvider *)dateProvider publisher:(id<INLPublisher>)publisher report:(NSMutableDictionary *)report;
 
 /** Invoked by INLRunner when a run has started. */
 - (void)runDidStart;
