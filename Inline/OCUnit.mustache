@@ -1,5 +1,7 @@
-Test Suite 'Suite' started at {{startDate}}
-Test Suite 'Suite' finished at {{finishDate}}.{{#tests}}
-Test Case '-[Test {{llamaCase(name)}}]' started.
-Test Case '-[Test {{llamaCase(name)}}]' passed ({{threeDecimalPoints(duration)}} seconds).{{/tests}}
-Executed {{tests.count}} tests, with 0 failures (0 unexpected) in {{threeDecimalPoints(duration)}} ({{threeDecimalPoints(duration)}}) seconds
+Test Suite 'Suite' started at {{startDate}}{{#tests}}
+Test Case '-[Test {{llamaCase(name)}}]' started.{{#failure}}
+{{filePath}}:{{lineNumber}}: error: -[Test {{llamaCase(name)}}] : {{reason}}
+Test Case '-[Test {{llamaCase(name)}}]' failed (0.001 seconds).{{^failure}}
+Test Case '-[Test {{llamaCase(name)}}]' passed ({{threeDecimalPoints(duration)}} seconds).{{/failure}}{{/tests}}
+Test Suite 'Suite' finished at {{finishDate}}.
+Executed {{tests.count}} test{{^isOne(tests.count)}}s{{/}}, with {{numberOfFailures(tests)}} failure{{^isOne(numberOfFailures(tests))}}s{{/}} (0 unexpected) in {{threeDecimalPoints(duration)}} ({{threeDecimalPoints(duration)}}) seconds
