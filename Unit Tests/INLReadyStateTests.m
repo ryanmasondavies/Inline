@@ -21,7 +21,7 @@
     INLReadyState *state = [[INLReadyState alloc] initWithName:nil block:block stopwatch:stopwatch passedState:nil failedState:nil];
     
     // when
-    [[[stopwatch expect] andDo:^(NSInvocation *invocation) {
+    [(INLStopwatch *)[[stopwatch expect] andDo:^(NSInvocation *invocation) {
         [[@(executed) should] beFalse];
     }] start];
     [state runWithReporter:nil forTest:nil];

@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Ryan Davies. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #import "INLSuite.h"
 
 // composing tests
