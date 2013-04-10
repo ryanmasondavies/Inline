@@ -9,33 +9,35 @@
 #import "INLReporter.h"
 #import "INLDateProvider.h"
 #import "INLPublisher.h"
+#import "INLGroup.h"
+#import "INLTest.h"
 
 @interface INLReporter ()
 @property (strong, nonatomic) INLDateProvider *dateProvider;
-@property (strong, nonatomic) NSMutableDictionary *report;
+@property (strong, nonatomic) NSMutableDictionary *results;
 @property (strong, nonatomic) id<INLPublisher> publisher;
 @end
 
 @implementation INLReporter
 
-- (id)initWithDateProvider:(INLDateProvider *)dateProvider publisher:(id<INLPublisher>)publisher report:(NSMutableDictionary *)report
+- (id)initWithDateProvider:(INLDateProvider *)dateProvider publisher:(id<INLPublisher>)publisher results:(NSMutableDictionary *)results
 {
     if (self = [self init]) {
         [self setDateProvider:dateProvider];
         [self setPublisher:publisher];
-        [self setReport:report];
+        [self setResults:results];
     }
     return self;
 }
 
 - (void)runDidStart
 {
-    [[self report] setObject:[[self dateProvider] currentDate] forKey:@"startDate"];
+    [[self results] setObject:[[self dateProvider] currentDate] forKey:@"startDate"];
 }
 
 - (void)runDidFinish
 {
-    [[self report] setObject:[[self dateProvider] currentDate] forKey:@"finishDate"];
+    [[self results] setObject:[[self dateProvider] currentDate] forKey:@"finishDate"];
 }
 
 - (void)groupDidStart:(INLGroup *)group
@@ -52,6 +54,7 @@
 
 - (void)testDidPass:(INLTest *)test withDuration:(NSTimeInterval)duration
 {
+    [[self results][@"tests"] addObject:@{@"name": [test name], @"duration": @(duration)}];
 }
 
 - (void)testDidSkip:(INLTest *)test

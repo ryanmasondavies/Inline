@@ -17,10 +17,10 @@
  Initialize a reporter.
  @param dateProvider A necessary abstraction for testing purposes, used to retrieve the current date.
  @param publisher Publishes the report.
- @param report Accumulated as the reporter is notified about events.
+ @param results Accumulated as the reporter is notified about events.
  @return An initialized reporter.
  */
-- (id)initWithDateProvider:(INLDateProvider *)dateProvider publisher:(id<INLPublisher>)publisher report:(NSMutableDictionary *)report;
+- (id)initWithDateProvider:(INLDateProvider *)dateProvider publisher:(id<INLPublisher>)publisher results:(NSMutableDictionary *)results;
 
 /** Invoked by INLRunner when a run has started. */
 - (void)runDidStart;
