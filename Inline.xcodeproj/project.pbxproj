@@ -11,9 +11,6 @@
 		7A2705D8CB044F23A8655CC9 /* libPods-Integrated Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A6FC86C17E540ACBFF3B6F2 /* libPods-Integrated Tests.a */; };
 		942A33CD17159C7F0019614A /* libInline.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A1C77416A97B3F008C170D /* libInline.a */; };
 		942A33D417159E8D0019614A /* INLOCUnitTemplateFactory.h in Resources */ = {isa = PBXBuildFile; fileRef = 942A33C7171590890019614A /* INLOCUnitTemplateFactory.h */; };
-		942A33E01715B36E0019614A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 942A33DA1715B1A70019614A /* UIKit.framework */; };
-		942A33E11715B37C0019614A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 942A33DA1715B1A70019614A /* UIKit.framework */; };
-		942A33E21715B3CA0019614A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 942A33DA1715B1A70019614A /* UIKit.framework */; };
 		943A0341170B8BC20071D7F6 /* INLReadyState.m in Sources */ = {isa = PBXBuildFile; fileRef = 943A0340170B8BC20071D7F6 /* INLReadyState.m */; };
 		943A034E170B94CA0071D7F6 /* INLPendingState.m in Sources */ = {isa = PBXBuildFile; fileRef = 943A034D170B94CA0071D7F6 /* INLPendingState.m */; };
 		943A0351170B96AA0071D7F6 /* INLPassedState.m in Sources */ = {isa = PBXBuildFile; fileRef = 943A0350170B96AA0071D7F6 /* INLPassedState.m */; };
@@ -96,7 +93,6 @@
 		60393545CE184FBABA042F2F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		94088D4116A9AA1800D7DEFC /* INLTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLTest.h; sourceTree = "<group>"; };
 		942A33C7171590890019614A /* INLOCUnitTemplateFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLOCUnitTemplateFactory.h; sourceTree = "<group>"; };
-		942A33DA1715B1A70019614A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		943A033E170B87B40071D7F6 /* INLTestState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INLTestState.h; sourceTree = "<group>"; };
 		943A033F170B8BC20071D7F6 /* INLReadyState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLReadyState.h; sourceTree = "<group>"; };
 		943A0340170B8BC20071D7F6 /* INLReadyState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLReadyState.m; sourceTree = "<group>"; };
@@ -165,7 +161,6 @@
 			files = (
 				94A1C77816A97B3F008C170D /* Foundation.framework in Frameworks */,
 				9498982716F49B7D005E06AB /* SenTestingKit.framework in Frameworks */,
-				942A33E11715B37C0019614A /* UIKit.framework in Frameworks */,
 				F7134C4E4356497FA0247A31 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -177,7 +172,6 @@
 				9498982416F49B69005E06AB /* libInline.a in Frameworks */,
 				94A1C78A16A97B3F008C170D /* Foundation.framework in Frameworks */,
 				9498982616F49B75005E06AB /* SenTestingKit.framework in Frameworks */,
-				942A33E01715B36E0019614A /* UIKit.framework in Frameworks */,
 				02180A427B27452A8ACC3CB8 /* libPods-Unit Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -189,7 +183,6 @@
 				942A33CD17159C7F0019614A /* libInline.a in Frameworks */,
 				94F66AA017117BF200F93685 /* SenTestingKit.framework in Frameworks */,
 				94F66AA317117BF200F93685 /* Foundation.framework in Frameworks */,
-				942A33E21715B3CA0019614A /* UIKit.framework in Frameworks */,
 				7A2705D8CB044F23A8655CC9 /* libPods-Integrated Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,7 +330,6 @@
 			children = (
 				94A1C77716A97B3F008C170D /* Foundation.framework */,
 				9498982516F49B75005E06AB /* SenTestingKit.framework */,
-				942A33DA1715B1A70019614A /* UIKit.framework */,
 				B81748F369994F9CAD780A8E /* libPods.a */,
 				CFAE5470718542C68A1DE9E7 /* libPods-Unit Tests.a */,
 				9A6FC86C17E540ACBFF3B6F2 /* libPods-Integrated Tests.a */,
