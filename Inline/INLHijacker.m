@@ -48,6 +48,9 @@
 
 @end
 
+@interface INLHijacker : NSObject
+@end
+
 void INLRunTests(id self, SEL _cmd, id ignored)
 {
     NSArray *subclasses = [[INLSuite class] subclasses];
@@ -91,14 +94,12 @@ void INLRunTests(id self, SEL _cmd, id ignored)
         }]
     }];
     
-    GRMustacheTemplate *template = [GRMustacheTemplate templateFromResource:@"OCUnit" bundle:[NSBundle mainBundle] error:NULL];
+    GRMustacheTemplate *template = [GRMustacheTemplate templateFromResource:@"OCUnit" bundle:[NSBundle bundleForClass:[INLHijacker class]] error:NULL];
     NSString *report = [template renderObject:results error:NULL];
     printf("%s", [report cStringUsingEncoding:NSUTF8StringEncoding]);
     
     exit(0);
 }
-
-@interface INLHijacker : NSObject; @end
 
 @implementation INLHijacker
 

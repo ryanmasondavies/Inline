@@ -23,6 +23,9 @@
 #import "INLDateProvider.h"
 #import "INLTimeProvider.h"
 
+// report templates
+#import "INLOCUnitTemplateFactory.h"
+
 // running tests
 #import "INLRunner.h"
 #import "INLResultAccumulator.h"

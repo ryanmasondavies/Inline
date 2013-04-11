@@ -19,8 +19,7 @@
 
 - (void)setUp
 {
-    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-    self.template = [GRMustacheTemplate templateFromResource:@"OCUnit" bundle:bundle error:NULL];
+    self.template = [INLOCUnitTemplateFactory createTemplate];
     self.results = [@{
         @"threeDecimalPoints": [self createThreeDecimalNumberFormatter],
         @"pluralize": [GRMustacheFilter filterWithBlock:^id(NSNumber *count) {
