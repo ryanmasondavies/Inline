@@ -10,5 +10,5 @@ Before do
 end
 
 After do
-  # FileUtils.rm_rf(@dirs[0])
+  FileUtils.rm_rf(@dirs[0])
 end
