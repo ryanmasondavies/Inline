@@ -1,5 +1,5 @@
 //
-//  INLOCUnitFormatTests.m
+//  INLOCUnitReportTests.m
 //  Integrated Tests
 //
 //  Created by Ryan Davies on 07/04/2013.
@@ -10,12 +10,12 @@
 #import <InflectorKit/NSString+InflectorKit.h>
 #import <TransformerKit/TransformerKit.h>
 
-@interface INLOCUnitFormatTests : SenTestCase
+@interface INLOCUnitReportTests : SenTestCase
 @property (strong, nonatomic) GRMustacheTemplate *template;
 @property (strong, nonatomic) NSMutableDictionary *results;
 @end
 
-@implementation INLOCUnitFormatTests
+@implementation INLOCUnitReportTests
 
 - (void)setUp
 {
