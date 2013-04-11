@@ -14,6 +14,8 @@
 		9423AFF516AD5EFA0022ED11 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9423AFE216AD5EFA0022ED11 /* Foundation.framework */; };
 		9423AFF816AD5EFA0022ED11 /* libProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9423AFDF16AD5EFA0022ED11 /* libProject.a */; };
 		94A75AC41709E65F0061324C /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A75AC21709E65A0061324C /* Tests.m */; };
+		94B7B09D1716F3E8003368A6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94B7B09C1716F3E8003368A6 /* UIKit.framework */; };
+		94B7B09E1716F3F0003368A6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94B7B09C1716F3E8003368A6 /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,7 @@
 		9423AFF116AD5EFA0022ED11 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		94A75AC11709E65A0061324C /* Tests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		94A75AC21709E65A0061324C /* Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
+		94B7B09C1716F3E8003368A6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +59,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9423AFE316AD5EFA0022ED11 /* Foundation.framework in Frameworks */,
+				94B7B09D1716F3E8003368A6 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +69,7 @@
 			files = (
 				9423AFF516AD5EFA0022ED11 /* Foundation.framework in Frameworks */,
 				9423AFF216AD5EFA0022ED11 /* SenTestingKit.framework in Frameworks */,
+				94B7B09E1716F3F0003368A6 /* UIKit.framework in Frameworks */,
 				9423AFF816AD5EFA0022ED11 /* libProject.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -96,6 +101,7 @@
 			children = (
 				9423AFE216AD5EFA0022ED11 /* Foundation.framework */,
 				9423AFF116AD5EFA0022ED11 /* SenTestingKit.framework */,
+				94B7B09C1716F3E8003368A6 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

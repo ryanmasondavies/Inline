@@ -14,12 +14,19 @@ Feature: Tests
       #import <Inline/Inline.h>
       @interface Tests : INLSuite; @end
       @implementation Tests
-      - (void)addNodesToGroup:(INLGroup *)group
+      - (INLGroup *)rootGroup
       {
-          INLPassedState *catPassed = [[INLPassedState alloc] initWithLabel:@"[passed] test my cat"];
-          INLReadyState *catReady = [[INLReadyState alloc] initWithLabel:@"test my cat" block:^{} passedState:catPassed failedState:nil];
+          INLTimeProvider *timeProvider = [[INLTimeProvider alloc] init];
+          INLStopwatch *stopwatch = [[INLStopwatch alloc] initWithTimeProvider:timeProvider];
+          
+          INLPassedState *catPassed = [[INLPassedState alloc] initWithName:@"test my cat"];
+          INLReadyState *catReady = [[INLReadyState alloc] initWithName:@"test my cat" block:^{} stopwatch:stopwatch passedState:catPassed failedState:nil];
           INLTest *catTest = [[INLTest alloc] initWithState:catReady weight:@0];
-          [group addNode:catTest];
+          
+          NSMutableArray *tests = [@[catTest] mutableCopy];
+          NSSortDescriptor *lightestToHeaviest = [[NSSortDescriptor alloc] initWithKey:@"weight" ascending:YES];
+          CBDSortedArray *sorted = [[CBDSortedArray alloc] initWithObjects:tests sortDescriptors:@[lightestToHeaviest]];
+          return [[INLGroup alloc] initWithName:@"" components:sorted weight:@0];
       }
       @end
       """
@@ -35,14 +42,21 @@ Feature: Tests
       #import <Inline/Inline.h>
       @interface Tests : INLSuite; @end
       @implementation Tests
-      - (void)addNodesToGroup:(INLGroup *)group
+      - (INLGroup *)rootGroup
       {
-          INLFailedState *catFailed = [[INLFailedState alloc] initWithLabel:@"[failed] test my cat" reason:@""];
-          INLReadyState *catReady = [[INLReadyState alloc] initWithLabel:@"test my cat" block:^{
-              [NSException raise:NSInternalInconsistencyException format:@"cat fails"];
-          } passedState:nil failedState:catFailed];
-          INLTest *catTest = [[INLTest alloc] initWithState:catReady weight:@0];
-          [group addNode:catTest];
+          INLTimeProvider *timeProvider = [[INLTimeProvider alloc] init];
+          INLStopwatch *stopwatch = [[INLStopwatch alloc] initWithTimeProvider:timeProvider];
+          
+          INLFailedState *dogFailed = [[INLFailedState alloc] initWithName:@"test my dog"];
+          INLReadyState *dogReady = [[INLReadyState alloc] initWithName:@"test my dog" block:^{
+              [NSException raise:NSInternalInconsistencyException format:@"dog failed"];
+          } stopwatch:stopwatch passedState:nil failedState:dogFailed];
+          INLTest *dogTest = [[INLTest alloc] initWithState:dogReady weight:@1];
+    
+          NSMutableArray *tests = [@[dogTest] mutableCopy];
+          NSSortDescriptor *lightestToHeaviest = [[NSSortDescriptor alloc] initWithKey:@"weight" ascending:YES];
+          CBDSortedArray *sorted = [[CBDSortedArray alloc] initWithObjects:tests sortDescriptors:@[lightestToHeaviest]];
+          return [[INLGroup alloc] initWithName:@"" components:sorted weight:@0];
       }
       @end
       """
