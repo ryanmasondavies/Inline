@@ -7,6 +7,7 @@
 //
 
 #import <GRMustache/GRMustache.h>
+#import <InflectorKit/NSString+InflectorKit.h>
 #import <TransformerKit/TransformerKit.h>
 
 @interface INLOCUnitReporterFormatTests : SenTestCase
@@ -22,7 +23,12 @@
     self.template = [GRMustacheTemplate templateFromResource:@"OCUnit" bundle:bundle error:NULL];
     self.results = [@{
         @"threeDecimalPoints": [self createThreeDecimalNumberFormatter],
-        @"isOne": [GRMustacheFilter filterWithBlock:^id(id value) { return @([value isEqualToNumber:@1]); }],
+        @"pluralize": [GRMustacheFilter filterWithBlock:^id(NSNumber *count) {
+            return [GRMustache renderingObjectWithBlock:^NSString *(GRMustacheTag *tag, GRMustacheContext *context, BOOL *HTMLSafe, NSError *__autoreleasing *error) {
+                NSString *word = [tag renderContentWithContext:context HTMLSafe:HTMLSafe error:error];
+                return [count isEqualToNumber:@1] ? word : [word pluralizedString];
+            }];
+        }],
         @"llamaCase": [NSValueTransformer valueTransformerForName:TKLlamaCaseStringTransformerName],
         @"numberOfFailures": [GRMustacheFilter filterWithBlock:^id(NSArray *tests) {
             __block NSUInteger failures = 0;
