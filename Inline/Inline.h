@@ -29,5 +29,5 @@
 #import "INLPublisher.h"
 
 // running tests
-#import "INLResponder.h"
 #import "INLRunner.h"
+#import "INLResultAccumulator.h"
