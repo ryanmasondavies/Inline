@@ -7,38 +7,26 @@
 //
 
 #import "INLTest.h"
-#import "INLTestState.h"
 #import "INLResponder.h"
 
 @interface INLTest ()
-@property (strong, nonatomic) id<INLTestState> state;
-@property (copy, nonatomic) NSNumber *weight;
+@property (copy, nonatomic) INLTestBlock block;
+@property (copy, nonatomic) NSNumber    *weight;
 @end
 
 @implementation INLTest
 
-- (id)initWithState:(id<INLTestState>)state weight:(NSNumber *)weight
+- (id)initWithBlock:(INLTestBlock)block weight:(NSNumber *)weight
 {
     if (self = [self init]) {
-        [self setState:state];
+        [self setBlock:block];
         [self setWeight:weight];
     }
     return self;
 }
 
-- (void)transitionToState:(id<INLTestState>)state
-{
-    [self setState:state];
-}
-
-- (NSString *)name
-{
-    return [[self state] name];
-}
-
 - (void)runWithResponder:(id<INLResponder>)responder
 {
-    [[self state] runWithResponder:responder forTest:self];
 }
 
 @end

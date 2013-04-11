@@ -10,10 +10,6 @@
 		02180A427B27452A8ACC3CB8 /* libPods-Unit Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFAE5470718542C68A1DE9E7 /* libPods-Unit Tests.a */; };
 		7A2705D8CB044F23A8655CC9 /* libPods-Integrated Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A6FC86C17E540ACBFF3B6F2 /* libPods-Integrated Tests.a */; };
 		942A33CD17159C7F0019614A /* libInline.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A1C77416A97B3F008C170D /* libInline.a */; };
-		943A0341170B8BC20071D7F6 /* INLReadyState.m in Sources */ = {isa = PBXBuildFile; fileRef = 943A0340170B8BC20071D7F6 /* INLReadyState.m */; };
-		943A034E170B94CA0071D7F6 /* INLPendingState.m in Sources */ = {isa = PBXBuildFile; fileRef = 943A034D170B94CA0071D7F6 /* INLPendingState.m */; };
-		943A0351170B96AA0071D7F6 /* INLPassedState.m in Sources */ = {isa = PBXBuildFile; fileRef = 943A0350170B96AA0071D7F6 /* INLPassedState.m */; };
-		943A0354170B96AF0071D7F6 /* INLFailedState.m in Sources */ = {isa = PBXBuildFile; fileRef = 943A0353170B96AF0071D7F6 /* INLFailedState.m */; };
 		947EA9F716B724D600FE8D79 /* INLGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 947EA9F616B724D600FE8D79 /* INLGroup.m */; };
 		947EA9F916B72AFC00FE8D79 /* INLTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 947EA9F816B72AFC00FE8D79 /* INLTest.m */; };
 		947EA9FF16B72F4700FE8D79 /* INLHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 947EA9FE16B72F4700FE8D79 /* INLHook.m */; };
@@ -78,16 +74,7 @@
 		49893940671446DDAFC1ACF9 /* Pods-Integrated Tests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Integrated Tests.xcconfig"; path = "Pods/Pods-Integrated Tests.xcconfig"; sourceTree = SOURCE_ROOT; };
 		60393545CE184FBABA042F2F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		94088D4116A9AA1800D7DEFC /* INLTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLTest.h; sourceTree = "<group>"; };
-		943A033E170B87B40071D7F6 /* INLTestState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INLTestState.h; sourceTree = "<group>"; };
-		943A033F170B8BC20071D7F6 /* INLReadyState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLReadyState.h; sourceTree = "<group>"; };
-		943A0340170B8BC20071D7F6 /* INLReadyState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLReadyState.m; sourceTree = "<group>"; };
 		943A0342170B8C5A0071D7F6 /* INLTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INLTypes.h; sourceTree = "<group>"; };
-		943A034C170B94CA0071D7F6 /* INLPendingState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLPendingState.h; sourceTree = "<group>"; };
-		943A034D170B94CA0071D7F6 /* INLPendingState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLPendingState.m; sourceTree = "<group>"; };
-		943A034F170B96AA0071D7F6 /* INLPassedState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = INLPassedState.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		943A0350170B96AA0071D7F6 /* INLPassedState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLPassedState.m; sourceTree = "<group>"; };
-		943A0352170B96AF0071D7F6 /* INLFailedState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = INLFailedState.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		943A0353170B96AF0071D7F6 /* INLFailedState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLFailedState.m; sourceTree = "<group>"; };
 		947EA9F516B724D600FE8D79 /* INLGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = INLGroup.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		947EA9F616B724D600FE8D79 /* INLGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLGroup.m; sourceTree = "<group>"; };
 		947EA9F816B72AFC00FE8D79 /* INLTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLTest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -173,15 +160,6 @@
 				947EA9FE16B72F4700FE8D79 /* INLHook.m */,
 				94088D4116A9AA1800D7DEFC /* INLTest.h */,
 				947EA9F816B72AFC00FE8D79 /* INLTest.m */,
-				943A033E170B87B40071D7F6 /* INLTestState.h */,
-				943A033F170B8BC20071D7F6 /* INLReadyState.h */,
-				943A0340170B8BC20071D7F6 /* INLReadyState.m */,
-				943A034C170B94CA0071D7F6 /* INLPendingState.h */,
-				943A034D170B94CA0071D7F6 /* INLPendingState.m */,
-				943A034F170B96AA0071D7F6 /* INLPassedState.h */,
-				943A0350170B96AA0071D7F6 /* INLPassedState.m */,
-				943A0352170B96AF0071D7F6 /* INLFailedState.h */,
-				943A0353170B96AF0071D7F6 /* INLFailedState.m */,
 			);
 			name = "Composing tests";
 			sourceTree = "<group>";
@@ -470,10 +448,6 @@
 				947EA9F716B724D600FE8D79 /* INLGroup.m in Sources */,
 				947EA9F916B72AFC00FE8D79 /* INLTest.m in Sources */,
 				947EA9FF16B72F4700FE8D79 /* INLHook.m in Sources */,
-				943A0341170B8BC20071D7F6 /* INLReadyState.m in Sources */,
-				943A034E170B94CA0071D7F6 /* INLPendingState.m in Sources */,
-				943A0351170B96AA0071D7F6 /* INLPassedState.m in Sources */,
-				943A0354170B96AF0071D7F6 /* INLFailedState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
