@@ -8,7 +8,6 @@
 
 #import <GRMustache/GRMustache.h>
 #import <InflectorKit/NSString+InflectorKit.h>
-#import <TransformerKit/TransformerKit.h>
 
 @interface INLOCUnitReportTests : SenTestCase
 @property (strong, nonatomic) GRMustacheTemplate *template;
@@ -28,7 +27,7 @@
                 return [count isEqualToNumber:@1] ? word : [word pluralizedString];
             }];
         }],
-        @"llamaCase": [NSValueTransformer valueTransformerForName:TKLlamaCaseStringTransformerName],
+        @"llamaCase": [[INLLlamaCaseStringTransformer alloc] init],
         @"numberOfFailures": [GRMustacheFilter filterWithBlock:^id(NSArray *tests) {
             __block NSUInteger failures = 0;
             [tests enumerateObjectsUsingBlock:^(NSDictionary *test, NSUInteger idx, BOOL *stop) {

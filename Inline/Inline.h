@@ -24,6 +24,7 @@
 #import "INLTimeProvider.h"
 
 // report templates
+#import "INLLlamaCaseStringTransformer.h"
 #import "INLOCUnitTemplateFactory.h"
 
 // running tests

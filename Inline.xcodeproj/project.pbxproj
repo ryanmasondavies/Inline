@@ -45,6 +45,8 @@
 		94B7B0951716D8AB003368A6 /* INLResultAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B7B0941716D8AA003368A6 /* INLResultAccumulator.m */; };
 		94B7B0981716DAB9003368A6 /* INLResultAccumulatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B7B0971716DAB9003368A6 /* INLResultAccumulatorTests.m */; };
 		94B7B0A01716F7DE003368A6 /* INLOCUnitTemplateFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B7B09F1716F7DE003368A6 /* INLOCUnitTemplateFactory.m */; };
+		94B7B0A317175059003368A6 /* INLLlamaCaseStringTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B7B0A217175058003368A6 /* INLLlamaCaseStringTransformer.m */; };
+		94B7B0A717175090003368A6 /* INLLlamaCaseStringTransformerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B7B0A617175090003368A6 /* INLLlamaCaseStringTransformerTests.m */; };
 		94F66AA017117BF200F93685 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9498982516F49B75005E06AB /* SenTestingKit.framework */; };
 		94F66AA317117BF200F93685 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A1C77716A97B3F008C170D /* Foundation.framework */; };
 		94F66AAC17117BF200F93685 /* INLOCUnitReportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F66AAB17117BF200F93685 /* INLOCUnitReportTests.m */; };
@@ -143,6 +145,9 @@
 		94B7B0941716D8AA003368A6 /* INLResultAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLResultAccumulator.m; sourceTree = "<group>"; };
 		94B7B0971716DAB9003368A6 /* INLResultAccumulatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLResultAccumulatorTests.m; sourceTree = "<group>"; };
 		94B7B09F1716F7DE003368A6 /* INLOCUnitTemplateFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLOCUnitTemplateFactory.m; sourceTree = "<group>"; };
+		94B7B0A117175058003368A6 /* INLLlamaCaseStringTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLLlamaCaseStringTransformer.h; sourceTree = "<group>"; };
+		94B7B0A217175058003368A6 /* INLLlamaCaseStringTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLLlamaCaseStringTransformer.m; sourceTree = "<group>"; };
+		94B7B0A617175090003368A6 /* INLLlamaCaseStringTransformerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLLlamaCaseStringTransformerTests.m; sourceTree = "<group>"; };
 		94F66A9F17117BF200F93685 /* Integrated Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Integrated Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		94F66AA617117BF200F93685 /* Integrated Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Integrated Tests-Info.plist"; sourceTree = "<group>"; };
 		94F66AAB17117BF200F93685 /* INLOCUnitReportTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLOCUnitReportTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -192,13 +197,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		942A33C8171590900019614A /* Report templates */ = {
+		942A33C8171590900019614A /* Creating reports */ = {
 			isa = PBXGroup;
 			children = (
+				94B7B0A117175058003368A6 /* INLLlamaCaseStringTransformer.h */,
+				94B7B0A217175058003368A6 /* INLLlamaCaseStringTransformer.m */,
 				942A33C7171590890019614A /* INLOCUnitTemplateFactory.h */,
 				94B7B09F1716F7DE003368A6 /* INLOCUnitTemplateFactory.m */,
 			);
-			name = "Report templates";
+			name = "Creating reports";
 			sourceTree = "<group>";
 		};
 		943FED581714779F00BC4051 /* Running tests */ = {
@@ -270,6 +277,7 @@
 			isa = PBXGroup;
 			children = (
 				948D2FD2170C4DCC0057A396 /* Composing tests */,
+				94B7B0A817175266003368A6 /* Creating reports */,
 				943FED6A17148A2600BC4051 /* Date and time */,
 				943FED5F171478A100BC4051 /* Running tests */,
 				948D2FD1170C4DC10057A396 /* Supporting files */,
@@ -346,11 +354,19 @@
 				949CDA44170C52C800A09B71 /* INLSuite.h */,
 				949CDA45170C52C800A09B71 /* INLSuite.m */,
 				948D2FB5170C4CB90057A396 /* Composing tests */,
+				942A33C8171590900019614A /* Creating reports */,
 				943FED69171489F600BC4051 /* Date and time */,
-				942A33C8171590900019614A /* Report templates */,
 				943FED581714779F00BC4051 /* Running tests */,
 			);
 			path = Inline;
+			sourceTree = "<group>";
+		};
+		94B7B0A817175266003368A6 /* Creating reports */ = {
+			isa = PBXGroup;
+			children = (
+				94B7B0A617175090003368A6 /* INLLlamaCaseStringTransformerTests.m */,
+			);
+			name = "Creating reports";
 			sourceTree = "<group>";
 		};
 		94F66AA417117BF200F93685 /* Integrated Tests */ = {
@@ -571,6 +587,7 @@
 				943FED65171481B100BC4051 /* INLDateProvider.m in Sources */,
 				94B7B0951716D8AB003368A6 /* INLResultAccumulator.m in Sources */,
 				94B7B0A01716F7DE003368A6 /* INLOCUnitTemplateFactory.m in Sources */,
+				94B7B0A317175059003368A6 /* INLLlamaCaseStringTransformer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -588,6 +605,7 @@
 				949CDA4C170CB4D400A09B71 /* INLStopwatchTests.m in Sources */,
 				943FED5E1714789D00BC4051 /* INLRunnerTests.m in Sources */,
 				94B7B0981716DAB9003368A6 /* INLResultAccumulatorTests.m in Sources */,
+				94B7B0A717175090003368A6 /* INLLlamaCaseStringTransformerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
