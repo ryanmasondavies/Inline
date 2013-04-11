@@ -7,7 +7,7 @@
 //
 
 #import "INLFailedState.h"
-#import "INLReporter.h"
+#import "INLResponder.h"
 #import "INLTest.h"
 
 @interface INLFailedState ()
@@ -24,7 +24,7 @@
     return self;
 }
 
-- (void)runWithReporter:(INLReporter *)reporter forTest:(INLTest *)test
+- (void)runWithResponder:(id<INLResponder>)responder forTest:(INLTest *)test
 {
 }
 

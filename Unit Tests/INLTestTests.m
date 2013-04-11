@@ -15,12 +15,12 @@
 {
     // given
     id state = [OCMockObject niceMockForProtocol:@protocol(INLTestState)];
-    id reporter = [OCMockObject niceMockForClass:[INLReporter class]];
+    id responder = [OCMockObject niceMockForProtocol:@protocol(INLResponder)];
     INLTest *test = [[INLTest alloc] initWithState:state weight:nil];
-    [[state expect] runWithReporter:reporter forTest:test];
+    [[state expect] runWithResponder:responder forTest:test];
     
     // when
-    [test runWithReporter:reporter];
+    [test runWithResponder:responder];
     
     // then
     [state verify];
@@ -31,12 +31,10 @@
     // given
     INLTest *test = [[INLTest alloc] initWithState:nil weight:nil];
     id state = [OCMockObject niceMockForProtocol:@protocol(INLTestState)];
-    id reporter = [OCMockObject niceMockForClass:[INLReporter class]];
-    [[state expect] runWithReporter:reporter forTest:test];
     
     // when
     [test transitionToState:state];
-    [test runWithReporter:reporter];
+    [test runWithResponder:nil];
     
     // then
     [state verify];

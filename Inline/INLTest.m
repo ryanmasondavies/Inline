@@ -8,7 +8,7 @@
 
 #import "INLTest.h"
 #import "INLTestState.h"
-#import "INLReporter.h"
+#import "INLResponder.h"
 
 @interface INLTest ()
 @property (strong, nonatomic) id<INLTestState> state;
@@ -36,9 +36,9 @@
     return [[self state] name];
 }
 
-- (void)runWithReporter:(INLReporter *)reporter
+- (void)runWithResponder:(id<INLResponder>)responder
 {
-    [[self state] runWithReporter:reporter forTest:self];
+    [[self state] runWithResponder:responder forTest:self];
 }
 
 @end

@@ -12,21 +12,21 @@
 
 @implementation INLRunnerTests
 
-- (void)testNotifiesReporterThatRunHasStartedBeforeForwardingRunToComponent
+- (void)testNotifiesResponderThatRunHasStartedBeforeForwardingRunToComponent
 {
     // given
     INLRunner *runner = [[INLRunner alloc] init];
     
     // when
     id component = [OCMockObject niceMockForProtocol:@protocol(INLComponent)];
-    id reporter = [OCMockObject niceMockForClass:[INLReporter class]];
+    id responder = [OCMockObject niceMockForProtocol:@protocol(INLResponder)];
     __block BOOL forwarded = NO;
-    [[[component stub] andDo:^(NSInvocation *i) { forwarded = YES; }] runWithReporter:OCMOCK_ANY];
-    [[[reporter expect] andDo:^(NSInvocation *i) { [[@(forwarded) should] beFalse]; }] runDidStart];
-    [runner runComponent:component withReporter:reporter];
+    [[[component stub] andDo:^(NSInvocation *i) { forwarded = YES; }] runWithResponder:OCMOCK_ANY];
+    [[[responder expect] andDo:^(NSInvocation *i) { [[@(forwarded) should] beFalse]; }] runDidStart];
+    [runner runComponent:component withResponder:responder];
     
     // then
-    [reporter verify];
+    [responder verify];
 }
 
 - (void)testForwardsRunToComponent
@@ -36,43 +36,43 @@
     
     // when
     id component = [OCMockObject niceMockForProtocol:@protocol(INLComponent)];
-    [[component expect] runWithReporter:OCMOCK_ANY];
-    [runner runComponent:component withReporter:nil];
+    [[component expect] runWithResponder:OCMOCK_ANY];
+    [runner runComponent:component withResponder:nil];
     
     // then
     [component verify];
 }
 
-- (void)testPassesReporterToComponent
+- (void)testPassesResponderToComponent
 {
     // given
     INLRunner *runner = [[INLRunner alloc] init];
     
     // when
     id component = [OCMockObject niceMockForProtocol:@protocol(INLComponent)];
-    id reporter = [OCMockObject niceMockForClass:[INLReporter class]];
-    [[component expect] runWithReporter:reporter];
-    [runner runComponent:component withReporter:reporter];
+    id responder = [OCMockObject niceMockForProtocol:@protocol(INLResponder)];
+    [[component expect] runWithResponder:responder];
+    [runner runComponent:component withResponder:responder];
     
     // then
     [component verify];
 }
 
-- (void)testNotifiesReporterThatRunHasFinishedAfterForwardingRunToComponent
+- (void)testNotifiesResponderThatRunHasFinishedAfterForwardingRunToComponent
 {
     // given
     INLRunner *runner = [[INLRunner alloc] init];
     
     // when
     id component = [OCMockObject niceMockForProtocol:@protocol(INLComponent)];
-    id reporter = [OCMockObject niceMockForClass:[INLReporter class]];
+    id responder = [OCMockObject niceMockForProtocol:@protocol(INLResponder)];
     __block BOOL forwarded = NO;
-    [[[component stub] andDo:^(NSInvocation *i) { forwarded = YES; }] runWithReporter:OCMOCK_ANY];
-    [[[reporter expect] andDo:^(NSInvocation *i) { [[@(forwarded) should] beTrue]; }] runDidFinish];
-    [runner runComponent:component withReporter:reporter];
+    [[[component stub] andDo:^(NSInvocation *i) { forwarded = YES; }] runWithResponder:OCMOCK_ANY];
+    [[[responder expect] andDo:^(NSInvocation *i) { [[@(forwarded) should] beTrue]; }] runDidFinish];
+    [runner runComponent:component withResponder:responder];
     
     // then
-    [reporter verify];
+    [responder verify];
 }
 
 @end

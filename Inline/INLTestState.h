@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-@class INLReporter, INLTest;
+@class INLTest;
+@protocol INLResponder;
 
 /** A state in which a test can be in: pending, ready, passed, failed. */
 @protocol INLTestState <NSObject>
@@ -17,9 +18,9 @@
 
 /**
  Run the test. Applicable only to the ready state.
- @param reporter The reporter to notify.
+ @param responder The responder to notify.
  @param test The test requesting the run.
  */
-- (void)runWithReporter:(INLReporter *)reporter forTest:(INLTest *)test;
+- (void)runWithResponder:(id<INLResponder>)responder forTest:(INLTest *)test;
 
 @end

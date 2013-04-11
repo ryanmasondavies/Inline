@@ -8,15 +8,15 @@
 
 #import "INLRunner.h"
 #import "INLComponent.h"
-#import "INLReporter.h"
+#import "INLResponder.h"
 
 @implementation INLRunner
 
-- (void)runComponent:(id<INLComponent>)component withReporter:(INLReporter *)reporter
+- (void)runComponent:(id<INLComponent>)component withResponder:(id<INLResponder>)responder
 {
-    [reporter runDidStart];
-    [component runWithReporter:reporter];
-    [reporter runDidFinish];
+    [responder runDidStart];
+    [component runWithResponder:responder];
+    [responder runDidFinish];
 }
 
 @end

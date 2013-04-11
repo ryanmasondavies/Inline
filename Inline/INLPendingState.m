@@ -7,7 +7,7 @@
 //
 
 #import "INLPendingState.h"
-#import "INLReporter.h"
+#import "INLResponder.h"
 #import "INLTest.h"
 
 @interface INLPendingState ()
@@ -24,9 +24,9 @@
     return self;
 }
 
-- (void)runWithReporter:(INLReporter *)reporter forTest:(INLTest *)test
+- (void)runWithResponder:(id<INLResponder>)responder forTest:(INLTest *)test
 {
-    [reporter testDidSkip:test];
+    [responder testDidSkip:test];
 }
 
 @end

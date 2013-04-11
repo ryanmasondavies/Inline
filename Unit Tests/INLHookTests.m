@@ -20,7 +20,7 @@
     INLHook *hook = [[INLHook alloc] initWithBlock:block weight:nil];
     
     // when
-    [hook runWithReporter:nil];
+    [hook runWithResponder:nil];
     
     // then
     [[@(executed) should] beTrue];

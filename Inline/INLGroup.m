@@ -7,7 +7,7 @@
 //
 
 #import "INLGroup.h"
-#import "INLReporter.h"
+#import "INLResponder.h"
 
 @interface INLGroup ()
 @property (copy, nonatomic) NSString *name;
@@ -27,13 +27,13 @@
     return self;
 }
 
-- (void)runWithReporter:(INLReporter *)reporter
+- (void)runWithResponder:(id<INLResponder>)responder
 {
-    [reporter groupDidStart:self];
+    [responder groupDidStart:self];
     [[self components] enumerateObjectsUsingBlock:^(id<INLComponent> component, NSUInteger idx, BOOL *stop) {
-        [component runWithReporter:reporter];
+        [component runWithResponder:responder];
     }];
-    [reporter groupDidFinish:self];
+    [responder groupDidFinish:self];
 }
 
 @end

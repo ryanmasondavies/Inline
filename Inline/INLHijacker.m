@@ -55,15 +55,15 @@ void INLRunTests(id self, SEL _cmd, id ignored)
     }];
     
     NSMutableString *output = [[NSMutableString alloc] init];
-    NSMutableArray *reporters = [[NSMutableArray alloc] init];
-    reporters[0] = [[INLGroupIndenter alloc] initWithOutput:output];
-    reporters[1] = [[INLTestIndenter alloc] initWithOutput:output];
-    reporters[2] = [[INLGroupReporter alloc] initWithOutput:output];
-    reporters[3] = [[INLTestReporter alloc] initWithOutput:output];
-    reporters[4] = [[INLNewlineReporter alloc] initWithOutput:output];
+    NSMutableArray *responders = [[NSMutableArray alloc] init];
+    responders[0] = [[INLGroupIndenter alloc] initWithOutput:output];
+    responders[1] = [[INLTestIndenter alloc] initWithOutput:output];
+    responders[2] = [[INLGroupReporter alloc] initWithOutput:output];
+    responders[3] = [[INLTestReporter alloc] initWithOutput:output];
+    responders[4] = [[INLNewlineReporter alloc] initWithOutput:output];
     
-    id<INLRunnerDelegate> reporter = [[INLReporter alloc] initWithReporters:reporters];
-    INLRunner *runner = [[INLRunner alloc] initWithDelegate:reporter];
+    id<INLRunnerDelegate> responder = [[INLReporter alloc] initWithReporters:responders];
+    INLRunner *runner = [[INLRunner alloc] initWithDelegate:responder];
     [groups enumerateObjectsUsingBlock:^(INLGroup *group, NSUInteger idx, BOOL *stop) {
         [runner runByStartingAtComponent:group];
     }];

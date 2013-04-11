@@ -21,10 +21,8 @@
     INLReadyState *state = [[INLReadyState alloc] initWithName:nil block:block stopwatch:stopwatch passedState:nil failedState:nil];
     
     // when
-    [(INLStopwatch *)[[stopwatch expect] andDo:^(NSInvocation *invocation) {
-        [[@(executed) should] beFalse];
-    }] start];
-    [state runWithReporter:nil forTest:nil];
+    [(INLStopwatch *)[[stopwatch expect] andDo:^(NSInvocation *invocation) { [[@(executed) should] beFalse]; }] start];
+    [state runWithResponder:nil forTest:nil];
     
     // then
     [stopwatch verify];
@@ -39,31 +37,29 @@
     INLReadyState *state = [[INLReadyState alloc] initWithName:nil block:block stopwatch:stopwatch passedState:nil failedState:nil];
     
     // when
-    [[[stopwatch expect] andDo:^(NSInvocation *invocation) {
-        [[@(executed) should] beTrue];
-    }] stop];
-    [state runWithReporter:nil forTest:nil];
+    [[[stopwatch expect] andDo:^(NSInvocation *invocation) { [[@(executed) should] beTrue]; }] stop];
+    [state runWithResponder:nil forTest:nil];
     
     // then
     [stopwatch verify];
 }
 
-- (void)testIfBlockDoesNotRaiseAnExceptionNotifiesReporterThatTestPassed
+- (void)testIfBlockDoesNotRaiseAnExceptionNotifiesResponderThatTestPassed
 {
     // given
     INLReadyState *state = [[INLReadyState alloc] initWithName:nil block:^{} stopwatch:nil passedState:nil failedState:nil];
     
     // when
     id test = [OCMockObject niceMockForClass:[INLTest class]];
-    id reporter = [OCMockObject niceMockForClass:[INLReporter class]];
-    [[reporter expect] testDidPass:test withDuration:0];
-    [state runWithReporter:reporter forTest:test];
+    id responder = [OCMockObject niceMockForProtocol:@protocol(INLResponder)];
+    [[responder expect] testDidPass:test withDuration:0];
+    [state runWithResponder:responder forTest:test];
     
     // then
-    [reporter verify];
+    [responder verify];
 }
 
-- (void)testIfBlockDoesNotRaiseAnExceptionHandsStopwatchTimeElapsedToReporter
+- (void)testIfBlockDoesNotRaiseAnExceptionHandsStopwatchTimeElapsedToResponder
 {
     // given
     id stopwatch = [OCMockObject niceMockForClass:[INLStopwatch class]];
@@ -72,12 +68,12 @@
     
     // when
     id test = [OCMockObject niceMockForClass:[INLTest class]];
-    id reporter = [OCMockObject niceMockForClass:[INLReporter class]];
-    [[reporter expect] testDidPass:test withDuration:5.0];
-    [state runWithReporter:reporter forTest:test];
+    id responder = [OCMockObject niceMockForProtocol:@protocol(INLResponder)];
+    [[responder expect] testDidPass:test withDuration:5.0];
+    [state runWithResponder:responder forTest:test];
     
     // then
-    [reporter verify];
+    [responder verify];
 }
 
 - (void)testIfBlockDoesNotRaiseAnExceptionTransitionsToPassedState
@@ -89,13 +85,13 @@
     [[test expect] transitionToState:passedState];
     
     // when
-    [state runWithReporter:nil forTest:test];
+    [state runWithResponder:nil forTest:test];
     
     // then
     [test verify];
 }
 
-- (void)testIfBlockRaisesAnExceptionNotifiesReporterThatTestFailed
+- (void)testIfBlockRaisesAnExceptionNotifiesResponderThatTestFailed
 {
     // given
     NSException *exception = [NSException exceptionWithName:NSInternalInconsistencyException reason:@"" userInfo:nil];
@@ -104,12 +100,12 @@
     
     // when
     id test = [OCMockObject niceMockForClass:[INLTest class]];
-    id reporter = [OCMockObject niceMockForClass:[INLReporter class]];
-    [[reporter expect] testDidFail:test withException:exception];
-    [state runWithReporter:reporter forTest:test];
+    id responder = [OCMockObject niceMockForProtocol:@protocol(INLResponder)];
+    [[responder expect] testDidFail:test withException:exception];
+    [state runWithResponder:responder forTest:test];
     
     // then
-    [reporter verify];
+    [responder verify];
 }
 
 - (void)testIfBlockRaisesAnExceptionTransitionsToFailedState
@@ -122,7 +118,7 @@
     [[test expect] transitionToState:failedState];
     
     // when
-    [state runWithReporter:nil forTest:test];
+    [state runWithResponder:nil forTest:test];
     
     // then
     [test verify];

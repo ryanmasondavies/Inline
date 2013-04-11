@@ -141,6 +141,7 @@
 		94B3EF151714270700B6FD5F /* INLReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLReporter.m; sourceTree = "<group>"; };
 		94B3EF181714274D00B6FD5F /* INLReporterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLReporterTests.m; sourceTree = "<group>"; };
 		94B3EF1A1714340400B6FD5F /* INLPublisher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INLPublisher.h; sourceTree = "<group>"; };
+		94B7B0921716D251003368A6 /* INLResponder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INLResponder.h; sourceTree = "<group>"; };
 		94F66A9F17117BF200F93685 /* Integrated Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Integrated Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		94F66AA617117BF200F93685 /* Integrated Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Integrated Tests-Info.plist"; sourceTree = "<group>"; };
 		94F66AAB17117BF200F93685 /* INLOCUnitFormatTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLOCUnitFormatTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -201,6 +202,7 @@
 		943FED581714779F00BC4051 /* Running tests */ = {
 			isa = PBXGroup;
 			children = (
+				94B7B0921716D251003368A6 /* INLResponder.h */,
 				943FED59171477A700BC4051 /* INLRunner.h */,
 				943FED5A171477A700BC4051 /* INLRunner.m */,
 			);

@@ -7,7 +7,7 @@
 //
 
 #import "INLHook.h"
-#import "INLReporter.h"
+#import "INLResponder.h"
 
 @interface INLHook ()
 @property (copy, nonatomic) INLHookBlock block;
@@ -25,7 +25,7 @@
     return self;
 }
 
-- (void)runWithReporter:(INLReporter *)reporter
+- (void)runWithResponder:(id<INLResponder>)responder
 {
     [self block]();
 }

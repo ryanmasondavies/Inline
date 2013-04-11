@@ -8,7 +8,7 @@
 
 #import "INLReadyState.h"
 #import "INLStopwatch.h"
-#import "INLReporter.h"
+#import "INLResponder.h"
 #import "INLTest.h"
 
 @interface INLReadyState ()
@@ -33,7 +33,7 @@
     return self;
 }
 
-- (void)runWithReporter:(INLReporter *)reporter forTest:(INLTest *)test
+- (void)runWithResponder:(id<INLResponder>)responder forTest:(INLTest *)test
 {
     [[self stopwatch] start];
     NSException *exception = nil;
@@ -42,10 +42,10 @@
     [[self stopwatch] stop];
     
     if (exception == nil) {
-        [reporter testDidPass:test withDuration:[[self stopwatch] timeElapsed]];
+        [responder testDidPass:test withDuration:[[self stopwatch] timeElapsed]];
         [test transitionToState:[self passedState]];
     } else {
-        [reporter testDidFail:test withException:exception];
+        [responder testDidFail:test withException:exception];
         [test transitionToState:[self failedState]];
     }
 }

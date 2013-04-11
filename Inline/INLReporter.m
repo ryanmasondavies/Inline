@@ -30,39 +30,4 @@
     return self;
 }
 
-- (void)runDidStart
-{
-    [[self results] setObject:[[self dateProvider] currentDate] forKey:@"startDate"];
-}
-
-- (void)runDidFinish
-{
-    [[self results] setObject:[[self dateProvider] currentDate] forKey:@"finishDate"];
-}
-
-- (void)groupDidStart:(INLGroup *)group
-{
-}
-
-- (void)groupDidFinish:(INLGroup *)group
-{
-}
-
-- (void)testDidStart:(INLTest *)test
-{
-}
-
-- (void)testDidPass:(INLTest *)test withDuration:(NSTimeInterval)duration
-{
-    [[self results][@"tests"] addObject:@{@"name": [test name], @"duration": @(duration)}];
-}
-
-- (void)testDidSkip:(INLTest *)test
-{
-}
-
-- (void)testDidFail:(INLTest *)test withException:(NSException *)exception
-{
-}
-
 @end

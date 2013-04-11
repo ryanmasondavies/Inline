@@ -12,19 +12,19 @@
 
 @implementation INLPendingStateTests
 
-- (void)testNotifiesReporterThatTestIsSkipped
+- (void)testNotifiesResponderThatTestIsSkipped
 {
     // given
     INLPendingState *state = [[INLPendingState alloc] initWithName:nil];
     
     // when
     id test = [OCMockObject niceMockForClass:[INLTest class]];
-    id reporter = [OCMockObject niceMockForClass:[INLReporter class]];
-    [[reporter expect] testDidSkip:test];
-    [state runWithReporter:reporter forTest:test];
+    id responder = [OCMockObject niceMockForProtocol:@protocol(INLResponder)];
+    [[responder expect] testDidSkip:test];
+    [state runWithResponder:responder forTest:test];
     
     // then
-    [reporter verify];
+    [responder verify];
 }
 
 @end
