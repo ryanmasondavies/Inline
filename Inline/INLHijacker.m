@@ -6,10 +6,12 @@
 //  Copyright (c) 2013 Ryan Davies. All rights reserved.
 //
 
-//#undef RUN_OCUNIT_TESTS
 #ifndef RUN_OCUNIT_TESTS
 
 #import <Foundation/Foundation.h>
+#import <GRMustache/GRMustache.h>
+#import <InflectorKit/NSString+InflectorKit.h>
+#import <TransformerKit/TransformerKit.h>
 #import <objc/objc-runtime.h>
 #import "Inline.h"
 
@@ -64,9 +66,34 @@ void INLRunTests(id self, SEL _cmd, id ignored)
         [runner runComponent:group withResponder:responder];
     }];
     
-    NSLog(@"%@", results);
+    NSNumberFormatter *threeDecimalPoints = [[NSNumberFormatter alloc] init];
+    [threeDecimalPoints setNumberStyle:NSNumberFormatterDecimalStyle];
+    [threeDecimalPoints setMinimumFractionDigits:3];
+    [threeDecimalPoints setMaximumFractionDigits:3];
     
-//    printf("%s", [output cStringUsingEncoding:NSUTF8StringEncoding]);
+    [results addEntriesFromDictionary:@{
+        @"threeDecimalPoints": threeDecimalPoints,
+        @"pluralize": [GRMustacheFilter filterWithBlock:^id(NSNumber *count) {
+            return [GRMustache renderingObjectWithBlock:^NSString *(GRMustacheTag *tag, GRMustacheContext *context, BOOL *HTMLSafe, NSError *__autoreleasing *error) {
+                NSString *word = [tag renderContentWithContext:context HTMLSafe:HTMLSafe error:error];
+                return [count isEqualToNumber:@1] ? word : [word pluralizedString];
+            }];
+        }],
+        @"llamaCase": [NSValueTransformer valueTransformerForName:TKLlamaCaseStringTransformerName],
+        @"numberOfFailures": [GRMustacheFilter filterWithBlock:^id(NSArray *tests) {
+            __block NSUInteger failures = 0;
+            [tests enumerateObjectsUsingBlock:^(NSDictionary *test, NSUInteger idx, BOOL *stop) {
+                if (test[@"failure"]) {
+                    failures ++;
+                }
+            }];
+            return @(failures);
+        }]
+    }];
+    
+    GRMustacheTemplate *template = [GRMustacheTemplate templateFromResource:@"OCUnit" bundle:[NSBundle mainBundle] error:NULL];
+    NSString *report = [template renderObject:results error:NULL];
+    printf("%s", [report cStringUsingEncoding:NSUTF8StringEncoding]);
     
     exit(0);
 }
@@ -78,32 +105,6 @@ void INLRunTests(id self, SEL _cmd, id ignored)
 + (void)load
 {
     class_replaceMethod(objc_getMetaClass("SenTestProbe"), @selector(runTests:), (IMP)INLRunTests, "v@:@");
-}
-
-@end
-
-@interface Tests : INLSuite; @end
-@implementation Tests
-
-- (INLGroup *)rootGroup
-{
-    INLTimeProvider *timeProvider = [[INLTimeProvider alloc] init];
-    INLStopwatch *stopwatch = [[INLStopwatch alloc] initWithTimeProvider:timeProvider];
-    
-    INLPassedState *catPassed = [[INLPassedState alloc] initWithName:@"test my cat"];
-    INLReadyState *catReady = [[INLReadyState alloc] initWithName:@"test my cat" block:^{} stopwatch:stopwatch passedState:catPassed failedState:nil];
-    INLTest *catTest = [[INLTest alloc] initWithState:catReady weight:@0];
-    
-    INLFailedState *dogFailed = [[INLFailedState alloc] initWithName:@"test my dog"];
-    INLReadyState *dogReady = [[INLReadyState alloc] initWithName:@"test my dog" block:^{
-        [NSException raise:NSInternalInconsistencyException format:@"dog failed"];
-    } stopwatch:stopwatch passedState:nil failedState:dogFailed];
-    INLTest *dogTest = [[INLTest alloc] initWithState:dogReady weight:@1];
-    
-    NSMutableArray *tests = [@[catTest, dogTest] mutableCopy];
-    NSSortDescriptor *lightestToHeaviest = [[NSSortDescriptor alloc] initWithKey:@"weight" ascending:YES];
-    CBDSortedArray *sorted = [[CBDSortedArray alloc] initWithObjects:tests sortDescriptors:@[lightestToHeaviest]];
-    return [[INLGroup alloc] initWithName:@"" components:sorted weight:@0];
 }
 
 @end
