@@ -8,7 +8,6 @@ Pod::Spec.new do |s|
   s.author = { 'Ryan Davies' => 'ryan@ryandavies.net' }
   s.source = { :git => 'https://github.com/rdavies/Inline.git', :tag => s.version.to_s }
   s.source_files = 'Inline/*.{h,m}'
-  s.resources    = 'Inline/OCUnit.mustache'
   s.framework    = 'SenTestingKit'
   s.xcconfig     = { 'FRAMEWORK_SEARCH_PATHS' => '"$(SDKROOT)/Developer/Library/Frameworks" "$(DEVELOPER_LIBRARY_DIR)/Frameworks"' }
   s.requires_arc = true
