@@ -11,7 +11,6 @@
 #import <Foundation/Foundation.h>
 #import <GRMustache/GRMustache.h>
 #import <InflectorKit/NSString+InflectorKit.h>
-#import <TransformerKit/TransformerKit.h>
 #import <objc/objc-runtime.h>
 #import "Inline.h"
 
@@ -64,7 +63,9 @@ void INLRunTests(id self, SEL _cmd, id ignored)
     NSMutableDictionary *results = [@{@"tests": [[NSMutableArray alloc] init]} mutableCopy];
     id<INLResponder> responder = [[INLResultAccumulator alloc] initWithDateProvider:dateProvider results:results];
     
-    INLRunner *runner = [[INLRunner alloc] init];
+    INLTimeProvider *timeProvider = [[INLTimeProvider alloc] init];
+    INLStopwatch *stopwatch = [[INLStopwatch alloc] initWithTimeProvider:timeProvider];
+    INLRunner *runner = [[INLRunner alloc] initWithStopwatch:stopwatch];
     [groups enumerateObjectsUsingBlock:^(INLGroup *group, NSUInteger idx, BOOL *stop) {
         [runner runComponent:group withResponder:responder];
     }];
@@ -82,7 +83,7 @@ void INLRunTests(id self, SEL _cmd, id ignored)
                 return [count isEqualToNumber:@1] ? word : [word pluralizedString];
             }];
         }],
-        @"llamaCase": [NSValueTransformer valueTransformerForName:TKLlamaCaseStringTransformerName],
+        @"llamaCase": [[INLLlamaCaseStringTransformer alloc] init],
         @"numberOfFailures": [GRMustacheFilter filterWithBlock:^id(NSArray *tests) {
             __block NSUInteger failures = 0;
             [tests enumerateObjectsUsingBlock:^(NSDictionary *test, NSUInteger idx, BOOL *stop) {
@@ -94,7 +95,7 @@ void INLRunTests(id self, SEL _cmd, id ignored)
         }]
     }];
     
-    GRMustacheTemplate *template = [GRMustacheTemplate templateFromResource:@"OCUnit" bundle:[NSBundle bundleForClass:[INLHijacker class]] error:NULL];
+    GRMustacheTemplate *template = [INLOCUnitTemplateFactory createTemplate];
     NSString *report = [template renderObject:results error:NULL];
     printf("%s", [report cStringUsingEncoding:NSUTF8StringEncoding]);
     

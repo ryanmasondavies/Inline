@@ -126,7 +126,7 @@
 		9498982516F49B75005E06AB /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		949CDA44170C52C800A09B71 /* INLSuite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLSuite.h; sourceTree = "<group>"; };
 		949CDA45170C52C800A09B71 /* INLSuite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLSuite.m; sourceTree = "<group>"; };
-		949CDA48170C535600A09B71 /* INLHijacker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLHijacker.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		949CDA48170C535600A09B71 /* INLHijacker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLHijacker.m; sourceTree = "<group>"; };
 		949CDA4B170CB4D400A09B71 /* INLStopwatchTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLStopwatchTests.m; sourceTree = "<group>"; };
 		949CDA4E170CB6F500A09B71 /* INLStopwatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLStopwatch.h; sourceTree = "<group>"; };
 		949CDA4F170CB6F500A09B71 /* INLStopwatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLStopwatch.m; sourceTree = "<group>"; };
