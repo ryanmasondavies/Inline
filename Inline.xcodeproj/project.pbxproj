@@ -42,13 +42,11 @@
 		94A1C77816A97B3F008C170D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A1C77716A97B3F008C170D /* Foundation.framework */; };
 		94A1C77D16A97B3F008C170D /* Inline.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 94A1C77C16A97B3F008C170D /* Inline.h */; };
 		94A1C78A16A97B3F008C170D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A1C77716A97B3F008C170D /* Foundation.framework */; };
-		94B3EF161714270700B6FD5F /* INLReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B3EF151714270700B6FD5F /* INLReporter.m */; };
-		94B3EF191714274D00B6FD5F /* INLReporterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B3EF181714274D00B6FD5F /* INLReporterTests.m */; };
 		94B7B0951716D8AB003368A6 /* INLResultAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B7B0941716D8AA003368A6 /* INLResultAccumulator.m */; };
 		94B7B0981716DAB9003368A6 /* INLResultAccumulatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B7B0971716DAB9003368A6 /* INLResultAccumulatorTests.m */; };
 		94F66AA017117BF200F93685 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9498982516F49B75005E06AB /* SenTestingKit.framework */; };
 		94F66AA317117BF200F93685 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A1C77716A97B3F008C170D /* Foundation.framework */; };
-		94F66AAC17117BF200F93685 /* INLOCUnitFormatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F66AAB17117BF200F93685 /* INLOCUnitFormatTests.m */; };
+		94F66AAC17117BF200F93685 /* INLOCUnitReportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F66AAB17117BF200F93685 /* INLOCUnitReportTests.m */; };
 		F7134C4E4356497FA0247A31 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B81748F369994F9CAD780A8E /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -125,7 +123,6 @@
 		948D2FC4170C4DB70057A396 /* INLTestHelper.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLTestHelper.pch; sourceTree = "<group>"; };
 		948D2FC5170C4DB70057A396 /* INLTestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLTestTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		948D2FC6170C4DB70057A396 /* Unit Tests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Unit Tests-Info.plist"; sourceTree = "<group>"; };
-		948DBCE816F6170F00B473FD /* INLReporter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INLReporter.h; sourceTree = "<group>"; };
 		949504F316C51FE30067F026 /* INLComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = INLComponent.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		9498982516F49B75005E06AB /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		949CDA44170C52C800A09B71 /* INLSuite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLSuite.h; sourceTree = "<group>"; };
@@ -140,16 +137,13 @@
 		94A1C77716A97B3F008C170D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		94A1C77C16A97B3F008C170D /* Inline.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Inline.h; sourceTree = "<group>"; };
 		94A1C78516A97B3F008C170D /* Unit Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		94B3EF151714270700B6FD5F /* INLReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLReporter.m; sourceTree = "<group>"; };
-		94B3EF181714274D00B6FD5F /* INLReporterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLReporterTests.m; sourceTree = "<group>"; };
-		94B3EF1A1714340400B6FD5F /* INLPublisher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INLPublisher.h; sourceTree = "<group>"; };
 		94B7B0921716D251003368A6 /* INLResponder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INLResponder.h; sourceTree = "<group>"; };
 		94B7B0931716D8AA003368A6 /* INLResultAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLResultAccumulator.h; sourceTree = "<group>"; };
 		94B7B0941716D8AA003368A6 /* INLResultAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLResultAccumulator.m; sourceTree = "<group>"; };
 		94B7B0971716DAB9003368A6 /* INLResultAccumulatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLResultAccumulatorTests.m; sourceTree = "<group>"; };
 		94F66A9F17117BF200F93685 /* Integrated Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Integrated Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		94F66AA617117BF200F93685 /* Integrated Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Integrated Tests-Info.plist"; sourceTree = "<group>"; };
-		94F66AAB17117BF200F93685 /* INLOCUnitFormatTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLOCUnitFormatTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		94F66AAB17117BF200F93685 /* INLOCUnitReportTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLOCUnitReportTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		94F66AAD17117BF200F93685 /* INLTestHelper.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INLTestHelper.pch; sourceTree = "<group>"; };
 		9A6358ECFE0243D18DEAEC0E /* Pods-Unit Tests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unit Tests.xcconfig"; path = "Pods/Pods-Unit Tests.xcconfig"; sourceTree = SOURCE_ROOT; };
 		9A6FC86C17E540ACBFF3B6F2 /* libPods-Integrated Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Integrated Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -274,7 +268,6 @@
 			children = (
 				948D2FD2170C4DCC0057A396 /* Composing tests */,
 				943FED6A17148A2600BC4051 /* Date and time */,
-				949CDA59170CC00C00A09B71 /* Reporting results */,
 				943FED5F171478A100BC4051 /* Running tests */,
 				948D2FD1170C4DC10057A396 /* Supporting files */,
 			);
@@ -302,24 +295,6 @@
 				948D2FBC170C4DB70057A396 /* INLFailedStateTests.m */,
 			);
 			name = "Composing tests";
-			sourceTree = "<group>";
-		};
-		949CDA55170CBFD900A09B71 /* Reporting results */ = {
-			isa = PBXGroup;
-			children = (
-				948DBCE816F6170F00B473FD /* INLReporter.h */,
-				94B3EF151714270700B6FD5F /* INLReporter.m */,
-				94B3EF1A1714340400B6FD5F /* INLPublisher.h */,
-			);
-			name = "Reporting results";
-			sourceTree = "<group>";
-		};
-		949CDA59170CC00C00A09B71 /* Reporting results */ = {
-			isa = PBXGroup;
-			children = (
-				94B3EF181714274D00B6FD5F /* INLReporterTests.m */,
-			);
-			name = "Reporting results";
 			sourceTree = "<group>";
 		};
 		94A1C76916A97B3F008C170D = {
@@ -369,7 +344,6 @@
 				949CDA45170C52C800A09B71 /* INLSuite.m */,
 				948D2FB5170C4CB90057A396 /* Composing tests */,
 				943FED69171489F600BC4051 /* Date and time */,
-				949CDA55170CBFD900A09B71 /* Reporting results */,
 				942A33C8171590900019614A /* Report templates */,
 				943FED581714779F00BC4051 /* Running tests */,
 			);
@@ -379,7 +353,7 @@
 		94F66AA417117BF200F93685 /* Integrated Tests */ = {
 			isa = PBXGroup;
 			children = (
-				94F66AAB17117BF200F93685 /* INLOCUnitFormatTests.m */,
+				94F66AAB17117BF200F93685 /* INLOCUnitReportTests.m */,
 				94F66AA517117BF200F93685 /* Supporting Files */,
 			);
 			path = "Integrated Tests";
@@ -590,7 +564,6 @@
 				949CDA49170C535600A09B71 /* INLHijacker.m in Sources */,
 				949CDA50170CB6F500A09B71 /* INLStopwatch.m in Sources */,
 				949CDA54170CB71100A09B71 /* INLTimeProvider.m in Sources */,
-				94B3EF161714270700B6FD5F /* INLReporter.m in Sources */,
 				943FED5B171477A700BC4051 /* INLRunner.m in Sources */,
 				943FED65171481B100BC4051 /* INLDateProvider.m in Sources */,
 				94B7B0951716D8AB003368A6 /* INLResultAccumulator.m in Sources */,
@@ -609,7 +582,6 @@
 				948D2FCC170C4DB70057A396 /* INLReadyStateTests.m in Sources */,
 				948D2FCF170C4DB70057A396 /* INLTestTests.m in Sources */,
 				949CDA4C170CB4D400A09B71 /* INLStopwatchTests.m in Sources */,
-				94B3EF191714274D00B6FD5F /* INLReporterTests.m in Sources */,
 				943FED5E1714789D00BC4051 /* INLRunnerTests.m in Sources */,
 				94B7B0981716DAB9003368A6 /* INLResultAccumulatorTests.m in Sources */,
 			);
@@ -619,7 +591,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94F66AAC17117BF200F93685 /* INLOCUnitFormatTests.m in Sources */,
+				94F66AAC17117BF200F93685 /* INLOCUnitReportTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

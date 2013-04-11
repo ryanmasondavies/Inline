@@ -60,6 +60,12 @@
 
 - (void)testDidFail:(INLTest *)test withException:(NSException *)exception
 {
+    NSMutableDictionary *failure = [@{@"reason": [exception reason]} mutableCopy];
+    NSString *filePath = [exception userInfo][SenTestFilenameKey];
+    NSNumber *lineNumber = [exception userInfo][SenTestLineNumberKey];
+    if (filePath)   [failure setObject:filePath forKey:@"filePath"];
+    if (lineNumber) [failure setObject:lineNumber forKey:@"lineNumber"];
+    [[self results][@"tests"] addObject:@{@"name": [test name], @"failure": failure}];
 }
 
 @end

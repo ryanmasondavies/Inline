@@ -6,7 +6,6 @@
 //  Copyright (c) 2013 Ryan Davies. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "INLSuite.h"
 
 // composing tests
@@ -23,10 +22,6 @@
 // date and time
 #import "INLDateProvider.h"
 #import "INLTimeProvider.h"
-
-// reporting results
-#import "INLReporter.h"
-#import "INLPublisher.h"
 
 // running tests
 #import "INLRunner.h"

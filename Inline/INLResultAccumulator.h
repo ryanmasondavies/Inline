@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <SenTestingKit/SenTestingKit.h>
 #import "INLResponder.h"
 @class INLDateProvider;
 
