@@ -14,6 +14,5 @@ Pod::Spec.new do |s|
   
   s.dependency "Caboodle", "~> 0.2.0"
   s.dependency 'InflectorKit', '~> 0.0.1'
-  s.dependency 'TransformerKit', '~> 0.0.2'
   s.dependency 'GRMustache', '~> 6.4.0'
 end
