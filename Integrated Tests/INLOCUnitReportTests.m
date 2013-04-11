@@ -140,6 +140,29 @@
     STAssertEqualObjects(report, expected, nil);
 }
 
+- (void)testTemplateRendersSuiteWithOneFailingTestWithNoFileInfo
+{
+    // when
+    [[self results] addEntriesFromDictionary:@{
+        @"startDate": [NSDate dateWithTimeIntervalSince1970:0],
+        @"finishDate": [NSDate dateWithTimeIntervalSince1970:60 * 60 * 24],
+        @"duration": @0.001,
+        @"tests": @[
+            @{@"name": @"the great sample test", @"failure": @{@"reason": @"Failed for some reason"}}
+        ]
+    }];
+    NSString *report = [[self template] renderObject:[self results] error:NULL];
+    
+    // then
+    NSString *expected = @"Test Suite 'Suite' started at 1970-01-01 00:00:00 +0000\n"
+                         @"Test Case '-[Test theGreatSampleTest]' started.\n"
+                         @"Unknown.m:0: error: -[Test theGreatSampleTest] : Failed for some reason\n"
+                         @"Test Case '-[Test theGreatSampleTest]' failed (0.001 seconds).\n"
+                         @"Test Suite 'Suite' finished at 1970-01-02 00:00:00 +0000.\n"
+                         @"Executed 1 test, with 1 failure (0 unexpected) in 0.001 (0.001) seconds";
+    STAssertEqualObjects(report, expected, nil);
+}
+
 - (void)testTemplateRendersSuiteWithTwoFailingTests
 {
     // when
