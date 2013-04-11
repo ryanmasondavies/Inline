@@ -12,7 +12,7 @@
 
 @implementation INLResultAccumulatorTests
 
-- (void)testWhenRunStartsAddsStartDate
+- (void)testWhenRunStartsSetsStartDate
 {
     // given
     NSMutableDictionary *results = [[NSMutableDictionary alloc] init];
@@ -25,11 +25,10 @@
     [accumulator runDidStart];
     
     // then
-    [[@(results[@"startDate"] != nil) should] beTrue];
     [[results[@"startDate"] should] beEqualTo:date];
 }
 
-- (void)testWhenOneTestPassesAddsNameAndDuration
+- (void)testWhenOneTestPassesSetsNameAndDuration
 {
     // given
     NSMutableDictionary *results = [@{@"tests": [[NSMutableArray alloc] init]} mutableCopy];
@@ -45,7 +44,7 @@
     [[results[@"tests"][0][@"duration"] should] beEqualTo:@1];
 }
 
-- (void)testWhenTwoTestsPassAddsNameAndDuration
+- (void)testWhenTwoTestsPassSetsNameAndDuration
 {
     // given
     NSMutableDictionary *results = [@{@"tests": [[NSMutableArray alloc] init]} mutableCopy];
@@ -66,7 +65,7 @@
     [[results[@"tests"][1][@"duration"] should] beEqualTo:@1];
 }
 
-- (void)testWhenOneTestFailsAddsNameAndFilePathAndLineNumberAndReason
+- (void)testWhenOneTestFailsSetsNameAndFilePathAndLineNumberAndReason
 {
     // given
     NSMutableDictionary *results = [@{@"tests": [[NSMutableArray alloc] init]} mutableCopy];
@@ -86,7 +85,7 @@
     [[results[@"tests"][0][@"failure"][@"reason"] should] beEqualTo:@"general failure"];
 }
 
-- (void)testWhenOneTestFailsAddsNameAndReason
+- (void)testWhenOneTestFailsWithNoFilePathOrLineNumberSetsNameAndReason
 {
     // given
     NSMutableDictionary *results = [@{@"tests": [[NSMutableArray alloc] init]} mutableCopy];
@@ -103,7 +102,7 @@
     [[results[@"tests"][0][@"failure"][@"reason"] should] beEqualTo:@"general failure"];
 }
 
-- (void)testWhenTwoTestsFailsAddsNamesAndFilePathsAndLineNumbersAndReasons
+- (void)testWhenTwoTestsFailSetsNamesAndFilePathsAndLineNumbersAndReasons
 {
     // given
     NSMutableDictionary *results = [@{@"tests": [[NSMutableArray alloc] init]} mutableCopy];
@@ -130,7 +129,7 @@
     [[results[@"tests"][1][@"failure"][@"reason"] should] beEqualTo:@"general failure"];
 }
 
-- (void)testWhenRunFinishesAddsFinishDate
+- (void)testWhenRunFinishesSetsFinishDate
 {
     // given
     NSMutableDictionary *results = [[NSMutableDictionary alloc] init];
@@ -140,11 +139,26 @@
     INLResultAccumulator *accumulator = [[INLResultAccumulator alloc] initWithDateProvider:dateProvider results:results];
     
     // when
-    [accumulator runDidFinish];
+    [accumulator runDidFinishWithDuration:0];
     
     // then
-    [[@(results[@"finishDate"] != nil) should] beTrue];
     [[results[@"finishDate"] should] beEqualTo:date];
+}
+
+- (void)testWhenRunFinishesSetsDuration
+{
+    // given
+    NSMutableDictionary *results = [[NSMutableDictionary alloc] init];
+    id dateProvider = [OCMockObject niceMockForClass:[INLDateProvider class]];
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:0];
+    [[[dateProvider stub] andReturn:date] currentDate];
+    INLResultAccumulator *accumulator = [[INLResultAccumulator alloc] initWithDateProvider:dateProvider results:results];
+    
+    // when
+    [accumulator runDidFinishWithDuration:10];
+    
+    // then
+    [[results[@"duration"] should] beEqualTo:@10];
 }
 
 @end

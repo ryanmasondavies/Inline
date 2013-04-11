@@ -29,12 +29,13 @@
 
 - (void)runDidStart
 {
-    [[self results] setObject:[[self dateProvider] currentDate] forKey:@"startDate"];
+    [self results][@"startDate"] = [[self dateProvider] currentDate];
 }
 
-- (void)runDidFinish
+- (void)runDidFinishWithDuration:(NSTimeInterval)duration
 {
-    [[self results] setObject:[[self dateProvider] currentDate] forKey:@"finishDate"];
+    [self results][@"finishDate"] = [[self dateProvider] currentDate];
+    [self results][@"duration"] = @(duration);
 }
 
 - (void)groupDidStart:(INLGroup *)group
@@ -60,14 +61,18 @@
 
 - (void)testDidFail:(INLTest *)test withException:(NSException *)exception
 {
-    NSDictionary *failure = nil;
-    NSString *filePath = [exception userInfo][SenTestFilenameKey];
+    NSString *reason     = [exception reason];
+    NSString *filePath   = [exception userInfo][SenTestFilenameKey];
     NSNumber *lineNumber = [exception userInfo][SenTestLineNumberKey];
+    
+    NSDictionary *failure = nil;
+    
     if (filePath && lineNumber) {
-        failure = @{@"reason": [exception reason], @"filePath": filePath, @"lineNumber": lineNumber};
+        failure = @{@"reason": reason, @"filePath": filePath, @"lineNumber": lineNumber};
     } else {
-        failure = @{@"reason": [exception reason]};
+        failure = @{@"reason": reason};
     }
+    
     [[self results][@"tests"] addObject:@{@"name": [test name], @"failure": failure}];
 }
 

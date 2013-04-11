@@ -16,8 +16,11 @@
 /** Invoked by INLRunner when a run has started. */
 - (void)runDidStart;
 
-/** Invoked by INLRunner when a run has finished. */
-- (void)runDidFinish;
+/**
+ Invoked by INLRunner when a run has finished.
+ @param duration The amount of time the run took, in seconds.
+ */
+- (void)runDidFinishWithDuration:(NSTimeInterval)duration;
 
 /**
  Invoked by INLGroup when a group is about to run its components.

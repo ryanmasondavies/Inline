@@ -7,10 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+@class INLStopwatch;
 @protocol INLComponent, INLResponder;
 
 /** Runs through a component hierarchy. Necessary to invoke [INLResponder start] and [INLResponder stop]. */
 @interface INLRunner : NSObject
+
+/**
+ Initialize a runner.
+ @param stopwatch A stopwatch used for timing the run.
+ @return An initialized runner.
+ */
+- (id)initWithStopwatch:(INLStopwatch *)stopwatch;
 
 /**
  Run a component.
