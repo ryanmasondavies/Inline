@@ -20,6 +20,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+// interfacing with SenTestingKit
+#import "INLSenTestCase.h"
+
 // composing tests
 #import "INLGroup.h"
 #import "INLHook.h"
