@@ -13,12 +13,8 @@
 		947EA9F716B724D600FE8D79 /* INLGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 947EA9F616B724D600FE8D79 /* INLGroup.m */; };
 		947EA9F916B72AFC00FE8D79 /* INLTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 947EA9F816B72AFC00FE8D79 /* INLTest.m */; };
 		947EA9FF16B72F4700FE8D79 /* INLHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 947EA9FE16B72F4700FE8D79 /* INLHook.m */; };
-		948D2FC7170C4DB70057A396 /* INLFailedStateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 948D2FBC170C4DB70057A396 /* INLFailedStateTests.m */; };
 		948D2FC8170C4DB70057A396 /* INLGroupTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 948D2FBD170C4DB70057A396 /* INLGroupTests.m */; };
 		948D2FC9170C4DB70057A396 /* INLHookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 948D2FBE170C4DB70057A396 /* INLHookTests.m */; };
-		948D2FCA170C4DB70057A396 /* INLPassedStateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 948D2FBF170C4DB70057A396 /* INLPassedStateTests.m */; };
-		948D2FCB170C4DB70057A396 /* INLPendingStateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 948D2FC0170C4DB70057A396 /* INLPendingStateTests.m */; };
-		948D2FCC170C4DB70057A396 /* INLReadyStateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 948D2FC1170C4DB70057A396 /* INLReadyStateTests.m */; };
 		948D2FCF170C4DB70057A396 /* INLTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 948D2FC5170C4DB70057A396 /* INLTestTests.m */; };
 		9498982416F49B69005E06AB /* libInline.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A1C77416A97B3F008C170D /* libInline.a */; };
 		9498982616F49B75005E06AB /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9498982516F49B75005E06AB /* SenTestingKit.framework */; };
@@ -81,12 +77,8 @@
 		947EA9F816B72AFC00FE8D79 /* INLTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLTest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		947EA9FD16B72F4700FE8D79 /* INLHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLHook.h; sourceTree = "<group>"; };
 		947EA9FE16B72F4700FE8D79 /* INLHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLHook.m; sourceTree = "<group>"; };
-		948D2FBC170C4DB70057A396 /* INLFailedStateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLFailedStateTests.m; sourceTree = "<group>"; };
 		948D2FBD170C4DB70057A396 /* INLGroupTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLGroupTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		948D2FBE170C4DB70057A396 /* INLHookTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLHookTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		948D2FBF170C4DB70057A396 /* INLPassedStateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLPassedStateTests.m; sourceTree = "<group>"; };
-		948D2FC0170C4DB70057A396 /* INLPendingStateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLPendingStateTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		948D2FC1170C4DB70057A396 /* INLReadyStateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLReadyStateTests.m; sourceTree = "<group>"; };
 		948D2FC4170C4DB70057A396 /* INLTestHelper.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLTestHelper.pch; sourceTree = "<group>"; };
 		948D2FC5170C4DB70057A396 /* INLTestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLTestTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		948D2FC6170C4DB70057A396 /* Unit Tests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Unit Tests-Info.plist"; sourceTree = "<group>"; };
@@ -190,10 +182,6 @@
 				948D2FBD170C4DB70057A396 /* INLGroupTests.m */,
 				948D2FBE170C4DB70057A396 /* INLHookTests.m */,
 				948D2FC5170C4DB70057A396 /* INLTestTests.m */,
-				948D2FC1170C4DB70057A396 /* INLReadyStateTests.m */,
-				948D2FC0170C4DB70057A396 /* INLPendingStateTests.m */,
-				948D2FBF170C4DB70057A396 /* INLPassedStateTests.m */,
-				948D2FBC170C4DB70057A396 /* INLFailedStateTests.m */,
 			);
 			name = "Composing tests";
 			sourceTree = "<group>";
@@ -457,12 +445,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				948D2FC7170C4DB70057A396 /* INLFailedStateTests.m in Sources */,
 				948D2FC8170C4DB70057A396 /* INLGroupTests.m in Sources */,
 				948D2FC9170C4DB70057A396 /* INLHookTests.m in Sources */,
-				948D2FCA170C4DB70057A396 /* INLPassedStateTests.m in Sources */,
-				948D2FCB170C4DB70057A396 /* INLPendingStateTests.m in Sources */,
-				948D2FCC170C4DB70057A396 /* INLReadyStateTests.m in Sources */,
 				948D2FCF170C4DB70057A396 /* INLTestTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
