@@ -24,13 +24,13 @@
 #import "INLCompiler.h"
 
 @interface INLHook ()
-@property (copy, nonatomic) INLHookBlock block;
+@property (copy, nonatomic) INLVoidBlock block;
 @property (copy, nonatomic) NSNumber *weight;
 @end
 
 @implementation INLHook
 
-- (id)initWithBlock:(INLHookBlock)block weight:(NSNumber *)weight
+- (id)initWithBlock:(INLVoidBlock)block weight:(NSNumber *)weight
 {
     if (self = [self init]) {
         [self setBlock:block];

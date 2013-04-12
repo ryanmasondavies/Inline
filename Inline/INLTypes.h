@@ -20,5 +20,4 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-typedef void(^INLHookBlock)(void);
-typedef void(^INLTestBlock)(void);
+typedef void(^INLVoidBlock)(void);

@@ -31,7 +31,7 @@
  @param block The block which defines the test.
  @param weight The weight of the test, for ordering the component graph.
  @return An initialized test. */
-- (id)initWithBlock:(INLTestBlock)block weight:(NSNumber *)weight;
+- (id)initWithBlock:(INLVoidBlock)block weight:(NSNumber *)weight;
 
 /** @return The name for the test. */
 - (NSString *)name;

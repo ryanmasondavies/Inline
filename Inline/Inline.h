@@ -24,6 +24,7 @@
 #   define _INLINE_
 #   import "INLVersion.h"
 #   import "INLSenTestCase.h"
+#   import "INLBlockInvocation.h"
 #   import "INLGroup.h"
 #   import "INLHook.h"
 #   import "INLTest.h"

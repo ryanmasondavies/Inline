@@ -24,13 +24,13 @@
 #import "INLCompiler.h"
 
 @interface INLTest ()
-@property (copy, nonatomic) INLTestBlock block;
+@property (copy, nonatomic) INLVoidBlock block;
 @property (copy, nonatomic) NSNumber    *weight;
 @end
 
 @implementation INLTest
 
-- (id)initWithBlock:(INLTestBlock)block weight:(NSNumber *)weight
+- (id)initWithBlock:(INLVoidBlock)block weight:(NSNumber *)weight
 {
     if (self = [self init]) {
         [self setBlock:block];
