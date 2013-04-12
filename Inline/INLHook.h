@@ -8,8 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "INLComponent.h"
-
-typedef void(^INLHookBlock)(void);
+#import "INLTypes.h"
 
 /** A hook is invoked before or after a test. */
 @interface INLHook : NSObject <INLComponent>

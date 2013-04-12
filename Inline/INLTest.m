@@ -7,7 +7,7 @@
 //
 
 #import "INLTest.h"
-#import "INLResponder.h"
+#import "INLCompiler.h"
 
 @interface INLTest ()
 @property (copy, nonatomic) INLTestBlock block;
@@ -23,10 +23,6 @@
         [self setWeight:weight];
     }
     return self;
-}
-
-- (void)runWithResponder:(id<INLResponder>)responder
-{
 }
 
 @end

@@ -12,18 +12,4 @@
 
 @implementation INLHookTests
 
-- (void)testRunExecutesBlock
-{
-    // given
-    __block BOOL executed = NO;
-    INLHookBlock block = ^{ executed = YES; };
-    INLHook *hook = [[INLHook alloc] initWithBlock:block weight:nil];
-    
-    // when
-    [hook runWithResponder:nil];
-    
-    // then
-    [[@(executed) should] beTrue];
-}
-
 @end

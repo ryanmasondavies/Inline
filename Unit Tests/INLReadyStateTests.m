@@ -51,7 +51,7 @@
     
     // when
     id test = [OCMockObject niceMockForClass:[INLTest class]];
-    id responder = [OCMockObject niceMockForProtocol:@protocol(INLResponder)];
+    id responder = [OCMockObject niceMockForProtocol:@protocol(INLCompiler)];
     [[responder expect] testDidPass:test withDuration:0];
     [state runWithResponder:responder forTest:test];
     
@@ -68,7 +68,7 @@
     
     // when
     id test = [OCMockObject niceMockForClass:[INLTest class]];
-    id responder = [OCMockObject niceMockForProtocol:@protocol(INLResponder)];
+    id responder = [OCMockObject niceMockForProtocol:@protocol(INLCompiler)];
     [[responder expect] testDidPass:test withDuration:5.0];
     [state runWithResponder:responder forTest:test];
     
@@ -100,7 +100,7 @@
     
     // when
     id test = [OCMockObject niceMockForClass:[INLTest class]];
-    id responder = [OCMockObject niceMockForProtocol:@protocol(INLResponder)];
+    id responder = [OCMockObject niceMockForProtocol:@protocol(INLCompiler)];
     [[responder expect] testDidFail:test withException:exception];
     [state runWithResponder:responder forTest:test];
     

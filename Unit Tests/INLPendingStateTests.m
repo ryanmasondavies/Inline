@@ -19,7 +19,7 @@
     
     // when
     id test = [OCMockObject niceMockForClass:[INLTest class]];
-    id responder = [OCMockObject niceMockForProtocol:@protocol(INLResponder)];
+    id responder = [OCMockObject niceMockForProtocol:@protocol(INLCompiler)];
     [[responder expect] testDidSkip:test];
     [state runWithResponder:responder forTest:test];
     
