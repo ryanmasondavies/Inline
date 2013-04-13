@@ -35,4 +35,7 @@
  */
 - (id)initWithInvokable:(id<INLInvokable>)invokable weight:(NSNumber *)weight;
 
+/** @return The invokable for the hook. */
+- (id<INLInvokable>)invokable;
+
 @end

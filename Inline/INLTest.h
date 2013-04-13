@@ -37,4 +37,7 @@
 /** @return The name for the test. */
 - (NSString *)name;
 
+/** @return The invokable for the test. */
+- (id<INLInvokable>)invokable;
+
 @end
