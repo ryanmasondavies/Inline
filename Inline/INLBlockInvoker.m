@@ -20,24 +20,25 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-@interface INLBlockInvocationTests : SenTestCase
+#import "INLBlockInvoker.h"
 
+@interface INLBlockInvoker ()
+@property (copy, nonatomic) INLVoidBlock block;
 @end
 
-@implementation INLBlockInvocationTests
+@implementation INLBlockInvoker
 
-- (void)testExecutesBlockWhenInvoked
+- (id)initWithBlock:(INLVoidBlock)block
 {
-    // given
-    __block BOOL executed = NO;
-    INLVoidBlock block = ^{ executed = YES; };
-    INLBlockInvocation *invocation = [INLBlockInvocation invocationWithBlock:block];
-    
-    // when
-    [invocation invoke];
-    
-    // then
-    [[@(executed) should] beTrue];
+    if (self = [self init]) {
+        [self setBlock:block];
+    }
+    return self;
+}
+
+- (void)invoke
+{
+    [self block]();
 }
 
 @end

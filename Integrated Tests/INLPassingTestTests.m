@@ -28,7 +28,7 @@
 
 - (INLGroup *)tests
 {
-    INLBlockInvocation *invocation = [[INLBlockInvocation alloc] initWithBlock:^{}];
+    INLBlockInvoker *invoker = [[INLBlockInvoker alloc] initWithBlock:^{}];
     INLTest *robotTest = [[INLTest alloc] initWithName:@"the mighty robot test" invocation:invocation weight:@1];
     
     NSSortDescriptor *lightestToHeaviest = [[NSSortDescriptor alloc] initWithKey:@"weight" ascending:YES];

@@ -11,8 +11,8 @@
 		7A2705D8CB044F23A8655CC9 /* libPods-Integrated Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A6FC86C17E540ACBFF3B6F2 /* libPods-Integrated Tests.a */; };
 		942A33CD17159C7F0019614A /* libInline.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A1C77416A97B3F008C170D /* libInline.a */; };
 		9450DC9D17184E8A006C0ABB /* INLSenTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9450DC9C17184E8A006C0ABB /* INLSenTestCase.m */; };
-		9450DCA117185534006C0ABB /* INLBlockInvocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9450DCA017185534006C0ABB /* INLBlockInvocation.m */; };
-		9450DCA5171855D1006C0ABB /* INLBlockInvocationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9450DCA4171855D1006C0ABB /* INLBlockInvocationTests.m */; };
+		9450DCA117185534006C0ABB /* INLBlockInvoker.m in Sources */ = {isa = PBXBuildFile; fileRef = 9450DCA017185534006C0ABB /* INLBlockInvoker.m */; };
+		9450DCA5171855D1006C0ABB /* INLBlockInvokerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9450DCA4171855D1006C0ABB /* INLBlockInvokerTests.m */; };
 		947EA9F716B724D600FE8D79 /* INLGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 947EA9F616B724D600FE8D79 /* INLGroup.m */; };
 		947EA9F916B72AFC00FE8D79 /* INLTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 947EA9F816B72AFC00FE8D79 /* INLTest.m */; };
 		947EA9FF16B72F4700FE8D79 /* INLHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 947EA9FE16B72F4700FE8D79 /* INLHook.m */; };
@@ -78,9 +78,10 @@
 		9450DC9B17184E8A006C0ABB /* INLSenTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLSenTestCase.h; sourceTree = "<group>"; };
 		9450DC9C17184E8A006C0ABB /* INLSenTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLSenTestCase.m; sourceTree = "<group>"; };
 		9450DC9E171852B0006C0ABB /* INLVersion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INLVersion.h; sourceTree = "<group>"; };
-		9450DC9F17185534006C0ABB /* INLBlockInvocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLBlockInvocation.h; sourceTree = "<group>"; };
-		9450DCA017185534006C0ABB /* INLBlockInvocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLBlockInvocation.m; sourceTree = "<group>"; };
-		9450DCA4171855D1006C0ABB /* INLBlockInvocationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLBlockInvocationTests.m; sourceTree = "<group>"; };
+		9450DC9F17185534006C0ABB /* INLBlockInvoker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLBlockInvoker.h; sourceTree = "<group>"; };
+		9450DCA017185534006C0ABB /* INLBlockInvoker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLBlockInvoker.m; sourceTree = "<group>"; };
+		9450DCA4171855D1006C0ABB /* INLBlockInvokerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLBlockInvokerTests.m; sourceTree = "<group>"; };
+		9450DCA6171858CC006C0ABB /* INLInvokable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INLInvokable.h; sourceTree = "<group>"; };
 		947EA9F516B724D600FE8D79 /* INLGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = INLGroup.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		947EA9F616B724D600FE8D79 /* INLGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLGroup.m; sourceTree = "<group>"; };
 		947EA9F816B72AFC00FE8D79 /* INLTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLTest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -144,6 +145,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		941E267117196CA500E91EF5 /* Invoking behaviour */ = {
+			isa = PBXGroup;
+			children = (
+				9450DCA4171855D1006C0ABB /* INLBlockInvokerTests.m */,
+			);
+			name = "Invoking behaviour";
+			sourceTree = "<group>";
+		};
 		943FED581714779F00BC4051 /* Compiling tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,13 +162,14 @@
 			name = "Compiling tests";
 			sourceTree = "<group>";
 		};
-		9450DCA217185536006C0ABB /* Creating invocations */ = {
+		9450DCA217185536006C0ABB /* Invoking behaviour */ = {
 			isa = PBXGroup;
 			children = (
-				9450DC9F17185534006C0ABB /* INLBlockInvocation.h */,
-				9450DCA017185534006C0ABB /* INLBlockInvocation.m */,
+				9450DCA6171858CC006C0ABB /* INLInvokable.h */,
+				9450DC9F17185534006C0ABB /* INLBlockInvoker.h */,
+				9450DCA017185534006C0ABB /* INLBlockInvoker.m */,
 			);
-			name = "Creating invocations";
+			name = "Invoking behaviour";
 			sourceTree = "<group>";
 		};
 		948D2FB5170C4CB90057A396 /* Composing tests */ = {
@@ -179,8 +189,8 @@
 		948D2FBB170C4DB70057A396 /* Unit Tests */ = {
 			isa = PBXGroup;
 			children = (
-				9450DCA4171855D1006C0ABB /* INLBlockInvocationTests.m */,
 				948D2FD2170C4DCC0057A396 /* Composing tests */,
+				941E267117196CA500E91EF5 /* Invoking behaviour */,
 				948D2FD1170C4DC10057A396 /* Supporting files */,
 			);
 			path = "Unit Tests";
@@ -249,9 +259,9 @@
 				9450DC9E171852B0006C0ABB /* INLVersion.h */,
 				9450DC9B17184E8A006C0ABB /* INLSenTestCase.h */,
 				9450DC9C17184E8A006C0ABB /* INLSenTestCase.m */,
-				9450DCA217185536006C0ABB /* Creating invocations */,
 				948D2FB5170C4CB90057A396 /* Composing tests */,
 				943FED581714779F00BC4051 /* Compiling tests */,
+				9450DCA217185536006C0ABB /* Invoking behaviour */,
 			);
 			path = Inline;
 			sourceTree = "<group>";
@@ -462,7 +472,7 @@
 				947EA9F916B72AFC00FE8D79 /* INLTest.m in Sources */,
 				947EA9FF16B72F4700FE8D79 /* INLHook.m in Sources */,
 				9450DC9D17184E8A006C0ABB /* INLSenTestCase.m in Sources */,
-				9450DCA117185534006C0ABB /* INLBlockInvocation.m in Sources */,
+				9450DCA117185534006C0ABB /* INLBlockInvoker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,7 +483,7 @@
 				948D2FC8170C4DB70057A396 /* INLGroupTests.m in Sources */,
 				948D2FC9170C4DB70057A396 /* INLHookTests.m in Sources */,
 				948D2FCF170C4DB70057A396 /* INLTestTests.m in Sources */,
-				9450DCA5171855D1006C0ABB /* INLBlockInvocationTests.m in Sources */,
+				9450DCA5171855D1006C0ABB /* INLBlockInvokerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

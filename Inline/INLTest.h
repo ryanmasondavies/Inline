@@ -22,16 +22,17 @@
 
 #import <Foundation/Foundation.h>
 #import "INLComponent.h"
-#import "INLTypes.h"
+@protocol INLInvokable;
 
 /** An executable test which raises an exception if any expectations are not met. */
 @interface INLTest : NSObject <INLComponent>
 
 /** Initializes a new test.
- @param block The block which defines the test.
+ @param name The name of the test.
+ @param invocation The object to invoke for the test.
  @param weight The weight of the test, for ordering the component graph.
  @return An initialized test. */
-- (id)initWithBlock:(INLVoidBlock)block weight:(NSNumber *)weight;
+- (id)initWithName:(NSString *)name invokable:(id<INLInvokable>)invokable weight:(NSNumber *)weight;
 
 /** @return The name for the test. */
 - (NSString *)name;

@@ -24,19 +24,25 @@
 #import "INLCompiler.h"
 
 @interface INLTest ()
-@property (copy, nonatomic) INLVoidBlock block;
-@property (copy, nonatomic) NSNumber    *weight;
+@property (strong, nonatomic) NSString *name;
+@property (strong, nonatomic) id<INLInvokable> invokable;
+@property (strong, nonatomic) NSNumber *weight;
 @end
 
 @implementation INLTest
 
-- (id)initWithBlock:(INLVoidBlock)block weight:(NSNumber *)weight
+- (id)initWithName:(NSString *)name invokable:(id<INLInvokable>)invokable weight:(NSNumber *)weight
 {
     if (self = [self init]) {
-        [self setBlock:block];
+        [self setName:name];
+        [self setInvokable:invokable];
         [self setWeight:weight];
     }
     return self;
+}
+
+- (void)compileWithCompiler:(id<INLCompiler>)compiler
+{
 }
 
 @end

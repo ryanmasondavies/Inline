@@ -24,16 +24,16 @@
 #import "INLCompiler.h"
 
 @interface INLHook ()
-@property (copy, nonatomic) INLVoidBlock block;
-@property (copy, nonatomic) NSNumber *weight;
+@property (strong, nonatomic) id<INLInvokable> invokable;
+@property (strong, nonatomic) NSNumber *weight;
 @end
 
 @implementation INLHook
 
-- (id)initWithBlock:(INLVoidBlock)block weight:(NSNumber *)weight
+- (id)initWithInvokable:(id<INLInvokable>)invokable weight:(NSNumber *)weight
 {
     if (self = [self init]) {
-        [self setBlock:block];
+        [self setInvokable:invokable];
         [self setWeight:weight];
     }
     return self;
