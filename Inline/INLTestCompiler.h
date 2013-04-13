@@ -20,13 +20,11 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import <SenTestingKit/SenTestingKit.h>
-@class INLGroup;
+#import <Foundation/Foundation.h>
+#import "INLCompiler.h"
 
-/** Overrides the necessary SenTestCase methods to return invocations within a test structure. */
-@interface INLSenTestCase : SenTestCase
+@interface INLTestCompiler : NSObject <INLCompiler>
 
-/** @return Tests to run. */
-- (INLGroup *)tests;
+- (id)initWithInvocations:(NSMutableArray *)invocations;
 
 @end

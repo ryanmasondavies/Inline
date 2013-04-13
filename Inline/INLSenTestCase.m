@@ -21,17 +21,39 @@
 // THE SOFTWARE.
 
 #import "INLSenTestCase.h"
+#import "INLGroup.h"
+#import "INLTestCompiler.h"
+#import "INLInvokable.h"
+#import "INLInvokableAdapter.h"
 
 @implementation INLSenTestCase
 
 + (NSArray *)testInvocations
 {
-    return @[];
+    INLSenTestCase *testCase = [[[self class] alloc] init];
+    INLGroup *tests = [testCase tests];
+    
+    NSMutableArray *invocations = [[NSMutableArray alloc] init];
+    INLTestCompiler *testCompiler = [[INLTestCompiler alloc] initWithInvocations:invocations];
+    [tests compileWithCompiler:testCompiler];
+    
+    NSMutableArray *adapters = [[NSMutableArray alloc] init];
+    [invocations enumerateObjectsUsingBlock:^(id<INLInvokable> invokable, NSUInteger idx, BOOL *stop) {
+        INLInvokableAdapter *adapter = [[INLInvokableAdapter alloc] initWithInvokable:invokable];
+        [adapters addObject:adapter];
+    }];
+    
+    return adapters;
 }
 
 - (NSString *)name
 {
     return @"the great name yea";
+}
+
+- (INLGroup *)tests
+{
+    return nil;
 }
 
 @end

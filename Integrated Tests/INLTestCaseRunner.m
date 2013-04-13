@@ -20,13 +20,15 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import <SenTestingKit/SenTestingKit.h>
-@class INLGroup;
+#import "INLTestCaseRunner.h"
 
-/** Overrides the necessary SenTestCase methods to return invocations within a test structure. */
-@interface INLSenTestCase : SenTestCase
+@implementation INLTestCaseRunner
 
-/** @return Tests to run. */
-- (INLGroup *)tests;
++ (void)runTestsForClass:(Class)testClass
+{
+    [SenTestObserver suspendObservation];
+    [(SenTestSuite *)[SenTestSuite testSuiteForTestCaseClass:testClass] run];
+    [SenTestObserver resumeObservation];
+}
 
 @end

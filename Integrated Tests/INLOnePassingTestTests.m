@@ -1,17 +1,17 @@
 // The MIT License
-//
+// 
 // Copyright (c) 2013 Ryan Davies
-//
+// 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
 // in the Software without restriction, including without limitation the rights
 // to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 // copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
-//
+// 
 // The above copyright notice and this permission notice shall be included in
 // all copies or substantial portions of the Software.
-//
+// 
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 // FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -20,13 +20,37 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import <SenTestingKit/SenTestingKit.h>
-@class INLGroup;
+static BOOL testRan;
 
-/** Overrides the necessary SenTestCase methods to return invocations within a test structure. */
-@interface INLSenTestCase : SenTestCase
+@interface INLOneTest : INLSenTestCase
 
-/** @return Tests to run. */
-- (INLGroup *)tests;
+@end
+
+@implementation INLOneTest
+
+- (INLGroup *)tests
+{
+    INLBlockInvoker *invoker = [[INLBlockInvoker alloc] initWithBlock:^{ testRan = YES; }];
+    INLTest *robotTest = [[INLTest alloc] initWithName:@"the mighty robot test" invokable:invoker weight:@1];
+    
+    NSSortDescriptor *lightestToHeaviest = [[NSSortDescriptor alloc] initWithKey:@"weight" ascending:YES];
+    CBDSortedArray *sorted = [[CBDSortedArray alloc] initWithObjects:@[robotTest] sortDescriptors:@[lightestToHeaviest]];
+    return [[INLGroup alloc] initWithName:@"" components:sorted weight:@0];
+}
+
+@end
+
+@interface INLOnePassingTestTests : SenTestCase
+
+@end
+
+@implementation INLOnePassingTestTests
+
+- (void)testOneTestIsRun
+{
+    testRan = NO;
+    [INLTestCaseRunner runTestsForClass:[INLOneTest class]];
+    [[@(testRan) should] beTrue];
+}
 
 @end

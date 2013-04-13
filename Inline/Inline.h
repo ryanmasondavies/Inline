@@ -27,6 +27,7 @@
 #   import "INLGroup.h"
 #   import "INLHook.h"
 #   import "INLTest.h"
+#   import "INLTestCompiler.h"
 #   import "INLBlockInvoker.h"
 #   import "INLInvokableAdapter.h"
 #endif
