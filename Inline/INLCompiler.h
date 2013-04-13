@@ -29,12 +29,12 @@
 /**
  @param group The group that is about to forward the compiler to its components.
  */
-- (void)willCompileComponentsOfGroup:(INLGroup *)group;
+- (void)willCompileGroup:(INLGroup *)group;
 
 /**
  @param group The group that has forwarded the compiler to its components.
  */
-- (void)didCompileComponentsOfGroup:(INLGroup *)group;
+- (void)didCompileGroup:(INLGroup *)group;
 
 /**
  @param hook The hook to compile.

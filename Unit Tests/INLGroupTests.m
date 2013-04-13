@@ -26,4 +26,61 @@
 
 @implementation INLGroupTests
 
+- (void)testTellsCompilerItWillCompileGroupBeforeForwarding
+{
+    // given
+    id component = [OCMockObject niceMockForProtocol:@protocol(INLComponent)];
+    id components = [[CBDSortedArray alloc] initWithObjects:[@[component] mutableCopy] sortDescriptors:nil];
+    INLGroup *group = [[INLGroup alloc] initWithName:nil components:components weight:nil];
+    id compiler = [OCMockObject niceMockForProtocol:@protocol(INLCompiler)];
+    __block BOOL forwardedCompiler = NO;
+    [[[component stub] andDo:^(NSInvocation *i) { forwardedCompiler = YES; }] compileWithCompiler:compiler];
+    [[[compiler expect] andDo:^(NSInvocation *i) { [[@(forwardedCompiler) should] beFalse]; }] willCompileGroup:group];
+    
+    // when
+    [group compileWithCompiler:compiler];
+    
+    // then
+    [compiler verify];
+}
+
+- (void)testForwardsRunToEachComponent
+{
+    // given
+    id compiler = [OCMockObject niceMockForProtocol:@protocol(INLCompiler)];
+    NSMutableArray *components = [[NSMutableArray alloc] init];
+    NSMutableArray *order = [[NSMutableArray alloc] init];
+    [@[@1, @2, @3] enumerateObjectsUsingBlock:^(NSNumber *value, NSUInteger idx, BOOL *stop) {
+        id component = [OCMockObject mockForProtocol:@protocol(INLComponent)];
+        [[[component stub] andDo:^(NSInvocation *inv) { [order addObject:value]; }] compileWithCompiler:compiler];
+        [components addObject:component];
+    }];
+    CBDSortedArray *sorted = [[CBDSortedArray alloc] initWithObjects:components sortDescriptors:@[]];
+    INLGroup *group = [[INLGroup alloc] initWithName:nil components:sorted weight:nil];
+    
+    // when
+    [group compileWithCompiler:compiler];
+    
+    // then
+    [[order should] beEqualTo:@[@1, @2, @3]];
+}
+
+- (void)testNotifiesReporterThatGroupHasFinishedAfterForwardingRunToComponents
+{
+    // given
+    id component = [OCMockObject niceMockForProtocol:@protocol(INLComponent)];
+    id components = [[CBDSortedArray alloc] initWithObjects:[@[component] mutableCopy] sortDescriptors:nil];
+    INLGroup *group = [[INLGroup alloc] initWithName:nil components:components weight:nil];
+    id compiler = [OCMockObject niceMockForProtocol:@protocol(INLCompiler)];
+    __block BOOL forwardedCompiler = NO;
+    [[[component stub] andDo:^(NSInvocation *i) { forwardedCompiler = YES; }] compileWithCompiler:compiler];
+    [[[compiler expect] andDo:^(NSInvocation *i) { [[@(forwardedCompiler) should] beTrue]; }] didCompileGroup:group];
+    
+    // when
+    [group compileWithCompiler:compiler];
+    
+    // then
+    [compiler verify];
+}
+
 @end

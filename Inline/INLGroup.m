@@ -43,11 +43,11 @@
 
 - (void)compileWithCompiler:(id<INLCompiler>)compiler
 {
-    [compiler willCompileComponentsOfGroup:self];
+    [compiler willCompileGroup:self];
     [[self components] enumerateObjectsUsingBlock:^(id<INLComponent> component, NSUInteger idx, BOOL *stop) {
         [component compileWithCompiler:compiler];
     }];
-    [compiler didCompileComponentsOfGroup:self];
+    [compiler didCompileGroup:self];
 }
 
 @end
