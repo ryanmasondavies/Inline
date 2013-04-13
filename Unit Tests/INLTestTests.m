@@ -26,4 +26,18 @@
 
 @implementation INLTestTests
 
+- (void)testRunExecutesBlock
+{
+    // given
+    __block BOOL executed = NO;
+    INLVoidBlock block = ^{ executed = YES; };
+    INLTest *test = [[INLTest alloc] initWithName:@"" block:block];
+    
+    // when
+    [test run];
+    
+    // then
+    [[@(executed) should] beTrue];
+}
+
 @end

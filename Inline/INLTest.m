@@ -40,6 +40,7 @@
 
 - (void)run
 {
+    [self block]();
 }
 
 @end
