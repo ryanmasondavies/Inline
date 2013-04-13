@@ -43,6 +43,7 @@
 
 - (void)compileWithCompiler:(id<INLCompiler>)compiler
 {
+    [compiler compileTest:self];
 }
 
 @end

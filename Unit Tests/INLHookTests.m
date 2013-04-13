@@ -26,4 +26,18 @@
 
 @implementation INLHookTests
 
+- (void)testTellsCompilerToCompileHook
+{
+    // given
+    id compiler = [OCMockObject niceMockForProtocol:@protocol(INLCompiler)];
+    INLHook *hook = [[INLHook alloc] initWithInvokable:nil weight:nil];
+    
+    // when
+    [[compiler expect] compileHook:hook];
+    [hook compileWithCompiler:compiler];
+    
+    // then
+    [compiler verify];
+}
+
 @end

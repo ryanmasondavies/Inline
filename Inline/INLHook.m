@@ -41,6 +41,7 @@
 
 - (void)compileWithCompiler:(id<INLCompiler>)compiler
 {
+    [compiler compileHook:self];
 }
 
 @end
