@@ -1,17 +1,17 @@
 // The MIT License
-// 
+//
 // Copyright (c) 2013 Ryan Davies
-// 
+//
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
 // in the Software without restriction, including without limitation the rights
 // to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 // copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
-// 
+//
 // The above copyright notice and this permission notice shall be included in
 // all copies or substantial portions of the Software.
-// 
+//
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 // FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -20,13 +20,77 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#ifndef _INLINE_
-#   define _INLINE_
-#   import "INLVersion.h"
-#   import "INLSenTestCase.h"
-#   import "INLGroup.h"
-#   import "INLHook.h"
-#   import "INLTest.h"
-#   import "INLBlockInvoker.h"
-#   import "INLInvokableAdapter.h"
-#endif
+#import "INLInvokableAdapter.h"
+#import "INLInvokable.h"
+
+@interface INLInvokableAdapter ()
+@property (strong, nonatomic) id<INLInvokable> invokable;
+@end
+
+@implementation INLInvokableAdapter
+
+- (id)initWithInvokable:(id<INLInvokable>)invokable
+{
+    [self setInvokable:invokable];
+    return self;
+}
+
+- (void)invoke
+{
+    [[self invokable] invoke];
+}
+
+- (void)invokeWithTarget:(id)target
+{
+    [[self invokable] invoke];
+}
+
+- (void)setSelector:(SEL)selector
+{
+}
+
+- (SEL)selector
+{
+    return nil;
+}
+
+- (void)setTarget:(id)target
+{
+}
+
+- (id)target
+{
+    return nil;
+}
+
+- (void)setArgument:(void *)argumentLocation atIndex:(NSInteger)idx
+{
+}
+
+- (void)getArgument:(void *)argumentLocation atIndex:(NSInteger)idx
+{
+}
+
+- (BOOL)argumentsRetained
+{
+    return NO;
+}
+
+- (void)retainArguments
+{
+}
+
+- (void)setReturnValue:(void *)retLoc
+{
+}
+
+- (void)getReturnValue:(void *)retLoc
+{
+}
+
+- (NSMethodSignature *)methodSignature
+{
+    return nil;
+}
+
+@end

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		02180A427B27452A8ACC3CB8 /* libPods-Unit Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFAE5470718542C68A1DE9E7 /* libPods-Unit Tests.a */; };
 		7A2705D8CB044F23A8655CC9 /* libPods-Integrated Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A6FC86C17E540ACBFF3B6F2 /* libPods-Integrated Tests.a */; };
+		941E267417196EF800E91EF5 /* INLInvokableAdapterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 941E267317196EF800E91EF5 /* INLInvokableAdapterTests.m */; };
+		941E2677171972C100E91EF5 /* INLInvokableAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 941E2676171972C100E91EF5 /* INLInvokableAdapter.m */; };
 		942A33CD17159C7F0019614A /* libInline.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A1C77416A97B3F008C170D /* libInline.a */; };
 		9450DC9D17184E8A006C0ABB /* INLSenTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9450DC9C17184E8A006C0ABB /* INLSenTestCase.m */; };
 		9450DCA117185534006C0ABB /* INLBlockInvoker.m in Sources */ = {isa = PBXBuildFile; fileRef = 9450DCA017185534006C0ABB /* INLBlockInvoker.m */; };
@@ -73,6 +75,9 @@
 		49893940671446DDAFC1ACF9 /* Pods-Integrated Tests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Integrated Tests.xcconfig"; path = "Pods/Pods-Integrated Tests.xcconfig"; sourceTree = SOURCE_ROOT; };
 		60393545CE184FBABA042F2F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		94088D4116A9AA1800D7DEFC /* INLTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLTest.h; sourceTree = "<group>"; };
+		941E267317196EF800E91EF5 /* INLInvokableAdapterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLInvokableAdapterTests.m; sourceTree = "<group>"; };
+		941E2675171972C100E91EF5 /* INLInvokableAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLInvokableAdapter.h; sourceTree = "<group>"; };
+		941E2676171972C100E91EF5 /* INLInvokableAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLInvokableAdapter.m; sourceTree = "<group>"; };
 		943A0342170B8C5A0071D7F6 /* INLTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INLTypes.h; sourceTree = "<group>"; };
 		9450DC9A171845E3006C0ABB /* INLCompilable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INLCompilable.h; sourceTree = "<group>"; };
 		9450DC9B17184E8A006C0ABB /* INLSenTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLSenTestCase.h; sourceTree = "<group>"; };
@@ -149,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				9450DCA4171855D1006C0ABB /* INLBlockInvokerTests.m */,
+				941E267317196EF800E91EF5 /* INLInvokableAdapterTests.m */,
 			);
 			name = "Invoking behaviour";
 			sourceTree = "<group>";
@@ -168,6 +174,8 @@
 				9450DCA6171858CC006C0ABB /* INLInvokable.h */,
 				9450DC9F17185534006C0ABB /* INLBlockInvoker.h */,
 				9450DCA017185534006C0ABB /* INLBlockInvoker.m */,
+				941E2675171972C100E91EF5 /* INLInvokableAdapter.h */,
+				941E2676171972C100E91EF5 /* INLInvokableAdapter.m */,
 			);
 			name = "Invoking behaviour";
 			sourceTree = "<group>";
@@ -473,6 +481,7 @@
 				947EA9FF16B72F4700FE8D79 /* INLHook.m in Sources */,
 				9450DC9D17184E8A006C0ABB /* INLSenTestCase.m in Sources */,
 				9450DCA117185534006C0ABB /* INLBlockInvoker.m in Sources */,
+				941E2677171972C100E91EF5 /* INLInvokableAdapter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,6 +493,7 @@
 				948D2FC9170C4DB70057A396 /* INLHookTests.m in Sources */,
 				948D2FCF170C4DB70057A396 /* INLTestTests.m in Sources */,
 				9450DCA5171855D1006C0ABB /* INLBlockInvokerTests.m in Sources */,
+				941E267417196EF800E91EF5 /* INLInvokableAdapterTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
