@@ -26,18 +26,4 @@
 
 @implementation INLTestTests
 
-- (void)testTellsCompilerToCompileTest
-{
-    // given
-    id compiler = [OCMockObject niceMockForProtocol:@protocol(INLCompiler)];
-    INLTest *test = [[INLTest alloc] initWithName:nil invokable:nil weight:nil];
-    
-    // when
-    [[compiler expect] compileTest:test];
-    [test compileWithCompiler:compiler];
-    
-    // then
-    [compiler verify];
-}
-
 @end
