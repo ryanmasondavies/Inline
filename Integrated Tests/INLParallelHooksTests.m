@@ -20,37 +20,45 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-static BOOL firstTestRan;
-static BOOL secondTestRan;
+static BOOL beforeHookRan;
+static BOOL testRan;
+static BOOL afterHookRan;
 
-@interface INLTwoPassingTests : INLSenTestCase
+@interface INLParallelHooks : INLSenTestCase
 
 @end
 
-@implementation INLTwoPassingTests
+@implementation INLParallelHooks
 
 - (INLGroup *)tests
 {
-    NSMutableArray *tests = [[NSMutableArray alloc] init];
-    tests[0] = [[INLTest alloc] initWithName:@"test 1" block:^{ firstTestRan = YES; } delegate:nil];
-    tests[1] = [[INLTest alloc] initWithName:@"test 2" block:^{ secondTestRan = YES; } delegate:nil];
-    return tests;
+    INLVoidBlock beforeHook = ^{ beforeHookRan = YES; };
+    INLVoidBlock afterHook = ^{ afterHookRan = YES; };
+    
+    id<INLTestDelegate> beforeHooks = [[INLHooks alloc] initWithBlocks:@[beforeHook]];
+    id<INLTestDelegate> afterHooks = [[INLHooks alloc] initWithBlocks:@[afterHook]];
+    id<INLTestDelegate> beforeFilter = [[INLBeforeFilter alloc] initWithTarget:beforeHooks];
+    id<INLTestDelegate> afterFilter = [[INLAfterFilter alloc] initWithTarget:afterHooks];
+    id<INLTestDelegate> context = [[INLContext alloc] initWithDelegates:@[beforeFilter, afterFilter]];
+    
+    return [[INLTest alloc] initWithName:@"test" block:^{ testRan = YES; } delegate:context];
 }
 
 @end
 
-@interface INLTwoPassingTestsTests : SenTestCase
+@interface INLParallelHooksTests : SenTestCase
 
 @end
 
-@implementation INLTwoPassingTestsTests
+@implementation INLParallelHooksTests
 
-- (void)testTwoTestsAreRun
+- (void)testBothHooksAndTestAreRun
 {
-    firstTestRan = secondTestRan = NO;
-    [INLTestCaseRunner runTestsForClass:[INLTwoPassingTests class]];
-    [[@(firstTestRan) should] beTrue];
-    [[@(secondTestRan) should] beTrue];
+    beforeHookRan = testRan = afterHookRan = NO;
+    [INLTestCaseRunner runTestsForClass:[INLParallelHooks class]];
+    [[@(beforeHookRan) should] beTrue];
+    [[@(testRan) should] beTrue];
+    [[@(afterHookRan) should] beTrue];
 }
 
 @end

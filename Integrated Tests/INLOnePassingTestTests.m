@@ -28,14 +28,9 @@ static BOOL testRan;
 
 @implementation INLOneTest
 
-- (INLGroup *)tests
+- (NSArray *)tests
 {
-    INLBlockInvoker *invoker = [[INLBlockInvoker alloc] initWithBlock:^{ testRan = YES; }];
-    INLTest *robotTest = [[INLTest alloc] initWithName:@"the mighty robot test" invokable:invoker weight:@1];
-    
-    NSSortDescriptor *lightestToHeaviest = [[NSSortDescriptor alloc] initWithKey:@"weight" ascending:YES];
-    CBDSortedArray *sorted = [[CBDSortedArray alloc] initWithObjects:@[robotTest] sortDescriptors:@[lightestToHeaviest]];
-    return [[INLGroup alloc] initWithName:@"" components:sorted weight:@0];
+    return @[[[INLTest alloc] initWithName:@"test" block:^{ testRan = YES; } delegate:nil]];
 }
 
 @end
