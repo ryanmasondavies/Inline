@@ -33,6 +33,9 @@
  */
 - (id)initWithRunnable:(id<INLRunnable>)runnable;
 
+/** @return The runnable which the adapter is forwarding messages to. */
+- (id<INLRunnable>)runnable;
+
 /**
  Inherited from NSInvocation.
  @return Returns nil.
