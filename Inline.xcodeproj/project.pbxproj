@@ -13,11 +13,11 @@
 		941E2677171972C100E91EF5 /* INLRunnableInvocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 941E2676171972C100E91EF5 /* INLRunnableInvocation.m */; };
 		941E26811719854700E91EF5 /* INLTestCaseRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 941E26801719854700E91EF5 /* INLTestCaseRunner.m */; };
 		941E2685171991A000E91EF5 /* INLTwoPassingTestsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 941E2684171991A000E91EF5 /* INLTwoPassingTestsTests.m */; };
-		941E26881719990E00E91EF5 /* INLParallelHooksTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 941E26871719990E00E91EF5 /* INLParallelHooksTests.m */; };
 		942A33CD17159C7F0019614A /* libInline.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A1C77416A97B3F008C170D /* libInline.a */; };
 		9450DC9D17184E8A006C0ABB /* INLSenTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9450DC9C17184E8A006C0ABB /* INLSenTestCase.m */; };
 		947EA9F916B72AFC00FE8D79 /* INLTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 947EA9F816B72AFC00FE8D79 /* INLTest.m */; };
 		948D2FCF170C4DB70057A396 /* INLTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 948D2FC5170C4DB70057A396 /* INLTestTests.m */; };
+		9491A0DF171AA74100E3F4EC /* INLParallelHooksTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 941E26871719990E00E91EF5 /* INLParallelHooksTests.m */; };
 		9498982416F49B69005E06AB /* libInline.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A1C77416A97B3F008C170D /* libInline.a */; };
 		9498982616F49B75005E06AB /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9498982516F49B75005E06AB /* SenTestingKit.framework */; };
 		9498982716F49B7D005E06AB /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9498982516F49B75005E06AB /* SenTestingKit.framework */; };
@@ -449,7 +449,7 @@
 				94F66AAC17117BF200F93685 /* INLOnePassingTestTests.m in Sources */,
 				941E26811719854700E91EF5 /* INLTestCaseRunner.m in Sources */,
 				941E2685171991A000E91EF5 /* INLTwoPassingTestsTests.m in Sources */,
-				941E26881719990E00E91EF5 /* INLParallelHooksTests.m in Sources */,
+				9491A0DF171AA74100E3F4EC /* INLParallelHooksTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

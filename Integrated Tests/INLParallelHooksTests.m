@@ -30,16 +30,14 @@ static BOOL afterHookRan;
 
 @implementation INLParallelHooks
 
-- (INLGroup *)tests
+- (NSArray *)tests
 {
     INLVoidBlock beforeHook = ^{ beforeHookRan = YES; };
     INLVoidBlock afterHook = ^{ afterHookRan = YES; };
     
     id<INLTestDelegate> beforeHooks = [[INLHooks alloc] initWithBlocks:@[beforeHook]];
     id<INLTestDelegate> afterHooks = [[INLHooks alloc] initWithBlocks:@[afterHook]];
-    id<INLTestDelegate> beforeFilter = [[INLBeforeFilter alloc] initWithTarget:beforeHooks];
-    id<INLTestDelegate> afterFilter = [[INLAfterFilter alloc] initWithTarget:afterHooks];
-    id<INLTestDelegate> context = [[INLContext alloc] initWithDelegates:@[beforeFilter, afterFilter]];
+    id<INLTestDelegate> context = [[INLContext alloc] initWithDelegates:@[beforeHooks, afterHooks]];
     
     return [[INLTest alloc] initWithName:@"test" block:^{ testRan = YES; } delegate:context];
 }

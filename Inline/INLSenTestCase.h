@@ -21,12 +21,11 @@
 // THE SOFTWARE.
 
 #import <SenTestingKit/SenTestingKit.h>
-@class INLGroup;
 
 /** Overrides the necessary SenTestCase methods to return invocations within a test structure. */
 @interface INLSenTestCase : SenTestCase
 
 /** @return Tests to run. */
-- (INLGroup *)tests;
+- (NSArray *)tests;
 
 @end

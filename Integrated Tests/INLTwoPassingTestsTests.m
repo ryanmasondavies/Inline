@@ -29,7 +29,7 @@ static BOOL secondTestRan;
 
 @implementation INLTwoPassingTests
 
-- (INLGroup *)tests
+- (NSArray *)tests
 {
     NSMutableArray *tests = [[NSMutableArray alloc] init];
     tests[0] = [[INLTest alloc] initWithName:@"test 1" block:^{ firstTestRan = YES; } delegate:nil];

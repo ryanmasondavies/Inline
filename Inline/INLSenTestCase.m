@@ -21,35 +21,31 @@
 // THE SOFTWARE.
 
 #import "INLSenTestCase.h"
+#import "INLRunnableInvocation.h"
+#import "INLRunnable.h"
 
 @implementation INLSenTestCase
 
 + (NSArray *)testInvocations
 {
-//    INLSenTestCase *testCase = [[[self class] alloc] init];
-//    INLGroup *tests = [testCase tests];
-//    
-//    NSMutableArray *invocations = [[NSMutableArray alloc] init];
-//    INLTestCompiler *testCompiler = [[INLTestCompiler alloc] initWithInvocations:invocations];
-//    [tests compileWithCompiler:testCompiler];
-//    
-//    NSMutableArray *adapters = [[NSMutableArray alloc] init];
-//    [invocations enumerateObjectsUsingBlock:^(id<INLInvokable> invokable, NSUInteger idx, BOOL *stop) {
-//        INLInvokableAdapter *adapter = [[INLInvokableAdapter alloc] initWithInvokable:invokable];
-//        [adapters addObject:adapter];
-//    }];
-//    
-//    return adapters;
+    INLSenTestCase *testCase = [[[self class] alloc] init];
+    NSArray *tests = [testCase tests];
     
-    return @[];
+    NSMutableArray *adapters = [[NSMutableArray alloc] init];
+    [tests enumerateObjectsUsingBlock:^(id<INLRunnable> runnable, NSUInteger idx, BOOL *stop) {
+        INLRunnableInvocation *adapter = [[INLRunnableInvocation alloc] initWithRunnable:runnable];
+        [adapters addObject:adapter];
+    }];
+    
+    return adapters;
 }
 
 - (NSString *)name
 {
-    return @"the great name yea";
+    return @"unnamed";
 }
 
-- (INLGroup *)tests
+- (NSArray *)tests
 {
     return nil;
 }
