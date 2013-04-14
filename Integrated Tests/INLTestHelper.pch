@@ -4,3 +4,5 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 #import <Inline/Inline.h>
+#import <Posit/Posit.h>
+#import "INLTestCaseRunner.h"

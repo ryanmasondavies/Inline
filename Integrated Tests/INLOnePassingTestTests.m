@@ -20,15 +20,32 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#ifndef _INLINE_
-#   define _INLINE_
-#   import "INLVersion.h"
-#   import "INLSenTestCase.h"
-#   import "INLInvocationRunnable.h"
-#   import "INLLlamaCaseStringTransformer.h"
-#   import "INLTest.h"
-#   import "INLContext.h"
-#   import "INLBeforeFilter.h"
-#   import "INLAfterFilter.h"
-#   import "INLHook.h"
-#endif
+static BOOL testRan;
+
+@interface INLOneTest : INLSenTestCase
+
+@end
+
+@implementation INLOneTest
+
+- (NSArray *)tests
+{
+    return @[[[INLTest alloc] initWithName:@"test" block:^{ testRan = YES; } delegate:nil]];
+}
+
+@end
+
+@interface INLOnePassingTestTests : SenTestCase
+
+@end
+
+@implementation INLOnePassingTestTests
+
+- (void)testOneTestIsRun
+{
+    testRan = NO;
+    [INLTestCaseRunner runTestsForClass:[INLOneTest class]];
+    [[@(testRan) should] beTrue];
+}
+
+@end

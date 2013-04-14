@@ -1,57 +1,71 @@
-//
-//  INLTestTests.m
-//  Inline
-//
-//  Created by Ryan Davies on 28/01/2013.
-//  Copyright (c) 2013 Ryan Davies. All rights reserved.
-//
+// The MIT License
+// 
+// Copyright (c) 2013 Ryan Davies
+// 
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+// 
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+// 
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
 
 @interface INLTestTests : SenTestCase
+@property (nonatomic) BOOL blockExecuted;
+@property (strong, nonatomic) id testDelegate;
+@property (strong, nonatomic) INLTest *test;
 @end
 
 @implementation INLTestTests
 
-- (void)testForwardsRunToState
+- (void)setUp
 {
-    // given
-    id state = [OCMockObject niceMockForProtocol:@protocol(INLTestState)];
-    id responder = [OCMockObject niceMockForProtocol:@protocol(INLResponder)];
-    INLTest *test = [[INLTest alloc] initWithState:state weight:nil];
-    [[state expect] runWithResponder:responder forTest:test];
-    
-    // when
-    [test runWithResponder:responder];
-    
-    // then
-    [state verify];
+    INLVoidBlock block = ^{ [self setBlockExecuted:YES]; };
+    [self setTestDelegate:[OCMockObject niceMockForProtocol:@protocol(INLTestDelegate)]];
+    [self setTest:[[INLTest alloc] initWithName:@"" block:block delegate:[self testDelegate]]];
 }
 
-- (void)testChangingStateForwardsRunToNewState
+- (void)testNotifiesDelegateBeforeExecutingBlock
 {
     // given
-    INLTest *test = [[INLTest alloc] initWithState:nil weight:nil];
-    id state = [OCMockObject niceMockForProtocol:@protocol(INLTestState)];
+    [[[[self testDelegate] expect] andDo:^(NSInvocation *invocation) { [[@([self blockExecuted]) should] beFalse]; }] testWillRun:[self test]];
     
     // when
-    [test transitionToState:state];
-    [test runWithResponder:nil];
+    [[self test] run];
     
     // then
-    [state verify];
+    [[self testDelegate] verify];
 }
 
-- (void)testReturnsNameOfState
+- (void)testRunExecutesBlock
 {
-    // given
-    id state = [OCMockObject niceMockForProtocol:@protocol(INLTestState)];
-    INLTest *test = [[INLTest alloc] initWithState:state weight:nil];
-    [[[state stub] andReturn:@"some name"] name];
-    
     // when
-    NSString *name = [test name];
+    [[self test] run];
     
     // then
-    [[name should] beEqualTo:@"some name"];
+    [[@([self blockExecuted]) should] beTrue];
+}
+
+- (void)testNotifiesDelegateAfterExecutingBlock
+{
+    // given
+    [[[[self testDelegate] expect] andDo:^(NSInvocation *invocation) { [[@([self blockExecuted]) should] beTrue]; }] testDidRun:[self test]];
+    
+    // when
+    [[self test] run];
+    
+    // then
+    [[self testDelegate] verify];
 }
 
 @end

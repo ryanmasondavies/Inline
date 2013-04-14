@@ -1,25 +1,13 @@
 
 PODS:
-- Caboodle (0.2.0)
-- GRMustache (6.4.1):
-  - JRSwizzle (~> 1.0)
-- InflectorKit (0.0.1)
-- JRSwizzle (1.0)
 - OCMock (2.0.1)
 - Posit (0.0.2)
 
 DEPENDENCIES:
-- Caboodle (~> 0.2.0)
-- GRMustache (~> 6.4.0)
-- InflectorKit (~> 0.0.1)
 - OCMock
 - Posit (~> 0.0.2)
 
 SPEC CHECKSUMS:
-  Caboodle: 84c7cce3f558b9ede2289374bb6161e7784bc664
-  GRMustache: 7ff6f36b1a17bacb6492c2551f42e58d521d82f2
-  InflectorKit: 9dccab02f95541093995adac639342c9eb9e6c12
-  JRSwizzle: 6242ff38485d870fc2636899048ee1ab883ae587
   OCMock: 77a9c4c57af6bf258a537d34cf09abf422affede
   Posit: cc326d26411b57634b395cc09a1d897b7578a94c
 
