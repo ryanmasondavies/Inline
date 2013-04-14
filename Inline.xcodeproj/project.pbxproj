@@ -31,6 +31,7 @@
 		9491A12C171B239700E3F4EC /* INLLlamaCaseStringTransformerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9491A0FD171ABD9600E3F4EC /* INLLlamaCaseStringTransformerTests.m */; };
 		9491A12F171B391800E3F4EC /* INLLettersStringTransformerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9491A12E171B391800E3F4EC /* INLLettersStringTransformerTests.m */; };
 		9491A132171B397200E3F4EC /* INLLettersStringTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9491A131171B397200E3F4EC /* INLLettersStringTransformer.m */; };
+		9491A138171B523900E3F4EC /* INLSTMacroSupportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9491A137171B523900E3F4EC /* INLSTMacroSupportTests.m */; };
 		9498982416F49B69005E06AB /* libInline.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A1C77416A97B3F008C170D /* libInline.a */; };
 		9498982616F49B75005E06AB /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9498982516F49B75005E06AB /* SenTestingKit.framework */; };
 		9498982716F49B7D005E06AB /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9498982516F49B75005E06AB /* SenTestingKit.framework */; };
@@ -119,6 +120,7 @@
 		9491A12E171B391800E3F4EC /* INLLettersStringTransformerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLLettersStringTransformerTests.m; sourceTree = "<group>"; };
 		9491A130171B397200E3F4EC /* INLLettersStringTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLLettersStringTransformer.h; sourceTree = "<group>"; };
 		9491A131171B397200E3F4EC /* INLLettersStringTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLLettersStringTransformer.m; sourceTree = "<group>"; };
+		9491A137171B523900E3F4EC /* INLSTMacroSupportTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLSTMacroSupportTests.m; sourceTree = "<group>"; };
 		9498982516F49B75005E06AB /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		94A1C77416A97B3F008C170D /* libInline.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libInline.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		94A1C77716A97B3F008C170D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -273,6 +275,7 @@
 				941E2684171991A000E91EF5 /* INLTwoPassingTestsTests.m */,
 				941E26871719990E00E91EF5 /* INLHooksTests.m */,
 				9491A124171AEDD700E3F4EC /* INLNestingContextsTests.m */,
+				9491A137171B523900E3F4EC /* INLSTMacroSupportTests.m */,
 				941E26821719854D00E91EF5 /* Running tests */,
 				94F66AA517117BF200F93685 /* Supporting Files */,
 			);
@@ -493,6 +496,7 @@
 				941E2685171991A000E91EF5 /* INLTwoPassingTestsTests.m in Sources */,
 				9491A0ED171AB35A00E3F4EC /* INLHooksTests.m in Sources */,
 				9491A125171AEDD700E3F4EC /* INLNestingContextsTests.m in Sources */,
+				9491A138171B523900E3F4EC /* INLSTMacroSupportTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

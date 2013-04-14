@@ -42,6 +42,11 @@
     return adapters;
 }
 
+- (void)failWithException:(NSException *)exception
+{
+    [exception raise];
+}
+
 - (NSString *)name
 {
     INLInvocationRunnable *adapter = (id)[self invocation];
