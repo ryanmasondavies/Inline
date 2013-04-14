@@ -22,11 +22,11 @@
 
 static NSMutableArray *order;
 
-@interface INLParallelHooks : INLSenTestCase
+@interface INLHooks : INLSenTestCase
 
 @end
 
-@implementation INLParallelHooks
+@implementation INLHooks
 
 - (NSArray *)tests
 {
@@ -41,16 +41,16 @@ static NSMutableArray *order;
 
 @end
 
-@interface INLParallelHooksTests : SenTestCase
+@interface INLHooksTests : SenTestCase
 
 @end
 
-@implementation INLParallelHooksTests
+@implementation INLHooksTests
 
 - (void)testBothHooksAndTestAreRun
 {
     order = [[NSMutableArray alloc] init];
-    [INLTestCaseRunner runTestsForClass:[INLParallelHooks class]];
+    [INLTestCaseRunner runTestsForClass:[INLHooks class]];
     [[order should] beEqualTo:@[@1, @2, @3]];
 }
 
