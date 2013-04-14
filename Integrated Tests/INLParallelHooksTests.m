@@ -20,9 +20,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-static BOOL beforeHookRan;
-static BOOL testRan;
-static BOOL afterHookRan;
+static NSMutableArray *order;
 
 @interface INLParallelHooks : INLSenTestCase
 
@@ -32,14 +30,13 @@ static BOOL afterHookRan;
 
 - (NSArray *)tests
 {
-    INLVoidBlock beforeHook = ^{ beforeHookRan = YES; };
-    INLVoidBlock afterHook = ^{ afterHookRan = YES; };
+    id<INLRunnable> beforeHook = [[INLHook alloc] initWithBlock:^{ [order addObject:@1]; }];
+    id<INLRunnable> afterHook = [[INLHook alloc] initWithBlock:^{ [order addObject:@3]; }];
+    id<INLTestDelegate> beforeFilter = [[INLBeforeFilter alloc] initWithRunnable:beforeHook];
+    id<INLTestDelegate> afterFilter = [[INLAfterFilter alloc] initWithRunnable:afterHook];
+    id<INLTestDelegate> context = [[INLContext alloc] initWithDelegates:@[beforeFilter, afterFilter]];
     
-    id<INLTestDelegate> beforeHooks = [[INLHooks alloc] initWithBlocks:@[beforeHook]];
-    id<INLTestDelegate> afterHooks = [[INLHooks alloc] initWithBlocks:@[afterHook]];
-    id<INLTestDelegate> context = [[INLContext alloc] initWithDelegates:@[beforeHooks, afterHooks]];
-    
-    return [[INLTest alloc] initWithName:@"test" block:^{ testRan = YES; } delegate:context];
+    return @[[[INLTest alloc] initWithName:@"test" block:^{ [order addObject:@2]; } delegate:context]];
 }
 
 @end
@@ -52,11 +49,9 @@ static BOOL afterHookRan;
 
 - (void)testBothHooksAndTestAreRun
 {
-    beforeHookRan = testRan = afterHookRan = NO;
+    order = [[NSMutableArray alloc] init];
     [INLTestCaseRunner runTestsForClass:[INLParallelHooks class]];
-    [[@(beforeHookRan) should] beTrue];
-    [[@(testRan) should] beTrue];
-    [[@(afterHookRan) should] beTrue];
+    [[order should] beEqualTo:@[@1, @2, @3]];
 }
 
 @end
