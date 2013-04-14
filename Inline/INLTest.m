@@ -21,26 +21,31 @@
 // THE SOFTWARE.
 
 #import "INLTest.h"
+#import "INLTestDelegate.h"
 
 @interface INLTest ()
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) INLVoidBlock block;
+@property (strong, nonatomic) id<INLTestDelegate> delegate;
 @end
 
 @implementation INLTest
 
-- (id)initWithName:(NSString *)name block:(INLVoidBlock)block
+- (id)initWithName:(NSString *)name block:(INLVoidBlock)block delegate:(id<INLTestDelegate>)delegate
 {
     if (self = [self init]) {
         [self setName:name];
         [self setBlock:block];
+        [self setDelegate:delegate];
     }
     return self;
 }
 
 - (void)run
 {
+    [[self delegate] testWillRun:self];
     [self block]();
+    [[self delegate] testDidRun:self];
 }
 
 @end

@@ -21,23 +21,51 @@
 // THE SOFTWARE.
 
 @interface INLTestTests : SenTestCase
-
+@property (nonatomic) BOOL blockExecuted;
+@property (strong, nonatomic) id testDelegate;
+@property (strong, nonatomic) INLTest *test;
 @end
 
 @implementation INLTestTests
 
-- (void)testRunExecutesBlock
+- (void)setUp
+{
+    INLVoidBlock block = ^{ [self setBlockExecuted:YES]; };
+    [self setTestDelegate:[OCMockObject niceMockForProtocol:@protocol(INLTestDelegate)]];
+    [self setTest:[[INLTest alloc] initWithName:@"" block:block delegate:[self testDelegate]]];
+}
+
+- (void)testNotifiesDelegateBeforeExecutingBlock
 {
     // given
-    __block BOOL executed = NO;
-    INLVoidBlock block = ^{ executed = YES; };
-    INLTest *test = [[INLTest alloc] initWithName:@"" block:block];
+    [[[[self testDelegate] expect] andDo:^(NSInvocation *invocation) { [[@([self blockExecuted]) should] beFalse]; }] testWillRun:[self test]];
     
     // when
-    [test run];
+    [[self test] run];
     
     // then
-    [[@(executed) should] beTrue];
+    [[self testDelegate] verify];
+}
+
+- (void)testRunExecutesBlock
+{
+    // when
+    [[self test] run];
+    
+    // then
+    [[@([self blockExecuted]) should] beTrue];
+}
+
+- (void)testNotifiesDelegateAfterExecutingBlock
+{
+    // given
+    [[[[self testDelegate] expect] andDo:^(NSInvocation *invocation) { [[@([self blockExecuted]) should] beTrue]; }] testDidRun:[self test]];
+    
+    // when
+    [[self test] run];
+    
+    // then
+    [[self testDelegate] verify];
 }
 
 @end

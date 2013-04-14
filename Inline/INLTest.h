@@ -23,6 +23,7 @@
 #import <Foundation/Foundation.h>
 #import "INLTypes.h"
 #import "INLRunnable.h"
+@protocol INLTestDelegate;
 
 /** An executable test which raises an exception if any expectations are not met. */
 @interface INLTest : NSObject <INLRunnable>
@@ -30,8 +31,9 @@
 /** Initializes a new test.
  @param name The name of the test.
  @param block The block to execute when running the test.
+ @param delegate The delegate for the test.
  @return An initialized test. */
-- (id)initWithName:(NSString *)name block:(INLVoidBlock)block;
+- (id)initWithName:(NSString *)name block:(INLVoidBlock)block delegate:(id<INLTestDelegate>)delegate;
 
 /** @return The name for the test. */
 - (NSString *)name;

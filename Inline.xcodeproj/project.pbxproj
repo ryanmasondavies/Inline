@@ -88,6 +88,7 @@
 		948D2FC4170C4DB70057A396 /* INLTestHelper.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLTestHelper.pch; sourceTree = "<group>"; };
 		948D2FC5170C4DB70057A396 /* INLTestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLTestTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		948D2FC6170C4DB70057A396 /* Unit Tests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Unit Tests-Info.plist"; sourceTree = "<group>"; };
+		9491A0DE171AA4FB00E3F4EC /* INLTestDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INLTestDelegate.h; sourceTree = "<group>"; };
 		9498982516F49B75005E06AB /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		94A1C77416A97B3F008C170D /* libInline.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libInline.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		94A1C77716A97B3F008C170D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -214,6 +215,7 @@
 				9450DCA6171858CC006C0ABB /* INLRunnable.h */,
 				941E2675171972C100E91EF5 /* INLRunnableInvocation.h */,
 				941E2676171972C100E91EF5 /* INLRunnableInvocation.m */,
+				9491A0DE171AA4FB00E3F4EC /* INLTestDelegate.h */,
 				94088D4116A9AA1800D7DEFC /* INLTest.h */,
 				947EA9F816B72AFC00FE8D79 /* INLTest.m */,
 			);
