@@ -3,11 +3,45 @@ Inline
 
 Inline aims to make it easier to create testing frameworks which integrate with Xcode, allowing developers to test any way they want.
 
-It presents a powerful and extendable structure using a block based approach to running tests. It provides a means to easily nest tests within groups, as well as nesting other groups within groups.
+It presents a powerful and extendable structure for running tests with SenTestingKit.
 
-Use it as you would SenTestingKit. When a test fails, you get a red flag. Pretty standard, but very important.
+Test classes must subclass `INLSenTestCase` rather than `SenTestCase`, and return an array of tests:
 
-For an example of how to implement a framework using Inline, I suggest looking at [Specify][].
+```
+@interface Tests : INLSenTestCase
+@end
+
+@implementation Tests
+
+- (NSArray *)tests
+{
+    return @[[[INLTest alloc] initWithName:@"test" block:^{} delegate:nil]];
+}
+
+@end
+```
+
+Rather than running tests itself, Inline ships them off to SenTestingKit. When a test is run, its block is executed.
+
+Test names are displayed in the log after being stripped of whitespace and punctuation. This is necessary to integrate with Xcode.
+
+Tests can run in a given context by assigning a delegate:
+
+```
+- (NSArray *)tests
+{
+    id<INLRunnable> beforeHook = [[INLHook alloc] initWithBlock:^{ /* Runs before the test */ }];
+    id<INLRunnable> afterHook = [[INLHook alloc] initWithBlock:^{ /* Runs after the test */ }];
+    id<INLTestDelegate> beforeFilter = [[INLBeforeFilter alloc] initWithRunnable:beforeHook];
+    id<INLTestDelegate> afterFilter = [[INLAfterFilter alloc] initWithRunnable:afterHook];
+    id<INLTestDelegate> context = [[INLContext alloc] initWithDelegates:@[beforeFilter, afterFilter]];
+    return @[[[INLTest alloc] initWithName:@"test" block:^{ /* Runs in the middle */ } delegate:context]];
+}
+```
+
+A context is a group of other delegates, filtered to run before or after a test. Any object conforming to `INLTestDelegate` can be used here, making extension trivial. Additionally, as contexts also conform to `INLTestDelegate`, they can be nested within each other.
+
+For an example of how to implement your own framework using Inline, take a look at [Specify][].
 
 [Specify]: http://www.github.com/rdavies/Specify
 
