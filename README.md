@@ -3,8 +3,6 @@ Inline
 
 Inline aims to make it easier to create testing frameworks which integrate with Xcode, allowing developers to test any way they want.
 
-It presents a powerful and extendable structure for running tests with SenTestingKit.
-
 Test classes must subclass `INLSenTestCase` rather than `SenTestCase`, and return an array of tests:
 
 ```
@@ -21,9 +19,7 @@ Test classes must subclass `INLSenTestCase` rather than `SenTestCase`, and retur
 @end
 ```
 
-Rather than running tests itself, Inline ships them off to SenTestingKit. When a test is run, its block is executed.
-
-Test names are displayed in the log after being stripped of whitespace and punctuation. This is necessary to integrate with Xcode.
+Rather than running tests itself, Inline ships them off to SenTestingKit. Test names are displayed in the log after being stripped of whitespace and punctuation. This is necessary to integrate with Xcode.
 
 Tests can run in a given context by assigning a delegate:
 
@@ -49,11 +45,6 @@ Installation
 ============
 
 Inline is installed via [CocoaPods](https://github.com/CocoaPods/CocoaPods) by adding `pod 'Inline', '~> 0.3.0'` to your Podfile.
-
-Documentation
-=============
-
-Comments are written using the [Appledoc](http://gentlebytes.com/appledoc/) syntax, and documentation will be automatically generated and added to Xcode by [CocoaPods](https://github.com/CocoaPods/CocoaPods) upon installation.
 
 License
 =======
