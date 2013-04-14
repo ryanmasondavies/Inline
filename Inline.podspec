@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version = '0.3.0'
   s.license = 'MIT'
   s.platform = :ios, '5.0'
-  s.summary = "Simplifies testing frameworks which integrate with Xcode, allowing developers to test any way they want."
+  s.summary = "Simplifies integration of testing frameworks with Xcode, allowing developers to test any way they want."
   s.homepage = 'https://github.com/rdavies/Inline'
   s.author = { 'Ryan Davies' => 'ryan@ryandavies.net' }
   s.source = { :git => 'https://github.com/rdavies/Inline.git', :tag => s.version.to_s }
