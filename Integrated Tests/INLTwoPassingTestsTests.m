@@ -20,8 +20,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-static BOOL firstTestRan;
-static BOOL secondTestRan;
+static NSMutableArray *order;
 
 @interface INLTwoPassingTests : INLSenTestCase
 
@@ -32,8 +31,8 @@ static BOOL secondTestRan;
 - (NSArray *)tests
 {
     NSMutableArray *tests = [[NSMutableArray alloc] init];
-    tests[0] = [[INLTest alloc] initWithName:@"test 1" block:^{ firstTestRan = YES; } delegate:nil];
-    tests[1] = [[INLTest alloc] initWithName:@"test 2" block:^{ secondTestRan = YES; } delegate:nil];
+    tests[0] = [[INLTest alloc] initWithName:@"test 1" block:^{ [order addObject:@1]; } delegate:nil];
+    tests[1] = [[INLTest alloc] initWithName:@"test 2" block:^{ [order addObject:@2]; } delegate:nil];
     return tests;
 }
 
@@ -47,10 +46,9 @@ static BOOL secondTestRan;
 
 - (void)testTwoTestsAreRun
 {
-    firstTestRan = secondTestRan = NO;
+    order = [[NSMutableArray alloc] init];
     [INLTestCaseRunner runTestsForClass:[INLTwoPassingTests class]];
-    [[@(firstTestRan) should] beTrue];
-    [[@(secondTestRan) should] beTrue];
+    [[order should] beEqualTo:@[@1, @2]];
 }
 
 @end
