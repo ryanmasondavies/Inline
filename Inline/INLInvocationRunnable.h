@@ -24,7 +24,7 @@
 @protocol INLRunnable;
 
 /** An adapter which appears to be an instance of NSInvocation but instead forwards appropriate methods to an underlying INLRunnable. */
-@interface INLRunnableInvocation : NSObject
+@interface INLInvocationRunnable : NSObject
 
 /**
  Initialize an adapter.

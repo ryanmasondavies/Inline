@@ -20,18 +20,18 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-@interface INLRunnableInvocationTests : SenTestCase
+@interface INLInvocationRunnableTests : SenTestCase
 @property (nonatomic) BOOL ran;
 @property (strong, nonatomic) id runnable;
-@property (strong, nonatomic) INLRunnableInvocation *adapter;
+@property (strong, nonatomic) INLInvocationRunnable *adapter;
 @end
 
-@implementation INLRunnableInvocationTests
+@implementation INLInvocationRunnableTests
 
 - (void)setUp
 {
     [self setRunnable:[OCMockObject niceMockForProtocol:@protocol(INLRunnable)]];
-    [self setAdapter:[[INLRunnableInvocation alloc] initWithRunnable:[self runnable]]];
+    [self setAdapter:[[INLInvocationRunnable alloc] initWithRunnable:[self runnable]]];
     [(id<INLRunnable>)[[[self runnable] stub] andDo:^(NSInvocation *invocation) { [self setRan:YES]; }] run];
 }
 

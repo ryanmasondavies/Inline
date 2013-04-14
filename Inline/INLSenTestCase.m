@@ -21,7 +21,7 @@
 // THE SOFTWARE.
 
 #import "INLSenTestCase.h"
-#import "INLRunnableInvocation.h"
+#import "INLInvocationRunnable.h"
 #import "INLRunnable.h"
 
 @implementation INLSenTestCase
@@ -33,7 +33,7 @@
     
     NSMutableArray *adapters = [[NSMutableArray alloc] init];
     [tests enumerateObjectsUsingBlock:^(id<INLRunnable> runnable, NSUInteger idx, BOOL *stop) {
-        INLRunnableInvocation *adapter = [[INLRunnableInvocation alloc] initWithRunnable:runnable];
+        INLInvocationRunnable *adapter = [[INLInvocationRunnable alloc] initWithRunnable:runnable];
         [adapters addObject:adapter];
     }];
     

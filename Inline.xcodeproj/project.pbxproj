@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		02180A427B27452A8ACC3CB8 /* libPods-Unit Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFAE5470718542C68A1DE9E7 /* libPods-Unit Tests.a */; };
 		7A2705D8CB044F23A8655CC9 /* libPods-Integrated Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A6FC86C17E540ACBFF3B6F2 /* libPods-Integrated Tests.a */; };
-		941E267417196EF800E91EF5 /* INLRunnableInvocationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 941E267317196EF800E91EF5 /* INLRunnableInvocationTests.m */; };
-		941E2677171972C100E91EF5 /* INLRunnableInvocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 941E2676171972C100E91EF5 /* INLRunnableInvocation.m */; };
+		941E267417196EF800E91EF5 /* INLInvocationRunnableTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 941E267317196EF800E91EF5 /* INLInvocationRunnableTests.m */; };
+		941E2677171972C100E91EF5 /* INLInvocationRunnable.m in Sources */ = {isa = PBXBuildFile; fileRef = 941E2676171972C100E91EF5 /* INLInvocationRunnable.m */; };
 		941E26811719854700E91EF5 /* INLTestCaseRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 941E26801719854700E91EF5 /* INLTestCaseRunner.m */; };
 		941E2685171991A000E91EF5 /* INLTwoPassingTestsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 941E2684171991A000E91EF5 /* INLTwoPassingTestsTests.m */; };
 		942A33CD17159C7F0019614A /* libInline.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A1C77416A97B3F008C170D /* libInline.a */; };
@@ -72,9 +72,9 @@
 		49893940671446DDAFC1ACF9 /* Pods-Integrated Tests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Integrated Tests.xcconfig"; path = "Pods/Pods-Integrated Tests.xcconfig"; sourceTree = SOURCE_ROOT; };
 		60393545CE184FBABA042F2F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		94088D4116A9AA1800D7DEFC /* INLTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLTest.h; sourceTree = "<group>"; };
-		941E267317196EF800E91EF5 /* INLRunnableInvocationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLRunnableInvocationTests.m; sourceTree = "<group>"; };
-		941E2675171972C100E91EF5 /* INLRunnableInvocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLRunnableInvocation.h; sourceTree = "<group>"; };
-		941E2676171972C100E91EF5 /* INLRunnableInvocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLRunnableInvocation.m; sourceTree = "<group>"; };
+		941E267317196EF800E91EF5 /* INLInvocationRunnableTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLInvocationRunnableTests.m; sourceTree = "<group>"; };
+		941E2675171972C100E91EF5 /* INLInvocationRunnable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLInvocationRunnable.h; sourceTree = "<group>"; };
+		941E2676171972C100E91EF5 /* INLInvocationRunnable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLInvocationRunnable.m; sourceTree = "<group>"; };
 		941E267F1719854700E91EF5 /* INLTestCaseRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLTestCaseRunner.h; sourceTree = "<group>"; };
 		941E26801719854700E91EF5 /* INLTestCaseRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLTestCaseRunner.m; sourceTree = "<group>"; };
 		941E2684171991A000E91EF5 /* INLTwoPassingTestsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLTwoPassingTestsTests.m; sourceTree = "<group>"; };
@@ -152,7 +152,7 @@
 		948D2FBB170C4DB70057A396 /* Unit Tests */ = {
 			isa = PBXGroup;
 			children = (
-				941E267317196EF800E91EF5 /* INLRunnableInvocationTests.m */,
+				941E267317196EF800E91EF5 /* INLInvocationRunnableTests.m */,
 				948D2FC5170C4DB70057A396 /* INLTestTests.m */,
 				948D2FD1170C4DC10057A396 /* Supporting files */,
 			);
@@ -213,8 +213,8 @@
 				9450DC9B17184E8A006C0ABB /* INLSenTestCase.h */,
 				9450DC9C17184E8A006C0ABB /* INLSenTestCase.m */,
 				9450DCA6171858CC006C0ABB /* INLRunnable.h */,
-				941E2675171972C100E91EF5 /* INLRunnableInvocation.h */,
-				941E2676171972C100E91EF5 /* INLRunnableInvocation.m */,
+				941E2675171972C100E91EF5 /* INLInvocationRunnable.h */,
+				941E2676171972C100E91EF5 /* INLInvocationRunnable.m */,
 				9491A0DE171AA4FB00E3F4EC /* INLTestDelegate.h */,
 				94088D4116A9AA1800D7DEFC /* INLTest.h */,
 				947EA9F816B72AFC00FE8D79 /* INLTest.m */,
@@ -429,7 +429,7 @@
 			files = (
 				947EA9F916B72AFC00FE8D79 /* INLTest.m in Sources */,
 				9450DC9D17184E8A006C0ABB /* INLSenTestCase.m in Sources */,
-				941E2677171972C100E91EF5 /* INLRunnableInvocation.m in Sources */,
+				941E2677171972C100E91EF5 /* INLInvocationRunnable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,7 +438,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				948D2FCF170C4DB70057A396 /* INLTestTests.m in Sources */,
-				941E267417196EF800E91EF5 /* INLRunnableInvocationTests.m in Sources */,
+				941E267417196EF800E91EF5 /* INLInvocationRunnableTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

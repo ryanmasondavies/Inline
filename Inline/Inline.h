@@ -24,7 +24,7 @@
 #   define _INLINE_
 #   import "INLVersion.h"
 #   import "INLSenTestCase.h"
-#   import "INLRunnableInvocation.h"
+#   import "INLInvocationRunnable.h"
 #   import "INLTestDelegate.h" // temporary
 #   import "INLTest.h"
 #endif

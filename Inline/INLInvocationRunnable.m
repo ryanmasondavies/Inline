@@ -20,14 +20,14 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "INLRunnableInvocation.h"
+#import "INLInvocationRunnable.h"
 #import "INLRunnable.h"
 
-@interface INLRunnableInvocation ()
+@interface INLInvocationRunnable ()
 @property (strong, nonatomic) id<INLRunnable> runnable;
 @end
 
-@implementation INLRunnableInvocation
+@implementation INLInvocationRunnable
 
 - (id)initWithRunnable:(id<INLRunnable>)runnable
 {
