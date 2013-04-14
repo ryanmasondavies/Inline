@@ -43,7 +43,9 @@
 
 - (void)testDidRun:(INLTest *)test
 {
-    [[self delegates] makeObjectsPerformSelector:@selector(testDidRun:) withObject:test];
+    for (id<INLTestDelegate> delegate in [[self delegates] reverseObjectEnumerator]) {
+        [delegate testDidRun:test];
+    }
 }
 
 @end

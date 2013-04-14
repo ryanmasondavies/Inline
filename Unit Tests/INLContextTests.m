@@ -55,7 +55,7 @@
     [[[self order] should] beEqualTo:@[@0, @1, @2]];
 }
 
-- (void)testForwardsTestDidRunToDelegatesInOrder
+- (void)testForwardsTestDidRunToDelegatesInReverseOrder
 {
     // given
     [[self contextDelegates] enumerateObjectsUsingBlock:^(id delegate, NSUInteger idx, BOOL *stop) {
@@ -66,7 +66,7 @@
     [[self context] testDidRun:[self test]];
     
     // then
-    [[[self order] should] beEqualTo:@[@0, @1, @2]];
+    [[[self order] should] beEqualTo:@[@2, @1, @0]];
 }
 
 @end
