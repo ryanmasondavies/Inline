@@ -1,22 +1,20 @@
 Inline
 ======
 
-Inline provides a layer upon which to build testing libraries.
+Inline aims to make it easier to create testing frameworks which integrate with Xcode, allowing developers to test any way they want.
 
-Tests, groups, and hooks are added to the root group through the builder's API. This layer of abstraction allows for the DSL language to be visible through the builder's interface.
+It presents a powerful and extendable structure using a block based approach to running tests. It provides a means to easily nest tests within groups, as well as nesting other groups within groups.
 
-[OCUnit](http://www.sente.ch/software/ocunit/) uses the `+testInvocations` method on SenTestCase to determine the tests available in that suite. The default implementation retrieves methods which return `void`, have no arguments, and are prefixed with 'test'. This implementation is not easily extendable. Dynamically adding tests would require dynamically adding methods, which is impractical and restrains tests to the rules by which methods must abide.
+Use it as you would SenTestingKit. When a test fails, you get a red flag. Pretty standard, but very important.
 
-Calling `+testInvocations` on a subclass of INLTestCase results in a call to `-invocationsForGroup:` on the compiler, which is then responsible for compiling a list of test invocations.
+For an example of how to implement a framework using Inline, I suggest looking at [Specify][].
 
-While the SenTestCase class manages all of the invocations in the suite, an instance manages only a single invocation. On `-setInvocation:`, it sets the invocation's target to the test case itself, because it is expecting to invoke a 'test...' method on the subclass. INLTestCase works around this by using instances of INLInvocation. INLInvocation implements the method `+invocationWithTest:`, intended for creating invocations for your INLTest subclass.
-
-INLTestCase also overrides `-name`, the method which [OCUnit](http://www.sente.ch/software/ocunit/) uses to format tests for printing to the console. The default implementation returns the method signature of the `test...` method, but INLTestCase returns the description of the current invocation's test.
+[Specify]: http://www.github.com/rdavies/Specify
 
 Installation
 ============
 
-Inline is installed via [CocoaPods](https://github.com/CocoaPods/CocoaPods) by adding `pod 'Inline', '~> 0.2.1'` to your Podfile.
+Inline is installed via [CocoaPods](https://github.com/CocoaPods/CocoaPods) by adding `pod 'Inline', '~> 0.3.0'` to your Podfile.
 
 Documentation
 =============
