@@ -22,9 +22,10 @@
 
 #import <Foundation/Foundation.h>
 #import "INLTypes.h"
+#import "INLRunnable.h"
 
 /** An executable test which raises an exception if any expectations are not met. */
-@interface INLTest : NSObject
+@interface INLTest : NSObject <INLRunnable>
 
 /** Initializes a new test.
  @param name The name of the test.
@@ -34,8 +35,5 @@
 
 /** @return The name for the test. */
 - (NSString *)name;
-
-/** Run the test. */
-- (void)run;
 
 @end

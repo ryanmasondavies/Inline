@@ -25,6 +25,5 @@
 #   import "INLVersion.h"
 #   import "INLSenTestCase.h"
 #   import "INLTest.h"
-#   import "INLBlockInvoker.h"
-#   import "INLInvokableAdapter.h"
+#   import "INLRunnableInvocation.h"
 #endif

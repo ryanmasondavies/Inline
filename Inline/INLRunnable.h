@@ -22,10 +22,10 @@
 
 #import <Foundation/Foundation.h>
 
-/** An interface for invokable objects. */
-@protocol INLInvokable <NSObject>
+/** An interface for runnable objects. */
+@protocol INLRunnable <NSObject>
 
-/** Invoke the behaviour handled by the object e.g the block, or method. */
-- (void)invoke;
+/** Run the object. */
+- (void)run;
 
 @end

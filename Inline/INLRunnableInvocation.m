@@ -20,29 +20,29 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "INLInvokableAdapter.h"
-#import "INLInvokable.h"
+#import "INLRunnableInvocation.h"
+#import "INLRunnable.h"
 
-@interface INLInvokableAdapter ()
-@property (strong, nonatomic) id<INLInvokable> invokable;
+@interface INLRunnableInvocation ()
+@property (strong, nonatomic) id<INLRunnable> runnable;
 @end
 
-@implementation INLInvokableAdapter
+@implementation INLRunnableInvocation
 
-- (id)initWithInvokable:(id<INLInvokable>)invokable
+- (id)initWithRunnable:(id<INLRunnable>)runnable
 {
-    [self setInvokable:invokable];
+    [self setRunnable:runnable];
     return self;
 }
 
 - (void)invoke
 {
-    [[self invokable] invoke];
+    [[self runnable] run];
 }
 
 - (void)invokeWithTarget:(id)target
 {
-    [[self invokable] invoke];
+    [[self runnable] run];
 }
 
 - (void)setSelector:(SEL)selector

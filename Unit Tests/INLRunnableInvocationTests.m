@@ -20,20 +20,19 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-@interface INLInvokableAdapterTests : SenTestCase
-@property (nonatomic) BOOL invoked;
-@property (strong, nonatomic) id invokable;
-@property (strong, nonatomic) INLInvokableAdapter *adapter;
+@interface INLRunnableInvocationTests : SenTestCase
+@property (nonatomic) BOOL ran;
+@property (strong, nonatomic) id runnable;
+@property (strong, nonatomic) INLRunnableInvocation *adapter;
 @end
 
-@implementation INLInvokableAdapterTests
+@implementation INLRunnableInvocationTests
 
 - (void)setUp
 {
-    [self setInvoked:NO];
-    [self setInvoked:[OCMockObject niceMockForProtocol:@protocol(INLInvokable)]];
-    [self setAdapter:[[INLInvokableAdapter alloc] initWithInvokable:[self invokable]]];
-    [[[[self invokable] stub] andDo:^(NSInvocation *invocation) { [self setInvoked:YES]; }] invoke];
+    [self setRunnable:[OCMockObject niceMockForProtocol:@protocol(INLRunnable)]];
+    [self setAdapter:[[INLRunnableInvocation alloc] initWithRunnable:[self runnable]]];
+    [(id<INLRunnable>)[[[self runnable] stub] andDo:^(NSInvocation *invocation) { [self setRan:YES]; }] run];
 }
 
 - (void)testWhenReceivesInvokeCallsInvokeOnInvokable
@@ -42,7 +41,7 @@
     [[self adapter] invoke];
     
     // then
-    [[@(self.invoked) should] beTrue];
+    [[@([self ran]) should] beTrue];
 }
 
 - (void)testWhenReceivesInvokeWithTargetCallsInvokeOnInvokable
@@ -51,7 +50,7 @@
     [[self adapter] invokeWithTarget:[NSObject new]];
     
     // then
-    [[@(self.invoked) should] beTrue];
+    [[@([self ran]) should] beTrue];
 }
 
 - (void)testRespondsToSetSelector
