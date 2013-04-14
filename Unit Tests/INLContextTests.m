@@ -22,6 +22,7 @@
 
 @interface INLContextTests : SenTestCase
 @property (strong, nonatomic) id test;
+@property (strong, nonatomic) NSMutableArray *order;
 @property (strong, nonatomic) NSMutableArray *contextDelegates;
 @property (strong, nonatomic) INLContext *context;
 @end
@@ -31,40 +32,41 @@
 - (void)setUp
 {
     [self setTest:[OCMockObject niceMockForClass:[INLTest class]]];
+    [self setOrder:[[NSMutableArray alloc] init]];
     [self setContextDelegates:[[NSMutableArray alloc] init]];
     [self setContext:[[INLContext alloc] initWithDelegates:[self contextDelegates]]];
     
-    for (NSUInteger i = 0; i < 10; i ++) {
+    for (NSUInteger i = 0; i < 3; i ++) {
         [[self contextDelegates] addObject:[OCMockObject niceMockForProtocol:@protocol(INLTestDelegate)]];
     }
 }
 
-- (void)testForwardsTestWillRunToDelegates
+- (void)testForwardsTestWillRunToDelegatesInOrder
 {
     // given
     [[self contextDelegates] enumerateObjectsUsingBlock:^(id delegate, NSUInteger idx, BOOL *stop) {
-        [[delegate expect] testWillRun:[self test]];
+        [[[delegate stub] andDo:^(NSInvocation *invocation) { [[self order] addObject:@(idx)]; }] testWillRun:[self test]];
     }];
     
     // when
     [[self context] testWillRun:[self test]];
     
     // then
-    [[self contextDelegates] makeObjectsPerformSelector:@selector(verify)];
+    [[[self order] should] beEqualTo:@[@0, @1, @2]];
 }
 
-- (void)testForwardsTestDidRunToDelegates
+- (void)testForwardsTestDidRunToDelegatesInOrder
 {
     // given
     [[self contextDelegates] enumerateObjectsUsingBlock:^(id delegate, NSUInteger idx, BOOL *stop) {
-        [[delegate expect] testDidRun:[self test]];
+        [[[delegate stub] andDo:^(NSInvocation *invocation) { [[self order] addObject:@(idx)]; }] testDidRun:[self test]];
     }];
     
     // when
     [[self context] testDidRun:[self test]];
     
     // then
-    [[self contextDelegates] makeObjectsPerformSelector:@selector(verify)];
+    [[[self order] should] beEqualTo:@[@0, @1, @2]];
 }
 
 @end
