@@ -27,4 +27,4 @@
 #define INLINE_MINOR_VERSION 3
 
 /** The patch version component. */
-#define INLINE_PATCH_VERSION 0
+#define INLINE_PATCH_VERSION 1
