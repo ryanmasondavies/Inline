@@ -34,7 +34,7 @@ static NSMutableArray *order;
     id<INLRunnable> afterHook = [[INLHook alloc] initWithBlock:^{ [order addObject:@3]; }];
     id<INLTestDelegate> beforeFilter = [[INLBeforeFilter alloc] initWithRunnable:beforeHook];
     id<INLTestDelegate> afterFilter = [[INLAfterFilter alloc] initWithRunnable:afterHook];
-    id<INLTestDelegate> context = [[INLContext alloc] initWithDelegates:@[beforeFilter, afterFilter]];
+    id<INLTestDelegate> context = [[INLContext alloc] initWithDelegates:@[afterFilter, beforeFilter]];
     
     return @[[[INLTest alloc] initWithName:@"test" block:^{ [order addObject:@2]; } delegate:context]];
 }
