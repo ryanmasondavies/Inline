@@ -20,17 +20,31 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-@interface INLLlamaCaseTransformerTests : SenTestCase
+@interface INLLlamaCaseStringTransformerTests : SenTestCase
 
 @end
 
-@implementation INLLlamaCaseTransformerTests
+@implementation INLLlamaCaseStringTransformerTests
 
 - (void)testTransformsStringsWithSpaces
 {
     // given
     NSString *string = @"Hello World";
-    INLLlamaCaseTransformer *transformer = [[INLLlamaCaseTransformer alloc] init];
+    INLLlamaCaseStringTransformer *transformer = [[INLLlamaCaseStringTransformer alloc] init];
+    
+    // when
+    NSString *result = [transformer transformedValue:string];
+    
+    // then
+    [[@(result != nil) should] beTrue];
+    [[result should] beEqualTo:@"helloWorld"];
+}
+
+- (void)testRemovesPunctuation
+{
+    // given
+    NSString *string = @"Hello !@£$%^&*()-=_+,./;'\[]<>?:\"|{} World";
+    INLLlamaCaseStringTransformer *transformer = [[INLLlamaCaseStringTransformer alloc] init];
     
     // when
     NSString *result = [transformer transformedValue:string];

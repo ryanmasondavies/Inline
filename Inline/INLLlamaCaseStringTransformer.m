@@ -38,7 +38,9 @@
 {
     string = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     
-    NSArray *components = [string componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSMutableCharacterSet *acceptableCharacters = [NSMutableCharacterSet letterCharacterSet];
+    [acceptableCharacters formUnionWithCharacterSet:[NSCharacterSet decimalDigitCharacterSet]];
+    NSArray *components = [string componentsSeparatedByCharactersInSet:[[NSCharacterSet letterCharacterSet] invertedSet]];
     components = [components filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self <> ''"]];
     
     NSMutableArray *mutableComponents = [NSMutableArray arrayWithCapacity:[components count]];

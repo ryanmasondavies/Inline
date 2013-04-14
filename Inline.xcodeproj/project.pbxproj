@@ -28,6 +28,7 @@
 		9491A0F9171AB5D000E3F4EC /* INLAfterFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9491A0F8171AB5D000E3F4EC /* INLAfterFilter.m */; };
 		9491A0FC171ABD5B00E3F4EC /* INLLlamaCaseStringTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9491A0FB171ABD5B00E3F4EC /* INLLlamaCaseStringTransformer.m */; };
 		9491A125171AEDD700E3F4EC /* INLNestingContextsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9491A124171AEDD700E3F4EC /* INLNestingContextsTests.m */; };
+		9491A12C171B239700E3F4EC /* INLLlamaCaseStringTransformerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9491A0FD171ABD9600E3F4EC /* INLLlamaCaseStringTransformerTests.m */; };
 		9498982416F49B69005E06AB /* libInline.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A1C77416A97B3F008C170D /* libInline.a */; };
 		9498982616F49B75005E06AB /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9498982516F49B75005E06AB /* SenTestingKit.framework */; };
 		9498982716F49B7D005E06AB /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9498982516F49B75005E06AB /* SenTestingKit.framework */; };
@@ -111,7 +112,7 @@
 		9491A0F8171AB5D000E3F4EC /* INLAfterFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLAfterFilter.m; sourceTree = "<group>"; };
 		9491A0FA171ABD5B00E3F4EC /* INLLlamaCaseStringTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLLlamaCaseStringTransformer.h; sourceTree = "<group>"; };
 		9491A0FB171ABD5B00E3F4EC /* INLLlamaCaseStringTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLLlamaCaseStringTransformer.m; sourceTree = "<group>"; };
-		9491A0FD171ABD9600E3F4EC /* INLLlamaCaseTransformerTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INLLlamaCaseTransformerTests.h; sourceTree = "<group>"; };
+		9491A0FD171ABD9600E3F4EC /* INLLlamaCaseStringTransformerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = INLLlamaCaseStringTransformerTests.m; sourceTree = "<group>"; };
 		9491A124171AEDD700E3F4EC /* INLNestingContextsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLNestingContextsTests.m; sourceTree = "<group>"; };
 		9498982516F49B75005E06AB /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		94A1C77416A97B3F008C170D /* libInline.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libInline.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -175,7 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				941E267317196EF800E91EF5 /* INLInvocationRunnableTests.m */,
-				9491A0FD171ABD9600E3F4EC /* INLLlamaCaseTransformerTests.h */,
+				9491A0FD171ABD9600E3F4EC /* INLLlamaCaseStringTransformerTests.m */,
 				948D2FC5170C4DB70057A396 /* INLTestTests.m */,
 				9491A0E3171AABDB00E3F4EC /* INLContextTests.m */,
 				9491A0E8171AAFE000E3F4EC /* INLHookTests.m */,
@@ -469,6 +470,7 @@
 				9491A0EC171AB1CC00E3F4EC /* INLHookTests.m in Sources */,
 				9491A0F0171AB41800E3F4EC /* INLBeforeFilterTests.m in Sources */,
 				9491A0F3171AB42D00E3F4EC /* INLAfterFilterTests.m in Sources */,
+				9491A12C171B239700E3F4EC /* INLLlamaCaseStringTransformerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
