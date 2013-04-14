@@ -31,7 +31,9 @@
 
 - (id)initWithRunnable:(id<INLRunnable>)runnable
 {
-    [self setRunnable:runnable];
+    if (self = [self init]) {
+        [self setRunnable:runnable];
+    }
     return self;
 }
 
