@@ -23,6 +23,7 @@
 #import "INLSenTestCase.h"
 #import "INLInvocationRunnable.h"
 #import "INLLlamaCaseStringTransformer.h"
+#import "INLLettersStringTransformer.h"
 #import "INLTest.h"
 
 @implementation INLSenTestCase
@@ -45,8 +46,12 @@
 {
     INLInvocationRunnable *adapter = (id)[self invocation];
     INLTest *test = (INLTest *)[adapter runnable];
-    NSValueTransformer *transformer = [[INLLlamaCaseStringTransformer alloc] init];
-    return [NSString stringWithFormat:@"-[Test %@]", [transformer transformedValue:[test name]]];
+    NSValueTransformer *llamaCase = [[INLLlamaCaseStringTransformer alloc] init];
+    NSValueTransformer *lettersOnly = [[INLLettersStringTransformer alloc] init];
+    NSString *name = [test name];
+    name = [llamaCase transformedValue:name];
+    name = [lettersOnly transformedValue:name];
+    return [NSString stringWithFormat:@"-[Test %@]", name];
 }
 
 - (NSArray *)tests

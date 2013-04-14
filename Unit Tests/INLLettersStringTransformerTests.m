@@ -20,33 +20,24 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "INLLlamaCaseStringTransformer.h"
+@interface INLLettersStringTransformerTests : SenTestCase
 
-@implementation INLLlamaCaseStringTransformer
+@end
 
-+ (Class)transformedValueClass
+@implementation INLLettersStringTransformerTests
+
+- (void)testRemovesPunctuation
 {
-    return [NSString class];
-}
-
-+ (BOOL)allowsReverseTransformation
-{
-    return NO;
-}
-
-- (id)transformedValue:(NSString *)string
-{
-    string = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    // given
+    NSString *string = @"Hello!@£$%^&*()-=_+,./;'\[]<>?:\"|{} World";
+    NSValueTransformer *transformer = [[INLLettersStringTransformer alloc] init];
     
-    NSArray *components = [string componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    components = [components filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self <> ''"]];
+    // when
+    NSString *result = [transformer transformedValue:string];
     
-    NSMutableArray *mutableComponents = [NSMutableArray arrayWithCapacity:[components count]];
-    [components enumerateObjectsUsingBlock:^(id component, NSUInteger idx, BOOL *stop) {
-        [mutableComponents addObject:(idx == 0 ? [component lowercaseString] : [component capitalizedString])];
-    }];
-    
-    return [mutableComponents componentsJoinedByString:@""];
+    // then
+    [[@(result != nil) should] beTrue];
+    [[result should] beEqualTo:@"Hello World"];
 }
 
 @end

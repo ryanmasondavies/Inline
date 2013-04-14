@@ -29,6 +29,8 @@
 		9491A0FC171ABD5B00E3F4EC /* INLLlamaCaseStringTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9491A0FB171ABD5B00E3F4EC /* INLLlamaCaseStringTransformer.m */; };
 		9491A125171AEDD700E3F4EC /* INLNestingContextsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9491A124171AEDD700E3F4EC /* INLNestingContextsTests.m */; };
 		9491A12C171B239700E3F4EC /* INLLlamaCaseStringTransformerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9491A0FD171ABD9600E3F4EC /* INLLlamaCaseStringTransformerTests.m */; };
+		9491A12F171B391800E3F4EC /* INLLettersStringTransformerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9491A12E171B391800E3F4EC /* INLLettersStringTransformerTests.m */; };
+		9491A132171B397200E3F4EC /* INLLettersStringTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9491A131171B397200E3F4EC /* INLLettersStringTransformer.m */; };
 		9498982416F49B69005E06AB /* libInline.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A1C77416A97B3F008C170D /* libInline.a */; };
 		9498982616F49B75005E06AB /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9498982516F49B75005E06AB /* SenTestingKit.framework */; };
 		9498982716F49B7D005E06AB /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9498982516F49B75005E06AB /* SenTestingKit.framework */; };
@@ -114,6 +116,9 @@
 		9491A0FB171ABD5B00E3F4EC /* INLLlamaCaseStringTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLLlamaCaseStringTransformer.m; sourceTree = "<group>"; };
 		9491A0FD171ABD9600E3F4EC /* INLLlamaCaseStringTransformerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = INLLlamaCaseStringTransformerTests.m; sourceTree = "<group>"; };
 		9491A124171AEDD700E3F4EC /* INLNestingContextsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLNestingContextsTests.m; sourceTree = "<group>"; };
+		9491A12E171B391800E3F4EC /* INLLettersStringTransformerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLLettersStringTransformerTests.m; sourceTree = "<group>"; };
+		9491A130171B397200E3F4EC /* INLLettersStringTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLLettersStringTransformer.h; sourceTree = "<group>"; };
+		9491A131171B397200E3F4EC /* INLLettersStringTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLLettersStringTransformer.m; sourceTree = "<group>"; };
 		9498982516F49B75005E06AB /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		94A1C77416A97B3F008C170D /* libInline.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libInline.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		94A1C77716A97B3F008C170D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -177,6 +182,7 @@
 			children = (
 				941E267317196EF800E91EF5 /* INLInvocationRunnableTests.m */,
 				9491A0FD171ABD9600E3F4EC /* INLLlamaCaseStringTransformerTests.m */,
+				9491A12E171B391800E3F4EC /* INLLettersStringTransformerTests.m */,
 				948D2FC5170C4DB70057A396 /* INLTestTests.m */,
 				9491A0E3171AABDB00E3F4EC /* INLContextTests.m */,
 				9491A0E8171AAFE000E3F4EC /* INLHookTests.m */,
@@ -243,6 +249,8 @@
 				941E2676171972C100E91EF5 /* INLInvocationRunnable.m */,
 				9491A0FA171ABD5B00E3F4EC /* INLLlamaCaseStringTransformer.h */,
 				9491A0FB171ABD5B00E3F4EC /* INLLlamaCaseStringTransformer.m */,
+				9491A130171B397200E3F4EC /* INLLettersStringTransformer.h */,
+				9491A131171B397200E3F4EC /* INLLettersStringTransformer.m */,
 				9491A0DE171AA4FB00E3F4EC /* INLTestDelegate.h */,
 				94088D4116A9AA1800D7DEFC /* INLTest.h */,
 				947EA9F816B72AFC00FE8D79 /* INLTest.m */,
@@ -457,6 +465,7 @@
 				9491A0F6171AB5CB00E3F4EC /* INLBeforeFilter.m in Sources */,
 				9491A0F9171AB5D000E3F4EC /* INLAfterFilter.m in Sources */,
 				9491A0FC171ABD5B00E3F4EC /* INLLlamaCaseStringTransformer.m in Sources */,
+				9491A132171B397200E3F4EC /* INLLettersStringTransformer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,6 +480,7 @@
 				9491A0F0171AB41800E3F4EC /* INLBeforeFilterTests.m in Sources */,
 				9491A0F3171AB42D00E3F4EC /* INLAfterFilterTests.m in Sources */,
 				9491A12C171B239700E3F4EC /* INLLlamaCaseStringTransformerTests.m in Sources */,
+				9491A12F171B391800E3F4EC /* INLLettersStringTransformerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

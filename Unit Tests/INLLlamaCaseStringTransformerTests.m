@@ -40,7 +40,7 @@
     [[result should] beEqualTo:@"helloWorld"];
 }
 
-- (void)testRemovesPunctuation
+- (void)testLeavesPunctuation
 {
     // given
     NSString *string = @"Hello !@£$%^&*()-=_+,./;'\[]<>?:\"|{} World";
@@ -51,7 +51,7 @@
     
     // then
     [[@(result != nil) should] beTrue];
-    [[result should] beEqualTo:@"helloWorld"];
+    [[result should] beEqualTo:@"hello!@£$%^&*()-=_+,./;'\[]<>?:\"|{}World"];
 }
 
 @end

@@ -20,9 +20,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "INLLlamaCaseStringTransformer.h"
+#import "INLLettersStringTransformer.h"
 
-@implementation INLLlamaCaseStringTransformer
+@implementation INLLettersStringTransformer
 
 + (Class)transformedValueClass
 {
@@ -36,17 +36,9 @@
 
 - (id)transformedValue:(NSString *)string
 {
-    string = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    
-    NSArray *components = [string componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    components = [components filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self <> ''"]];
-    
-    NSMutableArray *mutableComponents = [NSMutableArray arrayWithCapacity:[components count]];
-    [components enumerateObjectsUsingBlock:^(id component, NSUInteger idx, BOOL *stop) {
-        [mutableComponents addObject:(idx == 0 ? [component lowercaseString] : [component capitalizedString])];
-    }];
-    
-    return [mutableComponents componentsJoinedByString:@""];
+    NSMutableCharacterSet *accepted = [NSMutableCharacterSet letterCharacterSet];
+    [accepted formUnionWithCharacterSet:[NSCharacterSet whitespaceCharacterSet]];
+    return [[string componentsSeparatedByCharactersInSet:[accepted invertedSet]] componentsJoinedByString:@""];
 }
 
 @end

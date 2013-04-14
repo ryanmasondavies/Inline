@@ -20,33 +20,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "INLLlamaCaseStringTransformer.h"
+#import <Foundation/Foundation.h>
 
-@implementation INLLlamaCaseStringTransformer
-
-+ (Class)transformedValueClass
-{
-    return [NSString class];
-}
-
-+ (BOOL)allowsReverseTransformation
-{
-    return NO;
-}
-
-- (id)transformedValue:(NSString *)string
-{
-    string = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    
-    NSArray *components = [string componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    components = [components filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self <> ''"]];
-    
-    NSMutableArray *mutableComponents = [NSMutableArray arrayWithCapacity:[components count]];
-    [components enumerateObjectsUsingBlock:^(id component, NSUInteger idx, BOOL *stop) {
-        [mutableComponents addObject:(idx == 0 ? [component lowercaseString] : [component capitalizedString])];
-    }];
-    
-    return [mutableComponents componentsJoinedByString:@""];
-}
+/** Strips a string of all characters but letters and numbers. */
+@interface INLLettersStringTransformer : NSValueTransformer
 
 @end

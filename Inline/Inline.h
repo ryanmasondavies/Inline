@@ -26,6 +26,7 @@
 #   import "INLSenTestCase.h"
 #   import "INLInvocationRunnable.h"
 #   import "INLLlamaCaseStringTransformer.h"
+#   import "INLLettersStringTransformer.h"
 #   import "INLTest.h"
 #   import "INLContext.h"
 #   import "INLBeforeFilter.h"
