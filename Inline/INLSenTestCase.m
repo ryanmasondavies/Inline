@@ -26,6 +26,10 @@
 #import "INLLettersStringTransformer.h"
 #import "INLTest.h"
 
+@interface SenTestCase ()
++ (NSArray *)senAllSuperclasses;
+@end
+
 @implementation INLSenTestCase
 
 + (NSArray *)testInvocations
@@ -40,6 +44,13 @@
     }];
     
     return adapters;
+}
+
++ (NSArray *)senAllSuperclasses
+{
+    NSArray *superclasses = [super senAllSuperclasses];
+    if ([superclasses[0] isEqual:[INLSenTestCase class]]) return @[[NSObject class]];
+    return superclasses;
 }
 
 - (void)failWithException:(NSException *)exception
