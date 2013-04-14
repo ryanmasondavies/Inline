@@ -18,6 +18,8 @@
 		947EA9F916B72AFC00FE8D79 /* INLTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 947EA9F816B72AFC00FE8D79 /* INLTest.m */; };
 		948D2FCF170C4DB70057A396 /* INLTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 948D2FC5170C4DB70057A396 /* INLTestTests.m */; };
 		9491A0DF171AA74100E3F4EC /* INLParallelHooksTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 941E26871719990E00E91EF5 /* INLParallelHooksTests.m */; };
+		9491A0E4171AABDB00E3F4EC /* INLContextTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9491A0E3171AABDB00E3F4EC /* INLContextTests.m */; };
+		9491A0E7171AABE600E3F4EC /* INLContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 9491A0E6171AABE600E3F4EC /* INLContext.m */; };
 		9498982416F49B69005E06AB /* libInline.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A1C77416A97B3F008C170D /* libInline.a */; };
 		9498982616F49B75005E06AB /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9498982516F49B75005E06AB /* SenTestingKit.framework */; };
 		9498982716F49B7D005E06AB /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9498982516F49B75005E06AB /* SenTestingKit.framework */; };
@@ -87,6 +89,9 @@
 		948D2FC5170C4DB70057A396 /* INLTestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = INLTestTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		948D2FC6170C4DB70057A396 /* Unit Tests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Unit Tests-Info.plist"; sourceTree = "<group>"; };
 		9491A0DE171AA4FB00E3F4EC /* INLTestDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INLTestDelegate.h; sourceTree = "<group>"; };
+		9491A0E3171AABDB00E3F4EC /* INLContextTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLContextTests.m; sourceTree = "<group>"; };
+		9491A0E5171AABE600E3F4EC /* INLContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INLContext.h; sourceTree = "<group>"; };
+		9491A0E6171AABE600E3F4EC /* INLContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INLContext.m; sourceTree = "<group>"; };
 		9498982516F49B75005E06AB /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		94A1C77416A97B3F008C170D /* libInline.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libInline.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		94A1C77716A97B3F008C170D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -150,6 +155,7 @@
 			children = (
 				941E267317196EF800E91EF5 /* INLInvocationRunnableTests.m */,
 				948D2FC5170C4DB70057A396 /* INLTestTests.m */,
+				9491A0E3171AABDB00E3F4EC /* INLContextTests.m */,
 				948D2FD1170C4DC10057A396 /* Supporting files */,
 			);
 			path = "Unit Tests";
@@ -212,6 +218,8 @@
 				9491A0DE171AA4FB00E3F4EC /* INLTestDelegate.h */,
 				94088D4116A9AA1800D7DEFC /* INLTest.h */,
 				947EA9F816B72AFC00FE8D79 /* INLTest.m */,
+				9491A0E5171AABE600E3F4EC /* INLContext.h */,
+				9491A0E6171AABE600E3F4EC /* INLContext.m */,
 			);
 			path = Inline;
 			sourceTree = "<group>";
@@ -409,6 +417,7 @@
 				947EA9F916B72AFC00FE8D79 /* INLTest.m in Sources */,
 				9450DC9D17184E8A006C0ABB /* INLSenTestCase.m in Sources */,
 				941E2677171972C100E91EF5 /* INLInvocationRunnable.m in Sources */,
+				9491A0E7171AABE600E3F4EC /* INLContext.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +427,7 @@
 			files = (
 				948D2FCF170C4DB70057A396 /* INLTestTests.m in Sources */,
 				941E267417196EF800E91EF5 /* INLInvocationRunnableTests.m in Sources */,
+				9491A0E4171AABDB00E3F4EC /* INLContextTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
