@@ -3,7 +3,10 @@ Inline
 
 Inline aims to make it easier to create testing frameworks which integrate with Xcode, allowing developers to test any way they want.
 
-Test classes must subclass `INLSenTestCase` rather than `SenTestCase`, and return an array of tests:
+How does it work?
+-----------------
+
+Test cases subclass `INLSenTestCase` rather than `SenTestCase`, and return an array of tests:
 
 ```
 @interface Tests : INLSenTestCase
@@ -19,9 +22,9 @@ Test classes must subclass `INLSenTestCase` rather than `SenTestCase`, and retur
 @end
 ```
 
-Rather than running tests itself, Inline ships them off to SenTestingKit. Test names are displayed in the log after being stripped of whitespace and punctuation. This is necessary to integrate with Xcode.
+Rather than running tests itself, Inline transparently ships them off to SenTestingKit. Test names are displayed in the log after being stripped of whitespace and punctuation (necessary to integrate with Xcode.)
 
-Tests can run in a given context by assigning a delegate:
+Tests can be contextualized by assigning a delegate:
 
 ```
 - (NSArray *)tests
@@ -35,7 +38,22 @@ Tests can run in a given context by assigning a delegate:
 }
 ```
 
-A context is a group of other delegates, filtered to run before or after a test. Any object conforming to `INLTestDelegate` can be used here, making extension trivial. Additionally, as contexts also conform to `INLTestDelegate`, they can be nested within each other.
+A context is a group of delegates, each filtered to run before or after a test. Any object conforming to `INLTestDelegate` can be used here, making extension trivial. Additionally, as contexts also conform to `INLTestDelegate`, they can be nested within each other.
+
+How do I make expectations?
+---------------------------
+
+Inline supports the use of SenTestingKit assertions like `STAssertTrue(...)`, and any expectation framework which supports SenTestingKit:
+
+1. [Posit][] - Define what _should_ happen using a should-based syntax akin to [RSpec][].
+2. [Expecta][] - Specify what you _expect_ to happen.
+
+[Posit]: http://github.com/rdavies/Specify
+[Expecta]: http://github.com/petejkim/Expecta
+[RSpec]: http://rspec.info
+
+Testing frameworks built on Inline
+----------------------------------
 
 For an example of how to implement your own framework using Inline, take a look at [Specify][].
 
