@@ -64,10 +64,17 @@
     INLTest *test = (INLTest *)[adapter runnable];
     NSValueTransformer *llamaCase = [[INLLlamaCaseStringTransformer alloc] init];
     NSValueTransformer *lettersOnly = [[INLLettersStringTransformer alloc] init];
-    NSString *name = [test name];
-    name = [llamaCase transformedValue:name];
-    name = [lettersOnly transformedValue:name];
-    return [NSString stringWithFormat:@"-[Test %@]", name];
+    
+    NSString *caseName = NSStringFromClass([self class]);
+    if ([caseName rangeOfString:@"Spec"].location == [caseName length] - 4) {
+        caseName = [caseName substringToIndex:[caseName length] - 4];
+    }
+    
+    NSString *testName = [test name];
+    testName = [llamaCase transformedValue:testName];
+    testName = [lettersOnly transformedValue:testName];
+    
+    return [NSString stringWithFormat:@"-[%@ %@]", caseName, testName];
 }
 
 - (NSArray *)tests
