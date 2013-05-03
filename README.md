@@ -62,7 +62,7 @@ For an example of how to implement your own framework using Inline, take a look 
 Installation
 ============
 
-Inline is installed via [CocoaPods](https://github.com/CocoaPods/CocoaPods) by adding `pod 'Inline', '~> 0.3.0'` to your Podfile.
+Inline is installed via [CocoaPods](https://github.com/CocoaPods/CocoaPods) by adding `pod 'Inline', '~> 0.3.2'` to your Podfile.
 
 License
 =======
